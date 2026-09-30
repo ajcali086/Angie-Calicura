@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-end md:justify-between">
         <p className="max-w-md text-sm leading-relaxed text-fog">
           {article.author}’s article for Sheridan Wyoming History, set in the form of{" "}
-          <em>The Spirit of Martinez</em>. The text and captions are the author’s, unchanged.
+          <em>The Spirit of Martinez</em>. The text and captions are the author’s.
         </p>
         <a
           href={article.url}

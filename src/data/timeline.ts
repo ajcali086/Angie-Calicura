@@ -17,7 +17,7 @@ export const timeline: TimelineEvent[] = [
     when: "July 21, 1917",
     sort: "1917-07-21",
     quote:
-      "Angelina Jean Colacucio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California.",
+      "Angelina Jean Colacurcio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California.",
   },
   {
     when: "1920",

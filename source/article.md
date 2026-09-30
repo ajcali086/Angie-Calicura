@@ -1,4 +1,4 @@
-# Angelina "Angie" Colacucio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention
+# Angelina "Angie" Colacurcio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention
 ## From Martinez Girlhood to Wyoming Madame to Tahoe Restaurateur
 
 **Source:** Michael Dykhorst, sheridanwyominghistory.com
@@ -17,7 +17,7 @@ So, who remembers Angie, the notorious madam of the Ideal Hotel?
 
 You may have heard the long-circulating rumor that baseball legend Joe DiMaggio once visited his "Aunt Angie" while passing through Sheridan. In truth, Angie was not his aunt at all—Joe was nearly three years older than she was. What they did share was a common hometown: Martinez, California, a coincidence that likely gave the story just enough plausibility to endure for decades. It is entirely possible that the two never even met. Angie's documented connection, in fact, runs instead through Joe's cousin—a far more complex and verifiable tie that continues deeper into her story.
 
-Angelina Jean Colacucio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California. Her parents were Saverio "Sam" Calicura and Angiolina "Angelina" Rodia Calicura, Italian immigrants raising seventeen children in one of Contra Costa County's largest families.
+Angelina Jean Colacurcio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California. Her parents were Saverio "Sam" Calicura and Angiolina "Angelina" Rodia Calicura, Italian immigrants raising seventeen children in one of Contra Costa County's largest families.
 
 [Image: Angie's mother, Angiolina "Angelina" Rodia Calicura — from her great grandson Andrew Calicura.]
 [Image: Angie's father, Saverio "Sam" Calicura — from his great grandson Andrew Calicura.]

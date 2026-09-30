@@ -1,6 +1,6 @@
 # Angie — design pilot
 
-Michael Dykhorst's article for Sheridan Wyoming History, *Angelina "Angie" Colacucio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention*, set in the architecture of [The Spirit of Martinez](https://github.com/ajcali086/spirit-of-martinez).
+Michael Dykhorst's article for Sheridan Wyoming History, *Angelina "Angie" Colacurcio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention*, set in the architecture of [The Spirit of Martinez](https://github.com/ajcali086/spirit-of-martinez).
 
 Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacucio-calicura-amato-alexander-a-life-of-hospitality-enterprise-and-reinven
 
