@@ -18,7 +18,9 @@ export const plateImages: Record<string, { src: string; width: number; height: n
   "plate-09": { src: "/images/plates/plate-09.jpg", width: 962, height: 1427 },
   "plate-10": { src: "/images/plates/plate-10.jpg", width: 901, height: 1320 },
   "plate-11": { src: "/images/plates/plate-11.jpg", width: 813, height: 1310 },
-  "plate-12": { src: "/images/plates/plate-12.jpg", width: 461, height: 615 },
+  // Plate 12 is the family's own Kodachrome scan (Frank Calicura Collection),
+  // sharper than the post's copy, which is mirrored.
+  "plate-12": { src: "/images/plates/plate-12.jpg", width: 1237, height: 1800 },
   "plate-14": { src: "/images/plates/plate-14.jpg", width: 1058, height: 837 },
   "plate-15": { src: "/images/plates/plate-15.jpg", width: 865, height: 906 },
   "plate-16": { src: "/images/plates/plate-16.jpg", width: 772, height: 1003 },
