@@ -33,6 +33,10 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 
 Those plates show their caption in a frame marked "Image not yet added".
 
+## Reading
+
+A scroll meter (a neon hairline across the top of every page) fills as you read down it, and a skip link takes keyboard users past the header. Both are ported from spirit-of-martinez's `ReadingChrome`.
+
 ## Audio
 
 The article read aloud, in the five TTS parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:
