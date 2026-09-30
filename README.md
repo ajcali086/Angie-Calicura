@@ -40,3 +40,7 @@ npm run dev      # http://localhost:8080
 npm test         # transcript round-trip, links, verbatim quotes
 npm run typecheck && npm run lint
 ```
+
+## Title image
+
+The home page's title image (`public/images/title-ideal-hotel.jpg`) is AI-generated, not a photograph, and it is labeled that way on the page. It is kept apart from the plates, which are the post's own images. `src/data/titleImage.ts` explains why.

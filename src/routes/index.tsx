@@ -6,6 +6,7 @@ import { article, chapters, door, plates } from "@/data/article";
 import { discrepancies } from "@/data/discrepancies";
 import { plateImages } from "@/data/plateImages";
 import { timeline } from "@/data/timeline";
+import { titleImage } from "@/data/titleImage";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -41,13 +42,19 @@ function Home() {
     <SiteShell>
       <section className="relative overflow-hidden border-b border-rule">
         <img
-          src={plateImages["plate-07"].src}
-          alt=""
+          src={titleImage.src}
+          alt={titleImage.alt}
+          width={titleImage.width}
+          height={titleImage.height}
           fetchPriority="high"
-          className="absolute inset-0 size-full object-cover object-[50%_20%] opacity-70"
+          className="absolute inset-0 size-full object-cover object-[30%_18%] opacity-80"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/85 to-ink/40" />
-        <div className="relative mx-auto max-w-4xl px-4 pt-40 pb-14 [text-shadow:0_1px_18px_rgb(20_18_16_/_0.92)] sm:px-6 sm:pt-56">
+        <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/80 to-ink/10" />
+        {/* The label is part of the image, not a caption: it must stay visible. */}
+        <p className="absolute top-3 right-3 z-10 bg-ink/85 px-2.5 py-1.5 font-sans text-[0.66rem] tracking-[0.14em] text-paper uppercase sm:top-4 sm:right-4">
+          {titleImage.label}
+        </p>
+        <div className="relative mx-auto max-w-4xl px-4 pt-72 pb-14 [text-shadow:0_1px_18px_rgb(20_18_16_/_0.92)] sm:px-6 sm:pt-96">
           <p className="kicker stagger-in">Sheridan Wyoming History · {article.author}</p>
           <h1 className="stagger-in mt-4 font-display text-4xl leading-[1.05] font-semibold text-paper sm:text-6xl">
             {name}
