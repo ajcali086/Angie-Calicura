@@ -3,7 +3,9 @@
  *
  *   node --experimental-strip-types --import ./scripts/test-register.mjs scripts/align-audio.ts
  *
- * There is no transcript of the recording, so this aligns by pauses:
+ * The recording was made from source/narration-script.md, so each sentence's
+ * length is taken as spoken there (scripts/lib/narration.ts). This aligns by
+ * pauses:
  *   1. decode each MP3 in headless Chromium (Node has no MP3 decoder) and take
  *      a 10 ms loudness envelope;
  *   2. find every pause of 120 ms or more;
@@ -20,6 +22,7 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { PARTS, blockSentences, partBlocks, type PartId } from "../src/data/audio.ts";
+import { spokenLengths } from "./lib/narration.ts";
 
 type Envelope = { duration: number; env: number[] };
 type Pause = { start: number; end: number; dur: number };
@@ -87,13 +90,17 @@ function align(part: PartId, envelope: Envelope) {
   const title = all.find((p) => p.start < 8 && p.dur >= 0.8);
   const t0 = title ? title.end : 0;
 
+  // Lengths as spoken, from the narration script (numbers written out and so
+  // on), not as printed.
+  const lengths = spokenLengths();
   const units: { id: string; chars: number; blockEnd: boolean }[] = [];
   for (const block of partBlocks()[part]) {
     const sentences = blockSentences(block);
-    sentences.forEach((s, i) =>
+    const spokenChars = lengths.get(block.id)!;
+    sentences.forEach((_, i) =>
       units.push({
         id: `${block.id}-s${i}`,
-        chars: s.length + 1,
+        chars: spokenChars[i],
         blockEnd: i === sentences.length - 1,
       }),
     );

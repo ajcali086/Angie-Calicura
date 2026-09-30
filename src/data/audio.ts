@@ -8,11 +8,12 @@ import { splitSentences, spoken } from "../lib/sentences.ts";
  *
  * The script reads the article in order — title, subtitle, every passage and
  * every plate caption — so the spoken blocks are the article's blocks. The
- * parts break where the part map says each one ends. Cues come from
- * scripts/align-audio.ts, which lines each sentence up with the pauses in the
- * audio; there is no transcript of the recording, so a cue can be off by a
- * fraction of a sentence, never by a paragraph (cues.test.ts holds the
- * structure).
+ * parts break where the part map says each one ends. The recording was read
+ * from source/narration-script.md, the article normalized for speech
+ * (numbers written out, "Photograph." before each caption). Cues come from
+ * scripts/align-audio.ts, which times each sentence by its length in that
+ * script against the pauses in the audio; audio.test.ts and
+ * narration.test.ts hold the structure and the pacing.
  */
 export type PartId = "a1" | "a2a" | "a2b" | "a3a" | "a3b";
 

@@ -48,13 +48,13 @@ The article read aloud, in the five TTS parts listed in `source/audio-part-map.m
 - **Snippet cards:** each plate page shows the story-sized card for its passage, to share as an image.
 - **Zoom:** tap a plate on its own page to see it full size, for reading the small print of a clipping.
 
-**Timing.** There is no transcript of the recording, so `scripts/align-audio.ts` times the sentences from the audio itself:
+**Timing.** The recording was read from `source/narration-script.md`: the article normalized for speech, with numbers written out, "Photograph." before each caption, and abbreviations expanded. The script matches the site block for block, with lists read item by item and the thanks read as one line (`scripts/lib/narration.ts`). `scripts/align-audio.ts` times the sentences:
 
 1. It decodes each MP3 in headless Chromium.
 2. It finds every pause.
 3. It gives each sentence the pause it most plausibly ends on, from its length at the part's speaking rate, preferring longer pauses at paragraph ends.
 
-The result is `src/generated/cues.json`. The page highlights paragraphs, where the timing is surest. `src/data/audio.test.ts` checks the structure: every sentence has exactly one cue, the cues run forward in time, and no sentence of 25 or more characters is timed faster than 30 or slower than 6 characters a second. Rerun the script if the audio or the transcript changes:
+The result is `src/generated/cues.json`. The page highlights paragraphs, where the timing is surest; sentence times are estimates. `src/data/audio.test.ts` checks the structure: every sentence has exactly one cue, the cues run forward in time, and no sentence of 25 or more printed characters is timed faster than 30 or slower than 6 characters a second. `src/data/narration.test.ts` checks the script against the site (block for block, every caption read as "Photograph. …") and holds the pacing of the spoken text tighter: between 8 and 30 characters a second. Rerun the script if the audio, the script or the transcript changes:
 
 ```
 node --experimental-strip-types --import ./scripts/test-register.mjs scripts/align-audio.ts
