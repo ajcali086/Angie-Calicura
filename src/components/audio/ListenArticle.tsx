@@ -1,5 +1,5 @@
 import { Headphones } from "lucide-react";
-import { PARTS, formatClock, totalDuration } from "@/data/audio";
+import { NARRATION, PARTS, formatClock, totalDuration } from "@/data/audio";
 import { useAudioControls } from "./AudioProvider";
 
 /** The home page's way in: the whole article, read aloud, from the top. */
@@ -19,6 +19,7 @@ export function ListenArticle() {
         <span className="mt-1 block text-sm text-fog">
           Read aloud in {PARTS.length} parts · {formatClock(totalDuration)}
         </span>
+        <span className="mt-1 block text-xs text-muted">{NARRATION.note}</span>
       </span>
     </button>
   );

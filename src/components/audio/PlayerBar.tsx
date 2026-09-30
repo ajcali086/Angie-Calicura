@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { PARTS, formatClock, partDuration, readingPlace } from "@/data/audio";
+import { NARRATION, PARTS, formatClock, partDuration, readingPlace } from "@/data/audio";
 import { cn } from "@/lib/utils";
 import { useAudio, useAudioControls } from "./AudioProvider";
 
@@ -50,14 +50,19 @@ export function PlayerBar() {
     >
       <div className="mx-auto max-w-4xl px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-6">
         <div className="flex items-center gap-2">
-          <ReadingPlaceLink className="flex min-h-11 min-w-0 flex-1 items-center">
-            <span className="truncate font-sans text-[0.68rem] tracking-[0.14em] text-brass uppercase underline-offset-4 hover:underline">
-              <span className="text-muted">
-                {index + 1}/{PARTS.length}
-              </span>{" "}
-              {meta.title}
+          <div className="flex min-h-11 min-w-0 flex-1 flex-col justify-center">
+            <ReadingPlaceLink className="flex min-h-7 min-w-0 items-end">
+              <span className="truncate font-sans text-[0.68rem] tracking-[0.14em] text-brass uppercase underline-offset-4 hover:underline">
+                <span className="text-muted">
+                  {index + 1}/{PARTS.length}
+                </span>{" "}
+                {meta.title}
+              </span>
+            </ReadingPlaceLink>
+            <span title={NARRATION.note} className="truncate font-sans text-[0.68rem] text-fog">
+              {NARRATION.label}
             </span>
-          </ReadingPlaceLink>
+          </div>
           {follow ? (
             <button
               type="button"
@@ -202,7 +207,7 @@ function MiniPlayer() {
             {PARTS[index].title}
           </span>
           <span className="font-sans text-[0.68rem] text-fog tabular-nums">
-            {formatClock(time)} / {formatClock(duration)} · Following
+            {formatClock(time)} / {formatClock(duration)} · Following · {NARRATION.label}
           </span>
         </ReadingPlaceLink>
         <button

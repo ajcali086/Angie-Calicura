@@ -17,6 +17,12 @@ import { splitSentences, spoken } from "../lib/sentences.ts";
  */
 export type PartId = "a1" | "a2a" | "a2b" | "a3a" | "a3b";
 
+/** The narration is derived media and says so wherever it can be played. */
+export const NARRATION = {
+  label: "Synthetic voice",
+  note: "Read by a synthetic (text-to-speech) voice from a script of the article prepared for speech. The highlighting is timed by estimate.",
+};
+
 export const PARTS: {
   id: PartId;
   src: string;

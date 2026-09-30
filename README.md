@@ -12,6 +12,7 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 - `scripts/embed-article.mjs` copies the transcript into `src/data/article.source.ts`, so the browser and the tests read the same file. Rerun it after editing `source/article.md`.
 - The one editorial choice is where the chapters break. The three titles are the three stations in the post's own subtitle.
 - Timeline events, named sources and the Left Open entries quote the post verbatim. Each links back to where the post says it.
+- **Ids are frozen.** Share links, audio cues and every link into the text hang on block ids (`2-p13`) and plate ids (`plate-12`). `src/data/frozen-ids.json` pairs each id with its block's opening words, so inserting a paragraph renumbers nothing. After adding a block or plate, run `scripts/freeze-ids.ts` to give it the next unused id. If a paragraph's opening words are edited, update its opening in the file, not its id. If one is removed, move its id to `retired`. `src/data/ids.test.ts` fails if any first-published id goes missing, is reused, or moves out of order.
 
 ## Pages
 
@@ -39,8 +40,9 @@ A scroll meter (a neon hairline across the top of every page) fills as you read 
 
 ## Audio
 
-The article read aloud, in the five TTS parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:
+The article read aloud by a synthetic (text-to-speech) voice, in the five parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:
 
+- **Labelled as synthetic:** the home page's Listen button says the voice is synthetic and the highlighting is timed by estimate, and both sizes of the player say "Synthetic voice".
 - **Player:** docked at the bottom and kept across pages. Play and pause, back and forward 15 seconds, a scrubber, previous and next part, speed, and a Follow switch. It moves on to the next part by itself and remembers where you stopped. While Follow is on, the player shrinks to a slim bar (play, part, progress) and expands when tapped. The part's name is a link to the exact paragraph being read: tapping it opens the chapter there and turns Follow on.
 - **Follow-along:** the paragraph being read is highlighted, in step with the audio, and a plate lights up while its caption is read. With Follow on, the page brings each paragraph into view as it begins (a long one from its top) and turns to the next chapter when the narration does. Scrolling by hand turns Follow off and brings back the full player.
 - **Listen:** buttons on the home page ("Listen to the article"), at the top of each chapter, beside each timeline, source and Left Open entry, and on plate pages (the passage, or just the caption).
@@ -65,6 +67,7 @@ node --experimental-strip-types --import ./scripts/test-register.mjs scripts/ali
 ```
 npm install
 npm run dev      # http://localhost:8080
+node --experimental-strip-types --import ./scripts/test-register.mjs scripts/freeze-ids.ts  # after adding a block or plate
 npm test         # transcript round-trip, links, verbatim quotes, audio cues, cards
 npm run typecheck && npm run lint
 ```

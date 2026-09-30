@@ -1,4 +1,5 @@
 import { ARTICLE_SOURCE } from "./article.source.ts";
+import FROZEN from "./frozen-ids.json" with { type: "json" };
 
 /**
  * The article, parsed from the transcript and never retyped.
@@ -11,6 +12,14 @@ import { ARTICLE_SOURCE } from "./article.source.ts";
  *
  * Inline emphasis stays in the post's own markdown (*italic*, **bold**) and
  * is rendered by components/Inline.tsx, so the stored text stays verbatim.
+ *
+ * Block and plate ids are frozen: src/data/frozen-ids.json pairs each id
+ * with the opening words of its block (or caption), and a block takes the
+ * id whose opening words it starts with. Share links, audio cues, timeline
+ * and source links all hang on these ids, so inserting a paragraph must not
+ * renumber the ones after it. A block with no frozen id gets a provisional
+ * "unfrozen-" id until scripts/freeze-ids.ts gives it a new one. Never
+ * renumber or reuse an id; retire it.
  */
 
 export type Block =
@@ -27,8 +36,9 @@ export type Chapter = {
 };
 
 export type Plate = {
-  /** "plate-01" … in the order the post places its images. */
+  /** "plate-01" …, frozen (see frozenIds). */
   id: string;
+  /** Its place in the post's order of images, for "Plate 12" and prev/next. */
   number: number;
   caption: string;
   chapter: string;
@@ -85,6 +95,30 @@ const body = groups.filter((g) => g.length);
 
 const IMAGE = /^\[Image: (.*)\]$/;
 
+/** Frozen ids as [id, opening words] pairs, in the order they were frozen. */
+export type FrozenIds = {
+  blocks: [string, string][];
+  plates: [string, string][];
+  retired: string[];
+};
+export const frozenIds = FROZEN as unknown as FrozenIds;
+
+type Assigned = { kind: "blocks" | "plates"; id: string; chapter: number; text: string };
+/** Every id handed out, with the transcript text it was matched on. */
+export const assigned: Assigned[] = [];
+/** Blocks and plates still waiting for a frozen id. */
+export const unfrozen: Assigned[] = [];
+
+function frozenId(kind: Assigned["kind"], text: string, chapter: number): string {
+  const [hit] = frozenIds[kind]
+    .filter(([, opening]) => text.startsWith(opening))
+    .sort((a, b) => b[1].length - a[1].length);
+  const entry = { kind, id: hit?.[0] ?? `unfrozen-${unfrozen.length + 1}`, chapter, text };
+  if (!hit) unfrozen.push(entry);
+  assigned.push(entry);
+  return entry.id;
+}
+
 export const chapters: Chapter[] = [];
 export const plates: Plate[] = [];
 
@@ -95,17 +129,16 @@ for (const group of body) {
     chapters.push({ number: chapters.length + 1, slug: next.slug, title: next.title, blocks: [] });
   }
   const chapter = chapters.at(-1)!;
-  const id = () =>
-    `${chapter.number}-p${chapter.blocks.filter((b) => b.type !== "figure").length + 1}`;
+  const id = () => frozenId("blocks", group.join("\n"), chapter.number);
 
   if (group.every((l) => IMAGE.test(l))) {
     for (const line of group) {
-      const n = plates.length + 1;
-      const plate = `plate-${String(n).padStart(2, "0")}`;
+      const caption = line.match(IMAGE)![1];
+      const plate = frozenId("plates", caption, chapter.number);
       plates.push({
         id: plate,
-        number: n,
-        caption: line.match(IMAGE)![1],
+        number: plates.length + 1,
+        caption,
         chapter: chapter.slug,
         paragraph: "",
       });
