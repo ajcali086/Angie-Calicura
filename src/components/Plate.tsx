@@ -1,5 +1,6 @@
+import { useRef, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ImageOff } from "lucide-react";
+import { ImageOff, ZoomIn } from "lucide-react";
 import type { Plate as PlateData } from "@/data/article";
 import { plateImages } from "@/data/plateImages";
 import { cn } from "@/lib/utils";
@@ -15,11 +16,14 @@ export function Plate({
   tone = "paper",
   link = true,
   large = false,
+  reading = false,
 }: {
   plate: PlateData;
   tone?: "paper" | "ink";
   link?: boolean;
   large?: boolean;
+  /** Its caption is being read aloud right now. */
+  reading?: boolean;
 }) {
   const image = plateImages[plate.id];
   const onPaper = tone === "paper";
@@ -48,7 +52,14 @@ export function Plate({
   );
 
   return (
-    <figure id={plate.id} className="scroll-mt-24">
+    <figure
+      id={plate.id}
+      data-block={plate.id}
+      className={cn(
+        "scroll-mt-24 transition-shadow duration-300",
+        reading && "shadow-[0_0_0_3px_var(--color-brass),0_0_28px_rgb(255_90_108_/_0.45)]",
+      )}
+    >
       {link ? (
         <Link
           to="/archive/$id"
@@ -58,6 +69,10 @@ export function Plate({
         >
           {frame}
         </Link>
+      ) : image ? (
+        <PlateZoom plate={plate} src={image.src} width={image.width} height={image.height}>
+          {frame}
+        </PlateZoom>
       ) : (
         frame
       )}
@@ -78,5 +93,73 @@ export function Plate({
         <Inline text={plate.caption} />
       </figcaption>
     </figure>
+  );
+}
+
+/**
+ * Tap to see the plate at full size in a scrollable full-screen view, for
+ * reading the small print of a clipping. Ported from spirit-of-martinez's
+ * PhotoPlate zoom.
+ */
+function PlateZoom({
+  plate,
+  src,
+  width,
+  height,
+  children,
+}: {
+  plate: PlateData;
+  src: string;
+  width: number;
+  height: number;
+  children: ReactNode;
+}) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const label = `Plate ${plate.number}`;
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => dialog.current?.showModal()}
+        aria-label={`Zoom. ${label}.`}
+        className="group relative block w-full cursor-zoom-in"
+      >
+        {children}
+        <span className="absolute right-2 bottom-2 flex items-center gap-1.5 bg-ink/85 px-2.5 py-1.5 font-sans text-[0.66rem] tracking-[0.14em] text-paper uppercase group-hover:text-brass">
+          <ZoomIn className="size-3.5" aria-hidden />
+          Zoom
+        </span>
+      </button>
+      <dialog
+        ref={dialog}
+        aria-label={label}
+        className="m-0 h-full max-h-none w-full max-w-none bg-ink p-0 text-paper open:flex open:flex-col [&::backdrop]:bg-ink/95"
+      >
+        <form
+          method="dialog"
+          className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-rule bg-ink/90 px-4 py-2"
+        >
+          <p className="truncate font-sans text-[0.68rem] tracking-[0.16em] text-brass uppercase">
+            {label}
+          </p>
+          <button
+            type="submit"
+            className="inline-flex min-h-11 items-center text-[0.68rem] tracking-[0.16em] text-paper uppercase hover:text-brass"
+          >
+            Close
+          </button>
+        </form>
+        <div className="min-h-0 flex-1 overflow-auto">
+          <img
+            src={src}
+            alt={plate.caption.replace(/\*+/g, "")}
+            width={width}
+            height={height}
+            className="mx-auto block h-auto max-w-none"
+            style={{ width: `max(100%, ${Math.min(width, 1800)}px)` }}
+          />
+        </div>
+      </dialog>
+    </>
   );
 }

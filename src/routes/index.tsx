@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Inline } from "@/components/Inline";
 import { PassageDoor } from "@/components/Door";
+import { ListenArticle } from "@/components/audio/ListenArticle";
 import { article, chapters, door, plain, plateById, plates } from "@/data/article";
 import { discrepancies } from "@/data/discrepancies";
 import { plateImages } from "@/data/plateImages";
@@ -83,6 +84,8 @@ function Home() {
             <PassageDoor to={door(opening)} />
           </figcaption>
         </figure>
+
+        <ListenArticle />
 
         <h2 className="kicker mt-14">The article, in three parts</h2>
         <ol className="mt-3">

@@ -3,6 +3,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
 import { Inline } from "@/components/Inline";
 import { PassageDoor } from "@/components/Door";
+import { ListenButton } from "@/components/audio/ListenButton";
 import { article, door, plain } from "@/data/article";
 import { namedInText, platesByPublication, thanks } from "@/data/sources";
 
@@ -67,7 +68,10 @@ function SourcesPage() {
                 <p className="mt-1 text-sm leading-relaxed text-fog">
                   “<Inline text={s.quote} />”
                 </p>
-                <PassageDoor to={door(s.quote)} />
+                <div className="flex flex-wrap gap-x-6">
+                  <PassageDoor to={door(s.quote)} />
+                  <ListenButton block={door(s.quote)?.hash} />
+                </div>
               </li>
             ))}
           </ul>

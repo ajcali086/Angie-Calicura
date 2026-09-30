@@ -1,6 +1,6 @@
 # Angie — design pilot
 
-Michael Dykhorst's article for Sheridan Wyoming History, *Angelina "Angie" Colacurcio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention*, set in the architecture of [The Spirit of Martinez](https://github.com/ajcali086/spirit-of-martinez).
+Michael Dykhorst's article for Sheridan Wyoming History, _Angelina "Angie" Colacurcio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention_, set in the architecture of [The Spirit of Martinez](https://github.com/ajcali086/spirit-of-martinez).
 
 Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacucio-calicura-amato-alexander-a-life-of-hospitality-enterprise-and-reinven
 
@@ -15,29 +15,53 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 
 ## Pages
 
-| Route | What it is |
-| --- | --- |
-| `/` | Title, opening line, the three parts, doors into each room |
-| `/chapters/$slug` | The article, in three parts, with its plates inline |
-| `/timeline` | Every date the post gives for Angie's life, by decade |
-| `/archive`, `/archive/$id` | All 39 plates with the post's captions |
-| `/sources` | The article, the newspapers in the plates, records named in the text, and the thanks |
-| `/left-open` | The two questions the post itself leaves open |
+| Route                      | What it is                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------ |
+| `/`                        | Title, opening line, the three parts, doors into each room                           |
+| `/chapters/$slug`          | The article, in three parts, with its plates inline                                  |
+| `/timeline`                | Every date the post gives for Angie's life, by decade                                |
+| `/archive`, `/archive/$id` | All 39 plates with the post's captions                                               |
+| `/sources`                 | The article, the newspapers in the plates, records named in the text, and the thanks |
+| `/left-open`               | The two questions the post itself leaves open                                        |
 
 ## Images
 
 34 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plateImages.ts`). Still missing:
+
 - plates 13 and 31, which are not in the media manifest
 - plates 33, 35 and 38, which were lost when the fourth media zip was cut off in upload
 
 Those plates show their caption in a frame marked "Image not yet added".
+
+## Audio
+
+The article read aloud, in the five TTS parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:
+
+- **Player:** docked at the bottom and kept across pages. Play and pause, back and forward 15 seconds, a scrubber, previous and next part, speed, and a Follow switch. It moves on to the next part by itself and remembers where you stopped.
+- **Follow-along:** the sentence being read is highlighted, the paragraph gets a side rule, and a plate lights up while its caption is read. With Follow on, the page keeps the sentence in view and turns to the next chapter when the narration does. Scrolling by hand turns Follow off.
+- **Listen:** buttons on the home page ("Listen to the article"), at the top of each chapter, beside each timeline, source and Left Open entry, and on plate pages (the passage, or just the caption).
+- **Link cards:** "Share this moment" on every paragraph a plate sits beside. It shares an image card (the plate, the passage, a Listen badge), a WAV clip of the passage, and a link that opens the page with a "Listen from this passage" button (`?listen=1#block`). Where a device can't share files, it copies the link.
+- **Snippet cards:** each plate page shows the story-sized card for its passage, to share as an image.
+- **Zoom:** tap a plate on its own page to see it full size, for reading the small print of a clipping.
+
+**Timing.** There is no transcript of the recording, so `scripts/align-audio.ts` times the sentences from the audio itself:
+
+1. It decodes each MP3 in headless Chromium.
+2. It finds every pause.
+3. It gives each sentence the pause it most plausibly ends on, from its length at the part's speaking rate, preferring longer pauses at paragraph ends.
+
+The result is `src/generated/cues.json`. A highlight can lead or lag by part of a sentence, but not by a paragraph. `src/data/audio.test.ts` checks the structure: every sentence has exactly one cue, the cues run forward in time, and no sentence of 25 or more characters is timed faster than 30 or slower than 6 characters a second. Rerun the script if the audio or the transcript changes:
+
+```
+node --experimental-strip-types --import ./scripts/test-register.mjs scripts/align-audio.ts
+```
 
 ## Develop
 
 ```
 npm install
 npm run dev      # http://localhost:8080
-npm test         # transcript round-trip, links, verbatim quotes
+npm test         # transcript round-trip, links, verbatim quotes, audio cues, cards
 npm run typecheck && npm run lint
 ```
 

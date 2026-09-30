@@ -3,6 +3,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
 import { Inline } from "@/components/Inline";
 import { PassageDoor, PlateDoor } from "@/components/Door";
+import { ListenButton } from "@/components/audio/ListenButton";
 import { door } from "@/data/article";
 import { timeline } from "@/data/timeline";
 
@@ -46,7 +47,10 @@ function TimelinePage() {
                     <p className="font-display text-lg leading-relaxed text-fog">
                       <Inline text={e.quote} />
                     </p>
-                    {e.plate ? <PlateDoor id={e.plate} /> : <PassageDoor to={door(e.quote)} />}
+                    <div className="flex flex-wrap gap-x-6">
+                      {e.plate ? <PlateDoor id={e.plate} /> : <PassageDoor to={door(e.quote)} />}
+                      <ListenButton block={e.plate ?? door(e.quote)?.hash} />
+                    </div>
                   </div>
                 </li>
               ))}

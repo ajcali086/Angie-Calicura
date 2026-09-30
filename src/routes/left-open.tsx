@@ -3,6 +3,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
 import { Inline } from "@/components/Inline";
 import { PassageDoor, PlateDoor } from "@/components/Door";
+import { ListenButton } from "@/components/audio/ListenButton";
 import { door } from "@/data/article";
 import { discrepancies } from "@/data/discrepancies";
 
@@ -49,6 +50,7 @@ function LeftOpenPage() {
             <p className="mt-4 font-display text-lg text-brass italic">{d.close}</p>
             <div className="mt-1 flex flex-wrap gap-x-6">
               <PassageDoor to={door(d.close)} />
+              <ListenButton block={door(d.close)?.hash} />
               {d.plate ? <PlateDoor id={d.plate} /> : null}
             </div>
           </section>

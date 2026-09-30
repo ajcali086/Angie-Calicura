@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+import { PlayerSpacer } from "@/components/audio/PlayerBar";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         {children}
       </main>
       <SiteFooter />
+      <PlayerSpacer />
     </div>
   );
 }

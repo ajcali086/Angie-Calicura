@@ -200,3 +200,19 @@
     transform: none;
   }
 }
+
+/* Read-along: the block being spoken gets a rule down its side, the
+   sentence a warm band, like the lamp moving along the line. */
+.prose-archive .is-current {
+  box-shadow: inset 3px 0 0 var(--color-brass-dim);
+  margin-left: -0.75rem;
+  padding-left: 0.75rem;
+  transition: box-shadow 300ms ease;
+}
+
+.prose-archive .is-reading {
+  background: color-mix(in srgb, var(--color-brass) 20%, transparent);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--color-brass-dim) 70%, transparent);
+  border-radius: 2px;
+  transition: background-color 250ms ease;
+}

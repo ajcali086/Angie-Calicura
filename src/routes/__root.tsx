@@ -1,4 +1,6 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { AudioProvider } from "@/components/audio/AudioProvider";
+import { PlayerBar } from "@/components/audio/PlayerBar";
 import { article, plain } from "@/data/article";
 import appCss from "../styles.css?url";
 
@@ -42,7 +44,10 @@ function RootDocument() {
         <HeadContent />
       </head>
       <body className="bg-ink font-sans text-paper">
-        <Outlet />
+        <AudioProvider>
+          <Outlet />
+          <PlayerBar />
+        </AudioProvider>
         <Scripts />
       </body>
     </html>
