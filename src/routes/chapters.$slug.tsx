@@ -2,6 +2,7 @@ import { memo, useEffect, useLayoutEffect, useState } from "react";
 import { createFileRoute, Link, notFound, useRouterState } from "@tanstack/react-router";
 import { Headphones } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { AuthorLink } from "@/components/AuthorLink";
 import { PageHero } from "@/components/PageHero";
 import { Inline } from "@/components/Inline";
 import { Plate } from "@/components/Plate";
@@ -68,6 +69,11 @@ function ChapterPage() {
         kicker={`Part ${chapter.number} of ${chapters.length}`}
         title={chapter.title}
         dek={article.subtitle}
+        byline={
+          <>
+            By <AuthorLink />
+          </>
+        }
         compact
       />
       <div className="bg-paper">

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { AuthorLink } from "@/components/AuthorLink";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Inline } from "@/components/Inline";
 import { PassageDoor } from "@/components/Door";
@@ -62,7 +63,9 @@ function Home() {
           Plate {coverPlate.number} · {plain(coverPlate.caption)}
         </Link>
         <div className="relative mx-auto max-w-4xl px-4 pt-72 pb-14 [text-shadow:0_1px_18px_rgb(20_18_16_/_0.92)] sm:px-6 sm:pt-96">
-          <p className="kicker stagger-in">Sheridan Wyoming History · {article.author}</p>
+          <p className="kicker stagger-in">
+            Sheridan Wyoming History · <AuthorLink />
+          </p>
           <h1 className="stagger-in mt-4 font-display text-4xl leading-[1.05] font-semibold text-paper sm:text-6xl">
             {name}
           </h1>

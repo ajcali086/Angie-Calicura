@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { describe, it } from "node:test";
-import { locate, plateById } from "./article.ts";
+import { article, locate, plateById } from "./article.ts";
 import { discrepancies } from "./discrepancies.ts";
 import { nav } from "./nav.ts";
 import { namedInText, platesByPublication, thanks } from "./sources.ts";
@@ -9,6 +9,10 @@ import { timeline } from "./timeline.ts";
 
 // Every item has a door: a quote that resolves to exactly one place in the post.
 describe("links", () => {
+  it("links the author's name to the About page on Sheridan Wyoming History", () => {
+    assert.equal(article.aboutUrl, "https://www.sheridanwyominghistory.com/about");
+  });
+
   it("lands every timeline event on exactly one passage or plate", () => {
     for (const e of timeline) {
       if (e.plate)

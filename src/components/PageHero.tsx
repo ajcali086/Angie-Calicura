@@ -1,15 +1,19 @@
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function PageHero({
   kicker,
   title,
   dek,
+  byline,
   image,
   compact,
 }: {
   kicker: string;
   title: string;
   dek?: string;
+  /** "By …", under the title and dek. */
+  byline?: ReactNode;
   image?: string;
   compact?: boolean;
 }) {
@@ -45,6 +49,11 @@ export function PageHero({
         {dek ? (
           <p className="stagger-in mt-5 max-w-2xl font-display text-lg leading-relaxed text-fog sm:text-xl">
             {dek}
+          </p>
+        ) : null}
+        {byline ? (
+          <p className="stagger-in mt-4 font-sans text-[0.78rem] tracking-[0.14em] text-fog uppercase">
+            {byline}
           </p>
         ) : null}
       </div>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { AuthorLink } from "@/components/AuthorLink";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
 import { Inline } from "@/components/Inline";
@@ -25,7 +26,9 @@ function SourcesPage() {
         <section>
           <h2 className="kicker border-b border-rule pb-2">The article</h2>
           <p className="mt-4 font-display text-xl leading-snug text-paper">{article.title}</p>
-          <p className="mt-2 text-sm text-fog">{article.source}</p>
+          <p className="mt-2 text-sm text-fog">
+            By <AuthorLink />, for Sheridan Wyoming History
+          </p>
           <a
             href={article.url}
             className="mt-1 inline-flex min-h-11 items-center text-[0.7rem] tracking-[0.14em] break-all text-brass uppercase hover:text-paper"

@@ -3,6 +3,7 @@
 
 **Source:** Michael Dykhorst, sheridanwyominghistory.com
 **URL:** https://www.sheridanwyominghistory.com/post/angelina-angie-colacucio-calicura-amato-alexander-a-life-of-hospitality-enterprise-and-reinven
+**About the author:** https://www.sheridanwyominghistory.com/about
 **Extracted:** 2026-09-29. Text extraction; 37 images omitted, captions retained inline in brackets.
 
 ---

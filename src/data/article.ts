@@ -63,6 +63,8 @@ export const article = {
   /** "Michael Dykhorst, sheridanwyominghistory.com" */
   source: field("Source"),
   url: field("URL"),
+  /** The About page on Sheridan Wyoming History, linked from the author's name. */
+  aboutUrl: field("About the author"),
   author: field("Source").split(",")[0],
 };
 

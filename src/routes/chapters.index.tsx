@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { AuthorLink } from "@/components/AuthorLink";
 import { PageHero } from "@/components/PageHero";
 import { article, chapters, plates } from "@/data/article";
 
@@ -11,7 +12,11 @@ function ChaptersIndex() {
       <PageHero
         kicker="The article"
         title={article.subtitle}
-        dek={`By ${article.author}`}
+        byline={
+          <>
+            By <AuthorLink />
+          </>
+        }
         compact
       />
       <ol className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">

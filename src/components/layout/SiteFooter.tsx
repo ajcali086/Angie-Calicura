@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { AuthorLink } from "@/components/AuthorLink";
 import { article } from "@/data/article";
 import { nav } from "@/data/nav";
 
@@ -7,7 +8,8 @@ export function SiteFooter() {
     <footer id="site-footer" className="mt-auto border-t border-rule bg-ink-soft">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-end md:justify-between">
         <p className="max-w-md text-sm leading-relaxed text-fog">
-          {article.author}’s article for Sheridan Wyoming History, set in the form of{" "}
+          <AuthorLink />
+          ’s article for Sheridan Wyoming History, set in the form of{" "}
           <em>The Spirit of Martinez</em>. The text and captions are the author’s.
         </p>
         <a
