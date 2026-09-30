@@ -37,8 +37,8 @@ Those plates show their caption in a frame marked "Image not yet added".
 
 The article read aloud, in the five TTS parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:
 
-- **Player:** docked at the bottom and kept across pages. Play and pause, back and forward 15 seconds, a scrubber, previous and next part, speed, and a Follow switch. It moves on to the next part by itself and remembers where you stopped.
-- **Follow-along:** the sentence being read is highlighted, the paragraph gets a side rule, and a plate lights up while its caption is read. With Follow on, the page keeps the sentence in view and turns to the next chapter when the narration does. Scrolling by hand turns Follow off.
+- **Player:** docked at the bottom and kept across pages. Play and pause, back and forward 15 seconds, a scrubber, previous and next part, speed, and a Follow switch. It moves on to the next part by itself and remembers where you stopped. While Follow is on, the player shrinks to a slim bar (play, part, progress) and expands when tapped.
+- **Follow-along:** the paragraph being read is highlighted, in step with the audio, and a plate lights up while its caption is read. With Follow on, the page brings each paragraph into view as it begins (a long one from its top) and turns to the next chapter when the narration does. Scrolling by hand turns Follow off and brings back the full player.
 - **Listen:** buttons on the home page ("Listen to the article"), at the top of each chapter, beside each timeline, source and Left Open entry, and on plate pages (the passage, or just the caption).
 - **Link cards:** "Share this moment" on every paragraph a plate sits beside. It shares an image card (the plate, the passage, a Listen badge), a WAV clip of the passage, and a link that opens the page with a "Listen from this passage" button (`?listen=1#block`). Where a device can't share files, it copies the link.
 - **Snippet cards:** each plate page shows the story-sized card for its passage, to share as an image.
@@ -50,7 +50,7 @@ The article read aloud, in the five TTS parts listed in `source/audio-part-map.m
 2. It finds every pause.
 3. It gives each sentence the pause it most plausibly ends on, from its length at the part's speaking rate, preferring longer pauses at paragraph ends.
 
-The result is `src/generated/cues.json`. A highlight can lead or lag by part of a sentence, but not by a paragraph. `src/data/audio.test.ts` checks the structure: every sentence has exactly one cue, the cues run forward in time, and no sentence of 25 or more characters is timed faster than 30 or slower than 6 characters a second. Rerun the script if the audio or the transcript changes:
+The result is `src/generated/cues.json`. The page highlights paragraphs, where the timing is surest. `src/data/audio.test.ts` checks the structure: every sentence has exactly one cue, the cues run forward in time, and no sentence of 25 or more characters is timed faster than 30 or slower than 6 characters a second. Rerun the script if the audio or the transcript changes:
 
 ```
 node --experimental-strip-types --import ./scripts/test-register.mjs scripts/align-audio.ts

@@ -19,7 +19,6 @@ import {
   type Chapter,
 } from "@/data/article";
 import { blockWindow } from "@/data/audio";
-import { rawSentences } from "@/lib/sentences";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/chapters/$slug")({
@@ -52,7 +51,7 @@ function ChapterPage() {
   const next = chapters[chapter.number];
   const firstParagraph = chapter.blocks.find((b) => b.type === "p" && !b.text.startsWith("*"));
   const first = chapter.blocks[0];
-  const { cueId, block: activeBlock } = useFollow(slug);
+  const activeBlock = useFollow(slug);
   const kicker = `Part ${chapter.number} · ${chapter.title}`;
 
   return (
@@ -84,7 +83,6 @@ function ChapterPage() {
                 kicker={kicker}
                 dropCap={block === firstParagraph}
                 reading={activeBlock === id}
-                cueId={activeBlock === id ? cueId : null}
               />
             );
           })}
@@ -162,43 +160,18 @@ const platesBeside = new Map<string, string[]>();
 for (const p of plates)
   platesBeside.set(p.paragraph, [...(platesBeside.get(p.paragraph) ?? []), p.id]);
 
-/**
- * A block's text as sentence spans the read-along can light up. When a
- * sentence cut would split an emphasis pair, the block lights as a whole.
- */
-function Spoken({ id, text, cueId }: { id: string; text: string; cueId: string | null }) {
-  const pieces = rawSentences(text);
-  if (!pieces) return <Inline text={text} />;
-  return (
-    <>
-      {pieces.map((piece, i) => (
-        <span
-          key={i}
-          data-cue={`${id}-s${i}`}
-          className={cn(cueId === `${id}-s${i}` && "is-reading")}
-        >
-          <Inline text={piece} />
-          {i < pieces.length - 1 ? " " : null}
-        </span>
-      ))}
-    </>
-  );
-}
-
 const BlockView = memo(function BlockView({
   block,
   slug,
   kicker,
   dropCap,
   reading,
-  cueId,
 }: {
   block: Block;
   slug: string;
   kicker: string;
   dropCap: boolean;
   reading: boolean;
-  cueId: string | null;
 }) {
   if (block.type === "figure") {
     const plate = plateById(block.plate);
@@ -225,7 +198,7 @@ const BlockView = memo(function BlockView({
           data-block={block.id}
           className={cn("quote-pull scroll-mt-24 whitespace-pre-line", current)}
         >
-          <Spoken id={block.id} text={block.text} cueId={cueId} />
+          <Inline text={block.text} />
         </blockquote>
         {row}
       </>
@@ -239,12 +212,8 @@ const BlockView = memo(function BlockView({
           data-block={block.id}
           className={cn("scroll-mt-24 list-disc space-y-1 pl-6 marker:text-brass-dim", current)}
         >
-          {block.items.map((item, i) => (
-            <li
-              key={item}
-              data-cue={`${block.id}-s${i}`}
-              className={cn(cueId === `${block.id}-s${i}` && "is-reading")}
-            >
+          {block.items.map((item) => (
+            <li key={item}>
               <Inline text={item} />
             </li>
           ))}
@@ -260,7 +229,7 @@ const BlockView = memo(function BlockView({
         data-block={block.id}
         className={cn("scroll-mt-24", dropCap && "drop-cap", current)}
       >
-        <Spoken id={block.id} text={block.text} cueId={cueId} />
+        <Inline text={block.text} />
       </p>
       {row}
     </>

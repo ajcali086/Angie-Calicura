@@ -201,18 +201,21 @@
   }
 }
 
-/* Read-along: the block being spoken gets a rule down its side, the
-   sentence a warm band, like the lamp moving along the line. */
+/* Read-along: the paragraph being read gets a warm band and a rule down
+   its side, like a lamp moved along the page. One paragraph at a time. */
 .prose-archive .is-current {
+  background: color-mix(in srgb, var(--color-brass) 14%, transparent);
   box-shadow: inset 3px 0 0 var(--color-brass-dim);
   margin-left: -0.75rem;
-  padding-left: 0.75rem;
-  transition: box-shadow 300ms ease;
+  margin-right: -0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+  transition:
+    background-color 400ms ease,
+    box-shadow 400ms ease;
 }
 
-.prose-archive .is-reading {
-  background: color-mix(in srgb, var(--color-brass) 20%, transparent);
-  box-shadow: 0 2px 0 color-mix(in srgb, var(--color-brass-dim) 70%, transparent);
-  border-radius: 2px;
-  transition: background-color 250ms ease;
+/* A list keeps its bullets inside the band. */
+.prose-archive ul.is-current {
+  padding-left: 2.25rem;
 }

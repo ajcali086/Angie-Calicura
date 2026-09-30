@@ -4,13 +4,16 @@ import { blockChapter } from "@/data/audio";
 import { useAudio, useAudioControls } from "./AudioProvider";
 
 /**
- * Read-along for a chapter page: which sentence and block are being spoken,
- * and, while Follow is on, keep that sentence in view and turn to the next
- * chapter when the narration crosses into it. Scrolling by hand turns Follow
- * off (the player's Follow button turns it back on), as on spirit-of-martinez.
+ * Read-along for a chapter page: which paragraph (or plate caption) is being
+ * read, and, while Follow is on, keep it in view and turn to the next chapter
+ * when the narration crosses into it. The page moves once per paragraph, not
+ * per sentence: paragraph boundaries are where the timing is surest, and a
+ * page that jumps less is easier to read along with. Scrolling by hand turns
+ * Follow off (the player's Follow button turns it back on), as on
+ * spirit-of-martinez.
  */
-export function useFollow(slug: string) {
-  const cue = useAudio((s) => (s.part && s.time > 0 ? s.cue : null));
+export function useFollow(slug: string): string | null {
+  const block = useAudio((s) => (s.part && s.time > 0 ? (s.cue?.block ?? null) : null));
   const playing = useAudio((s) => s.playing);
   const follow = useAudio((s) => s.follow);
   const { setFollow } = useAudioControls();
@@ -36,25 +39,30 @@ export function useFollow(slug: string) {
   }, [setFollow]);
 
   useEffect(() => {
-    if (!cue || !playing || !follow) return;
-    const chapter = blockChapter(cue.block);
+    if (!block || !playing || !follow) return;
+    const chapter = blockChapter(block);
     if (chapter && chapter !== slug) {
       ignoreUntil.current = Date.now() + 1500;
-      void navigate({ to: "/chapters/$slug", params: { slug: chapter }, hash: cue.block });
+      void navigate({ to: "/chapters/$slug", params: { slug: chapter }, hash: block });
       return;
     }
-    const el =
-      document.querySelector<HTMLElement>(`[data-cue="${cue.id}"]`) ??
-      document.querySelector<HTMLElement>(`[data-block="${cue.block}"]`);
+    const el = document.querySelector<HTMLElement>(`[data-block="${block}"]`);
     if (!el) return;
     const r = el.getBoundingClientRect();
+    const player = document.querySelector("[data-player-bar]")?.getBoundingClientRect().top;
     const top = 80;
-    const bottom = window.innerHeight - 180; // clear of the docked player
-    if (r.top >= top && r.bottom <= bottom) return;
+    const bottom = (player ?? window.innerHeight) - 16;
+    const room = bottom - top;
+    const fits = r.height <= room;
+    // A paragraph that fits stays put while all of it shows; one taller than
+    // the space is read from its start, so it stays put only with its top
+    // near the top.
+    if (fits ? r.top >= top && r.bottom <= bottom : r.top >= top && r.top <= top + 48) return;
     ignoreUntil.current = Date.now() + 900;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    el.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
-  }, [cue, playing, follow, slug, navigate]);
+    const y = window.scrollY + r.top - top - (fits ? (room - r.height) / 3 : 0);
+    window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
+  }, [block, playing, follow, slug, navigate]);
 
-  return { cueId: cue?.id ?? null, block: cue?.block ?? null };
+  return block;
 }

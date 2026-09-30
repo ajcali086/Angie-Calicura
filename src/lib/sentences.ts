@@ -1,7 +1,6 @@
 /**
- * The sentence splitter the read-along uses, shared by the aligner
- * (scripts/align-audio.ts) and the chapter pages, so a cue and the sentence
- * it lights up always agree on where a sentence ends.
+ * The sentence splitter the aligner (scripts/align-audio.ts) times the audio
+ * by, and the share cards quote by, so both agree on where a sentence ends.
  *
  * Ported from spirit-of-martinez's scripts/lib/moments-align.mjs.
  */
@@ -51,35 +50,5 @@ export function splitSentences(text: string): string[] {
     start = m.index + m[0].length;
   }
   if (start < t.length) out.push(t.slice(start));
-  return out;
-}
-
-/**
- * The same sentences, cut from the raw text so each keeps its own emphasis
- * markers. Returns null when a cut would fall inside an emphasis pair, in
- * which case the caller lights the whole block rather than guess.
- */
-export function rawSentences(raw: string): string[] | null {
-  const text = norm(raw);
-  const plain = splitSentences(spoken(text));
-  // Map each plain-text offset to its position in the raw text.
-  const map: number[] = [];
-  for (let i = 0; i < text.length; i++) if (text[i] !== "*") map.push(i);
-  map.push(text.length);
-  const out: string[] = [];
-  let p = 0;
-  let r = 0;
-  const plainText = spoken(text);
-  for (const s of plain) {
-    const at = plainText.indexOf(s, p);
-    if (at < 0) return null;
-    p = at + s.length;
-    let end = map[p];
-    while (end < text.length && text[end] === "*") end++; // keep closing markers with their sentence
-    const piece = text.slice(r, end).trim();
-    if ((piece.match(/\*/g) ?? []).length % 2 !== 0) return null;
-    out.push(piece);
-    r = end;
-  }
   return out;
 }

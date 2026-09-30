@@ -23,6 +23,8 @@ export type AudioSnapshot = {
   time: number;
   rate: number;
   follow: boolean;
+  /** The listener opened the full player while Follow had it minimized. */
+  expanded: boolean;
   cue: Cue | null;
 };
 
@@ -60,6 +62,7 @@ type Controls = {
   skip: (delta: number) => void;
   setRate: (rate: number) => void;
   setFollow: (follow: boolean) => void;
+  setExpanded: (expanded: boolean) => void;
   step: (direction: 1 | -1) => void;
   close: () => void;
 };
@@ -71,7 +74,16 @@ const SAVED = "angie-audio";
 
 export function AudioProvider({ children }: { children: ReactNode }) {
   const store = useMemo(
-    () => createStore({ part: null, playing: false, time: 0, rate: 1, follow: true, cue: null }),
+    () =>
+      createStore({
+        part: null,
+        playing: false,
+        time: 0,
+        rate: 1,
+        follow: true,
+        expanded: false,
+        cue: null,
+      }),
     [],
   );
   const audio = useRef<HTMLAudioElement>(null);
@@ -148,7 +160,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       }
       a.playbackRate = store.get().rate;
       void a.play().catch(() => store.set({ playing: false }));
-      store.set({ part, time: at, follow: true });
+      store.set({ part, time: at, follow: true, expanded: false });
     };
     return {
       play,
@@ -181,7 +193,9 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         el().playbackRate = rate;
         store.set({ rate });
       },
-      setFollow: (follow) => store.set({ follow }),
+      // Turning Follow on minimizes the player again.
+      setFollow: (follow) => store.set(follow ? { follow, expanded: false } : { follow }),
+      setExpanded: (expanded) => store.set({ expanded }),
       step: (direction) => {
         const { part } = store.get();
         const i = PARTS.findIndex((p) => p.id === part);
@@ -240,7 +254,16 @@ export function useAudio<T>(select: (s: AudioSnapshot) => T): T {
   const store = useContext(StoreContext);
   if (!store) throw new Error("useAudio needs <AudioProvider>");
   const server = useMemo(
-    () => select({ part: null, playing: false, time: 0, rate: 1, follow: true, cue: null }),
+    () =>
+      select({
+        part: null,
+        playing: false,
+        time: 0,
+        rate: 1,
+        follow: true,
+        expanded: false,
+        cue: null,
+      }),
     // eslint-disable-next-line react-hooks/exhaustive-deps -- server snapshot is the fixed initial state
     [],
   );

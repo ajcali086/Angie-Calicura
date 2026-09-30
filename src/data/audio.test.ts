@@ -11,8 +11,7 @@ import {
   partDuration,
   spokenBlocks,
 } from "./audio.ts";
-import { chapters } from "./article.ts";
-import { rawSentences, spoken, splitSentences } from "../lib/sentences.ts";
+import { spoken } from "../lib/sentences.ts";
 
 const partMap = readFileSync(new URL("../../source/audio-part-map.md", import.meta.url), "utf8");
 
@@ -86,19 +85,5 @@ describe("cues", () => {
     const w = blockWindow("plate-08")!;
     assert.equal(w.part, "a1");
     assert.ok(w.end > w.start);
-  });
-});
-
-describe("sentences on the page", () => {
-  it("cuts every chapter block into the same sentences the cues time", () => {
-    for (const chapter of chapters) {
-      for (const b of chapter.blocks) {
-        if (b.type !== "p" && b.type !== "quote") continue;
-        const pieces = rawSentences(b.text);
-        if (!pieces) continue; // lit as a whole block
-        assert.equal(pieces.length, splitSentences(spoken(b.text)).length, b.id);
-        assert.equal(spoken(pieces.join(" ")), spoken(b.text), b.id);
-      }
-    }
   });
 });
