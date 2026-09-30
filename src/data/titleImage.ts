@@ -1,14 +1,13 @@
 /**
- * The title screen's image. It is AI-generated, not a photograph: it has no
- * source print, and the building doesn't match the post's own description of
- * the Ideal Hotel (the 1888 stone courthouse, rooms on the second floor). It
- * stays off the plates, which are the post's images, and it always shows
- * this label. titleImage.test.ts holds the label to that.
+ * The title screen's image: plate 39, the post's "Another 1940s photo of
+ * Angie from her nephew Andrew Calicura", from the family's own Kodachrome
+ * scan. The title screen only ever uses one of the post's plates, shown with
+ * that plate's caption, so it can't carry an image the record doesn't.
+ * titleImage.test.ts holds this.
  */
 export const titleImage = {
-  src: "/images/title-ideal-hotel.jpg",
-  width: 1334,
-  height: 1179,
-  label: "AI-generated image, not a photograph",
-  alt: "AI-generated image of a woman in a winter coat and headscarf outside a neon Ideal Hotel sign",
+  plate: "plate-39",
+  alt: "Angie laughing on the telephone, curled up on a tropical-print sofa",
+  /** Crop focus for the cover: her face sits high and left of centre. */
+  position: "38% 20%",
 };

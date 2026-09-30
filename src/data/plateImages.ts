@@ -3,8 +3,8 @@
  * the originals in the media zips (at most 1800px on the long edge).
  *
  * Missing: plates 13 and 31 were not in the media manifest, and plates 33,
- * 35, 38 and 39 were in the fourth zip, which was cut off in upload. Those
- * plates show their caption without an image until they are added here.
+ * 35 and 38 were in the fourth zip, which was cut off in upload. Those plates
+ * show their caption without an image until they are added here.
  */
 export const plateImages: Record<string, { src: string; width: number; height: number }> = {
   "plate-01": { src: "/images/plates/plate-01.jpg", width: 356, height: 584 },
@@ -42,4 +42,6 @@ export const plateImages: Record<string, { src: string; width: number; height: n
   "plate-34": { src: "/images/plates/plate-34.jpg", width: 288, height: 191 },
   "plate-36": { src: "/images/plates/plate-36.jpg", width: 1024, height: 640 },
   "plate-37": { src: "/images/plates/plate-37.jpg", width: 596, height: 648 },
+  // Plate 39 is the family's own Kodachrome scan (Frank Calicura Collection).
+  "plate-39": { src: "/images/plates/plate-39.jpg", width: 1800, height: 1393 },
 };

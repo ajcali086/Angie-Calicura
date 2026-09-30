@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Inline } from "@/components/Inline";
 import { PassageDoor } from "@/components/Door";
-import { article, chapters, door, plates } from "@/data/article";
+import { article, chapters, door, plain, plateById, plates } from "@/data/article";
 import { discrepancies } from "@/data/discrepancies";
 import { plateImages } from "@/data/plateImages";
 import { timeline } from "@/data/timeline";
@@ -11,6 +11,8 @@ import { titleImage } from "@/data/titleImage";
 export const Route = createFileRoute("/")({ component: Home });
 
 const [name, ...rest] = article.title.split(": ");
+const coverPlate = plateById(titleImage.plate)!;
+const cover = plateImages[titleImage.plate];
 const opening = "So, who remembers Angie, the notorious madam of the Ideal Hotel?";
 
 function Home() {
@@ -42,18 +44,22 @@ function Home() {
     <SiteShell>
       <section className="relative overflow-hidden border-b border-rule">
         <img
-          src={titleImage.src}
+          src={cover.src}
           alt={titleImage.alt}
-          width={titleImage.width}
-          height={titleImage.height}
+          width={cover.width}
+          height={cover.height}
           fetchPriority="high"
-          className="absolute inset-0 size-full object-cover object-[30%_18%] opacity-80"
+          style={{ objectPosition: titleImage.position }}
+          className="absolute inset-0 size-full object-cover opacity-80"
         />
         <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/80 to-ink/10" />
-        {/* The label is part of the image, not a caption: it must stay visible. */}
-        <p className="absolute top-3 right-3 z-10 bg-ink/85 px-2.5 py-1.5 font-sans text-[0.66rem] tracking-[0.14em] text-paper uppercase sm:top-4 sm:right-4">
-          {titleImage.label}
-        </p>
+        <Link
+          to="/archive/$id"
+          params={{ id: coverPlate.id }}
+          className="absolute top-3 right-3 z-10 flex min-h-11 max-w-[16rem] items-center bg-ink/85 px-3 py-1.5 text-right font-sans text-[0.66rem] leading-snug tracking-[0.12em] text-paper uppercase hover:text-brass sm:top-4 sm:right-4 sm:max-w-sm"
+        >
+          Plate {coverPlate.number} · {plain(coverPlate.caption)}
+        </Link>
         <div className="relative mx-auto max-w-4xl px-4 pt-72 pb-14 [text-shadow:0_1px_18px_rgb(20_18_16_/_0.92)] sm:px-6 sm:pt-96">
           <p className="kicker stagger-in">Sheridan Wyoming History · {article.author}</p>
           <h1 className="stagger-in mt-4 font-display text-4xl leading-[1.05] font-semibold text-paper sm:text-6xl">

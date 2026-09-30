@@ -26,9 +26,9 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 
 ## Images
 
-33 of the 39 plates have images, web-sized from the original uploads (`src/data/plateImages.ts`). Still missing:
+34 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plateImages.ts`). Still missing:
 - plates 13 and 31, which are not in the media manifest
-- plates 33, 35, 38 and 39, which were lost when the fourth media zip was cut off in upload
+- plates 33, 35 and 38, which were lost when the fourth media zip was cut off in upload
 
 Those plates show their caption in a frame marked "Image not yet added".
 
@@ -43,4 +43,4 @@ npm run typecheck && npm run lint
 
 ## Title image
 
-The home page's title image (`public/images/title-ideal-hotel.jpg`) is AI-generated, not a photograph, and it is labeled that way on the page. It is kept apart from the plates, which are the post's own images. `src/data/titleImage.ts` explains why.
+The title screen shows plate 39, "Another 1940s photo of Angie from her nephew Andrew Calicura", from the family's own Kodachrome scan, with its caption. `src/data/titleImage.ts` keeps the title screen to the post's plates.
