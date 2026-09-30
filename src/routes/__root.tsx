@@ -11,7 +11,7 @@ export const Route = createRootRoute({
       { name: "description", content: plain(article.subtitle) },
       // A preview of someone else's article in a new form. Not for search engines.
       { name: "robots", content: "noindex, nofollow" },
-      { name: "theme-color", content: "#141210" },
+      { name: "theme-color", content: "#150809" },
     ],
     links: [
       {

@@ -15,7 +15,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-rule/80 bg-ink/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex min-h-11 items-center font-display text-2xl text-brass italic">
+        <Link to="/" className="neon flex min-h-11 items-center font-display text-2xl italic">
           Angie
         </Link>
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">

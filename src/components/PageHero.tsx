@@ -26,7 +26,9 @@ export function PageHero({
       <div
         className={cn(
           "absolute inset-0",
-          image ? "bg-linear-to-t from-ink via-ink/88 to-ink/55" : "bg-ink-soft",
+          image
+            ? "bg-linear-to-t from-ink via-ink/88 to-ink/55"
+            : "bg-ink-soft bg-[radial-gradient(ellipse_at_15%_0%,rgb(150_20_42/0.45),transparent_65%)]",
         )}
       />
       <div

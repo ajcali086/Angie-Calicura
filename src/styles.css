@@ -34,25 +34,27 @@
 }
 
 @theme {
-  --color-ink: #141210;
-  --color-ink-soft: #1c1a16;
-  --color-ink-mid: #2a2620;
-  --color-paper: #f3ead6;
-  --color-paper-deep: #e7d9bc;
-  --color-brass: #b8954a;
-  --color-brass-dim: #8a6e32;
+  /* Red-light experiment: oxblood grounds, blush text, neon-red accents,
+     antique gold for the drop cap. Token names are kept from the
+     spirit-of-martinez palette so every component picks this up unchanged. */
+  --color-ink: #150809;
+  --color-ink-soft: #210c0f;
+  --color-ink-mid: #33151a;
+  --color-paper: #f7e7de;
+  --color-paper-deep: #ecd0c6;
+  --color-brass: #ff5a6c;
+  --color-brass-dim: #a3203a;
   --color-olive: #5c6b47;
-  --color-feather: #8e3a32;
-  --color-muted: #7a7366;
-  --color-fog: #cfc6b2;
-  --color-rule: #3a342c;
+  --color-feather: #a87a28;
+  --color-muted: #a58580;
+  --color-fog: #e2c6bd;
+  --color-rule: #4d1f27;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
-  --shadow-border: 0 0 0 1px rgba(184, 149, 74, 0.18);
+  --shadow-border: 0 0 0 1px rgba(255, 90, 108, 0.2);
 }
-
 
 /* From spirit-of-martinez: tokens, faces and base layer, without the audio
    player, reading-focus and map rules this site has no use for. */
@@ -118,6 +120,27 @@
   text-transform: uppercase;
   font-weight: 500;
   color: var(--color-brass);
+  text-shadow:
+    0 0 6px rgb(255 90 108 / 0.55),
+    0 0 18px rgb(255 90 108 / 0.25);
+}
+
+@utility neon {
+  color: var(--color-brass);
+  text-shadow:
+    0 0 4px rgb(255 90 108 / 0.9),
+    0 0 14px rgb(255 90 108 / 0.55),
+    0 0 32px rgb(255 60 80 / 0.35);
+}
+
+/* Velvet: a low red glow from above on the dark ground, like light from a
+   sign across the street. */
+@utility velvet {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgb(120 16 34 / 0.45), transparent 70%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgb(80 10 24 / 0.35), transparent 70%);
+  background-attachment: fixed;
 }
 
 /* The article on paper, as the chapters are on spirit-of-martinez. */
@@ -157,7 +180,8 @@
   font-size: 1.3rem;
   line-height: 1.5;
   color: var(--color-ink);
-  border-left: 2px solid var(--color-brass);
+  border-left: 2px solid var(--color-brass-dim);
+  box-shadow: -6px 0 14px -8px rgb(255 90 108 / 0.6);
   padding-left: 1.15rem;
   margin: 1.75rem 0;
 }
