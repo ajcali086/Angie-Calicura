@@ -1,0 +1,11 @@
+node_modules/
+.tanstack/
+.vercel/
+dist/
+.output/
+.nitro/
+.env
+.env.*
+*.log
+.DS_Store
+__pycache__/

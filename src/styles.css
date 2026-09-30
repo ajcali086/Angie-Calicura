@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/cormorant-garamond-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/cormorant-garamond-latin-italic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+  --color-ink: #141210;
+  --color-ink-soft: #1c1a16;
+  --color-ink-mid: #2a2620;
+  --color-paper: #f3ead6;
+  --color-paper-deep: #e7d9bc;
+  --color-brass: #b8954a;
+  --color-brass-dim: #8a6e32;
+  --color-olive: #5c6b47;
+  --color-feather: #8e3a32;
+  --color-muted: #7a7366;
+  --color-fog: #cfc6b2;
+  --color-rule: #3a342c;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --shadow-border: 0 0 0 1px rgba(184, 149, 74, 0.18);
+}
+
+
+/* From spirit-of-martinez: tokens, faces and base layer, without the audio
+   player, reading-focus and map rules this site has no use for. */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-ink);
+    color: var(--color-paper);
+    min-height: 100dvh;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  [href]:focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    outline: 1px solid rgba(243, 234, 214, 0.12);
+    outline-offset: -1px;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@utility kicker {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-brass);
+}
+
+/* The article on paper, as the chapters are on spirit-of-martinez. */
+.prose-archive p,
+.prose-archive li {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+.prose-archive > * + * {
+  margin-top: 1.15rem;
+}
+
+.prose-archive .drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 3.4rem;
+  line-height: 0.8;
+  padding-right: 0.45rem;
+  padding-top: 0.28rem;
+  color: var(--color-feather);
+}
+
+.prose-archive :target {
+  background: color-mix(in srgb, var(--color-brass) 22%, transparent);
+  box-shadow: inset 3px 0 0 var(--color-brass);
+  margin-left: -0.75rem;
+  padding-left: 0.75rem;
+}
+
+.quote-pull {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  border-left: 2px solid var(--color-brass);
+  padding-left: 1.15rem;
+  margin: 1.75rem 0;
+}
+
+.stagger-in {
+  animation: rise-in 700ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
