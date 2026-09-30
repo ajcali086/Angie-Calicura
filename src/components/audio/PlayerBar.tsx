@@ -40,6 +40,13 @@ export function PlayerBar() {
   const duration = partDuration(part);
   const button =
     "flex size-11 shrink-0 items-center justify-center text-paper hover:text-brass disabled:opacity-35";
+  // Under 375px the transport row is too wide at full size, so its buttons
+  // narrow (keeping their 44px height) and the speed and Follow tighten.
+  const transport = (narrow: "w-8" | "w-9") =>
+    cn(
+      "flex h-11 shrink-0 items-center justify-center text-paper hover:text-brass disabled:opacity-35 min-[375px]:w-11",
+      narrow,
+    );
 
   return (
     <div
@@ -100,7 +107,7 @@ export function PlayerBar() {
           <div className="flex items-center">
             <button
               type="button"
-              className={button}
+              className={transport("w-8")}
               onClick={() => c.step(-1)}
               disabled={index === 0}
               aria-label="Previous part"
@@ -109,7 +116,7 @@ export function PlayerBar() {
             </button>
             <button
               type="button"
-              className={button}
+              className={transport("w-9")}
               onClick={() => c.skip(-15)}
               aria-label="Back 15 seconds"
             >
@@ -119,13 +126,13 @@ export function PlayerBar() {
               type="button"
               onClick={c.toggle}
               aria-label={playing ? "Pause" : "Play"}
-              className="mx-1 flex size-12 items-center justify-center rounded-full bg-brass text-ink hover:bg-paper"
+              className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brass text-ink hover:bg-paper min-[375px]:mx-1"
             >
               {playing ? <Pause className="size-5" /> : <Play className="size-5 translate-x-px" />}
             </button>
             <button
               type="button"
-              className={button}
+              className={transport("w-9")}
               onClick={() => c.skip(15)}
               aria-label="Forward 15 seconds"
             >
@@ -133,7 +140,7 @@ export function PlayerBar() {
             </button>
             <button
               type="button"
-              className={button}
+              className={transport("w-8")}
               onClick={() => c.step(1)}
               disabled={index === PARTS.length - 1}
               aria-label="Next part"
@@ -146,7 +153,7 @@ export function PlayerBar() {
               type="button"
               onClick={() => c.setRate(RATES[(RATES.indexOf(rate) + 1) % RATES.length])}
               aria-label={`Playback speed ${rate}×. Change speed.`}
-              className="flex min-h-11 min-w-11 items-center justify-center font-sans text-[0.78rem] text-fog tabular-nums hover:text-paper"
+              className="flex min-h-11 min-w-9 items-center justify-center font-sans text-[0.78rem] min-[375px]:min-w-11 text-fog tabular-nums hover:text-paper"
             >
               {rate}×
             </button>
@@ -155,7 +162,7 @@ export function PlayerBar() {
               onClick={() => c.setFollow(!follow)}
               aria-pressed={follow}
               className={cn(
-                "flex min-h-11 items-center px-2 font-sans text-[0.68rem] tracking-[0.14em] uppercase",
+                "flex min-h-11 items-center px-1 font-sans text-[0.68rem] tracking-[0.14em] uppercase min-[375px]:px-2",
                 follow ? "text-brass" : "text-muted hover:text-paper",
               )}
             >
