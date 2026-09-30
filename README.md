@@ -35,13 +35,13 @@ Those plates show their caption in a frame marked "Image not yet added".
 
 ## Reading
 
-A scroll meter (a neon hairline across the top of every page) fills as you read down it, and a skip link takes keyboard users past the header. Both are ported from spirit-of-martinez's `ReadingChrome`.
+A scroll meter (a neon hairline across the top of every page) fills as you read down it. A Top button appears once you're well down a page, sits above the player, and hides while the footer is in view. A skip link takes keyboard users past the header. All three are ported from spirit-of-martinez's `ReadingChrome`.
 
 ## Audio
 
 The article read aloud, in the five TTS parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:
 
-- **Player:** docked at the bottom and kept across pages. Play and pause, back and forward 15 seconds, a scrubber, previous and next part, speed, and a Follow switch. It moves on to the next part by itself and remembers where you stopped. While Follow is on, the player shrinks to a slim bar (play, part, progress) and expands when tapped.
+- **Player:** docked at the bottom and kept across pages. Play and pause, back and forward 15 seconds, a scrubber, previous and next part, speed, and a Follow switch. It moves on to the next part by itself and remembers where you stopped. While Follow is on, the player shrinks to a slim bar (play, part, progress) and expands when tapped. The part's name is a link to the exact paragraph being read: tapping it opens the chapter there and turns Follow on.
 - **Follow-along:** the paragraph being read is highlighted, in step with the audio, and a plate lights up while its caption is read. With Follow on, the page brings each paragraph into view as it begins (a long one from its top) and turns to the next chapter when the narration does. Scrolling by hand turns Follow off and brings back the full player.
 - **Listen:** buttons on the home page ("Listen to the article"), at the top of each chapter, beside each timeline, source and Left Open entry, and on plate pages (the passage, or just the caption).
 - **Link cards:** "Share this moment" on every paragraph a plate sits beside. It shares an image card (the plate, the passage, a Listen badge), a WAV clip of the passage, and a link that opens the page with a "Listen from this passage" button (`?listen=1#block`). Where a device can't share files, it copies the link.

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { PlayerSpacer } from "@/components/audio/PlayerBar";
-import { ReadingProgress, SkipLink } from "./ReadingChrome";
+import { BackToTop, ReadingProgress, SkipLink } from "./ReadingChrome";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
@@ -15,6 +15,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </main>
       <SiteFooter />
       <PlayerSpacer />
+      <BackToTop />
     </div>
   );
 }

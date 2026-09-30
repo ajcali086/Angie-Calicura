@@ -9,7 +9,9 @@ import {
   SkipForward,
   X,
 } from "lucide-react";
-import { PARTS, formatClock, partDuration } from "@/data/audio";
+import { useEffect, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
+import { PARTS, formatClock, partDuration, readingPlace } from "@/data/audio";
 import { cn } from "@/lib/utils";
 import { useAudio, useAudioControls } from "./AudioProvider";
 
@@ -29,6 +31,7 @@ export function PlayerBar() {
   const follow = useAudio((s) => s.follow);
   const expanded = useAudio((s) => s.expanded);
   const c = useAudioControls();
+  useDockHeight(part ? (follow && !expanded ? "mini" : "full") : null);
   if (!part) return null;
   if (follow && !expanded) return <MiniPlayer />;
 
@@ -47,12 +50,14 @@ export function PlayerBar() {
     >
       <div className="mx-auto max-w-4xl px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-6">
         <div className="flex items-center gap-2">
-          <p className="min-w-0 flex-1 truncate font-sans text-[0.68rem] tracking-[0.14em] text-brass uppercase">
-            <span className="text-muted">
-              {index + 1}/{PARTS.length}
-            </span>{" "}
-            {meta.title}
-          </p>
+          <ReadingPlaceLink className="flex min-h-11 min-w-0 flex-1 items-center">
+            <span className="truncate font-sans text-[0.68rem] tracking-[0.14em] text-brass uppercase underline-offset-4 hover:underline">
+              <span className="text-muted">
+                {index + 1}/{PARTS.length}
+              </span>{" "}
+              {meta.title}
+            </span>
+          </ReadingPlaceLink>
           {follow ? (
             <button
               type="button"
@@ -189,12 +194,7 @@ function MiniPlayer() {
         >
           {playing ? <Pause className="size-4" /> : <Play className="size-4 translate-x-px" />}
         </button>
-        <button
-          type="button"
-          onClick={() => c.setExpanded(true)}
-          className="flex min-h-11 min-w-0 flex-1 flex-col justify-center text-left"
-          aria-label="Show the player controls"
-        >
+        <ReadingPlaceLink className="flex min-h-11 min-w-0 flex-1 flex-col justify-center text-left">
           <span className="truncate font-sans text-[0.66rem] tracking-[0.14em] text-brass uppercase">
             <span className="text-muted">
               {index + 1}/{PARTS.length}
@@ -204,7 +204,7 @@ function MiniPlayer() {
           <span className="font-sans text-[0.68rem] text-fog tabular-nums">
             {formatClock(time)} / {formatClock(duration)} · Following
           </span>
-        </button>
+        </ReadingPlaceLink>
         <button
           type="button"
           onClick={() => c.setExpanded(true)}
@@ -216,6 +216,48 @@ function MiniPlayer() {
       </div>
     </div>
   );
+}
+
+/**
+ * The part's name is a way back to the text: it opens the chapter at the
+ * paragraph being read now, and turns Follow on so the page stays with the
+ * narration from there.
+ */
+function ReadingPlaceLink({ className, children }: { className: string; children: ReactNode }) {
+  const part = useAudio((s) => s.part)!;
+  const block = useAudio((s) => s.cue?.block ?? null);
+  const { setFollow } = useAudioControls();
+  const place = readingPlace(part, block ? { block } : null);
+  if (!place) return <span className={className}>{children}</span>;
+  return (
+    <Link
+      to="/chapters/$slug"
+      params={{ slug: place.slug }}
+      hash={place.hash}
+      onClick={() => setFollow(true)}
+      className={className}
+      aria-label="Go to the passage being read"
+    >
+      {children}
+    </Link>
+  );
+}
+
+/** Publishes the player's height as --dock-h, so floating buttons sit above it. */
+function useDockHeight(size: "mini" | "full" | null) {
+  useEffect(() => {
+    const root = document.documentElement;
+    const bar = document.querySelector<HTMLElement>("[data-player-bar]");
+    if (!size || !bar) {
+      root.style.removeProperty("--dock-h");
+      return;
+    }
+    const set = () => root.style.setProperty("--dock-h", `${bar.offsetHeight}px`);
+    set();
+    const ro = new ResizeObserver(set);
+    ro.observe(bar);
+    return () => ro.disconnect();
+  }, [size]);
 }
 
 /** Keeps the page's end clear of the docked player, at whichever size it is. */

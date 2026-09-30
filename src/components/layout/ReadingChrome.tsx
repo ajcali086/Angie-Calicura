@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUp } from "lucide-react";
 
 /** Keyboard users skip the header straight to the page. From spirit-of-martinez. */
 export function SkipLink() {
@@ -58,5 +59,53 @@ export function ReadingProgress() {
         style={{ transform: "scaleX(0)" }}
       />
     </div>
+  );
+}
+
+/** Shown once the reader is well down the page, hidden while the footer's links are in view. */
+function useFloatingClearance() {
+  const [scrolled, setScrolled] = useState(false);
+  const [footerInView, setFooterInView] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 720);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    const footer = document.getElementById("site-footer");
+    const io = footer
+      ? new IntersectionObserver(([entry]) => setFooterInView(entry.isIntersecting), {
+          threshold: 0.05,
+        })
+      : null;
+    if (footer && io) io.observe(footer);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      io?.disconnect();
+    };
+  }, []);
+
+  return scrolled && !footerInView;
+}
+
+/**
+ * Back to top, as on spirit-of-martinez. It sits above the docked player at
+ * whichever size it is (the player publishes its height as --dock-h).
+ */
+export function BackToTop() {
+  const visible = useFloatingClearance();
+  if (!visible) return null;
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      }}
+      className="fixed right-4 bottom-[calc(1rem+var(--dock-h,0px))] z-40 flex min-h-11 items-center gap-1.5 bg-brass px-4 font-sans text-[0.68rem] tracking-[0.16em] text-ink uppercase shadow-[0_0_14px_rgb(255_90_108_/_0.45)] hover:bg-paper sm:right-6 sm:bottom-[calc(1.5rem+var(--dock-h,0px))]"
+      aria-label="Back to top"
+    >
+      <ArrowUp className="size-3.5" aria-hidden />
+      Top
+    </button>
   );
 }

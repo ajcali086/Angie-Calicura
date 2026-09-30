@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useLayoutEffect, useState } from "react";
 import { createFileRoute, Link, notFound, useRouterState } from "@tanstack/react-router";
 import { Headphones } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
@@ -46,6 +46,14 @@ function listeningTime(chapter: Chapter): number {
 function ChapterPage() {
   const { slug } = Route.useLoaderData();
   const { listen } = Route.useSearch();
+  const hash = useRouterState({ select: (s) => s.location.hash });
+
+  // Land on the linked passage, from a shared link or from the player's part
+  // name, even when this chapter is already open.
+  useLayoutEffect(() => {
+    const id = decodeURIComponent(hash.replace(/^#/, ""));
+    if (id) document.getElementById(id)?.scrollIntoView({ block: "start" });
+  }, [hash, slug]);
   const chapter = chapterBySlug(slug)!;
   const prev = chapters[chapter.number - 2];
   const next = chapters[chapter.number];

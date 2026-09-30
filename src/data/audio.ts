@@ -155,3 +155,19 @@ export function formatClock(seconds: number): string {
     ? `${h}:${String(m).padStart(2, "0")}:${String(r).padStart(2, "0")}`
     : `${m}:${String(r).padStart(2, "0")}`;
 }
+
+/**
+ * Where the narration is on the page: the chapter and block of the cue now
+ * playing. The part's spoken title (and the article's title and subtitle,
+ * which no chapter page shows) count as the part's first block that has a
+ * page.
+ */
+export function readingPlace(
+  part: PartId,
+  cue: Pick<Cue, "block"> | null,
+): { slug: string; hash: string } | null {
+  const own = cue ? blockChapter(cue.block) : null;
+  if (cue && own) return { slug: own, hash: cue.block };
+  const first = partBlocks()[part].find((b) => b.chapter);
+  return first ? { slug: first.chapter!, hash: first.id } : null;
+}

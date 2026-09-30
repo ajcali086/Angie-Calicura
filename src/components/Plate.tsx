@@ -35,7 +35,14 @@ export function Plate({
       height={image.height}
       loading="lazy"
       decoding="async"
-      className={cn("mx-auto h-auto w-auto max-w-full", large ? "max-h-[75vh]" : "max-h-[28rem]")}
+      // The box is sized before the image arrives (the width it will have,
+      // the height from its aspect ratio), so loading a plate never pushes
+      // the text below it down: links and the read-along land where they aim.
+      className="mx-auto block h-auto max-w-full"
+      style={{
+        width: `min(100%, calc(${large ? "75vh" : "28rem"} * ${image.width} / ${image.height}))`,
+        aspectRatio: `${image.width} / ${image.height}`,
+      }}
     />
   ) : (
     <div
