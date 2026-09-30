@@ -2,8 +2,9 @@
  * The narration script (source/narration-script.md) matched to the site's
  * spoken blocks. The script is the article normalized for speech: numbers
  * written out, "Photograph." before each caption, abbreviations expanded
- * ("Mrs." → "Missus"), emphasis removed. Two rules make its 170 blocks line
- * up one to one with the site's 172:
+ * ("Mrs." → "Missus"), emphasis removed, and names respelled for the voice
+ * (PRONUNCIATIONS). The script is heard, never shown. Two rules make its 170
+ * blocks line up one to one with the site's 172:
  *   - a list is read item by item, one script block per item;
  *   - the closing thanks (nine lines on the site) is read as one block.
  * Used by scripts/align-audio.ts to time the audio by what was actually
@@ -13,6 +14,15 @@ import { readFileSync } from "node:fs";
 import { chapters } from "../../src/data/article.ts";
 import { spokenBlocks } from "../../src/data/audio.ts";
 import { splitSentences, spoken } from "../../src/lib/sentences.ts";
+
+/**
+ * Script spelling → correct spelling. The script misspells these on purpose
+ * so the TTS voice pronounces them right; the site shows only the correct
+ * spelling.
+ */
+export const PRONUNCIATIONS: Record<string, string> = {
+  Colacurchio: "Colacurcio",
+};
 
 export function scriptBlocks(): string[] {
   return readFileSync(new URL("../../source/narration-script.md", import.meta.url), "utf8")

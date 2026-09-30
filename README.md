@@ -48,7 +48,7 @@ The article read aloud, in the five TTS parts listed in `source/audio-part-map.m
 - **Snippet cards:** each plate page shows the story-sized card for its passage, to share as an image.
 - **Zoom:** tap a plate on its own page to see it full size, for reading the small print of a clipping.
 
-**Timing.** The recording was read from `source/narration-script.md`: the article normalized for speech, with numbers written out, "Photograph." before each caption, and abbreviations expanded. The script matches the site block for block, with lists read item by item and the thanks read as one line (`scripts/lib/narration.ts`). `scripts/align-audio.ts` times the sentences:
+**Timing.** The recording was read from `source/narration-script.md`: the article normalized for speech, with numbers written out, "Photograph." before each caption, and abbreviations expanded. It also respells names so the voice says them right: "Colacurchio" is how the script gets "Colacurcio" pronounced. The script is heard, never shown, and a test keeps its respellings out of the page text (`PRONUNCIATIONS` in `scripts/lib/narration.ts`). The script matches the site block for block, with lists read item by item and the thanks read as one line (`scripts/lib/narration.ts`). `scripts/align-audio.ts` times the sentences:
 
 1. It decodes each MP3 in headless Chromium.
 2. It finds every pause.

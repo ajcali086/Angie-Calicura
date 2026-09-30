@@ -2,10 +2,12 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   matchScript,
+  PRONUNCIATIONS,
   scriptBlocks,
   similarity,
   spokenLengths,
 } from "../../scripts/lib/narration.ts";
+import { ARTICLE_SOURCE } from "./article.source.ts";
 import { partCues, PARTS, spokenBlocks } from "./audio.ts";
 
 describe("narration script", () => {
@@ -20,6 +22,16 @@ describe("narration script", () => {
       weak.map((p) => p.blocks.join("+")),
       [],
     );
+  });
+
+  it("keeps pronunciation respellings in the script and the correct spelling on the site", () => {
+    const script = scriptBlocks().join("\n");
+    for (const [said, written] of Object.entries(PRONUNCIATIONS)) {
+      assert.ok(script.includes(said), `script no longer says ${said}`);
+      assert.ok(!ARTICLE_SOURCE.includes(said), `site text shows the respelling ${said}`);
+      assert.ok(ARTICLE_SOURCE.includes(written), `site text lacks ${written}`);
+    }
+    assert.ok(!ARTICLE_SOURCE.includes("Colacucio"), "site text shows the post's typo");
   });
 
   it("announces every plate caption as a photograph", () => {
