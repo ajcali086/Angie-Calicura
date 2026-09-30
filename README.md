@@ -10,6 +10,7 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 
 - `source/article.md` is the transcript of the post, and nothing on the site is typed from it by hand. `src/data/article.ts` parses the transcript into chapters, passages, quotes, lists and plates.
 - `scripts/embed-article.mjs` copies the transcript into `src/data/article.source.ts`, so the browser and the tests read the same file. Rerun it after editing `source/article.md`.
+- The museum's hand is marked: the Sources page, under the article's citation, says the article was edited and formatted for presentation here and links the original, unedited post; the footer says the same in one line. The authorship stays Michael Dykhorst's.
 - The one editorial choice is where the chapters break. The three titles are the three stations in the post's own subtitle.
 - Timeline events, named sources and the Left Open entries quote the post verbatim. Each links back to where the post says it.
 - **Ids are frozen.** Share links, audio cues and every link into the text hang on block ids (`2-p13`) and plate ids (`plate-12`). `src/data/frozen-ids.json` pairs each id with its block's opening words, so inserting a paragraph renumbers nothing. After adding a block or plate, run `scripts/freeze-ids.ts` to give it the next unused id. If a paragraph's opening words are edited, update its opening in the file, not its id. If one is removed, move its id to `retired`. `src/data/ids.test.ts` fails if any first-published id goes missing, is reused, or moves out of order.

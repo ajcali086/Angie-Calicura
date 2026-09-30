@@ -7,24 +7,24 @@ export function SiteFooter() {
   return (
     <footer id="site-footer" className="mt-auto border-t border-rule bg-ink-soft">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-end md:justify-between">
-        <p className="max-w-md text-sm leading-relaxed text-fog">
-          <AuthorLink />
-          ’s article for Sheridan Wyoming History, set in the form of{" "}
-          <em>The Spirit of Martinez</em>. The text and captions are the author’s.
-        </p>
-        <a
-          href={article.url}
-          className="-mt-6 inline-flex min-h-11 items-center text-[0.72rem] tracking-[0.16em] text-brass uppercase hover:text-paper md:hidden"
-        >
-          Read the original
-        </a>
+        <div className="max-w-md text-sm leading-relaxed text-fog">
+          <p>
+            <AuthorLink />
+            ’s article for Sheridan Wyoming History, set in the form of{" "}
+            <em>The Spirit of Martinez</em>. The text and captions are the author’s.
+          </p>
+          <p data-adaptation-note className="mt-3">
+            Adapted for this museum;{" "}
+            <a
+              href={article.url}
+              className="text-brass underline decoration-current/40 underline-offset-4 hover:text-paper hover:decoration-current"
+            >
+              read the original, unedited version here
+            </a>
+            .
+          </p>
+        </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-[0.72rem] tracking-[0.16em] text-fog uppercase">
-          <a
-            href={article.url}
-            className="hidden min-h-11 items-center text-brass hover:text-paper md:flex"
-          >
-            Read the original
-          </a>
           {nav.map((item) => (
             <Link
               key={item.href}

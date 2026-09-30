@@ -13,6 +13,13 @@ describe("links", () => {
     assert.equal(article.aboutUrl, "https://www.sheridanwyominghistory.com/about");
   });
 
+  it("sends the adaptation note to the original, unedited post", () => {
+    assert.equal(
+      article.url,
+      "https://www.sheridanwyominghistory.com/post/angelina-angie-colacucio-calicura-amato-alexander-a-life-of-hospitality-enterprise-and-reinven",
+    );
+  });
+
   it("lands every timeline event on exactly one passage or plate", () => {
     for (const e of timeline) {
       if (e.plate)

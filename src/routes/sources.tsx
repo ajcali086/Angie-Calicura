@@ -29,12 +29,20 @@ function SourcesPage() {
           <p className="mt-2 text-sm text-fog">
             By <AuthorLink />, for Sheridan Wyoming History
           </p>
-          <a
-            href={article.url}
-            className="mt-1 inline-flex min-h-11 items-center text-[0.7rem] tracking-[0.14em] break-all text-brass uppercase hover:text-paper"
+          <p
+            data-adaptation-note
+            className="mt-4 border-l-2 border-brass pl-4 text-sm leading-relaxed text-fog"
           >
-            Read the original post
-          </a>
+            This article has been edited and formatted for presentation in this museum. The original
+            version, as published and unedited, is at{" "}
+            <a
+              href={article.url}
+              className="text-brass underline decoration-current/40 underline-offset-4 hover:text-paper hover:decoration-current"
+            >
+              Sheridan Wyoming History
+            </a>
+            .
+          </p>
         </section>
 
         <section className="mt-12">
