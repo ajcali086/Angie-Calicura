@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { plateStatus } from "@/model/connections";
 import { cn } from "@/lib/utils";
 import { fadeIn } from "@/lib/fadeIn";
 import { ImageOff } from "lucide-react";
@@ -53,6 +54,11 @@ function ArchiveIndex() {
                         </div>
                         <p className="mt-2 text-[0.68rem] tracking-[0.14em] text-brass uppercase">
                           Plate {p.number}
+                          {plateStatus(p.id) === "unverified" ? (
+                            <span className="ml-2 text-muted">· Unverified</span>
+                          ) : plateStatus(p.id) === "not-held" ? (
+                            <span className="ml-2 text-muted">· Not held</span>
+                          ) : null}
                         </p>
                         <p className="mt-1 line-clamp-3 text-sm leading-snug text-fog group-hover:text-paper">
                           {plain(p.caption)}

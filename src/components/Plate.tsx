@@ -3,14 +3,16 @@ import { Link } from "@tanstack/react-router";
 import { ImageOff, ZoomIn } from "lucide-react";
 import type { Plate as PlateData } from "@/data/article";
 import { plateImages, type PlateImage } from "@/data/plateImages";
+import { STATUS_LINE, plateStatus } from "@/model/connections";
 import { fadeIn } from "@/lib/fadeIn";
 import { cn } from "@/lib/utils";
 import { Inline } from "./Inline";
 
 /**
  * One of the post's images with its caption as the post gives it. A plate
- * whose image hasn't been added yet still shows its caption, in a frame that
- * says so, rather than disappearing from the record.
+ * the museum holds no copy of still shows its caption, in a frame that says
+ * so, rather than disappearing from the record; an unverified copy carries a
+ * visible marker wherever it appears.
  */
 export function Plate({
   plate,
@@ -29,6 +31,7 @@ export function Plate({
   const image = plateImages[plate.id];
   const onPaper = tone === "paper";
   const alt = plate.caption.replace(/\*+/g, "");
+  const status = plateStatus(plate.id);
   const frame = image?.set ? (
     <PlateSet set={image.set} alt={alt} large={large} />
   ) : image ? (
@@ -57,8 +60,9 @@ export function Plate({
       )}
     >
       <ImageOff className="size-5" aria-hidden />
-      <span className="font-sans text-[0.68rem] tracking-[0.16em] uppercase">
-        Image not yet added
+      <span className="font-sans text-[0.68rem] tracking-[0.16em] uppercase">Not held</span>
+      <span className="max-w-xs font-sans text-[0.75rem] leading-snug normal-case">
+        The post shows it; the museum has no copy yet.
       </span>
     </div>
   );
@@ -82,7 +86,7 @@ export function Plate({
           {frame}
         </Link>
       ) : image ? (
-        <PlateZoom plate={plate} images={image.set ?? [image]}>
+        <PlateZoom plate={plate} images={image.set ?? [image]} unverified={status === "unverified"}>
           {frame}
         </PlateZoom>
       ) : (
@@ -103,6 +107,17 @@ export function Plate({
           Plate {plate.number}
         </span>
         <Inline text={plate.caption} />
+        {status === "unverified" ? (
+          <span
+            data-status="unverified"
+            className={cn(
+              "mt-1.5 block tracking-[0.04em]",
+              onPaper ? "text-brass-dim" : "text-brass",
+            )}
+          >
+            {STATUS_LINE.unverified}
+          </span>
+        ) : null}
       </figcaption>
     </figure>
   );
@@ -116,15 +131,17 @@ export function Plate({
 function PlateZoom({
   plate,
   images,
+  unverified = false,
   children,
 }: {
   plate: PlateData;
+  unverified?: boolean;
   /** One image, or every photograph of a plate made of several. */
   images: PlateImage[];
   children: ReactNode;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  const label = `Plate ${plate.number}`;
+  const label = `Plate ${plate.number}${unverified ? " · Unverified" : ""}`;
   return (
     <>
       <button

@@ -29,18 +29,25 @@ Step 3 is in: `src/model/relationships.json` holds 44 typed edges between entiti
 
 Steps 4 and 5 are in. `src/model/evidence.json` links 54 claims to records, typed: 42 support, 6 contradict, 6 qualify. A claim is a verbatim quote from a passage or a plate's caption, checked against the text, or, once, a claim Spirit of Martinez holds (Virginia Sullivan's birth year), linked without editing it. Where the records contradict the post (171 or 173 North Main, the "City Marshal", Elko, the 1960 move, Tarantino's order), both stand, and every contradiction is carried by an open question. `src/model/questions.json` holds nine bounded questions, the post's own two and seven the records raise, and the Left Open page now reads from it: what we know, what we don't, what might answer it, the evidence needed, and the evidence so far.
 
+The model now shows on the site (`src/model/connections.ts`, pure functions over the model):
+
+- **Entity pages** at `/people/<slug>`, `/places/<slug>`, `/businesses/<slug>` and `/organizations/<slug>`: the names an entity goes by, every record that names it (appears in, photographed in, named in), its typed relationships marked as stated by a record or read from the post, the passages that name it in full, its identity decisions with their rationale and status, and the open questions that touch it. No biography; the one-line framing stays empty until the curator writes it.
+- **"How this connects"** on plate pages: who is in the picture, what is photographed or named, and up to three nearby plates sharing one of them. A plate that names nothing shows nothing.
+- **Status on the page:** an unverified copy (plate 31) carries a marker under its caption, in its zoom view, its archive tile and its share card; plates 33, 35 and 38 say "Not held"; Sources marks the 13 records the post cites as not held and links what each names.
+
 Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum prefix (`angie/p/2-p13`).
 
 ## Pages
 
-| Route                      | What it is                                                                           |
-| -------------------------- | ------------------------------------------------------------------------------------ |
-| `/`                        | Title, opening line, the three parts, doors into each room                           |
-| `/chapters/$slug`          | The article, in three parts, with its plates inline                                  |
-| `/timeline`                | Every date the post gives for Angie's life, by decade                                |
-| `/archive`, `/archive/$id` | All 39 plates with the post's captions                                               |
-| `/sources`                 | The article, the newspapers in the plates, records named in the text, and the thanks |
-| `/left-open`               | Nine open questions: the post's own two, and seven its records raise                 |
+| Route                                                                         | What it is                                                                           |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `/`                                                                           | Title, opening line, the three parts, doors into each room                           |
+| `/chapters/$slug`                                                             | The article, in three parts, with its plates inline                                  |
+| `/timeline`                                                                   | Every date the post gives for Angie's life, by decade                                |
+| `/archive`, `/archive/$id`                                                    | All 39 plates with the post's captions                                               |
+| `/sources`                                                                    | The article, the newspapers in the plates, records named in the text, and the thanks |
+| `/people/$slug`, `/places/$slug`, `/businesses/$slug`, `/organizations/$slug` | Entity pages, generated from the model                                               |
+| `/left-open`                                                                  | Nine open questions: the post's own two, and seven its records raise                 |
 
 ## Images
 

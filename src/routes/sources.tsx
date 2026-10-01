@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { EntityLink } from "@/components/EntityPage";
+import { entitiesForRecord, records } from "@/model";
 import { AuthorLink } from "@/components/AuthorLink";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
@@ -76,6 +78,9 @@ function SourcesPage() {
             {namedInText.map((s) => (
               <li key={s.name} className="border-b border-rule/40 py-4">
                 <p className="font-display text-xl text-paper">{s.name}</p>
+                <p className="mt-0.5 text-[0.68rem] tracking-[0.14em] text-muted uppercase">
+                  Not held: cited by the author; the museum has no copy
+                </p>
                 <p className="mt-1 text-sm leading-relaxed text-fog">
                   “<Inline text={s.quote} />”
                 </p>
@@ -83,6 +88,7 @@ function SourcesPage() {
                   <PassageDoor to={door(s.quote)} />
                   <ListenButton block={door(s.quote)?.hash} />
                 </div>
+                <CitedNames name={s.name} />
               </li>
             ))}
           </ul>
@@ -101,5 +107,20 @@ function SourcesPage() {
         </section>
       </div>
     </SiteShell>
+  );
+}
+
+/** The people, places and organizations a cited record names, as doors to their pages. */
+function CitedNames({ name }: { name: string }) {
+  const record = records.find((r) => r.cited === name);
+  const named = record ? entitiesForRecord(record.id) : [];
+  if (!named.length) return null;
+  return (
+    <p className="mt-1 flex flex-wrap gap-x-4 text-sm">
+      <span className="text-[0.68rem] tracking-[0.14em] text-muted uppercase">Names</span>
+      {named.map((e) => (
+        <EntityLink key={e.id} entity={e} />
+      ))}
+    </p>
   );
 }

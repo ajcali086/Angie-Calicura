@@ -1,4 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { PlateConnections } from "@/components/PlateConnections";
+import { plateStatus } from "@/model/connections";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Plate } from "@/components/Plate";
 import { doorClass } from "@/components/Door";
@@ -52,6 +54,7 @@ function PlatePage() {
           <ListenButton block={plate.paragraph} label="Listen to the passage" />
           <ListenButton block={plate.id} label="Hear the caption" />
         </div>
+        <PlateConnections plateId={plate.id} />
         {image && passage ? (
           <section className="mt-10 border-t border-rule pt-6">
             <h2 className="kicker">Share as an image</h2>
@@ -59,7 +62,7 @@ function PlatePage() {
               key={plate.id}
               kicker={`Part ${chapter.number} · ${chapter.title}`}
               sentences={blockSentences(passage)}
-              credit={`Plate ${plate.number}`}
+              credit={`Plate ${plate.number}${plateStatus(plate.id) === "unverified" ? " · Unverified" : ""}`}
               plateSrc={image.src}
               plateAlt={plate.caption.replace(/\*+/g, "")}
               plateIsPortrait={image.height > image.width}

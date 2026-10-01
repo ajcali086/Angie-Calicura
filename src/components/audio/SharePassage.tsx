@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { plateStatus } from "@/model/connections";
 import { Share2 } from "lucide-react";
 import { plateById } from "@/data/article";
 import { PARTS, blockSentences, blockWindow, formatClock, spokenBlocks } from "@/data/audio";
@@ -81,7 +82,9 @@ export function SharePassage({
         const canvas = await renderSnippetCard({
           plateImage: image ? await loadImage(image.src) : null,
           plateIsPortrait: image ? image.height > image.width : false,
-          credit: plateById(plate) ? `Plate ${plateById(plate)!.number}` : null,
+          credit: plateById(plate)
+            ? `Plate ${plateById(plate)!.number}${plateStatus(plate) === "unverified" ? " · Unverified" : ""}`
+            : null,
           kicker,
           sentences,
           listen,

@@ -15,8 +15,12 @@ import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as ArchiveIndexRouteImport } from './routes/archive.index'
 import { Route as ArchiveIdRouteImport } from './routes/archive.$id'
+import { Route as BusinessesSlugRouteImport } from './routes/businesses.$slug'
 import { Route as ChaptersIndexRouteImport } from './routes/chapters.index'
 import { Route as ChaptersSlugRouteImport } from './routes/chapters.$slug'
+import { Route as OrganizationsSlugRouteImport } from './routes/organizations.$slug'
+import { Route as PeopleSlugRouteImport } from './routes/people.$slug'
+import { Route as PlacesSlugRouteImport } from './routes/places.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -48,6 +52,11 @@ const ArchiveIdRoute = ArchiveIdRouteImport.update({
   path: '/archive/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessesSlugRoute = BusinessesSlugRouteImport.update({
+  id: '/businesses/$slug',
+  path: '/businesses/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChaptersIndexRoute = ChaptersIndexRouteImport.update({
   id: '/chapters/',
   path: '/chapters/',
@@ -58,6 +67,21 @@ const ChaptersSlugRoute = ChaptersSlugRouteImport.update({
   path: '/chapters/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrganizationsSlugRoute = OrganizationsSlugRouteImport.update({
+  id: '/organizations/$slug',
+  path: '/organizations/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PeopleSlugRoute = PeopleSlugRouteImport.update({
+  id: '/people/$slug',
+  path: '/people/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlacesSlugRoute = PlacesSlugRouteImport.update({
+  id: '/places/$slug',
+  path: '/places/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -65,7 +89,11 @@ export interface FileRoutesByFullPath {
   '/sources': typeof SourcesRoute
   '/timeline': typeof TimelineRoute
   '/archive/$id': typeof ArchiveIdRoute
+  '/businesses/$slug': typeof BusinessesSlugRoute
   '/chapters/$slug': typeof ChaptersSlugRoute
+  '/organizations/$slug': typeof OrganizationsSlugRoute
+  '/people/$slug': typeof PeopleSlugRoute
+  '/places/$slug': typeof PlacesSlugRoute
   '/archive/': typeof ArchiveIndexRoute
   '/chapters/': typeof ChaptersIndexRoute
 }
@@ -75,7 +103,11 @@ export interface FileRoutesByTo {
   '/sources': typeof SourcesRoute
   '/timeline': typeof TimelineRoute
   '/archive/$id': typeof ArchiveIdRoute
+  '/businesses/$slug': typeof BusinessesSlugRoute
   '/chapters/$slug': typeof ChaptersSlugRoute
+  '/organizations/$slug': typeof OrganizationsSlugRoute
+  '/people/$slug': typeof PeopleSlugRoute
+  '/places/$slug': typeof PlacesSlugRoute
   '/archive': typeof ArchiveIndexRoute
   '/chapters': typeof ChaptersIndexRoute
 }
@@ -86,7 +118,11 @@ export interface FileRoutesById {
   '/sources': typeof SourcesRoute
   '/timeline': typeof TimelineRoute
   '/archive/$id': typeof ArchiveIdRoute
+  '/businesses/$slug': typeof BusinessesSlugRoute
   '/chapters/$slug': typeof ChaptersSlugRoute
+  '/organizations/$slug': typeof OrganizationsSlugRoute
+  '/people/$slug': typeof PeopleSlugRoute
+  '/places/$slug': typeof PlacesSlugRoute
   '/archive/': typeof ArchiveIndexRoute
   '/chapters/': typeof ChaptersIndexRoute
 }
@@ -98,7 +134,11 @@ export interface FileRouteTypes {
     | '/sources'
     | '/timeline'
     | '/archive/$id'
+    | '/businesses/$slug'
     | '/chapters/$slug'
+    | '/organizations/$slug'
+    | '/people/$slug'
+    | '/places/$slug'
     | '/archive/'
     | '/chapters/'
   fileRoutesByTo: FileRoutesByTo
@@ -108,7 +148,11 @@ export interface FileRouteTypes {
     | '/sources'
     | '/timeline'
     | '/archive/$id'
+    | '/businesses/$slug'
     | '/chapters/$slug'
+    | '/organizations/$slug'
+    | '/people/$slug'
+    | '/places/$slug'
     | '/archive'
     | '/chapters'
   id:
@@ -118,7 +162,11 @@ export interface FileRouteTypes {
     | '/sources'
     | '/timeline'
     | '/archive/$id'
+    | '/businesses/$slug'
     | '/chapters/$slug'
+    | '/organizations/$slug'
+    | '/people/$slug'
+    | '/places/$slug'
     | '/archive/'
     | '/chapters/'
   fileRoutesById: FileRoutesById
@@ -129,7 +177,11 @@ export interface RootRouteChildren {
   SourcesRoute: typeof SourcesRoute
   TimelineRoute: typeof TimelineRoute
   ArchiveIdRoute: typeof ArchiveIdRoute
+  BusinessesSlugRoute: typeof BusinessesSlugRoute
   ChaptersSlugRoute: typeof ChaptersSlugRoute
+  OrganizationsSlugRoute: typeof OrganizationsSlugRoute
+  PeopleSlugRoute: typeof PeopleSlugRoute
+  PlacesSlugRoute: typeof PlacesSlugRoute
   ArchiveIndexRoute: typeof ArchiveIndexRoute
   ChaptersIndexRoute: typeof ChaptersIndexRoute
 }
@@ -178,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArchiveIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/businesses/$slug': {
+      id: '/businesses/$slug'
+      path: '/businesses/$slug'
+      fullPath: '/businesses/$slug'
+      preLoaderRoute: typeof BusinessesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/chapters/': {
       id: '/chapters/'
       path: '/chapters'
@@ -192,6 +251,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChaptersSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/organizations/$slug': {
+      id: '/organizations/$slug'
+      path: '/organizations/$slug'
+      fullPath: '/organizations/$slug'
+      preLoaderRoute: typeof OrganizationsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/people/$slug': {
+      id: '/people/$slug'
+      path: '/people/$slug'
+      fullPath: '/people/$slug'
+      preLoaderRoute: typeof PeopleSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/places/$slug': {
+      id: '/places/$slug'
+      path: '/places/$slug'
+      fullPath: '/places/$slug'
+      preLoaderRoute: typeof PlacesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -201,7 +281,11 @@ const rootRouteChildren: RootRouteChildren = {
   SourcesRoute: SourcesRoute,
   TimelineRoute: TimelineRoute,
   ArchiveIdRoute: ArchiveIdRoute,
+  BusinessesSlugRoute: BusinessesSlugRoute,
   ChaptersSlugRoute: ChaptersSlugRoute,
+  OrganizationsSlugRoute: OrganizationsSlugRoute,
+  PeopleSlugRoute: PeopleSlugRoute,
+  PlacesSlugRoute: PlacesSlugRoute,
   ArchiveIndexRoute: ArchiveIndexRoute,
   ChaptersIndexRoute: ChaptersIndexRoute,
 }

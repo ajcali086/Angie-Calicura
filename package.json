@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --import ./scripts/test-register.mjs --test src/data/article.test.ts src/data/ids.test.ts src/data/links.test.ts src/data/verbatim.test.ts src/data/titleImage.test.ts src/data/audio.test.ts src/data/narration.test.ts src/lib/snippetCard.test.ts src/lib/clipSlice.test.ts src/model/model.test.ts",
+    "test": "node --experimental-strip-types --import ./scripts/test-register.mjs --test src/data/article.test.ts src/data/ids.test.ts src/data/links.test.ts src/data/verbatim.test.ts src/data/titleImage.test.ts src/data/audio.test.ts src/data/narration.test.ts src/lib/snippetCard.test.ts src/lib/clipSlice.test.ts src/model/model.test.ts src/model/connections.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
