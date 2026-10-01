@@ -161,7 +161,27 @@ export const checks: { name: string; run: () => string[] }[] = [
     },
   },
   {
-    name: "a record added as a copy of a cited one points at a not-held record the post cites, and is held",
+    name: "a record the post shows in its text names a passage that exists, and no plate",
+    run: () =>
+      records
+        .filter((r) => r.shown_at)
+        .flatMap((r) => [
+          ...fail(
+            chapters.some((c) => c.blocks.some((b) => b.type !== "figure" && b.id === r.shown_at)),
+            `${r.id}: shown at ${r.shown_at}`,
+          ),
+          ...fail(!r.plate, `${r.id}: shown at a passage and in a plate`),
+        ]),
+  },
+  {
+    name: "every held record outside the plates is shown in the post's text",
+    run: () =>
+      records
+        .filter((r) => r.held && !r.plate && !r.cited && r.kind !== "derived_media")
+        .flatMap((r) => fail(!!r.shown_at, `${r.id}: held, but the post doesn't show it`)),
+  },
+  {
+    name: "a copy of a cited record points at a not-held record the post cites, and is held",
     run: () =>
       records
         .filter((r) => r.copy_of)

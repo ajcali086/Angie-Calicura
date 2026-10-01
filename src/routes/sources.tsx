@@ -125,15 +125,15 @@ function CitedNames({ name }: { name: string }) {
   );
 }
 
-/** Whether the museum holds a copy of a record the post cites, added beyond the post. */
+/** Whether the museum holds a copy of a record the post cites. */
 function CitedStatus({ name }: { name: string }) {
   const record = records.find((r) => r.cited === name);
   const copies = records.filter((r) => record && r.copy_of === record.id);
   if (!copies.length) return <>Not held: cited by the author; the museum has no copy</>;
   return (
     <>
-      Cited by the author; {copies.length === 1 ? "a copy" : `${copies.length} copies`} added beyond
-      the post, unverified:{" "}
+      Cited by the author, and shown in the post; the museum holds{" "}
+      {copies.length === 1 ? "a copy" : `${copies.length} copies`}:{" "}
       {copies.map((c, i) => (
         <span key={c.id}>
           {i ? ", " : ""}

@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { plates } from "../data/article.ts";
 import { entities, entitiesForRecord, entityBySlug, records } from "./index.ts";
 import {
-  addedRecords,
+  textRecords,
   entitiesOnPlate,
   entityByPath,
   entitySection,
@@ -18,7 +18,7 @@ describe("connections: entity pages and plate doors (H1 rendering)", () => {
     for (const e of entities) assert.equal(entityByPath(entitySection(e), e.slug), e, e.slug);
   });
 
-  it("reaches every entity page from a plate page, from Sources or from the archive's added records", () => {
+  it("reaches every entity page from a plate page, from Sources or from the records shown in the text", () => {
     const fromPlates = new Set(
       plates.flatMap((p) => entitiesOnPlate(p.id).map((x) => x.entity.id)),
     );
@@ -26,7 +26,7 @@ describe("connections: entity pages and plate doors (H1 rendering)", () => {
       records.filter((r) => r.cited).flatMap((r) => entitiesForRecord(r.id).map((e) => e.id)),
     );
     const fromAdded = new Set(
-      addedRecords().flatMap((r) => entitiesForRecord(r.id).map((e) => e.id)),
+      textRecords().flatMap((r) => entitiesForRecord(r.id).map((e) => e.id)),
     );
     assert.deepEqual(
       entities

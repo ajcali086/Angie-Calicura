@@ -21,11 +21,11 @@ import { checks } from "./validate.ts";
 describe("model: H1 steps 1 to 5", () => {
   for (const check of checks) it(check.name, () => assert.deepEqual(check.run(), []));
 
-  it("holds 67 records: 47 verified, 6 unverified, 14 not held", () => {
+  it("holds 67 records: 52 verified, 1 unverified, 14 not held", () => {
     const count = (s: string) => records.filter((r) => r.status === s).length;
     assert.deepEqual(
       [records.length, count("verified"), count("unverified"), count("not-held")],
-      [67, 47, 6, 14],
+      [67, 52, 1, 14],
     );
   });
 

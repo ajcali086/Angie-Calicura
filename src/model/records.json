@@ -1038,106 +1038,131 @@
   {
     "rights_holder": "unknown",
     "held": true,
-    "status": "unverified",
+    "status": "verified",
     "capture_provenance": {
-      "unknown": "supplied by the site owner; capture details not known"
-    },
-    "restoration": null,
-    "id": "obituary-tahoe-1986",
-    "kind": "document",
-    "title": "Angelina Alexander, obituary, South Lake Tahoe, December 1986",
-    "credit": "Supplied by the site owner; the clipping doesn't show its newspaper",
-    "media": ["public/images/records/obituary-tahoe-1986.png"],
-    "copy_of": "cited-obituaries",
-    "notes": [
-      {
-        "date": "2026-10-01",
-        "note": "Added beyond the post at the site owner's request. By its content, the Tahoe Daily Tribune obituary the post cites; the clipping doesn't show its masthead."
-      }
-    ]
-  },
-  {
-    "rights_holder": "unknown",
-    "held": true,
-    "status": "unverified",
-    "capture_provenance": {
-      "unknown": "supplied by the site owner; capture details not known"
+      "unknown": "copied from the post; capture details not known"
     },
     "restoration": null,
     "id": "obituary-martinez-1986",
     "kind": "document",
-    "title": "Angelina Alexander, obituary, Martinez, December 1986",
-    "credit": "Supplied by the site owner; the clipping doesn't show its newspaper",
+    "title": "Angelina Alexander, obituary, Martinez News-Gazette, December 30, 1986",
+    "credit": "Martinez News-Gazette, Martinez, California, December 30, 1986, page 2, as the post cites it",
     "media": ["public/images/records/obituary-martinez-1986.jpg"],
     "copy_of": "cited-obituaries",
     "notes": [
       {
         "date": "2026-10-01",
-        "note": "Added beyond the post at the site owner's request. By its content, the Martinez News-Gazette obituary the post cites; the clipping doesn't show its masthead. It gives her age as 68; born July 1917, she was 69, as the South Lake Tahoe obituary says."
+        "note": "Funeral services \"are pending\", as on December 30. It gives her age as 68; born July 1917, she was 69, as the Tahoe Daily Tribune obituary says."
+      },
+      {
+        "date": "2026-10-01",
+        "note": "The post shows it at 3-p21 with its newspaper, date and page; first filed here as added beyond the post and unverified, corrected to the post's own image."
       }
-    ]
+    ],
+    "shown_at": "3-p21"
   },
   {
     "rights_holder": "unknown",
     "held": true,
-    "status": "unverified",
+    "status": "verified",
     "capture_provenance": {
-      "unknown": "supplied by the site owner; capture details not known"
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "id": "obituary-tahoe-1986",
+    "kind": "document",
+    "title": "Angelina Alexander, obituary, Tahoe Daily Tribune, January 2, 1987",
+    "credit": "Tahoe Daily Tribune, South Lake Tahoe, California, January 2, 1987, page 2, as the post cites it",
+    "media": ["public/images/records/obituary-tahoe-1986.png"],
+    "copy_of": "cited-obituaries",
+    "notes": [
+      {
+        "date": "2026-10-01",
+        "note": "Published after the funeral (\"held today at 11 a.m.\"), so January 2, 1987, as the post says, though she died December 28, 1986."
+      },
+      {
+        "date": "2026-10-01",
+        "note": "The post shows it at 3-p21 with its newspaper, date and page; first filed here as added beyond the post and unverified, corrected to the post's own image."
+      }
+    ],
+    "shown_at": "3-p21"
+  },
+  {
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
     },
     "restoration": null,
     "id": "grave-marker-1",
     "kind": "photograph",
     "part": 1,
     "title": "Angelina Alexander's grave marker, photograph 1 of 3",
-    "credit": "Supplied by the site owner; photographer not recorded",
+    "credit": "Shown in the post; the flowers were sent by Michael Dykhorst in 2024, for the 38th anniversary of her death",
     "media": ["public/images/records/grave-marker-1.png"],
     "notes": [
       {
         "date": "2026-10-01",
-        "note": "Added beyond the post at the site owner's request. The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which her obituary names as Happy Homestead."
+        "note": "The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which the post and her obituary name as Happy Homestead. Snow and the anniversary flowers: December 2024, by the post's caption."
+      },
+      {
+        "date": "2026-10-01",
+        "note": "The post shows it at 3-p22 (\"Three photos of Angie's grave\"); first filed here as added beyond the post and unverified, corrected to the post's own image."
       }
-    ]
+    ],
+    "shown_at": "3-p22"
   },
   {
     "rights_holder": "unknown",
     "held": true,
-    "status": "unverified",
+    "status": "verified",
     "capture_provenance": {
-      "unknown": "supplied by the site owner; capture details not known"
+      "unknown": "copied from the post; capture details not known"
     },
     "restoration": null,
     "id": "grave-marker-2",
     "kind": "photograph",
     "part": 2,
     "title": "Angelina Alexander's grave marker, photograph 2 of 3",
-    "credit": "Supplied by the site owner; photographer not recorded",
+    "credit": "Shown in the post; photographer not named",
     "media": ["public/images/records/grave-marker-2.png"],
     "notes": [
       {
         "date": "2026-10-01",
-        "note": "Added beyond the post at the site owner's request. The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which her obituary names as Happy Homestead."
+        "note": "The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which the post and her obituary name as Happy Homestead. Green grass and no flowers: a different visit from photograph 1, date not given."
+      },
+      {
+        "date": "2026-10-01",
+        "note": "The post shows it at 3-p22 (\"Three photos of Angie's grave\"); first filed here as added beyond the post and unverified, corrected to the post's own image."
       }
-    ]
+    ],
+    "shown_at": "3-p22"
   },
   {
     "rights_holder": "unknown",
     "held": true,
-    "status": "unverified",
+    "status": "verified",
     "capture_provenance": {
-      "unknown": "supplied by the site owner; capture details not known"
+      "unknown": "copied from the post; capture details not known"
     },
     "restoration": null,
     "id": "grave-marker-3",
     "kind": "photograph",
     "part": 3,
     "title": "Angelina Alexander's grave marker, photograph 3 of 3",
-    "credit": "Supplied by the site owner; photographer not recorded",
+    "credit": "Shown in the post; photographer not named",
     "media": ["public/images/records/grave-marker-3.png"],
     "notes": [
       {
         "date": "2026-10-01",
-        "note": "Added beyond the post at the site owner's request. The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which her obituary names as Happy Homestead."
+        "note": "The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which the post and her obituary name as Happy Homestead. Green grass and no flowers: a different visit from photograph 1, date not given."
+      },
+      {
+        "date": "2026-10-01",
+        "note": "The post shows it at 3-p22 (\"Three photos of Angie's grave\"); first filed here as added beyond the post and unverified, corrected to the post's own image."
       }
-    ]
+    ],
+    "shown_at": "3-p22"
   }
 ]

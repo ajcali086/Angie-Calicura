@@ -152,7 +152,7 @@ export function EntityPage({ entity }: { entity: Entity }) {
                         ? `Plate ${plate.number}`
                         : rec.cited
                           ? "a record the post cites"
-                          : "added beyond the post"}
+                          : "shown in the post's text"}
                     </p>
                     <p className="mt-1 text-sm leading-snug text-fog">
                       {plate ? plain(plate.caption) : rec.title}

@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EntityLink } from "@/components/EntityPage";
 import { entitiesForRecord } from "@/model";
-import { STATUS_LINE, addedRecords, mediaSrc, plateStatus } from "@/model/connections";
+import { STATUS_LINE, mediaSrc, plateStatus, textRecords } from "@/model/connections";
+import { PassageDoor } from "@/components/Door";
 import { cn } from "@/lib/utils";
 import { fadeIn } from "@/lib/fadeIn";
 import { ImageOff } from "lucide-react";
@@ -72,7 +73,7 @@ function ArchiveIndex() {
             </ul>
           </section>
         ))}
-        <AddedRecords />
+        <TextRecords />
       </div>
     </SiteShell>
   );
@@ -102,18 +103,19 @@ function SetTile({ set }: { set: PlateImage[] }) {
 }
 
 /**
- * Records the post doesn't show, added to the museum: each with its credit,
- * its status, and doors to whoever and whatever it names.
+ * Records the post shows without numbering them as plates, captioned by a
+ * paragraph of its text: each with its credit, a door to that paragraph,
+ * and doors to whoever and whatever it names.
  */
-function AddedRecords() {
-  const added = addedRecords();
+function TextRecords() {
+  const added = textRecords();
   if (!added.length) return null;
   return (
-    <section id="added" className="mt-16 scroll-mt-24">
-      <h2 className="kicker border-b border-rule pb-2">Added beyond the post</h2>
+    <section id="in-the-text" className="mt-16 scroll-mt-24">
+      <h2 className="kicker border-b border-rule pb-2">Shown in the text</h2>
       <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fog">
-        Records the post doesn’t show, added to the museum. Each is marked unverified until where it
-        came from is recorded.
+        Records the post shows without numbering them as plates. A paragraph of its text captions
+        them.
       </p>
       <ul className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {added.map((r) => {
@@ -143,6 +145,7 @@ function AddedRecords() {
                   {STATUS_LINE[r.status]}
                 </p>
               ) : null}
+              {r.shown_at ? <ShownAt id={r.shown_at} /> : null}
               {named.length ? (
                 <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                   <span className="text-[0.68rem] tracking-[0.14em] text-muted uppercase">
@@ -159,4 +162,12 @@ function AddedRecords() {
       </ul>
     </section>
   );
+}
+
+/** A door to the paragraph that captions a record shown in the text. */
+function ShownAt({ id }: { id: string }) {
+  const chapter = chapters.find((c) => c.blocks.some((b) => b.type !== "figure" && b.id === id));
+  return chapter ? (
+    <PassageDoor to={{ slug: chapter.slug, hash: id }} label="Read the caption" />
+  ) : null;
 }

@@ -59,7 +59,7 @@ Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum 
 
 38 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plateImages.ts`). Plate 13 is five photographs of the Ideal Hotel's building, as in the post: the plate shows all five at once (two over three in the article, all five in its archive tile), and its zoom view shows each one whole. Plate 31 is the press print's front and back, side by side; the back carries the handwritten caption the post quotes. Still missing: plate 33, which shows its caption in a frame marked "Image not yet added".
 
-Five records go beyond the post: the 1986 obituaries from South Lake Tahoe and Martinez (copies of the ones the post cites) and three photographs of Angie's grave marker. They are listed under "Added beyond the post" in the archive and on the entity pages they name. Each is marked unverified until its source is recorded.
+Five more images are the post's own, shown without plate numbers and captioned by its running text (`3-p21`, `3-p22`): Angie's two obituaries (Martinez News-Gazette, December 30, 1986, and Tahoe Daily Tribune, January 2, 1987, each page 2, as the post cites them) and three photographs of her grave marker. Each record carries `shown_at`, the passage that captions it. They are listed under "Shown in the text" in the archive and on the entity pages they name.
 
 ## Reading
 

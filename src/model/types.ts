@@ -49,8 +49,10 @@ export type MuseumRecord = {
   derived_from?: string;
   /** A record named in the text: its name in src/data/sources.ts. */
   cited?: string;
-  /** A held copy of a record the text cites (that record's ID), added beyond the post. */
+  /** A held copy of a record the text cites (that record's ID). */
   copy_of?: string;
+  /** The passage that shows it, for a record the post shows without a plate: its caption is running text. */
+  shown_at?: string;
   notes: RecordNote[];
 };
 
