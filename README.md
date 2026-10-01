@@ -23,6 +23,8 @@ The museum is being retrofitted onto the shared Story & Record model, one step a
 - `src/model/records.json`: 62 records, one per object. 39 plates make 43 (plate 13 is five photographs; plate 31's print, front and back, is one), plus the 13 records the text cites, the 5 audio parts and the narration script. Each is held or not and `verified`, `unverified` or `not-held`, with its credit, rights holder and capture provenance ("unknown" stated, not smoothed) and dated notes.
 - `src/model/validate.ts`: the step's gates. `npm test` runs them, and `npm run build` refuses to start if any fails (`npm run check:model`).
 
+Step 2 is in: `src/model/entities.json` holds 51 entities (23 people, 11 places, 11 businesses, 5 organizations, 1 family). An entity needs both a record that anchors it and a mention in the post. Each alias cites where it's found, and every merge, split or open identity is a dated assertion, drafted for the curator's review. People who share a given name or nickname (two Angelinas, two Sams, three Jacks) carry split assertions, so a later suggestion engine won't propose merging them. Five names the post uses have no record behind them and are held back with the reason, among them "City Marshal Jack Wolfe": in the clipping (plate 21), the account of serving papers is Sheriff Willard Marshall's.
+
 Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum prefix (`angie/p/2-p13`).
 
 ## Pages

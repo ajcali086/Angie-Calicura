@@ -1,13 +1,14 @@
 import { existsSync } from "node:fs";
-import { plates } from "../data/article.ts";
+import { ARTICLE_SOURCE } from "../data/article.source.ts";
+import { frozenIds, plates } from "../data/article.ts";
 import { PARTS } from "../data/audio.ts";
 import { plateImages } from "../data/plateImages.ts";
 import { namedInText } from "../data/sources.ts";
-import { museum, records } from "./index.ts";
+import { entities, heldBack, museum, records } from "./index.ts";
 import { SCHEMA_VERSION } from "./types.ts";
 
 /**
- * The step-1 gates (H1 retrofit plan), as named checks. Each returns the
+ * The H1 gates (retrofit plan steps 1 and 2), as named checks. Each returns the
  * problems it finds; none means the gate passes. Run by src/model/model.test.ts
  * and by scripts/check-model.ts before every build.
  */
@@ -165,6 +166,152 @@ export const checks: { name: string; run: () => string[] }[] = [
     ],
   },
 ];
+
+// Step 2: entities and identity decisions.
+const recordIds = new Set(records.map((r) => r.id));
+const passageIds = new Set(frozenIds.blocks.map(([id]) => id));
+const entityIds = new Set(entities.map((e) => e.id));
+const resolves = (ref: string) => recordIds.has(ref) || passageIds.has(ref);
+const text = ARTICLE_SOURCE.toLowerCase();
+/** The ways an entity's name can appear in the post: label, label without its qualifier, aliases. */
+const nameForms = (e: (typeof entities)[number]) => {
+  const bare = e.label.replace(/\s*\([^)]*\)/g, "").replace(/^The /, "");
+  return [e.label, bare, bare.split(",")[0], ...e.aliases.map((a) => a.name)];
+};
+const TITLES = new Set(["mrs.", "mr.", "miss", "baby", "sheriff", "the"]);
+/** Given names and quoted nicknames: what a shared-name suggestion would match on. */
+const givenNames = (e: (typeof entities)[number]) => {
+  const out = new Set<string>();
+  for (const name of [e.label, ...e.aliases.map((a) => a.name)]) {
+    const first = name.split(" ")[0].toLowerCase();
+    if (!TITLES.has(first) && !/^[a-z]\.$/.test(first)) out.add(first);
+    for (const m of name.matchAll(/"([^"]+)"|\(([^)]+)\)/g)) out.add((m[1] ?? m[2]).toLowerCase());
+  }
+  return out;
+};
+
+checks.push(
+  {
+    name: "entity IDs are eight hex characters, unique; slugs are unique",
+    run: () => {
+      const ids = new Set<string>(),
+        slugs = new Set<string>();
+      return entities.flatMap((e) => {
+        const out = [
+          ...fail(/^[0-9a-f]{8}$/.test(e.id), `${e.slug}: id ${e.id}`),
+          ...fail(/^[a-z0-9]+(-[a-z0-9]+)*$/.test(e.slug), `${e.slug}: slug`),
+          ...fail(
+            ["person", "place", "organization", "business", "event", "family"].includes(e.kind),
+            `${e.slug}: kind`,
+          ),
+        ];
+        if (ids.has(e.id)) out.push(`${e.slug}: duplicate id`);
+        if (slugs.has(e.slug)) out.push(`${e.slug}: duplicate slug`);
+        ids.add(e.id);
+        slugs.add(e.slug);
+        return out;
+      });
+    },
+  },
+  {
+    name: "every entity has at least one anchoring record, and every anchor resolves",
+    run: () =>
+      entities.flatMap((e) => [
+        ...fail(e.anchors.length > 0, `${e.slug}: no anchor`),
+        ...e.anchors.flatMap((a) => fail(recordIds.has(a), `${e.slug}: anchor ${a}`)),
+      ]),
+  },
+  {
+    name: "every entity is named in the post (text or captions)",
+    run: () =>
+      entities.flatMap((e) =>
+        fail(
+          nameForms(e).some((n) => text.includes(n.toLowerCase())),
+          `${e.slug}: not in the post`,
+        ),
+      ),
+  },
+  {
+    name: "every alias has sources, belongs to one entity, and is covered by a merge or open assertion",
+    run: () => {
+      const owner = new Map<string, string>();
+      return entities.flatMap((e) =>
+        e.aliases.flatMap((a) => {
+          const out = [
+            ...fail(a.sources.length > 0, `${e.slug}: ${a.name} has no source`),
+            ...a.sources.flatMap((s) => fail(resolves(s), `${e.slug}: ${a.name} source ${s}`)),
+            ...fail(
+              e.identity_assertions.some((x) => x.action !== "split" && x.names?.includes(a.name)),
+              `${e.slug}: ${a.name} has no assertion`,
+            ),
+          ];
+          if (owner.has(a.name)) out.push(`${a.name}: alias of ${owner.get(a.name)} and ${e.slug}`);
+          owner.set(a.name, e.slug);
+          return out;
+        }),
+      );
+    },
+  },
+  {
+    name: "every identity assertion is dated, attributed, reasoned and sourced",
+    run: () =>
+      entities.flatMap((e) =>
+        e.identity_assertions.flatMap((x, i) => {
+          const at = `${e.slug} assertion ${i + 1}`;
+          return [
+            ...fail(["merge", "split", "open"].includes(x.action), `${at}: action`),
+            ...fail(
+              iso.test(x.date) && !!x.curator && !!x.rationale,
+              `${at}: date, curator or rationale`,
+            ),
+            ...fail(x.sources.length > 0, `${at}: no sources`),
+            ...x.sources.flatMap((s) => fail(resolves(s), `${at}: source ${s}`)),
+            ...(x.action === "split"
+              ? fail(
+                  !!x.with?.length && x.with.every((w) => entityIds.has(w) && w !== e.id),
+                  `${at}: split targets`,
+                )
+              : fail(
+                  !!x.names?.length && x.names.every((n) => e.aliases.some((a) => a.name === n)),
+                  `${at}: names`,
+                )),
+          ];
+        }),
+      ),
+  },
+  {
+    name: "people who share a given name or nickname carry a split assertion",
+    run: () => {
+      const people = entities.filter((e) => e.kind === "person");
+      const split = (a: string, b: string) =>
+        entities.some((e) =>
+          e.identity_assertions.some(
+            (x) =>
+              x.action === "split" &&
+              ((e.id === a && x.with?.includes(b)) || (e.id === b && x.with?.includes(a))),
+          ),
+        );
+      const out: string[] = [];
+      people.forEach((a, i) =>
+        people.slice(i + 1).forEach((b) => {
+          const shared = [...givenNames(a)].filter((n) => givenNames(b).has(n));
+          if (shared.length && !split(a.id, b.id))
+            out.push(`${a.slug} / ${b.slug} share "${shared[0]}"`);
+        }),
+      );
+      return out;
+    },
+  },
+  {
+    name: "every held-back name says why, with sources, and is not also an entity",
+    run: () =>
+      heldBack.flatMap((h) => [
+        ...fail(!!h.reason && h.sources.length > 0, `${h.label}: reason or sources`),
+        ...h.sources.flatMap((s) => fail(resolves(s), `${h.label}: source ${s}`)),
+        ...fail(!entities.some((e) => e.label === h.label), `${h.label}: also an entity`),
+      ]),
+  },
+);
 
 export function problems(): string[] {
   return checks.flatMap((c) => c.run().map((p) => `${c.name}: ${p}`));

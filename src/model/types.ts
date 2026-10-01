@@ -74,3 +74,43 @@ export type Museum = {
   id_freeze_date: string;
   schema_version: number;
 };
+
+export type EntityKind = "person" | "place" | "organization" | "business" | "event" | "family";
+
+/** A name an entity also goes by, and where it is found (record or passage IDs). */
+export type Alias = { name: string; sources: string[] };
+
+/**
+ * A curator's identity decision, dated and attributed (spec §2.2):
+ * - merge: these names (aliases) are this entity;
+ * - split: this entity is distinct from those (`with`), despite a shared name;
+ * - open: these names may be this entity, but it isn't settled; an open question.
+ */
+export type IdentityAssertion = {
+  action: "merge" | "split" | "open";
+  names?: string[];
+  with?: string[];
+  curator: string;
+  date: string;
+  rationale: string;
+  sources: string[];
+};
+
+export type Entity = {
+  /** Identity: eight hex characters, never reused. */
+  id: string;
+  /** Display, for URLs. */
+  slug: string;
+  kind: EntityKind;
+  label: string;
+  aliases: Alias[];
+  /** Record IDs that anchor it. At least one; no anchorless entities. */
+  anchors: string[];
+  /** One line, curator-written and dated. Not written yet. */
+  framing: null | { text: string; curator: string; date: string };
+  identity_assertions: IdentityAssertion[];
+  notes: RecordNote[];
+};
+
+/** A name the post uses that no record anchors: kept out of the entities, with the reason. */
+export type HeldBack = { label: string; kind: EntityKind; reason: string; sources: string[] };

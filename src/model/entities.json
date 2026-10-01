@@ -1,0 +1,1043 @@
+{
+  "entities": [
+    {
+      "id": "e8a55e86",
+      "slug": "angie",
+      "kind": "person",
+      "label": "Angelina \"Angie\" Calicura",
+      "aliases": [
+        {
+          "name": "Angelina Jean Colacurcio",
+          "sources": ["1-p6"]
+        },
+        {
+          "name": "Angelina Calicura",
+          "sources": ["plate-04", "plate-05", "plate-08", "plate-10"]
+        },
+        {
+          "name": "Angie Calicura",
+          "sources": ["plate-06"]
+        },
+        {
+          "name": "Angelina J. Calicura",
+          "sources": ["plate-11", "plate-17"]
+        },
+        {
+          "name": "A. J. Calicura",
+          "sources": ["plate-18"]
+        },
+        {
+          "name": "Jean Calicura",
+          "sources": ["1-p18", "cited-los-angeles-directories-1939-1940"]
+        },
+        {
+          "name": "Jean",
+          "sources": ["plate-09"]
+        },
+        {
+          "name": "Angelina Calicura Amato",
+          "sources": ["plate-14", "plate-15", "plate-24"]
+        },
+        {
+          "name": "Mrs. A. J. Calicura Amato",
+          "sources": ["plate-16"]
+        },
+        {
+          "name": "Angeline Amato",
+          "sources": ["plate-19"]
+        },
+        {
+          "name": "Angelina Amato",
+          "sources": ["plate-19"]
+        },
+        {
+          "name": "Jean Riley",
+          "sources": ["plate-19"]
+        },
+        {
+          "name": "Jean Toby Riley",
+          "sources": ["plate-19"]
+        },
+        {
+          "name": "Toby Riley",
+          "sources": ["plate-19"]
+        },
+        {
+          "name": "Angeline Gene Brown",
+          "sources": ["plate-19"]
+        },
+        {
+          "name": "Angie Alexander",
+          "sources": ["plate-29", "plate-37"]
+        },
+        {
+          "name": "Angelina Calicura Alexander",
+          "sources": ["plate-36"]
+        }
+      ],
+      "anchors": [
+        "plate-04",
+        "plate-05",
+        "plate-06",
+        "plate-07",
+        "plate-08",
+        "plate-09",
+        "plate-10",
+        "plate-11",
+        "plate-12",
+        "plate-14",
+        "plate-15",
+        "plate-16",
+        "plate-17",
+        "plate-18",
+        "plate-19",
+        "plate-21",
+        "plate-24",
+        "plate-26",
+        "plate-29",
+        "plate-31",
+        "plate-36",
+        "plate-37",
+        "plate-38",
+        "plate-39"
+      ],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Angelina Jean Colacurcio"],
+          "rationale": "Her birth name, as the post gives it: \"also later spelled Calicura\".",
+          "sources": ["1-p6"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": [
+            "Angelina Calicura",
+            "Angie Calicura",
+            "Angelina J. Calicura",
+            "A. J. Calicura"
+          ],
+          "rationale": "The Calicura records: Martinez in 1930 (plates 4, 5), Los Angeles in 1938 (plate 6), Sheridan from 1953 (plates 10, 11, 18) and Casper (plate 17). The middle initial J and the Rex Hotel tie the Sheridan entries together.",
+          "sources": [
+            "plate-04",
+            "plate-05",
+            "plate-06",
+            "plate-10",
+            "plate-11",
+            "plate-17",
+            "plate-18"
+          ],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": ["Jean Calicura"],
+          "rationale": "The post: in 1940 she went by her middle name on a ship's manifest and in the Los Angeles directory. Neither record is held.",
+          "sources": ["1-p18", "cited-los-angeles-directories-1939-1940"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": ["Jean"],
+          "rationale": "The author's inference, not the record's words: the funeral record (plate 9) names the mother only as Jean, with Eugene Amato as father and Martinez as residence.",
+          "sources": ["plate-09", "2-p7"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": [
+            "Angelina Calicura Amato",
+            "Mrs. A. J. Calicura Amato",
+            "Angeline Amato",
+            "Angelina Amato"
+          ],
+          "rationale": "The Amato years: the 1955 Ideal Hotel license (plates 14, 15), Casper in 1956 (plate 16), the FBI report as printed (plate 19) and the 1958 revocation (plate 24).",
+          "sources": ["plate-14", "plate-15", "plate-16", "plate-19", "plate-24"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": ["Jean Riley", "Jean Toby Riley", "Toby Riley", "Angeline Gene Brown"],
+          "rationale": "Names the FBI report attributes to her, as the newspaper printed them (plate 19). Recorded as attributed aliases; the museum holds no record of their use.",
+          "sources": ["plate-19"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": ["Angie Alexander", "Angelina Calicura Alexander"],
+          "rationale": "Her married name: the Hub Beauty Salon advertisement (plate 29), the post's caption for plate 36 and Jack Alexander's obituary (plate 37).",
+          "sources": ["plate-29", "plate-36", "plate-37"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "split",
+          "with": ["743375cb"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Two women called Angelina Calicura: Angie (born 1917) and her mother Angiolina \"Angelina\" Rodia Calicura (plate 1). Distinct people.",
+          "sources": ["plate-01", "plate-04"]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "743375cb",
+      "slug": "angiolina-rodia-calicura",
+      "kind": "person",
+      "label": "Angiolina \"Angelina\" Rodia Calicura",
+      "aliases": [
+        {
+          "name": "Angelina Rodia Calicura",
+          "sources": ["plate-01"]
+        }
+      ],
+      "anchors": ["plate-01"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Angelina Rodia Calicura"],
+          "rationale": "The caption gives Angiolina and \"Angelina\" for Angie's mother.",
+          "sources": ["plate-01"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "72419e03",
+      "slug": "saverio-calicura",
+      "kind": "person",
+      "label": "Saverio \"Sam\" Calicura",
+      "aliases": [],
+      "anchors": ["plate-02"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "split",
+          "with": ["3a8e6da1"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Two men called Sam: Angie's father Saverio \"Sam\" Calicura (plate 2) and her uncle Sam \"Simon\" Rodia (plate 3). Distinct people.",
+          "sources": ["plate-02", "plate-03"]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "3a8e6da1",
+      "slug": "sam-rodia",
+      "kind": "person",
+      "label": "Sam Rodia",
+      "aliases": [
+        {
+          "name": "Simon Rodia",
+          "sources": ["1-p7"]
+        }
+      ],
+      "anchors": ["plate-03"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Simon Rodia"],
+          "rationale": "The post names Angie's uncle Sam \"Simon\" Rodia, creator of the Watts Towers; plate 3's caption calls him Sam Rodia.",
+          "sources": ["plate-03", "1-p7"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ca7616c1",
+      "slug": "virginia-sullivan",
+      "kind": "person",
+      "label": "Virginia Sullivan",
+      "aliases": [],
+      "anchors": ["plate-03"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "c60861b7",
+      "slug": "mary-lou-calicura-byer",
+      "kind": "person",
+      "label": "Mary Lou Calicura Byer",
+      "aliases": [],
+      "anchors": ["plate-03"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "e6ed705c",
+      "slug": "andrew-calicura",
+      "kind": "person",
+      "label": "Andrew Calicura",
+      "aliases": [],
+      "anchors": ["plate-01", "plate-02", "plate-12", "plate-39"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "8a22d268",
+      "slug": "eugene-amato",
+      "kind": "person",
+      "label": "Eugene \"Jack\" Amato",
+      "aliases": [
+        {
+          "name": "Eugene Amato",
+          "sources": ["plate-09"]
+        }
+      ],
+      "anchors": ["plate-09"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Eugene Amato"],
+          "rationale": "The funeral record names the father Eugene Amato; the post calls him Eugene \"Jack\" Amato.",
+          "sources": ["plate-09"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "split",
+          "with": ["64085982", "be2a5b51"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Three men called Jack: Eugene \"Jack\" Amato (plate 9), John \"Jack\" Alexander (plates 27, 28, 37) and the Sheridan attorney Jack Wolfe (plates 21, 22). Distinct people.",
+          "sources": ["plate-09", "plate-21", "plate-22", "plate-27", "plate-37"]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "b55c70f1",
+      "slug": "baby-amato",
+      "kind": "person",
+      "label": "Baby Amato",
+      "aliases": [],
+      "anchors": ["plate-09"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "64085982",
+      "slug": "jack-alexander",
+      "kind": "person",
+      "label": "John \"Jack\" Alexander",
+      "aliases": [
+        {
+          "name": "Jack Alexander",
+          "sources": ["plate-27", "plate-31"]
+        },
+        {
+          "name": "John (Jack) Alexander",
+          "sources": ["plate-28"]
+        },
+        {
+          "name": "John Cameron Alexander",
+          "sources": ["plate-37"]
+        }
+      ],
+      "anchors": ["plate-27", "plate-28", "plate-31", "plate-37"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Jack Alexander", "John (Jack) Alexander", "John Cameron Alexander"],
+          "rationale": "The 1949 and 1950 Billings Senior High yearbooks (plates 27, 28), the 1972 press print (plate 31) and his obituary (plate 37), which gives his birth in Billings in 1932 and his marriage to Angelina Calicura in 1958.",
+          "sources": ["plate-27", "plate-28", "plate-31", "plate-37"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "split",
+          "with": ["be2a5b51", "0025b72a"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "John \"Jack\" Alexander is not the attorney Jack Wolfe (plates 21, 22) nor the Ideal Hotel, Inc. director John D. Henry (plate 18).",
+          "sources": ["plate-18", "plate-21", "plate-37"]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "3966a204",
+      "slug": "edward-j-redle",
+      "kind": "person",
+      "label": "Edward J. Redle",
+      "aliases": [],
+      "anchors": ["plate-19", "plate-20", "plate-21", "plate-23", "plate-24", "cited-fbi-reports"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "96ff4ea7",
+      "slug": "willard-marshall",
+      "kind": "person",
+      "label": "Willard Marshall",
+      "aliases": [
+        {
+          "name": "Sheriff Marshall",
+          "sources": ["2-p31"]
+        }
+      ],
+      "anchors": ["plate-21", "plate-24"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Sheriff Marshall"],
+          "rationale": "Sheriff Willard Marshall in the clippings (plates 21, 24) is the post's \"Sheriff Marshall\".",
+          "sources": ["plate-21", "2-p31"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "be2a5b51",
+      "slug": "jack-wolfe",
+      "kind": "person",
+      "label": "Jack Wolfe",
+      "aliases": [],
+      "anchors": ["plate-21", "plate-22"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "83b2794a",
+      "slug": "joseph-minnehan",
+      "kind": "person",
+      "label": "Joseph Minnehan",
+      "aliases": [
+        {
+          "name": "Joseph Minnehahn",
+          "sources": ["2-p31"]
+        }
+      ],
+      "anchors": ["plate-21"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Joseph Minnehahn"],
+          "rationale": "The clipping (plate 21) spells him Minnehan, the Casper attorney for the Ideal Hotel; the post spells the same man Minnehahn. The label follows the record; the post's spelling stands as an alias.",
+          "sources": ["plate-21", "2-p31"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "98b38957",
+      "slug": "carl-crawford",
+      "kind": "person",
+      "label": "Carl Crawford",
+      "aliases": [],
+      "anchors": ["plate-20", "plate-21", "plate-22"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "13cb2362",
+      "slug": "kenneth-chetwood",
+      "kind": "person",
+      "label": "Kenneth Chetwood",
+      "aliases": [],
+      "anchors": ["plate-20", "plate-21", "plate-22"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "7680a713",
+      "slug": "tony-pelesky",
+      "kind": "person",
+      "label": "Tony Pelesky",
+      "aliases": [],
+      "anchors": ["plate-14", "plate-15", "plate-21", "plate-22"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "0e8871ed",
+      "slug": "c-harold-campbell",
+      "kind": "person",
+      "label": "C. Harold Campbell",
+      "aliases": [],
+      "anchors": ["plate-21", "plate-22"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "52b6bf80",
+      "slug": "l-g-booth",
+      "kind": "person",
+      "label": "L. G. Booth",
+      "aliases": [
+        {
+          "name": "Dr. L.G. Booth",
+          "sources": ["2-p25"]
+        }
+      ],
+      "anchors": ["plate-18"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Dr. L.G. Booth"],
+          "rationale": "The incorporation notice (plate 18) lists director L. G. Booth; the post names the same director Dr. L.G. Booth.",
+          "sources": ["plate-18", "2-p25"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "0025b72a",
+      "slug": "john-d-henry",
+      "kind": "person",
+      "label": "John D. Henry",
+      "aliases": [],
+      "anchors": ["plate-18"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "d06d0d38",
+      "slug": "george-gilgorea",
+      "kind": "person",
+      "label": "George Gilgorea",
+      "aliases": [],
+      "anchors": ["cited-george-gilgorea"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "b45a82e1",
+      "slug": "donna-dreyer",
+      "kind": "person",
+      "label": "Donna Dreyer",
+      "aliases": [
+        {
+          "name": "Donna Dyer",
+          "sources": ["3-p31"]
+        },
+        {
+          "name": "Donna Dryer",
+          "sources": ["3-p41"]
+        }
+      ],
+      "anchors": ["plate-37"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Donna Dyer"],
+          "rationale": "The post's Donna Dyer is \"a woman mentioned in John 'Jack' Alexander's obituary\"; the obituary (plate 37) spells her Donna Dreyer. The label follows the record.",
+          "sources": ["plate-37", "3-p31"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        },
+        {
+          "action": "open",
+          "names": ["Donna Dryer"],
+          "rationale": "The thanks spells Donna Dryer. Likely the same person, but the thanks says nothing to tie it to the obituary.",
+          "sources": ["3-p41"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "85bd1725",
+      "slug": "peter-demple",
+      "kind": "person",
+      "label": "Peter Demple",
+      "aliases": [],
+      "anchors": ["plate-30"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "f894a3a1",
+      "slug": "martinez",
+      "kind": "place",
+      "label": "Martinez, California",
+      "aliases": [],
+      "anchors": ["plate-04", "plate-05", "plate-08", "plate-09"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "55cd8d0c",
+      "slug": "los-angeles",
+      "kind": "place",
+      "label": "Los Angeles, California",
+      "aliases": [],
+      "anchors": ["plate-03", "plate-06"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "7984aa30",
+      "slug": "honolulu",
+      "kind": "place",
+      "label": "Honolulu, Hawaii",
+      "aliases": [],
+      "anchors": ["plate-19", "cited-honolulu-star-bulletin"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "2a45f14e",
+      "slug": "salinas",
+      "kind": "place",
+      "label": "Salinas, California",
+      "aliases": [],
+      "anchors": ["plate-19"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "72e90848",
+      "slug": "sheridan",
+      "kind": "place",
+      "label": "Sheridan, Wyoming",
+      "aliases": [],
+      "anchors": [
+        "plate-09",
+        "plate-10",
+        "plate-11",
+        "plate-14",
+        "plate-15",
+        "plate-18",
+        "plate-21",
+        "plate-24",
+        "plate-30",
+        "plate-37",
+        "plate-13-1",
+        "plate-13-2",
+        "plate-13-3",
+        "plate-13-4",
+        "plate-13-5"
+      ],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "cf729669",
+      "slug": "casper",
+      "kind": "place",
+      "label": "Casper, Wyoming",
+      "aliases": [],
+      "anchors": ["plate-16", "plate-17", "plate-21"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "d3df14d1",
+      "slug": "billings",
+      "kind": "place",
+      "label": "Billings, Montana",
+      "aliases": [],
+      "anchors": [
+        "plate-08",
+        "plate-25",
+        "plate-26",
+        "plate-27",
+        "plate-28",
+        "plate-29",
+        "plate-37"
+      ],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "15714d60",
+      "slug": "lockwood-flats",
+      "kind": "place",
+      "label": "Lockwood Flats, Billings",
+      "aliases": [],
+      "anchors": ["plate-29"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "c1bd679d",
+      "slug": "south-lake-tahoe",
+      "kind": "place",
+      "label": "South Lake Tahoe, California",
+      "aliases": [],
+      "anchors": ["plate-31", "plate-36", "plate-37"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "33f0c636",
+      "slug": "watts-towers",
+      "kind": "place",
+      "label": "Watts Towers",
+      "aliases": [],
+      "anchors": ["plate-03"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "2be74a84",
+      "slug": "first-sheridan-county-courthouse",
+      "kind": "place",
+      "label": "Sheridan County's first courthouse",
+      "aliases": [],
+      "anchors": ["plate-30"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": [
+        {
+          "date": "2026-10-01",
+          "note": "Plate 30 (1965): built in 1889 by Peter Demple; it later housed a jewelry store, a radio supply company and the Ideal hotel."
+        }
+      ]
+    },
+    {
+      "id": "057db0b0",
+      "slug": "rex-hotel",
+      "kind": "business",
+      "label": "Rex Hotel",
+      "aliases": [],
+      "anchors": ["plate-10", "plate-11"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "bc3ca1c5",
+      "slug": "ideal-hotel",
+      "kind": "business",
+      "label": "Ideal Hotel (Sheridan)",
+      "aliases": [],
+      "anchors": [
+        "plate-13-1",
+        "plate-13-2",
+        "plate-13-3",
+        "plate-13-4",
+        "plate-13-5",
+        "plate-14",
+        "plate-15",
+        "plate-20",
+        "plate-21",
+        "plate-22",
+        "plate-23",
+        "plate-24",
+        "plate-30"
+      ],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "split",
+          "with": ["ac235d1b"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "The hotel and the corporation formed in 1957 to run it (plate 18) are separate entities: the license fight was over Ideal Hotel, Inc.'s license for the hotel.",
+          "sources": ["plate-18", "plate-21"]
+        }
+      ],
+      "notes": [
+        {
+          "date": "2026-10-01",
+          "note": "Address: plate 13's caption gives 171 North Main; the post's text (2-p25), the incorporation notice (plate 18) and the 1958 revocation (plate 24) give 173 North Main. Both stand; an open question for step 5."
+        }
+      ]
+    },
+    {
+      "id": "1d22af82",
+      "slug": "edna-lees-beauty-salon",
+      "kind": "business",
+      "label": "Edna Lee's Beauty Salon No. 2",
+      "aliases": [],
+      "anchors": ["plate-06"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "2be4010c",
+      "slug": "general-custer-hotel",
+      "kind": "business",
+      "label": "General Custer Hotel",
+      "aliases": [],
+      "anchors": ["plate-26"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "31e7ea1c",
+      "slug": "hub-beauty-salon",
+      "kind": "business",
+      "label": "The Hub Beauty Salon",
+      "aliases": [],
+      "anchors": ["plate-29"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "114b27bb",
+      "slug": "wagon-wheel-trailer-court",
+      "kind": "business",
+      "label": "Wagon Wheel Trailer Court",
+      "aliases": [],
+      "anchors": ["plate-29"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "4a15de3b",
+      "slug": "tahoe-inn",
+      "kind": "business",
+      "label": "Tahoe Inn",
+      "aliases": [
+        {
+          "name": "Lake Tahoe Inn",
+          "sources": ["plate-34", "plate-35"]
+        }
+      ],
+      "anchors": ["plate-34", "plate-35", "plate-37"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Lake Tahoe Inn"],
+          "rationale": "Plates 34 and 35's captions call the inn Angie ran the Lake Tahoe Inn; the post and Jack Alexander's obituary (plate 37) call it the Tahoe Inn.",
+          "sources": ["plate-34", "plate-35", "plate-37"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "827a7fdd",
+      "slug": "timber-cove-lodge",
+      "kind": "business",
+      "label": "Timber Cove Lodge",
+      "aliases": [
+        {
+          "name": "Beach Retreat & Lodge",
+          "sources": ["3-p7"]
+        }
+      ],
+      "anchors": ["plate-35", "plate-37"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Beach Retreat & Lodge"],
+          "rationale": "The post: sold in 2012 and now known as the Beach Retreat & Lodge. A later name, from the text only.",
+          "sources": ["3-p7"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "e57c4ece",
+      "slug": "tarantinos",
+      "kind": "business",
+      "label": "Tarantino's Restaurant",
+      "aliases": [
+        {
+          "name": "Joe Tarantino's",
+          "sources": ["plate-32"]
+        },
+        {
+          "name": "Joe Tarantino's of Tahoe",
+          "sources": ["3-p14"]
+        }
+      ],
+      "anchors": ["plate-32", "plate-37"],
+      "framing": null,
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Joe Tarantino's", "Joe Tarantino's of Tahoe"],
+          "rationale": "The matchbook (plate 32) and an obituary the post cites name it Joe Tarantino's; the post and plate 37 call it Tarantino's Restaurant.",
+          "sources": ["plate-32", "plate-37", "3-p14"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ca2e517d",
+      "slug": "harveys",
+      "kind": "business",
+      "label": "Harvey's",
+      "aliases": [],
+      "anchors": ["plate-33"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "1c99cafa",
+      "slug": "champion-funeral-home",
+      "kind": "business",
+      "label": "Champion Funeral Home",
+      "aliases": [],
+      "anchors": ["plate-09"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "32518788",
+      "slug": "city-of-sheridan",
+      "kind": "organization",
+      "label": "City of Sheridan (council)",
+      "aliases": [],
+      "anchors": [
+        "plate-10",
+        "plate-14",
+        "plate-15",
+        "plate-20",
+        "plate-21",
+        "plate-22",
+        "plate-23",
+        "plate-24"
+      ],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "ac235d1b",
+      "slug": "ideal-hotel-inc",
+      "kind": "organization",
+      "label": "Ideal Hotel, Inc.",
+      "aliases": [],
+      "anchors": ["plate-18", "plate-19", "plate-21"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "bb07da8f",
+      "slug": "fbi",
+      "kind": "organization",
+      "label": "FBI",
+      "aliases": [],
+      "anchors": ["plate-19", "cited-fbi-reports"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "20b6a3da",
+      "slug": "billings-senior-high",
+      "kind": "organization",
+      "label": "Billings Senior High",
+      "aliases": [],
+      "anchors": ["plate-27", "plate-28"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "1896fbbf",
+      "slug": "sierra-pacific-power",
+      "kind": "organization",
+      "label": "Sierra Pacific Power",
+      "aliases": [],
+      "anchors": ["plate-37"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "a3e076b3",
+      "slug": "cefalu-family",
+      "kind": "family",
+      "label": "The Cefalu family",
+      "aliases": [],
+      "anchors": ["plate-37"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    }
+  ],
+  "held_back": [
+    {
+      "label": "Pearl Logan",
+      "kind": "person",
+      "reason": "Named only in the post's text. No record the museum holds or cites names her; plate 10, which the Left Open entry points at, does not.",
+      "sources": ["2-p10"]
+    },
+    {
+      "label": "City Marshal Jack Wolfe",
+      "kind": "person",
+      "reason": "No record names a City Marshal Jack Wolfe. In the clipping (plate 21), the account of trying to serve papers at the hotel is Sheriff Willard Marshall's, and Jack Wolfe is a local attorney. The post's passage stands as its account; the evidence goes to step 4 and the question to step 5.",
+      "sources": ["plate-21", "2-p37"]
+    },
+    {
+      "label": "Elko, Nevada",
+      "kind": "place",
+      "reason": "Named only as where the wedding is \"strongly believed\" to have taken place. Jack Alexander's obituary (plate 37) says they married in 1958 at Sheridan; evidence for step 4.",
+      "sources": ["plate-37", "2-p59"]
+    },
+    {
+      "label": "Angie's Place",
+      "kind": "business",
+      "reason": "Named only in the post's text; no record names it.",
+      "sources": ["2-p13"]
+    },
+    {
+      "label": "Ideal Hotel (Billings)",
+      "kind": "business",
+      "reason": "The only record (plate 8) calls Angie \"owner of the Ideal hotel\" without saying which. Left Open's \"Billings or Sheridan\" question; no entity until a record says Billings.",
+      "sources": ["plate-08"]
+    }
+  ]
+}
