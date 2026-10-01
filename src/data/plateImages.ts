@@ -5,9 +5,9 @@
  * A plate the post builds from several photographs carries them all in
  * `set`, in the post's order; `src` is the first of them, for share cards.
  *
- * Missing: plate 31 was not in the media manifest, and plates 33, 35 and 38
- * were in the fourth zip, which was cut off in upload. Those plates show
- * their caption without an image until they are added here.
+ * Missing: plates 33, 35 and 38 were in the fourth zip, which was cut off in
+ * upload. Those plates show their caption without an image until they are
+ * added here.
  */
 export type PlateImage = { src: string; width: number; height: number };
 
@@ -57,6 +57,10 @@ export const plateImages: Record<string, PlateImage & { set?: PlateImage[] }> = 
   "plate-28": { src: "/images/plates/plate-28.jpg", width: 128, height: 187 },
   "plate-29": { src: "/images/plates/plate-29.jpg", width: 819, height: 716 },
   "plate-30": { src: "/images/plates/plate-30.jpg", width: 751, height: 1214 },
+  // Plate 31: the back of the press print (Historic Images), whose
+  // handwritten caption and "Return to Chronicle Files" stamp the post
+  // quotes. The front, the photograph itself, is not added yet.
+  "plate-31": { src: "/images/plates/plate-31-back.jpg", width: 640, height: 751 },
   "plate-32": { src: "/images/plates/plate-32.jpg", width: 217, height: 491 },
   "plate-34": { src: "/images/plates/plate-34.jpg", width: 288, height: 191 },
   "plate-36": { src: "/images/plates/plate-36.jpg", width: 1024, height: 640 },
