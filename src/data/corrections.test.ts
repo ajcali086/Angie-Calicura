@@ -125,7 +125,10 @@ describe("corrections", () => {
         const r = check();
         assert.equal(r.ok, true, r.out);
         assert.match(r.out, /new ID\(s\), frozen at first publish:[\s\S]*corrections c-test1/);
-        assert.match(r.out, /audio to regenerate for 1 applied correction\(s\):\n- c-test1/);
+        assert.match(
+          r.out,
+          /audio to regenerate for \d+ applied correction\(s\):(\n- .+)*\n- c-test1 /,
+        );
       },
     );
   });

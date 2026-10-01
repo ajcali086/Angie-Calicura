@@ -2,7 +2,16 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { describe, it } from "node:test";
 import { ARTICLE_SOURCE } from "./article.source.ts";
-import { CHAPTER_BREAKS, anchorIds, article, chapters, plates, type Block } from "./article.ts";
+import {
+  CHAPTER_BREAKS,
+  anchorIds,
+  article,
+  chapters,
+  originalText,
+  plates,
+  type Block,
+} from "./article.ts";
+import { appliedCorrections } from "./corrections.ts";
 import { plateImages } from "./plateImages.ts";
 
 const raw = readFileSync(new URL("../../source/article.md", import.meta.url), "utf8");
@@ -25,7 +34,7 @@ describe("article", () => {
     assert.equal(ARTICLE_SOURCE, raw);
   });
 
-  it("loses and alters nothing: the blocks write back out to the transcript body", () => {
+  it("loses and alters nothing but by correction: the blocks write back out to the transcript body", () => {
     const lines = raw.split("\n");
     const rules = lines.flatMap((l, i) => (l.trim() === "---" ? [i] : []));
     const body = lines
@@ -37,7 +46,13 @@ describe("article", () => {
     // Consecutive image lines share a group in the transcript but are one plate each.
     const rebuilt: string[] = [];
     for (const block of chapters.flatMap((c) => c.blocks)) {
-      const text = markdown(block);
+      // A block an applied correction replaces writes back as the transcript has it.
+      const id = block.type === "figure" ? block.plate : block.id;
+      const text = appliedCorrections.has(id)
+        ? block.type === "figure"
+          ? `[Image: ${originalText.get(id)}]`
+          : originalText.get(id)!
+        : markdown(block);
       const prev = rebuilt.at(-1);
       if (block.type === "figure" && prev?.startsWith("[Image: ") && !body.includes(prev)) {
         rebuilt[rebuilt.length - 1] = `${prev}\n${text}`;
@@ -46,6 +61,16 @@ describe("article", () => {
       }
     }
     assert.deepEqual(rebuilt, body);
+  });
+
+  it("reads each applied correction's text in place of the transcript's", () => {
+    for (const [id, c] of appliedCorrections) {
+      const block = chapters
+        .flatMap((ch) => ch.blocks)
+        .find((b) => b.type !== "figure" && b.id === id);
+      const read = block ? markdown(block) : plates.find((p) => p.id === id)?.caption;
+      assert.equal(read, c.proposed_text, c.id);
+    }
   });
 
   it("reads the title, subtitle, author and address from the transcript header", () => {
