@@ -79,7 +79,7 @@ function SourcesPage() {
               <li key={s.name} className="border-b border-rule/40 py-4">
                 <p className="font-display text-xl text-paper">{s.name}</p>
                 <p className="mt-0.5 text-[0.68rem] tracking-[0.14em] text-muted uppercase">
-                  Not held: cited by the author; the museum has no copy
+                  <CitedStatus name={s.name} />
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-fog">
                   “<Inline text={s.quote} />”
@@ -122,5 +122,26 @@ function CitedNames({ name }: { name: string }) {
         <EntityLink key={e.id} entity={e} />
       ))}
     </p>
+  );
+}
+
+/** Whether the museum holds a copy of a record the post cites, added beyond the post. */
+function CitedStatus({ name }: { name: string }) {
+  const record = records.find((r) => r.cited === name);
+  const copies = records.filter((r) => record && r.copy_of === record.id);
+  if (!copies.length) return <>Not held: cited by the author; the museum has no copy</>;
+  return (
+    <>
+      Cited by the author; {copies.length === 1 ? "a copy" : `${copies.length} copies`} added beyond
+      the post, unverified:{" "}
+      {copies.map((c, i) => (
+        <span key={c.id}>
+          {i ? ", " : ""}
+          <Link to="/archive" hash={c.id} className="text-brass underline-offset-4 hover:underline">
+            {c.title.split(", ")[2] ?? c.title}
+          </Link>
+        </span>
+      ))}
+    </>
   );
 }

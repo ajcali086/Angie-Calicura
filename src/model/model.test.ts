@@ -21,11 +21,11 @@ import { checks } from "./validate.ts";
 describe("model: H1 steps 1 to 5", () => {
   for (const check of checks) it(check.name, () => assert.deepEqual(check.run(), []));
 
-  it("holds 62 records: 45 verified, 1 unverified, 16 not held", () => {
+  it("holds 67 records: 47 verified, 6 unverified, 14 not held", () => {
     const count = (s: string) => records.filter((r) => r.status === s).length;
     assert.deepEqual(
       [records.length, count("verified"), count("unverified"), count("not-held")],
-      [62, 45, 1, 16],
+      [67, 47, 6, 14],
     );
   });
 
@@ -46,17 +46,17 @@ describe("model: H1 steps 1 to 5", () => {
     assert.equal(print[0].status, "unverified");
   });
 
-  it("derives 51 entities: 23 people, 11 places, 11 businesses, 5 organizations, 1 family", () => {
+  it("derives 52 entities: 23 people, 12 places, 11 businesses, 5 organizations, 1 family", () => {
     const count = (k: string) => entities.filter((e) => e.kind === k).length;
     assert.deepEqual(
       ["person", "place", "business", "organization", "family"].map(count),
-      [23, 11, 11, 5, 1],
+      [23, 12, 11, 5, 1],
     );
   });
 
   it("keeps Angie's names on one entity, each merge sourced, and her mother apart", () => {
     const angie = entityBySlug("angie")!;
-    assert.equal(angie.aliases.length, 17);
+    assert.equal(angie.aliases.length, 20);
     const mother = entityBySlug("angiolina-rodia-calicura")!;
     assert.ok(
       angie.identity_assertions.some((x) => x.action === "split" && x.with?.includes(mother.id)),
@@ -95,9 +95,9 @@ describe("model: H1 steps 1 to 5", () => {
     );
   });
 
-  it("draws 44 relationships, 38 from what a record states and 6 from the post's prose", () => {
+  it("draws 47 relationships, 41 from what a record states and 6 from the post's prose", () => {
     const by = (k: string) => relationships.filter((r) => r.provenance.kind === k).length;
-    assert.deepEqual([relationships.length, by("derived"), by("curator")], [44, 38, 6]);
+    assert.deepEqual([relationships.length, by("derived"), by("curator")], [47, 41, 6]);
   });
 
   it("gives Angie's family as the records state it", () => {
@@ -139,11 +139,11 @@ describe("model: H1 steps 1 to 5", () => {
     assert.equal(relationships.filter((r) => r.type === "officer-of").length, 7);
   });
 
-  it("links 54 claims to records: 42 support, 6 contradict, 6 qualify", () => {
+  it("links 64 claims to records: 51 support, 7 contradict, 6 qualify", () => {
     const t = (x: string) => evidence.filter((l) => l.type === x).length;
     assert.deepEqual(
       [evidence.length, t("supports"), t("contradicts"), t("qualifies")],
-      [54, 42, 6, 6],
+      [64, 51, 7, 6],
     );
   });
 
@@ -158,6 +158,7 @@ describe("model: H1 steps 1 to 5", () => {
       "171 North Main Street",
       "City Marshal Jack Wolfe described an att",
       "strongly believed the ceremony took plac",
+      "**Tarantino's Restaurant (1970s)**: Ange",
     ]);
   });
 

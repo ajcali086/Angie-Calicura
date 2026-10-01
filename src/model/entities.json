@@ -73,6 +73,24 @@
         {
           "name": "Angelina Calicura Alexander",
           "sources": ["plate-36"]
+        },
+        {
+          "name": "Angie Calicura Alexander",
+          "sources": ["plate-38"]
+        },
+        {
+          "name": "Angelina Alexander",
+          "sources": [
+            "obituary-tahoe-1986",
+            "obituary-martinez-1986",
+            "grave-marker-1",
+            "grave-marker-2",
+            "grave-marker-3"
+          ]
+        },
+        {
+          "name": "Angelina \"Angie\" Alexander",
+          "sources": ["obituary-tahoe-1986"]
         }
       ],
       "anchors": [
@@ -102,7 +120,12 @@
         "plate-36",
         "plate-37",
         "plate-38",
-        "plate-39"
+        "plate-39",
+        "obituary-tahoe-1986",
+        "obituary-martinez-1986",
+        "grave-marker-1",
+        "grave-marker-2",
+        "grave-marker-3"
       ],
       "framing": null,
       "identity_assertions": [
@@ -187,6 +210,18 @@
           "date": "2026-10-01",
           "rationale": "Two women called Angelina Calicura: Angie (born 1917) and her mother Angiolina \"Angelina\" Rodia Calicura (plate 1). Distinct people.",
           "sources": ["plate-01", "plate-04"]
+        },
+        {
+          "action": "merge",
+          "names": [
+            "Angie Calicura Alexander",
+            "Angelina Alexander",
+            "Angelina \"Angie\" Alexander"
+          ],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Her names at the end: the thanks of I Build the Tower (plate 38), her two obituaries, which give her birth in Martinez on July 21, 1917 and her husband John, and her grave marker.",
+          "sources": ["plate-38", "obituary-tahoe-1986", "obituary-martinez-1986", "grave-marker-3"]
         }
       ],
       "notes": []
@@ -267,7 +302,7 @@
       "kind": "person",
       "label": "Virginia Sullivan",
       "aliases": [],
-      "anchors": ["plate-03"],
+      "anchors": ["plate-03", "obituary-tahoe-1986", "obituary-martinez-1986"],
       "framing": null,
       "identity_assertions": [],
       "notes": []
@@ -277,10 +312,24 @@
       "slug": "mary-lou-calicura-byer",
       "kind": "person",
       "label": "Mary Lou Calicura Byer",
-      "aliases": [],
-      "anchors": ["plate-03"],
+      "aliases": [
+        {
+          "name": "Mary Lou Byer",
+          "sources": ["obituary-tahoe-1986", "obituary-martinez-1986"]
+        }
+      ],
+      "anchors": ["plate-03", "obituary-tahoe-1986", "obituary-martinez-1986"],
       "framing": null,
-      "identity_assertions": [],
+      "identity_assertions": [
+        {
+          "action": "merge",
+          "names": ["Mary Lou Byer"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Both obituaries list a sister, Mary Lou Byer; plate 3's caption names Mary Lou Calicura Byer as the last of the siblings.",
+          "sources": ["obituary-tahoe-1986", "obituary-martinez-1986", "plate-03"]
+        }
+      ],
       "notes": []
     },
     {
@@ -355,9 +404,20 @@
         {
           "name": "John Cameron Alexander",
           "sources": ["plate-37"]
+        },
+        {
+          "name": "John Alexander",
+          "sources": ["obituary-martinez-1986"]
         }
       ],
-      "anchors": ["plate-27", "plate-28", "plate-31", "plate-37"],
+      "anchors": [
+        "plate-27",
+        "plate-28",
+        "plate-31",
+        "plate-37",
+        "obituary-tahoe-1986",
+        "obituary-martinez-1986"
+      ],
       "framing": null,
       "identity_assertions": [
         {
@@ -375,6 +435,14 @@
           "date": "2026-10-01",
           "rationale": "John \"Jack\" Alexander is not the attorney Jack Wolfe (plates 21, 22) nor the Ideal Hotel, Inc. director John D. Henry (plate 18).",
           "sources": ["plate-18", "plate-21", "plate-37"]
+        },
+        {
+          "action": "merge",
+          "names": ["John Alexander"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Her Martinez obituary: \"survived by her husband, John Alexander.\"",
+          "sources": ["obituary-martinez-1986"]
         }
       ],
       "notes": []
@@ -596,7 +664,14 @@
       "kind": "place",
       "label": "Martinez, California",
       "aliases": [],
-      "anchors": ["plate-04", "plate-05", "plate-08", "plate-09"],
+      "anchors": [
+        "plate-04",
+        "plate-05",
+        "plate-08",
+        "plate-09",
+        "obituary-tahoe-1986",
+        "obituary-martinez-1986"
+      ],
       "framing": null,
       "identity_assertions": [],
       "notes": []
@@ -708,7 +783,14 @@
       "kind": "place",
       "label": "South Lake Tahoe, California",
       "aliases": [],
-      "anchors": ["plate-31", "plate-36", "plate-37"],
+      "anchors": [
+        "plate-31",
+        "plate-36",
+        "plate-37",
+        "obituary-tahoe-1986",
+        "obituary-martinez-1986",
+        "plate-35"
+      ],
       "framing": null,
       "identity_assertions": [],
       "notes": []
@@ -846,7 +928,7 @@
           "sources": ["plate-34", "plate-35"]
         }
       ],
-      "anchors": ["plate-34", "plate-35", "plate-37"],
+      "anchors": ["plate-34", "plate-35", "plate-37", "obituary-tahoe-1986"],
       "framing": null,
       "identity_assertions": [
         {
@@ -858,7 +940,12 @@
           "date": "2026-10-01"
         }
       ],
-      "notes": []
+      "notes": [
+        {
+          "date": "2026-10-01",
+          "note": "Plate 35's advertisement puts the Lake Tahoe Inn at 4110 Lake Tahoe Blvd, South Lake Tahoe: the post's address for the Tahoe Inn."
+        }
+      ]
     },
     {
       "id": "827a7fdd",
@@ -871,7 +958,7 @@
           "sources": ["3-p7"]
         }
       ],
-      "anchors": ["plate-35", "plate-37"],
+      "anchors": ["plate-35", "plate-37", "obituary-tahoe-1986", "obituary-martinez-1986"],
       "framing": null,
       "identity_assertions": [
         {
@@ -898,9 +985,13 @@
         {
           "name": "Joe Tarantino's of Tahoe",
           "sources": ["3-p14"]
+        },
+        {
+          "name": "Angie's Tarentino's",
+          "sources": ["obituary-martinez-1986"]
         }
       ],
-      "anchors": ["plate-32", "plate-37"],
+      "anchors": ["plate-32", "plate-37", "obituary-martinez-1986"],
       "framing": null,
       "identity_assertions": [
         {
@@ -910,6 +1001,14 @@
           "sources": ["plate-32", "plate-37", "3-p14"],
           "curator": "Claude (draft, awaiting curator review)",
           "date": "2026-10-01"
+        },
+        {
+          "action": "merge",
+          "names": ["Angie's Tarentino's"],
+          "curator": "Claude (draft, awaiting curator review)",
+          "date": "2026-10-01",
+          "rationale": "Her Martinez obituary: \"she operated Angie's Tarentino's, also at South Lake Tahoe.\" The same restaurant, spelled its own way.",
+          "sources": ["obituary-martinez-1986"]
         }
       ],
       "notes": []
@@ -1007,6 +1106,17 @@
       "label": "The Cefalu family",
       "aliases": [],
       "anchors": ["plate-37"],
+      "framing": null,
+      "identity_assertions": [],
+      "notes": []
+    },
+    {
+      "id": "c3e18a5f",
+      "slug": "happy-homestead-cemetery",
+      "kind": "place",
+      "label": "Happy Homestead Cemetery",
+      "aliases": [],
+      "anchors": ["obituary-tahoe-1986"],
       "framing": null,
       "identity_assertions": [],
       "notes": []

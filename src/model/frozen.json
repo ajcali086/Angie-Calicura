@@ -62,7 +62,12 @@
     "audio-a2b",
     "audio-a3a",
     "audio-a3b",
-    "narration-script"
+    "narration-script",
+    "obituary-tahoe-1986",
+    "obituary-martinez-1986",
+    "grave-marker-1",
+    "grave-marker-2",
+    "grave-marker-3"
   ],
   "entities": [
     "e8a55e86",
@@ -115,7 +120,8 @@
     "bb07da8f",
     "20b6a3da",
     "1896fbbf",
-    "a3e076b3"
+    "a3e076b3",
+    "c3e18a5f"
   ],
   "questions": [
     "which-ideal",
@@ -182,7 +188,17 @@
     "ev-051",
     "ev-052",
     "ev-053",
-    "ev-054"
+    "ev-054",
+    "ev-055",
+    "ev-056",
+    "ev-057",
+    "ev-058",
+    "ev-059",
+    "ev-060",
+    "ev-061",
+    "ev-062",
+    "ev-063",
+    "ev-064"
   ],
   "retired": []
 }

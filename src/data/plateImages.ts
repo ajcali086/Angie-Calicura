@@ -5,9 +5,9 @@
  * A plate the post builds from several photographs carries them all in
  * `set`, in the post's order; `src` is the first of them, for share cards.
  *
- * Missing: plates 33, 35 and 38 were in the fourth zip, which was cut off in
- * upload. Those plates show their caption without an image until they are
- * added here.
+ * Missing: plate 33 was in the fourth zip, which was cut off in upload. It
+ * shows its caption without an image until it is added here. (Plates 35 and
+ * 38, from the same zip, were supplied on 2026-10-01.)
  */
 export type PlateImage = { src: string; width: number; height: number };
 
@@ -72,8 +72,10 @@ export const plateImages: Record<string, PlateImage & { set?: PlateImage[] }> = 
   },
   "plate-32": { src: "/images/plates/plate-32.jpg", width: 217, height: 491 },
   "plate-34": { src: "/images/plates/plate-34.jpg", width: 288, height: 191 },
+  "plate-35": { src: "/images/plates/plate-35.png", width: 476, height: 515 },
   "plate-36": { src: "/images/plates/plate-36.jpg", width: 1024, height: 640 },
   "plate-37": { src: "/images/plates/plate-37.jpg", width: 596, height: 648 },
+  "plate-38": { src: "/images/plates/plate-38.jpg", width: 568, height: 330 },
   // Plate 39 is the family's own Kodachrome scan (Frank Calicura Collection).
   "plate-39": { src: "/images/plates/plate-39.jpg", width: 1800, height: 1393 },
 };

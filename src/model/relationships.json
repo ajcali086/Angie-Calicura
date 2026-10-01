@@ -517,6 +517,41 @@
         "field": "caption",
         "says": "Billings Senior High"
       }
+    },
+    {
+      "from": "827a7fdd",
+      "type": "located-at",
+      "to": "c1bd679d",
+      "note": "3411 Lake Tahoe Boulevard",
+      "provenance": {
+        "kind": "derived",
+        "record": "plate-35",
+        "field": "image",
+        "says": "3411 Lake Tahoe Blvd. South Lake Tahoe, CA"
+      }
+    },
+    {
+      "from": "4a15de3b",
+      "type": "located-at",
+      "to": "c1bd679d",
+      "note": "4110 Lake Tahoe Boulevard",
+      "provenance": {
+        "kind": "derived",
+        "record": "plate-35",
+        "field": "image",
+        "says": "4110 Lake Tahoe Blvd. South Lake Tahoe, CA"
+      }
+    },
+    {
+      "from": "c3e18a5f",
+      "type": "located-at",
+      "to": "c1bd679d",
+      "provenance": {
+        "kind": "derived",
+        "record": "obituary-tahoe-1986",
+        "field": "image",
+        "says": "Happy Homestead Cemetery in South Lake Tahoe"
+      }
     }
   ],
   "record_links": [

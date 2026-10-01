@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import { plates } from "../data/article.ts";
 import { entities, entitiesForRecord, entityBySlug, records } from "./index.ts";
 import {
+  addedRecords,
   entitiesOnPlate,
   entityByPath,
   entitySection,
@@ -17,15 +18,20 @@ describe("connections: entity pages and plate doors (H1 rendering)", () => {
     for (const e of entities) assert.equal(entityByPath(entitySection(e), e.slug), e, e.slug);
   });
 
-  it("reaches every entity page from a plate page or from Sources", () => {
+  it("reaches every entity page from a plate page, from Sources or from the archive's added records", () => {
     const fromPlates = new Set(
       plates.flatMap((p) => entitiesOnPlate(p.id).map((x) => x.entity.id)),
     );
     const fromSources = new Set(
       records.filter((r) => r.cited).flatMap((r) => entitiesForRecord(r.id).map((e) => e.id)),
     );
+    const fromAdded = new Set(
+      addedRecords().flatMap((r) => entitiesForRecord(r.id).map((e) => e.id)),
+    );
     assert.deepEqual(
-      entities.filter((e) => !fromPlates.has(e.id) && !fromSources.has(e.id)).map((e) => e.slug),
+      entities
+        .filter((e) => !fromPlates.has(e.id) && !fromSources.has(e.id) && !fromAdded.has(e.id))
+        .map((e) => e.slug),
       [],
     );
   });
@@ -44,15 +50,13 @@ describe("connections: entity pages and plate doors (H1 rendering)", () => {
     }
   });
 
-  it("marks plate 31 unverified and plates 33, 35 and 38 not held; the rest verified", () => {
+  it("marks plate 31 unverified and plate 33 not held; the rest verified", () => {
     const off = plates
       .filter((p) => plateStatus(p.id) !== "verified")
       .map((p) => [p.id, plateStatus(p.id)]);
     assert.deepEqual(off, [
       ["plate-31", "unverified"],
       ["plate-33", "not-held"],
-      ["plate-35", "not-held"],
-      ["plate-38", "not-held"],
     ]);
   });
 

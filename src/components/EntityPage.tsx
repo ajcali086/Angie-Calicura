@@ -9,6 +9,7 @@ import { entities, relationshipsOf } from "@/model";
 import {
   STATUS_LINE,
   anchorsInOrder,
+  mediaSrc,
   entitySection,
   mentionsOf,
   questionsAbout,
@@ -128,7 +129,7 @@ export function EntityPage({ entity }: { entity: Entity }) {
               const image = rec.plate ? plateImages[rec.plate] : undefined;
               const src = image
                 ? (image.set?.find((i) => rec.media.includes(`public${i.src}`)) ?? image).src
-                : null;
+                : (mediaSrc(rec) ?? null);
               return (
                 <li key={record} className="flex gap-4 py-4">
                   {src ? (
@@ -147,7 +148,11 @@ export function EntityPage({ entity }: { entity: Entity }) {
                   <div className="min-w-0">
                     <p className="text-[0.68rem] tracking-[0.14em] text-brass uppercase">
                       {LINK_TYPE[type]} ·{" "}
-                      {plate ? `Plate ${plate.number}` : "a record the post cites"}
+                      {plate
+                        ? `Plate ${plate.number}`
+                        : rec.cited
+                          ? "a record the post cites"
+                          : "added beyond the post"}
                     </p>
                     <p className="mt-1 text-sm leading-snug text-fog">
                       {plate ? plain(plate.caption) : rec.title}
@@ -159,7 +164,13 @@ export function EntityPage({ entity }: { entity: Entity }) {
                           : STATUS_LINE[rec.status]}
                       </p>
                     ) : null}
-                    {plate ? <PlateDoor id={plate.id} /> : null}
+                    {plate ? (
+                      <PlateDoor id={plate.id} />
+                    ) : !rec.cited && rec.held ? (
+                      <Link to="/archive" hash={rec.id} className={doorClass}>
+                        See it in the archive
+                      </Link>
+                    ) : null}
                   </div>
                 </li>
               );

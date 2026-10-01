@@ -161,6 +161,19 @@ export const checks: { name: string; run: () => string[] }[] = [
     },
   },
   {
+    name: "a record added as a copy of a cited one points at a not-held record the post cites, and is held",
+    run: () =>
+      records
+        .filter((r) => r.copy_of)
+        .flatMap((r) => [
+          ...fail(
+            records.some((c) => c.id === r.copy_of && !!c.cited && c.status === "not-held"),
+            `${r.id}: copy of ${r.copy_of}`,
+          ),
+          ...fail(r.held, `${r.id}: a copy that isn't held`),
+        ]),
+  },
+  {
     name: "every audio part is a derived-media record of the narration script",
     run: () => [
       ...PARTS.flatMap((p) =>

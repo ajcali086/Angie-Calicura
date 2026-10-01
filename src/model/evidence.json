@@ -295,7 +295,7 @@
     },
     "record": "plate-35",
     "type": "supports",
-    "note": "The caption: an advertisement \"from the time Angie ran them.\" Not held.",
+    "note": "The advertisement: Best Western Timber Cove Lodge, 3411 Lake Tahoe Blvd, and Lake Tahoe Inn, 4110 Lake Tahoe Blvd, South Lake Tahoe.",
     "curator": "Claude (draft, awaiting curator review)",
     "date": "2026-10-01"
   },
@@ -647,6 +647,126 @@
     "type": "supports",
     "note": "Plate 3's caption makes Virginia eight years younger than Angie (born 1917) and has her die in 2023 at 98: both point to 1925, the registry's year.",
     "holding_museum": "spirit-of-martinez",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-055",
+    "claim": {
+      "passage": "1-p6",
+      "quote": "Angelina Jean Colacurcio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California."
+    },
+    "record": "grave-marker-3",
+    "type": "supports",
+    "note": "The marker: \"July 21, 1917.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-056",
+    "claim": {
+      "passage": "1-p6",
+      "quote": "Angelina Jean Colacurcio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"She was born in Martinez, Calif., July 21, 1917.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-057",
+    "claim": {
+      "passage": "3-p20",
+      "quote": "Angelina passed away on December 28, 1986, in South Lake Tahoe, California, and was laid to rest at Happy Homestead Cemetery, Lake Tahoe."
+    },
+    "record": "grave-marker-3",
+    "type": "supports",
+    "note": "The marker: \"Dec. 28, 1986.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-058",
+    "claim": {
+      "passage": "3-p20",
+      "quote": "Angelina passed away on December 28, 1986, in South Lake Tahoe, California, and was laid to rest at Happy Homestead Cemetery, Lake Tahoe."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"Died Sunday at her home in South Lake Tahoe\" (December 28, 1986 was a Sunday); funeral \"at Happy Homestead Cemetery in South Lake Tahoe.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-059",
+    "claim": {
+      "passage": "3-p1",
+      "quote": "The couple relocated to South Lake Tahoe, California, in the mid 1960s"
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"A 22-year resident of South Lake Tahoe\" in December 1986: since about 1964, the post's mid 1960s rather than Jack Alexander's obituary's 1960.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-060",
+    "claim": {
+      "passage": "3-p16",
+      "quote": "**Tarantino's Restaurant (1970s)**: Angelina initially managed this Italian eatery near Takela."
+    },
+    "record": "obituary-martinez-1986",
+    "type": "contradicts",
+    "note": "\"Managed several dining establishments at South Lake Tahoe, the latter being Timber Cove restaurant. Prior to her illness, she operated Angie's Tarentino's\": Tarantino's last, as Jack Alexander's obituary has it.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-061",
+    "claim": {
+      "passage": "3-p17",
+      "quote": "**Tahoe Inn (Late 1970s – Early 1980s)**: Located at 4110 Lake Tahoe Blvd, now part of Heavenly Village."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"A food and beverage manager at the Tahoe Inn and Timber Cove Lodge the past 10 years.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-062",
+    "claim": {
+      "passage": "3-p17",
+      "quote": "**Tahoe Inn (Late 1970s – Early 1980s)**: Located at 4110 Lake Tahoe Blvd, now part of Heavenly Village."
+    },
+    "record": "plate-35",
+    "type": "supports",
+    "note": "The advertisement puts the Lake Tahoe Inn at 4110 Lake Tahoe Blvd, the post's address.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-063",
+    "claim": {
+      "passage": "3-p18",
+      "quote": "**Timber Cove Lodge (Early–Mid 1980s)**: This lakeside lodge allowed Angelina to manage both dining and event operations."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"A food and beverage manager at the Tahoe Inn and Timber Cove Lodge the past 10 years.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-064",
+    "claim": {
+      "plate": "plate-03",
+      "quote": "Virginia Sullivan and Angelina Calicura were sisters"
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "Among her seven sisters: \"Virginia Sullivan of Martinez.\"",
     "curator": "Claude (draft, awaiting curator review)",
     "date": "2026-10-01"
   }

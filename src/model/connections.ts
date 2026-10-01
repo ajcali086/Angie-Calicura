@@ -133,3 +133,14 @@ export function questionsAbout(e: Entity) {
   ]);
   return questions.filter((q) => q.last_known_source.some((s) => near.has(s)));
 }
+
+/** Records added beyond the post: held, shown in no plate, not one the text merely cites. */
+export function addedRecords(): MuseumRecord[] {
+  return records.filter((r) => r.held && !r.plate && !r.cited && r.kind !== "derived_media");
+}
+
+/** A held record's first file, as the site serves it. */
+export function mediaSrc(r: MuseumRecord): string | undefined {
+  const path = r.media.find((m) => m.startsWith("public/"));
+  return path?.slice("public".length);
+}
