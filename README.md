@@ -35,6 +35,12 @@ The model now shows on the site (`src/model/connections.ts`, pure functions over
 - **"How this connects"** on plate pages: who is in the picture, what is photographed or named, and up to three nearby plates sharing one of them. A plate that names nothing shows nothing.
 - **Status on the page:** an unverified copy (plate 31) carries a marker under its caption, in its zoom view, its archive tile and its share card; plates 33, 35 and 38 say "Not held"; Sources marks the 13 records the post cites as not held and links what each names.
 
+Step 6 closes H1:
+
+- **Narration gate:** the script may differ from the text only by the 19 rules in `NORMALIZATIONS` (`scripts/lib/narration.ts`): numbers spelled out, "Photograph." before captions, listed abbreviations and initialisms, and the "Colacurchio" respelling. Every other difference fails the tests. Limit: a number is checked as present, not for its value.
+- **Freeze audit:** every ID the site or the model points at resolves (audio cues, part boundaries, timeline doors, plate paragraphs, the title plate, every model reference). The model's own IDs (62 records, 51 entities, 9 questions, 54 evidence links) are frozen in `src/model/frozen.json` as of 2026-10-01: never dropped, never reused, a withdrawn one retired. After adding to the model, run `scripts/freeze-model.ts`.
+- **Export:** `npm run export` writes the museum to `export/angie/` (add `--with-media` to copy the files): the model, the story it rests on, the frozen ID map and a media list with checksums, then re-reads it from those files alone and fails if any reference doesn't resolve.
+
 Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum prefix (`angie/p/2-p13`).
 
 ## Pages

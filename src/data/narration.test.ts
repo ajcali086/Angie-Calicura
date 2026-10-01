@@ -2,6 +2,10 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   matchScript,
+  NORMALIZATIONS,
+  numberRuns,
+  spokenForm,
+  unregisteredDifferences,
   PRONUNCIATIONS,
   scriptBlocks,
   similarity,
@@ -59,5 +63,28 @@ describe("narration script", () => {
         assert.ok(rate > 8 && rate < 30, `${c.id}: ${rate.toFixed(1)} chars/s`);
       }
     }
+  });
+
+  it("differs from the text only by registered rules: numbers spelled out, captions announced, the listed abbreviations and respellings", () => {
+    assert.deepEqual(unregisteredDifferences(), []);
+    assert.ok(NORMALIZATIONS.some((n) => n.name.includes("Colacurcio")));
+  });
+
+  it("would catch an unregistered change: a dropped word or a changed name", () => {
+    const site = "On August 3, 1953, Angelina Calicura ran the Rex Hotel.";
+    const say = (s: string) => numberRuns(s).join(" ");
+    const expected = spokenForm(site, false).join(" ");
+    assert.equal(
+      say("On August third, nineteen fifty-three, Angelina Calicura ran the Rex Hotel."),
+      expected,
+    );
+    assert.notEqual(
+      say("On August third, nineteen fifty-three, Angelina Calicura ran Rex Hotel."),
+      expected,
+    );
+    assert.notEqual(
+      say("On August third, nineteen fifty-three, Angela Calicura ran the Rex Hotel."),
+      expected,
+    );
   });
 });

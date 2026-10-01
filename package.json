@@ -4,12 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --host 0.0.0.0 --port 8080",
+    "export": "node --experimental-strip-types --import ./scripts/test-register.mjs scripts/export-museum.ts",
     "check:model": "node --experimental-strip-types --import ./scripts/test-register.mjs scripts/check-model.ts",
     "prebuild": "npm run check:model",
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --import ./scripts/test-register.mjs --test src/data/article.test.ts src/data/ids.test.ts src/data/links.test.ts src/data/verbatim.test.ts src/data/titleImage.test.ts src/data/audio.test.ts src/data/narration.test.ts src/lib/snippetCard.test.ts src/lib/clipSlice.test.ts src/model/model.test.ts src/model/connections.test.ts",
+    "test": "node --experimental-strip-types --import ./scripts/test-register.mjs --test src/data/article.test.ts src/data/ids.test.ts src/data/links.test.ts src/data/verbatim.test.ts src/data/titleImage.test.ts src/data/audio.test.ts src/data/narration.test.ts src/lib/snippetCard.test.ts src/lib/clipSlice.test.ts src/model/model.test.ts src/model/connections.test.ts scripts/lib/export.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

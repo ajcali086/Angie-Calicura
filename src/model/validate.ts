@@ -1,7 +1,11 @@
 import { existsSync } from "node:fs";
 import { ARTICLE_SOURCE } from "../data/article.source.ts";
-import { blockText, chapters, frozenIds, plates } from "../data/article.ts";
+import { blockText, chapters, door, frozenIds, plates } from "../data/article.ts";
 import { PARTS } from "../data/audio.ts";
+import { timeline } from "../data/timeline.ts";
+import { titleImage } from "../data/titleImage.ts";
+import CUES from "../generated/cues.json" with { type: "json" };
+import FROZEN from "./frozen.json" with { type: "json" };
 import { plateImages } from "../data/plateImages.ts";
 import { discrepancies } from "../data/discrepancies.ts";
 import { namedInText } from "../data/sources.ts";
@@ -18,7 +22,7 @@ import {
 import { RELATIONSHIP_TYPES, SCHEMA_VERSION } from "./types.ts";
 
 /**
- * The H1 gates (retrofit plan steps 1 to 5), as named checks. Each returns the
+ * The H1 gates (retrofit plan steps 1 to 6), as named checks. Each returns the
  * problems it finds; none means the gate passes. Run by src/model/model.test.ts
  * and by scripts/check-model.ts before every build.
  */
@@ -543,6 +547,80 @@ checks.push(
           ),
         ),
     ],
+  },
+);
+
+// Step 6: the freeze audit. Every ID the site or the model points at
+// resolves, and the model's own IDs are frozen: never dropped, never reused.
+const frozenPlateIds = new Set(frozenIds.plates.map(([id]) => id));
+/** The spoken title and subtitle have fixed IDs of their own, outside the passage freeze. */
+const SPOKEN_HEADINGS = new Set(["title", "subtitle"]);
+const blockOrPlate = (id: string) =>
+  passageIds.has(id) || frozenPlateIds.has(id) || SPOKEN_HEADINGS.has(id);
+type FrozenModel = {
+  frozen_on: string;
+  records: string[];
+  entities: string[];
+  questions: string[];
+  evidence: string[];
+  retired: string[];
+};
+const frozenModel = FROZEN as FrozenModel;
+const inUse = {
+  records: records.map((r) => r.id),
+  entities: entities.map((e) => e.id),
+  questions: questions.map((q) => q.id),
+  evidence: evidence.map((l) => l.id),
+};
+
+checks.push(
+  {
+    name: "freeze audit: every audio cue, part boundary, timeline door, plate paragraph and title plate resolves",
+    run: () => {
+      const cues = CUES as unknown as Record<string, { cues: [string, number, number][] }>;
+      return [
+        ...Object.entries(cues).flatMap(([part, { cues: list }]) =>
+          list
+            .filter(([id]) => id !== `${part}-title`)
+            .flatMap(([id]) => fail(blockOrPlate(id.replace(/-s\d+$/, "")), `cue ${id}`)),
+        ),
+        ...PARTS.flatMap((p) =>
+          p.lastBlock ? fail(blockOrPlate(p.lastBlock), `${p.id} ends at ${p.lastBlock}`) : [],
+        ),
+        ...timeline.flatMap((e) =>
+          fail(e.plate ? frozenPlateIds.has(e.plate) : !!door(e.quote), `timeline ${e.sort}`),
+        ),
+        ...plates.flatMap((p) =>
+          fail(passageIds.has(p.paragraph), `${p.id} sits beside ${p.paragraph}`),
+        ),
+        ...fail(frozenPlateIds.has(titleImage.plate), `title image ${titleImage.plate}`),
+        ...Object.keys(plateImages).flatMap((id) =>
+          fail(frozenPlateIds.has(id), `image for ${id}`),
+        ),
+        ...namedInText.flatMap((n) => fail(!!door(n.quote), `named record ${n.name}`)),
+      ];
+    },
+  },
+  {
+    name: "the model's IDs are frozen: every ID in use is frozen, every frozen ID is in use or retired, none reused",
+    run: () =>
+      (["records", "entities", "questions", "evidence"] as const).flatMap((kind) => [
+        ...inUse[kind].flatMap((id) =>
+          fail(
+            frozenModel[kind].includes(id),
+            `${kind} ${id} is not frozen (run scripts/freeze-model.ts)`,
+          ),
+        ),
+        ...frozenModel[kind].flatMap((id) =>
+          fail(
+            inUse[kind].includes(id) || frozenModel.retired.includes(id),
+            `${kind} ${id} was frozen and is gone; retire it instead`,
+          ),
+        ),
+        ...inUse[kind].flatMap((id) =>
+          fail(!frozenModel.retired.includes(id), `${kind} ${id} is retired`),
+        ),
+      ]),
   },
 );
 

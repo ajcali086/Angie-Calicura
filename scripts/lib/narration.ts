@@ -130,3 +130,119 @@ export function spokenLengths(): Map<string, number[]> {
   }
   return out;
 }
+
+/**
+ * Every way the script may differ from the canonical text, registered (H1
+ * step 6). Each rule rewrites the site's text into what the script says;
+ * after them, the two must match word for word, numbers aside (see
+ * `numberRuns`). A difference no rule explains is an error in one or the
+ * other, never a silent edit. Limit: a number is checked as present, not for
+ * its value ("1953" and "nineteen fifty-four" both collapse to "#"); the
+ * many ways a figure is read aloud (years in pairs, addresses, area codes)
+ * would need a reader of their own.
+ */
+export const NORMALIZATIONS: { name: string; from: RegExp; to: string }[] = [
+  ...Object.entries(PRONUNCIATIONS).map(([said, written]) => ({
+    name: `pronunciation: ${written} said as ${said}`,
+    from: new RegExp(`\\b${written}\\b`, "g"),
+    to: said,
+  })),
+  { name: "abbreviation: Mrs.", from: /\bMrs\.?(?=\s|,|$)/g, to: "Missus" },
+  { name: "abbreviation: Mr.", from: /\bMr\.(?=\s)/g, to: "Mister" },
+  { name: "abbreviation: Dr.", from: /\bDr\.(?=\s)/g, to: "Doctor" },
+  { name: "abbreviation: No. before a number", from: /\bNo\.\s(?=\d)/g, to: "Number " },
+  { name: "abbreviation: W. and N. before a street", from: /\b([WN])\.\s(?=\d|Main)/g, to: "$1 " },
+  { name: "abbreviation: W. read West", from: /\bW (?=\d)/g, to: "West " },
+  { name: "abbreviation: N. read North", from: /\bN (?=Main)/g, to: "North " },
+  { name: "abbreviation: St. after a street", from: /(\d(?:st|nd|rd|th)) St\./g, to: "$1 Street" },
+  { name: "abbreviation: Ave.", from: /\bAve\b\.?/g, to: "Avenue" },
+  { name: "abbreviation: Blvd", from: /\bBlvd\b\.?/g, to: "Boulevard" },
+  { name: "abbreviation: month names", from: /\b(Jun|Jul|Aug|Dec)\b\.?/g, to: "$1_MONTH" },
+  { name: "abbreviation: dba", from: /\bdba\b/g, to: "doing business as" },
+  { name: "initialism: U.S. and US spelled out", from: /\bU\.?S\.?(?=\s)/g, to: "U S" },
+  { name: "initialism: IMDb spelled out", from: /\bIMDb\b/g, to: "I M D B" },
+  { name: "numeral: II read as two", from: /\bII\b/g, to: "two" },
+  { name: "abbreviation: a directory's r (residence)", from: /\b[Rr]\s?(?=\d)/g, to: "residence " },
+  { name: "symbol: & read as and", from: /\s&\s/g, to: " and " },
+  { name: "range: a dash between words read as to", from: /([a-z])–([a-z])/gi, to: "$1 to $2" },
+];
+
+const MONTHS: Record<string, string> = { Jun: "June", Jul: "July", Aug: "August", Dec: "December" };
+
+const NUMBER_WORDS = new Set(
+  (
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen " +
+    "twenty thirty forty fifty sixty seventy eighty ninety hundred thousand million " +
+    "first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth thirteenth fourteenth fifteenth sixteenth " +
+    "seventeenth eighteenth nineteenth twentieth thirtieth twenties thirties forties fifties sixties seventies eighties nineties"
+  ).split(" "),
+);
+/** Words that join a run of numbers ("thirteen oh nine and a half", "two dollars and ten cents"). */
+const JOINERS = new Set(["oh", "and", "a", "half", "to", "dollars", "cents"]);
+
+/** Lowercase words, with digits, number words and their joiners collapsed to "#". */
+export function numberRuns(text: string): string[] {
+  const words =
+    text
+      .replace(/\*+/g, "")
+      .replace(/[’‘]/g, "'")
+      .toLowerCase()
+      .match(/[a-z]+(?:'[a-z]+)?|\$?\d[\d,.]*(?:st|nd|rd|th|s)?½?|½/g) ?? [];
+  const isNum = (w: string) =>
+    /\d|½/.test(w) || NUMBER_WORDS.has(w) || w.split("-").every((p) => NUMBER_WORDS.has(p));
+  const out: string[] = [];
+  for (let i = 0; i < words.length; i++) {
+    const w = words[i];
+    const inRun = out.at(-1) === "#";
+    if (isNum(w)) {
+      if (!inRun) out.push("#");
+      continue;
+    }
+    // A joiner inside or right after a run, followed (soon) by a number or a money word, stays in the run.
+    if (inRun && JOINERS.has(w)) {
+      const ahead = words.slice(i + 1, i + 3);
+      const half = ahead[0] === "half" || (ahead[0] === "a" && ahead[1] === "half");
+      if (
+        w === "dollars" ||
+        w === "cents" ||
+        w === "half" ||
+        half ||
+        ahead.some(isNum) ||
+        ahead[0] === "cents"
+      )
+        continue;
+    }
+    out.push(w);
+  }
+  return out;
+}
+
+/** What the script should say for a site passage, by the registered rules. */
+export function spokenForm(site: string, isCaption: boolean): string[] {
+  let text = site;
+  for (const n of NORMALIZATIONS) text = text.replace(n.from, n.to);
+  text = text.replace(/\b(Jun|Jul|Aug|Dec)_MONTH/g, (_, m: string) => MONTHS[m]);
+  return [...(isCaption ? ["photograph"] : []), ...numberRuns(text)];
+}
+
+/** Script passages that differ from the site in a way no registered rule explains. */
+export function unregisteredDifferences(): {
+  blocks: string[];
+  site: string[];
+  script: string[];
+}[] {
+  return matchScript().flatMap((p) => {
+    const site = spokenForm(p.site, p.blocks[0].startsWith("plate-"));
+    const script = numberRuns(p.script.replace(/^Photograph\.\s*/, "Photograph "));
+    if (site.join(" ") === script.join(" ")) return [];
+    let i = 0;
+    while (site[i] === script[i]) i++;
+    return [
+      {
+        blocks: p.blocks,
+        site: site.slice(Math.max(0, i - 3), i + 6),
+        script: script.slice(Math.max(0, i - 3), i + 6),
+      },
+    ];
+  });
+}
