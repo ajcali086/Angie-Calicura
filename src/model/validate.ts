@@ -3,12 +3,22 @@ import { ARTICLE_SOURCE } from "../data/article.source.ts";
 import { blockText, chapters, frozenIds, plates } from "../data/article.ts";
 import { PARTS } from "../data/audio.ts";
 import { plateImages } from "../data/plateImages.ts";
+import { discrepancies } from "../data/discrepancies.ts";
 import { namedInText } from "../data/sources.ts";
-import { entities, heldBack, museum, recordLinks, records, relationships } from "./index.ts";
+import {
+  entities,
+  evidence,
+  heldBack,
+  museum,
+  questions,
+  recordLinks,
+  records,
+  relationships,
+} from "./index.ts";
 import { RELATIONSHIP_TYPES, SCHEMA_VERSION } from "./types.ts";
 
 /**
- * The H1 gates (retrofit plan steps 1 to 3), as named checks. Each returns the
+ * The H1 gates (retrofit plan steps 1 to 5), as named checks. Each returns the
  * problems it finds; none means the gate passes. Run by src/model/model.test.ts
  * and by scripts/check-model.ts before every build.
  */
@@ -411,6 +421,128 @@ checks.push(
           ? [`${name(r.from)} ${r.type} ${name(r.to)} rests on plate 8`]
           : [],
       ),
+  },
+);
+
+// Steps 4 and 5: evidence links and open questions.
+const evidenceIds = new Set(evidence.map((l) => l.id));
+const plateIds = new Set(plates.map((p) => p.id));
+const plateCaption = (id: string) =>
+  plates.find((p) => p.id === id)?.caption.replace(/\*+/g, "") ?? "";
+
+checks.push(
+  {
+    name: "every evidence link has an ID, a type, a record and a dated curator",
+    run: () => {
+      const seen = new Set<string>();
+      return evidence.flatMap((l) => {
+        const out = [
+          ...fail(/^ev-\d{3}$/.test(l.id), `${l.id}: malformed ID`),
+          ...fail(["supports", "contradicts", "qualifies"].includes(l.type), `${l.id}: type`),
+          ...fail(recordIds.has(l.record), `${l.id}: no record ${l.record}`),
+          ...fail(!!l.curator && iso.test(l.date), `${l.id}: curator or date`),
+          ...(recordOf(l.record)?.status === "not-held"
+            ? fail(!!l.note, `${l.id}: not-held record, no note`)
+            : []),
+        ];
+        if (seen.has(l.id)) out.push(`${l.id}: duplicate`);
+        seen.add(l.id);
+        return out;
+      });
+    },
+  },
+  {
+    name: "every claim resolves: a frozen passage or plate, quoted verbatim, or another museum's claim, attributed",
+    run: () =>
+      evidence.flatMap((l) => {
+        const c = l.claim as Record<string, string>;
+        if ("passage" in c)
+          return fail(
+            passageText(c.passage)?.includes(c.quote) ?? false,
+            `${l.id}: not in ${c.passage}`,
+          );
+        if ("plate" in c)
+          return [
+            ...fail(plateIds.has(c.plate), `${l.id}: no ${c.plate}`),
+            ...fail(
+              plateCaption(c.plate).includes(c.quote),
+              `${l.id}: not in ${c.plate}'s caption`,
+            ),
+          ];
+        return fail(
+          !!c.museum &&
+            c.museum !== museum.slug &&
+            l.holding_museum === c.museum &&
+            !!c.ref &&
+            !!c.anchor &&
+            !!c.summary,
+          `${l.id}: cross-museum claim not attributed`,
+        );
+      }),
+  },
+  {
+    name: "every contradiction is carried by an open question, so both sides stand in view",
+    run: () =>
+      evidence
+        .filter((l) => l.type === "contradicts")
+        .flatMap((l) =>
+          fail(
+            questions.some((q) => q.evidence.includes(l.id)),
+            `${l.id}: no question carries it`,
+          ),
+        ),
+  },
+  {
+    name: "every open question is bounded: all fields filled, sources and evidence resolve",
+    run: () => {
+      const ids = new Set<string>();
+      return questions.flatMap((q) => {
+        const out = [
+          ...fail(/^[a-z0-9]+(-[a-z0-9]+)*$/.test(q.id), `${q.id}: malformed ID`),
+          ...fail(["post", "records"].includes(q.origin), `${q.id}: origin`),
+          ...fail(["open", "answered"].includes(q.status), `${q.id}: status`),
+          ...(
+            [
+              "title",
+              "what_we_know",
+              "what_we_dont",
+              "what_might_answer_it",
+              "evidence_needed",
+            ] as const
+          ).flatMap((k) => fail(!!q[k], `${q.id}: ${k} empty`)),
+          ...fail(q.last_known_source.length > 0, `${q.id}: no last known source`),
+          ...q.last_known_source.flatMap((s) =>
+            fail(recordIds.has(s) || passageIds.has(s) || plateIds.has(s), `${q.id}: source ${s}`),
+          ),
+          ...q.evidence.flatMap((e) => fail(evidenceIds.has(e), `${q.id}: evidence ${e}`)),
+          ...(q.status === "answered"
+            ? fail(q.evidence.length > 0, `${q.id}: answered without evidence`)
+            : []),
+        ];
+        if (ids.has(q.id)) out.push(`${q.id}: duplicate`);
+        ids.add(q.id);
+        return out;
+      });
+    },
+  },
+  {
+    name: "the post's own open questions are all here, and only those are marked as the post's",
+    run: () => [
+      ...discrepancies.flatMap((d) =>
+        fail(
+          questions.some((q) => q.origin === "post" && q.post_entry === d.id),
+          `${d.id}: no question`,
+        ),
+      ),
+      ...questions
+        .filter((q) => q.origin === "post")
+        .flatMap((q) =>
+          fail(
+            discrepancies.some((d) => d.id === q.post_entry),
+            `${q.id}: no post entry`,
+          ),
+        ),
+    ],
   },
 );
 

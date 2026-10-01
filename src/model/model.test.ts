@@ -4,9 +4,11 @@ import {
   entities,
   entitiesForRecord,
   entityBySlug,
+  evidence,
   globalId,
   heldBack,
   museum,
+  questions,
   recordLinksOf,
   records,
   recordsForPlate,
@@ -16,7 +18,7 @@ import {
 import { PROPOSED_TYPES } from "./types.ts";
 import { checks } from "./validate.ts";
 
-describe("model: museum, records, entities and relationships (H1 steps 1 to 3)", () => {
+describe("model: H1 steps 1 to 5", () => {
   for (const check of checks) it(check.name, () => assert.deepEqual(check.run(), []));
 
   it("holds 62 records: 45 verified, 1 unverified, 16 not held", () => {
@@ -135,5 +137,52 @@ describe("model: museum, records, entities and relationships (H1 steps 1 to 3)",
   it("marks officer-of as a type proposed here, not yet in the spec", () => {
     assert.deepEqual([...PROPOSED_TYPES], ["officer-of"]);
     assert.equal(relationships.filter((r) => r.type === "officer-of").length, 7);
+  });
+
+  it("links 54 claims to records: 42 support, 6 contradict, 6 qualify", () => {
+    const t = (x: string) => evidence.filter((l) => l.type === x).length;
+    assert.deepEqual(
+      [evidence.length, t("supports"), t("contradicts"), t("qualifies")],
+      [54, 42, 6, 6],
+    );
+  });
+
+  it("lets the records contradict the post where they do, and keeps both", () => {
+    const contradicted = evidence
+      .filter((l) => l.type === "contradicts")
+      .map((l) => ("quote" in l.claim ? l.claim.quote.slice(0, 40) : ""));
+    assert.deepEqual(contradicted, [
+      "The couple relocated to South Lake Tahoe",
+      "**Tarantino's Restaurant (1970s)**: Ange",
+      "171 North Main Street",
+      "171 North Main Street",
+      "City Marshal Jack Wolfe described an att",
+      "strongly believed the ceremony took plac",
+    ]);
+  });
+
+  it("records the cross-museum link to Spirit of Martinez without editing its claim", () => {
+    const cross = evidence.filter((l) => l.holding_museum);
+    assert.equal(cross.length, 1);
+    assert.equal(cross[0].holding_museum, "spirit-of-martinez");
+    assert.equal(cross[0].record, "plate-03");
+  });
+
+  it("keeps nine open questions: the post's two and seven the records raise, none answered", () => {
+    assert.deepEqual(
+      questions.map((q) => [q.id, q.origin]),
+      [
+        ["which-ideal", "post"],
+        ["pearl-logan", "post"],
+        ["city-marshal", "records"],
+        ["ideal-address", "records"],
+        ["donna-spelling", "records"],
+        ["wedding-place", "records"],
+        ["tahoe-move", "records"],
+        ["tarantinos-order", "records"],
+        ["andrew-generation", "records"],
+      ],
+    );
+    assert.ok(questions.every((q) => q.status === "open"));
   });
 });

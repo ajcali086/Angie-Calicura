@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { questions } from "@/model";
 import { AuthorLink } from "@/components/AuthorLink";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Inline } from "@/components/Inline";
 import { PassageDoor } from "@/components/Door";
 import { ListenArticle } from "@/components/audio/ListenArticle";
 import { article, chapters, door, plain, plateById, plates } from "@/data/article";
-import { discrepancies } from "@/data/discrepancies";
 import { plateImages } from "@/data/plateImages";
 import { timeline } from "@/data/timeline";
 import { titleImage } from "@/data/titleImage";
@@ -38,7 +38,7 @@ function Home() {
     {
       href: "/left-open",
       label: "Left Open",
-      count: `${discrepancies.length} questions the post leaves unanswered`,
+      count: `${questions.length} open questions: ${questions.filter((q) => q.origin === "post").length} the post leaves, the rest its records raise`,
     },
   ] as const;
 

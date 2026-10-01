@@ -2,7 +2,18 @@ import MUSEUM from "./museum.json" with { type: "json" };
 import RECORDS from "./records.json" with { type: "json" };
 import ENTITIES from "./entities.json" with { type: "json" };
 import RELATIONSHIPS from "./relationships.json" with { type: "json" };
-import type { Entity, HeldBack, Museum, MuseumRecord, RecordLink, Relationship } from "./types.ts";
+import EVIDENCE from "./evidence.json" with { type: "json" };
+import QUESTIONS from "./questions.json" with { type: "json" };
+import type {
+  Entity,
+  EvidenceLink,
+  HeldBack,
+  Museum,
+  MuseumRecord,
+  OpenQuestion,
+  RecordLink,
+  Relationship,
+} from "./types.ts";
 
 /**
  * The museum's model, as the site reads it. The data is the JSON beside this
@@ -50,6 +61,15 @@ export function recordLinksOf(
       recordLinks.find((l) => l.entity === entityId && l.record === record)?.type ??
       "documented-in",
   }));
+}
+
+/** Claims linked to records, typed supports, contradicts or qualifies. */
+export const evidence = EVIDENCE as unknown as EvidenceLink[];
+/** Left Open: the post's own open questions and those the records raise. */
+export const questions = QUESTIONS as unknown as OpenQuestion[];
+
+export function evidenceById(id: string): EvidenceLink | undefined {
+  return evidence.find((e) => e.id === id);
 }
 
 export function recordById(id: string): MuseumRecord | undefined {

@@ -27,6 +27,8 @@ Step 2 is in: `src/model/entities.json` holds 51 entities (23 people, 11 places,
 
 Step 3 is in: `src/model/relationships.json` holds 44 typed edges between entities. 38 are derived from what a record states, each naming its record and whether the caption or the image says it, with the words quoted (caption quotes are checked verbatim). 6 come from the post's prose, each citing its passage, also checked verbatim. 22 record links say where a record shows an entity (a person in a photograph, a building photographed); every other anchor counts as `documented-in`. Nothing is inferred: no edge rests on plate 8, which doesn't say which Ideal Hotel, and the Tahoe businesses have no location edge because no record or passage places them. `officer-of` (directors, the mayor, commissioners) is a type proposed here, not yet in the spec.
 
+Steps 4 and 5 are in. `src/model/evidence.json` links 54 claims to records, typed: 42 support, 6 contradict, 6 qualify. A claim is a verbatim quote from a passage or a plate's caption, checked against the text, or, once, a claim Spirit of Martinez holds (Virginia Sullivan's birth year), linked without editing it. Where the records contradict the post (171 or 173 North Main, the "City Marshal", Elko, the 1960 move, Tarantino's order), both stand, and every contradiction is carried by an open question. `src/model/questions.json` holds nine bounded questions, the post's own two and seven the records raise, and the Left Open page now reads from it: what we know, what we don't, what might answer it, the evidence needed, and the evidence so far.
+
 Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum prefix (`angie/p/2-p13`).
 
 ## Pages
@@ -38,7 +40,7 @@ Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum 
 | `/timeline`                | Every date the post gives for Angie's life, by decade                                |
 | `/archive`, `/archive/$id` | All 39 plates with the post's captions                                               |
 | `/sources`                 | The article, the newspapers in the plates, records named in the text, and the thanks |
-| `/left-open`               | The two questions the post itself leaves open                                        |
+| `/left-open`               | Nine open questions: the post's own two, and seven its records raise                 |
 
 ## Images
 

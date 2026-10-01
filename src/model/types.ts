@@ -157,3 +157,52 @@ export type RecordLink = {
   field: "caption" | "image";
   says: string;
 };
+
+/**
+ * What a piece of evidence bears on: words in a passage of the post, words
+ * in a plate's caption (also the post's), or a claim another museum holds.
+ * Quotes are verbatim.
+ */
+export type ClaimRef =
+  | { passage: string; quote: string }
+  | { plate: string; quote: string }
+  | { museum: string; ref: string; anchor: string; summary: string };
+
+export type EvidenceType = "supports" | "contradicts" | "qualifies";
+
+/** A claim linked to a record, typed (spec §1.1, v2 §7). Both sides of a contradiction stand. */
+export type EvidenceLink = {
+  id: string;
+  claim: ClaimRef;
+  record: string;
+  type: EvidenceType;
+  /** One line: what the record says that bears on the claim. */
+  note?: string;
+  /** For a claim another museum holds: that museum. Its claim is never edited here. */
+  holding_museum?: string;
+  curator: string;
+  date: string;
+};
+
+/**
+ * A bounded open question (spec §1.1, v2 §5). Closes only on evidence. `post`
+ * questions are the ones the post leaves open in its own words
+ * (src/data/discrepancies.ts holds those words); `records` questions are
+ * raised where the records and the post disagree.
+ */
+export type OpenQuestion = {
+  id: string;
+  title: string;
+  origin: "post" | "records";
+  /** For a `post` question: its entry in src/data/discrepancies.ts. */
+  post_entry?: string;
+  what_we_know: string;
+  what_we_dont: string;
+  what_might_answer_it: string;
+  evidence_needed: string;
+  /** Record, passage or plate IDs the question rests on. */
+  last_known_source: string[];
+  status: "open" | "answered";
+  /** Evidence links that bear on it. */
+  evidence: string[];
+};
