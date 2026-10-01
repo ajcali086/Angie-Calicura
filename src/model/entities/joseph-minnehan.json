@@ -1,0 +1,25 @@
+{
+  "id": "83b2794a",
+  "slug": "joseph-minnehan",
+  "kind": "person",
+  "label": "Joseph Minnehan",
+  "aliases": [
+    {
+      "name": "Joseph Minnehahn",
+      "sources": ["2-p31"]
+    }
+  ],
+  "anchors": ["plate-21"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Joseph Minnehahn"],
+      "rationale": "The clipping (plate 21) spells him Minnehan, the Casper attorney for the Ideal Hotel; the post spells the same man Minnehahn. The label follows the record; the post's spelling stands as an alias.",
+      "sources": ["plate-21", "2-p31"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

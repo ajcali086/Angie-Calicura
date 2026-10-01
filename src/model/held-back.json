@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Pearl Logan",
+    "kind": "person",
+    "reason": "Named only in the post's text. No record the museum holds or cites names her; plate 10, which the Left Open entry points at, does not.",
+    "sources": ["2-p10"]
+  },
+  {
+    "label": "City Marshal Jack Wolfe",
+    "kind": "person",
+    "reason": "No record names a City Marshal Jack Wolfe. In the clipping (plate 21), the account of trying to serve papers at the hotel is Sheriff Willard Marshall's, and Jack Wolfe is a local attorney. The post's passage stands as its account; the evidence goes to step 4 and the question to step 5.",
+    "sources": ["plate-21", "2-p37"]
+  },
+  {
+    "label": "Elko, Nevada",
+    "kind": "place",
+    "reason": "Named only as where the wedding is \"strongly believed\" to have taken place. Jack Alexander's obituary (plate 37) says they married in 1958 at Sheridan; evidence for step 4.",
+    "sources": ["plate-37", "2-p59"]
+  },
+  {
+    "label": "Angie's Place",
+    "kind": "business",
+    "reason": "Named only in the post's text; no record names it.",
+    "sources": ["2-p13"]
+  },
+  {
+    "label": "Ideal Hotel (Billings)",
+    "kind": "business",
+    "reason": "The only record (plate 8) calls Angie \"owner of the Ideal hotel\" without saying which. Left Open's \"Billings or Sheridan\" question; no entity until a record says Billings.",
+    "sources": ["plate-08"]
+  }
+]

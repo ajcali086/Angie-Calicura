@@ -1,0 +1,11 @@
+{
+  "id": "bb07da8f",
+  "slug": "fbi",
+  "kind": "organization",
+  "label": "FBI",
+  "aliases": [],
+  "anchors": ["plate-19", "cited-fbi-reports"],
+  "framing": null,
+  "identity_assertions": [],
+  "notes": []
+}

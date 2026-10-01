@@ -1,5 +1,6 @@
 import { ARTICLE_SOURCE } from "./article.source.ts";
 import FROZEN from "./frozen-ids.json" with { type: "json" };
+import { appliedCorrections } from "./corrections.ts";
 
 /**
  * The article, parsed from the transcript and never retyped.
@@ -20,6 +21,11 @@ import FROZEN from "./frozen-ids.json" with { type: "json" };
  * renumber the ones after it. A block with no frozen id gets a provisional
  * "unfrozen-" id until scripts/freeze-ids.ts gives it a new one. Never
  * renumber or reuse an id; retire it.
+ *
+ * The text changes only by correction (src/data/corrections.ts): ids are
+ * matched on the original text, then an applied correction's text replaces
+ * the block's or caption's. `originalText` keeps what article.md says, for
+ * the check that article.md itself never changes.
  */
 
 export type Block =
@@ -123,6 +129,8 @@ function frozenId(kind: Assigned["kind"], text: string, chapter: number): string
 
 export const chapters: Chapter[] = [];
 export const plates: Plate[] = [];
+/** What article.md says for each block and plate caption, before corrections. */
+export const originalText = new Map<string, string>();
 
 for (const group of body) {
   const first = group[0];
@@ -135,23 +143,33 @@ for (const group of body) {
 
   if (group.every((l) => IMAGE.test(l))) {
     for (const line of group) {
-      const caption = line.match(IMAGE)![1];
-      const plate = frozenId("plates", caption, chapter.number);
+      const original = line.match(IMAGE)![1];
+      const plate = frozenId("plates", original, chapter.number);
+      originalText.set(plate, original);
       plates.push({
         id: plate,
         number: plates.length + 1,
-        caption,
+        caption: appliedCorrections.get(plate)?.proposed_text ?? original,
         chapter: chapter.slug,
         paragraph: "",
       });
       chapter.blocks.push({ type: "figure", plate });
     }
-  } else if (group.every((l) => l.startsWith("> "))) {
-    chapter.blocks.push({ type: "quote", id: id(), text: group.map((l) => l.slice(2)).join("\n") });
-  } else if (group.every((l) => l.startsWith("- "))) {
-    chapter.blocks.push({ type: "list", id: id(), items: group.map((l) => l.slice(2)) });
   } else {
-    chapter.blocks.push({ type: "p", id: id(), text: group.join("\n") });
+    const blockId = id();
+    originalText.set(blockId, group.join("\n"));
+    const lines = appliedCorrections.get(blockId)?.proposed_text.split("\n") ?? group;
+    if (lines.every((l) => l.startsWith("> "))) {
+      chapter.blocks.push({
+        type: "quote",
+        id: blockId,
+        text: lines.map((l) => l.slice(2)).join("\n"),
+      });
+    } else if (lines.every((l) => l.startsWith("- "))) {
+      chapter.blocks.push({ type: "list", id: blockId, items: lines.map((l) => l.slice(2)) });
+    } else {
+      chapter.blocks.push({ type: "p", id: blockId, text: lines.join("\n") });
+    }
   }
 }
 
@@ -201,6 +219,15 @@ export function locate(
     }
   }
   return found;
+}
+
+/** The published text: every block and caption as it now reads, corrections applied. */
+export function publishedText(): string {
+  return [
+    ...chapters.flatMap((c) => c.blocks.map((b) => blockText(b))),
+    article.title,
+    article.subtitle,
+  ].join("\n\n");
 }
 
 /** Plain text with the markdown emphasis markers removed, for meta tags and alt text. */

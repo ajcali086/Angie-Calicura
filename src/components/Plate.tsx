@@ -30,14 +30,13 @@ export function Plate({
 }) {
   const image = plateImages[plate.id];
   const onPaper = tone === "paper";
-  const alt = plate.caption.replace(/\*+/g, "");
   const status = plateStatus(plate.id);
   const frame = image?.set ? (
-    <PlateSet set={image.set} alt={alt} large={large} />
+    <PlateSet set={image.set} large={large} />
   ) : image ? (
     <img
       src={image.src}
-      alt={alt}
+      alt={image.alt}
       width={image.width}
       height={image.height}
       loading="lazy"
@@ -176,23 +175,24 @@ function PlateZoom({
           </button>
         </form>
         <div className="min-h-0 flex-1 space-y-6 overflow-auto pb-6">
-          {images.map(({ src, width, height }, i) => (
+          {images.map(({ src, width, height, alt, side, caption }, i) => (
             <figure key={src}>
               <img
                 src={src}
-                alt={
-                  images.length > 1
-                    ? `${plate.caption.replace(/\*+/g, "")} Photograph ${i + 1} of ${images.length}.`
-                    : plate.caption.replace(/\*+/g, "")
-                }
+                alt={images.length > 1 ? `${alt} (${setPosition(i, images.length)})` : alt}
                 width={width}
                 height={height}
                 className="mx-auto block h-auto max-w-none"
                 style={{ width: `max(100%, ${Math.min(width, 1800)}px)` }}
               />
-              {images.length > 1 ? (
-                <figcaption className="mt-2 px-4 font-sans text-[0.68rem] tracking-[0.16em] text-muted uppercase">
-                  {i + 1} of {images.length}
+              {images.length > 1 || side || caption ? (
+                <figcaption className="mt-2 px-4">
+                  <span className="font-sans text-[0.68rem] tracking-[0.16em] text-muted uppercase">
+                    {[side, images.length > 1 ? `${i + 1} of ${images.length}` : ""]
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </span>
+                  {caption ? <span className="mt-1 block text-sm text-fog">{caption}</span> : null}
                 </figcaption>
               ) : null}
             </figure>
@@ -211,7 +211,12 @@ const SET_LEAD = ["", "col-span-6 aspect-[2/1]", "col-span-3 aspect-[3/2]"];
  * the odd one or two across the top, the rest three to a row. Each is
  * cropped to its cell here; the zoom view shows every one whole.
  */
-function PlateSet({ set, alt, large }: { set: PlateImage[]; alt: string; large: boolean }) {
+/** "photograph 1 of 2": where an image sits in its plate, for alt text. */
+function setPosition(i: number, n: number) {
+  return `photograph ${i + 1} of ${n}`;
+}
+
+function PlateSet({ set, large }: { set: PlateImage[]; large: boolean }) {
   // A pair (a print's front and back) sits side by side, each whole, at one
   // height: each column is as wide as its image's aspect ratio.
   if (set.length === 2)
@@ -227,7 +232,7 @@ function PlateSet({ set, alt, large }: { set: PlateImage[]; alt: string; large: 
           <img
             key={image.src}
             src={image.src}
-            alt={`${alt} Photograph ${i + 1} of ${set.length}.`}
+            alt={`${image.alt} (${setPosition(i, set.length)})`}
             width={image.width}
             height={image.height}
             loading="lazy"
@@ -249,7 +254,7 @@ function PlateSet({ set, alt, large }: { set: PlateImage[]; alt: string; large: 
         <img
           key={image.src}
           src={image.src}
-          alt={`${alt} Photograph ${i + 1} of ${set.length}.`}
+          alt={`${image.alt} (${setPosition(i, set.length)})`}
           width={image.width}
           height={image.height}
           loading="lazy"

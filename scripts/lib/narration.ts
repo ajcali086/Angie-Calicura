@@ -12,6 +12,7 @@
  */
 import { readFileSync } from "node:fs";
 import { chapters } from "../../src/data/article.ts";
+import { appliedCorrections } from "../../src/data/corrections.ts";
 import { spokenBlocks } from "../../src/data/audio.ts";
 import { splitSentences, spoken } from "../../src/lib/sentences.ts";
 
@@ -64,6 +65,18 @@ export function matchScript(): { blocks: string[]; site: string; script: string 
     throw new Error(
       `narration script has ${script.length} blocks; the site groups into ${units.length}`,
     );
+  }
+  // An applied correction brings the script's words for its passage with it:
+  // one block, or one per item of a list.
+  for (const c of appliedCorrections.values()) {
+    if (!c.narration_text) continue;
+    const at = units.flatMap((u, i) => (u.blocks.includes(c.target) ? [i] : []));
+    const said = c.narration_text.split(/\n\s*\n/).map((t) => t.trim());
+    if (at.length !== said.length)
+      throw new Error(
+        `${c.id}: narration_text has ${said.length} block(s); ${c.target} is read as ${at.length}`,
+      );
+    at.forEach((i, k) => (script[i] = said[k]));
   }
   return units.map((u, i) => ({ ...u, script: script[i] }));
 }

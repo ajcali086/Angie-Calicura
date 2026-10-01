@@ -1,0 +1,17 @@
+{
+  "id": "plate-31",
+  "images": [
+    {
+      "src": "/images/plates/plate-31-front.jpg",
+      "alt": "Black-and-white photograph of a dark-haired woman in a checked jacket and a smiling man in a sport coat, seated together at a restaurant table set with plates, wine glasses and a bread basket.",
+      "side": "front"
+    },
+    {
+      "src": "/images/plates/plate-31-back.jpg",
+      "alt": "The back of the print: the handwritten caption “Angelina and Jack Alexander enjoy dinner in their new restaurant, South Lake Tahoe June 5, 1972”, a red “Return to Chronicle Files” stamp, and editors’ pencil and ink notes.",
+      "side": "back"
+    }
+  ],
+  "alt_status": "draft",
+  "curator_note": "The press print (Historic Images), front and back. The back's handwritten caption and \"Return to Chronicle Files\" stamp are what the post quotes. The front's source scan was not confirmed when it was added (2026-10-01); it was added at the site owner's request."
+}

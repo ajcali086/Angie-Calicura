@@ -1,0 +1,16 @@
+{
+  "id": "plate-25",
+  "kind": "photograph",
+  "plate": "plate-25",
+  "title": "1021 Princeton Ave, Billings Montana. Photo from Google Maps.",
+  "credit": "Google Maps",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-25.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

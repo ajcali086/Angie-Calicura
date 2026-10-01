@@ -47,7 +47,7 @@ export type MuseumRecord = {
   restoration: null;
   /** Derived media: the record it is generated from. */
   derived_from?: string;
-  /** A record named in the text: its name in src/data/sources.ts. */
+  /** A record named in the text: its source's ID in src/data/sources.json. */
   cited?: string;
   /** A held copy of a record the text cites (that record's ID). */
   copy_of?: string;

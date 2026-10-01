@@ -1,0 +1,37 @@
+{
+  "id": "b45a82e1",
+  "slug": "donna-dreyer",
+  "kind": "person",
+  "label": "Donna Dreyer",
+  "aliases": [
+    {
+      "name": "Donna Dyer",
+      "sources": ["3-p31"]
+    },
+    {
+      "name": "Donna Dryer",
+      "sources": ["3-p41"]
+    }
+  ],
+  "anchors": ["plate-37"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Donna Dyer"],
+      "rationale": "The post's Donna Dyer is \"a woman mentioned in John 'Jack' Alexander's obituary\"; the obituary (plate 37) spells her Donna Dreyer. The label follows the record.",
+      "sources": ["plate-37", "3-p31"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "open",
+      "names": ["Donna Dryer"],
+      "rationale": "The thanks spells Donna Dryer. Likely the same person, but the thanks says nothing to tie it to the obituary.",
+      "sources": ["3-p41"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

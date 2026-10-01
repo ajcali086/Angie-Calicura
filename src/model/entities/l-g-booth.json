@@ -1,0 +1,25 @@
+{
+  "id": "52b6bf80",
+  "slug": "l-g-booth",
+  "kind": "person",
+  "label": "L. G. Booth",
+  "aliases": [
+    {
+      "name": "Dr. L.G. Booth",
+      "sources": ["2-p25"]
+    }
+  ],
+  "anchors": ["plate-18"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Dr. L.G. Booth"],
+      "rationale": "The incorporation notice (plate 18) lists director L. G. Booth; the post names the same director Dr. L.G. Booth.",
+      "sources": ["plate-18", "2-p25"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

@@ -1,0 +1,16 @@
+{
+  "id": "plate-08",
+  "kind": "document",
+  "plate": "plate-08",
+  "title": "Martinez News-Gazette, Martinez, California, Aug 07, 1951, Page 4",
+  "credit": "Martinez News-Gazette, August 7, 1951, page 4",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-08.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

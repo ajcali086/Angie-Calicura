@@ -1,0 +1,16 @@
+{
+  "id": "plate-11",
+  "kind": "document",
+  "plate": "plate-11",
+  "title": "1954 Sheridan City Directory",
+  "credit": "1954 Sheridan City Directory",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-11.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

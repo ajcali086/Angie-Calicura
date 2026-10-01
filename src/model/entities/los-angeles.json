@@ -1,0 +1,11 @@
+{
+  "id": "55cd8d0c",
+  "slug": "los-angeles",
+  "kind": "place",
+  "label": "Los Angeles, California",
+  "aliases": [],
+  "anchors": ["plate-03", "plate-06"],
+  "framing": null,
+  "identity_assertions": [],
+  "notes": []
+}

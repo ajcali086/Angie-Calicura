@@ -1,0 +1,16 @@
+{
+  "id": "plate-07",
+  "kind": "photograph",
+  "plate": "plate-07",
+  "title": "Undated photo of Angie, probably taken in California.",
+  "credit": "Michael Dykhorst, Sheridan Wyoming History (as published in the post)",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-07.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

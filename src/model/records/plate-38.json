@@ -1,0 +1,25 @@
+{
+  "id": "plate-38",
+  "kind": "document",
+  "plate": "plate-38",
+  "title": "Photo of the thanks credits of \"I Build The Tower\" documentary. Angie's name appears third on the left.",
+  "credit": "I Build the Tower (documentary), its credits",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-38.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": [
+    {
+      "date": "2026-09-30",
+      "note": "Not held: the post shows it, but the museum's file was in a media zip that arrived truncated."
+    },
+    {
+      "date": "2026-10-01",
+      "note": "The post's image supplied by the site owner; now held."
+    }
+  ]
+}

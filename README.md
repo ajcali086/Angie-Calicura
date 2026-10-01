@@ -8,7 +8,7 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 
 ## How it's built
 
-- `source/article.md` is the transcript of the post, and nothing on the site is typed from it by hand. `src/data/article.ts` parses the transcript into chapters, passages, quotes, lists and plates.
+- `source/article.md` is the transcript of the post, and nothing on the site is typed from it by hand. It is never edited: the text changes only by correction (see The CMS). `src/data/article.ts` parses the transcript into chapters, passages, quotes, lists and plates.
 - `scripts/embed-article.mjs` copies the transcript into `src/data/article.source.ts`, so the browser and the tests read the same file. Rerun it after editing `source/article.md`.
 - The museum's hand is marked: the Sources page, under the article's citation, says the article was edited and formatted for presentation here and links the original, unedited post; the footer says the same in one line. The authorship stays Michael Dykhorst's.
 - The one editorial choice is where the chapters break. The three titles are the three stations in the post's own subtitle.
@@ -20,14 +20,14 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 The museum is being retrofitted onto the shared Story & Record model, one step at a time (the H1 retrofit plan). Step 1 is in:
 
 - `src/model/museum.json`: the museum record (rights, credit, a structured consent basis, `id_freeze_date: 2026-09-30`, `schema_version: 1`).
-- `src/model/records.json`: 62 records, one per object. 39 plates make 43 (plate 13 is five photographs; plate 31's print, front and back, is one), plus the 13 records the text cites, the 5 audio parts and the narration script. Each is held or not and `verified`, `unverified` or `not-held`, with its credit, rights holder and capture provenance ("unknown" stated, not smoothed) and dated notes.
+- `src/model/records/`: one file per record (62 at step 1), one per object. 39 plates make 43 (plate 13 is five photographs; plate 31's print, front and back, is one), plus the 13 records the text cites, the 5 audio parts and the narration script. Each is held or not and `verified`, `unverified` or `not-held`, with its credit, rights holder and capture provenance ("unknown" stated, not smoothed) and dated notes.
 - `src/model/validate.ts`: the step's gates. `npm test` runs them, and `npm run build` refuses to start if any fails (`npm run check:model`).
 
-Step 2 is in: `src/model/entities.json` holds 51 entities (23 people, 11 places, 11 businesses, 5 organizations, 1 family). An entity needs both a record that anchors it and a mention in the post. Each alias cites where it's found, and every merge, split or open identity is a dated assertion, drafted for the curator's review. People who share a given name or nickname (two Angelinas, two Sams, three Jacks) carry split assertions, so a later suggestion engine won't propose merging them. Five names the post uses have no record behind them and are held back with the reason, among them "City Marshal Jack Wolfe": in the clipping (plate 21), the account of serving papers is Sheriff Willard Marshall's.
+Step 2 is in: `src/model/entities/` holds 51 entities, one file each, (23 people, 11 places, 11 businesses, 5 organizations, 1 family). An entity needs both a record that anchors it and a mention in the post. Each alias cites where it's found, and every merge, split or open identity is a dated assertion, drafted for the curator's review. People who share a given name or nickname (two Angelinas, two Sams, three Jacks) carry split assertions, so a later suggestion engine won't propose merging them. Five names the post uses have no record behind them and are held back with the reason (`src/model/held-back.json`), among them "City Marshal Jack Wolfe": in the clipping (plate 21), the account of serving papers is Sheriff Willard Marshall's.
 
-Step 3 is in: `src/model/relationships.json` holds 44 typed edges between entities. 38 are derived from what a record states, each naming its record and whether the caption or the image says it, with the words quoted (caption quotes are checked verbatim). 6 come from the post's prose, each citing its passage, also checked verbatim. 22 record links say where a record shows an entity (a person in a photograph, a building photographed); every other anchor counts as `documented-in`. Nothing is inferred: no edge rests on plate 8, which doesn't say which Ideal Hotel, and the Tahoe businesses have no location edge because no record or passage places them. `officer-of` (directors, the mayor, commissioners) is a type proposed here, not yet in the spec.
+Step 3 is in: `src/model/relationships.json` holds 44 typed edges between entities. 38 are derived from what a record states, each naming its record and whether the caption or the image says it, with the words quoted (caption quotes are checked verbatim). 6 come from the post's prose, each citing its passage, also checked verbatim. 22 record links (`src/model/record-links.json`) say where a record shows an entity (a person in a photograph, a building photographed); every other anchor counts as `documented-in`. Nothing is inferred: no edge rests on plate 8, which doesn't say which Ideal Hotel, and the Tahoe businesses have no location edge because no record or passage places them. `officer-of` (directors, the mayor, commissioners) is a type proposed here, not yet in the spec.
 
-Steps 4 and 5 are in. `src/model/evidence.json` links 54 claims to records, typed: 42 support, 6 contradict, 6 qualify. A claim is a verbatim quote from a passage or a plate's caption, checked against the text, or, once, a claim Spirit of Martinez holds (Virginia Sullivan's birth year), linked without editing it. Where the records contradict the post (171 or 173 North Main, the "City Marshal", Elko, the 1960 move, Tarantino's order), both stand, and every contradiction is carried by an open question. `src/model/questions.json` holds nine bounded questions, the post's own two and seven the records raise, and the Left Open page now reads from it: what we know, what we don't, what might answer it, the evidence needed, and the evidence so far.
+Steps 4 and 5 are in. `src/model/evidence.json` links 54 claims to records, typed: 42 support, 6 contradict, 6 qualify. A claim is a verbatim quote from a passage or a plate's caption, checked against the text, or, once, a claim Spirit of Martinez holds (Virginia Sullivan's birth year), linked without editing it. Where the records contradict the post (171 or 173 North Main, the "City Marshal", Elko, the 1960 move, Tarantino's order), both stand, and every contradiction is carried by an open question. `src/model/questions/` holds nine bounded questions, the post's own two and seven the records raise, and the Left Open page now reads from it: what we know, what we don't, what might answer it, the evidence needed, and the evidence so far.
 
 The model now shows on the site (`src/model/connections.ts`, pure functions over the model):
 
@@ -54,12 +54,48 @@ Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum 
 | `/sources`                                                                    | The article, the newspapers in the plates, records named in the text, and the thanks |
 | `/people/$slug`, `/places/$slug`, `/businesses/$slug`, `/organizations/$slug` | Entity pages, generated from the model                                               |
 | `/left-open`                                                                  | Nine open questions: the post's own two, and seven its records raise                 |
+| `/admin`                                                                      | The CMS (Sveltia), for the author and the curator                                    |
 
 ## Images
 
-38 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plateImages.ts`). Plate 13 is five photographs of the Ideal Hotel's building, as in the post: the plate shows all five at once (two over three in the article, all five in its archive tile), and its zoom view shows each one whole. Plate 31 is the press print's front and back, side by side; the back carries the handwritten caption the post quotes. Still missing: plate 33, which shows its caption in a frame marked "Image not yet added".
+38 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plates/`, one file per plate; sizes are measured from the files by `scripts/measure-images.mjs`). Plate 13 is five photographs of the Ideal Hotel's building, as in the post: the plate shows all five at once (two over three in the article, all five in its archive tile), and its zoom view shows each one whole. Plate 31 is the press print's front and back, side by side; the back carries the handwritten caption the post quotes. Still missing: plate 33, which shows its caption in a frame marked "Image not yet added".
 
 Five more images are the post's own, shown without plate numbers and captioned by its running text (`3-p21`, `3-p22`): Angie's two obituaries (Martinez News-Gazette, December 30, 1986, and Tahoe Daily Tribune, January 2, 1987, each page 2, as the post cites them) and three photographs of her grave marker. Each record carries `shown_at`, the passage that captions it. They are listed under "Shown in the text" in the archive and on the entity pages they name.
+
+## The CMS
+
+`/admin` is a git-backed editor ([Sveltia CMS](https://github.com/sveltia/sveltia-cms), pinned in `public/admin/index.html`, configured in `public/admin/config.yml`). There is no server: it signs in to GitHub with a personal access token, reads the content files, and saves each change as a commit. Vercel rebuilds, and the build's model check refuses anything the museum's rules don't allow. The CMS collects; the pipeline validates.
+
+**What it edits.** One file per entry, so each change is a small commit:
+
+| Collection                                                          | Files                                             | Who                                          |
+| ------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------- |
+| Corrections                                                         | `src/data/corrections/`                           | Author proposes, curator decides and applies |
+| Plates                                                              | `src/data/plates/` (images, alt text, front/back) | Author adds, curator reviews                 |
+| Records                                                             | `src/model/records/` (provenance, status)         | Author adds, curator verifies                |
+| Entities                                                            | `src/model/entities/` (grouped by kind)           | Author proposes, curator confirms identities |
+| Left Open                                                           | `src/model/questions/`                            | Author proposes, curator shapes              |
+| Timeline, Sources                                                   | `src/data/timeline/`, `src/data/sources/`         | Author adds, curator verifies                |
+| Evidence, Relationships, Shown in, Held back, Discrepancies, Museum | one file each                                     | Curator only                                 |
+
+The post's text is not a collection. A change to it is a **correction**: the passage as it should read, why, who proposed it and when. Only an applied correction changes what readers see; it replaces the passage's text when the article is read, and `source/article.md` keeps the original. The Sources page lists every applied correction with its reason and date. An applied correction carries the narration script's words for its passage (`narration_text`), so the script keeps matching the text; regenerating the audio stays the curator's job, and `npm run check:model` lists the passages whose audio is out of date. A correction that touches one of the post's discrepancies names it, the discrepancy lists it, and one that settles it closes it.
+
+**What the build refuses** (`src/model/validate.ts`):
+
+- an edit to `source/article.md` itself (each block's text is fingerprinted in `src/data/published-text.json`);
+- a correction without its passage, text, reason, proposer or date, or decided without a curator and a date;
+- an applied correction whose narration doesn't match, or that breaks a quote elsewhere (a timeline event, an evidence link, a discrepancy);
+- a correction to a passage a discrepancy turns on that doesn't name it, or a discrepancy out of step with its corrections;
+- a frozen ID that goes missing, a rename included (each file is named for its ID, and the check fails if they differ);
+- an image without alt text; an evidence link without a curator and date (the CMS fills them in from the signed-in user and today).
+
+**IDs freeze at first publish.** A new ID builds as provisional (the model check lists it). A push to `claude/angie-pilot` runs `.github/workflows/freeze.yml`, which freezes it in `src/model/frozen.json` and commits that; from then on the build refuses to let it go missing or be reused.
+
+**Roles are GitHub's to enforce, not the CMS's.** Author collections use the editorial workflow: saving makes a draft, "ready for review" opens a pull request, and "publish" merges it. Curator collections commit straight to the branch. To make that the rule rather than a convention, protect `claude/angie-pilot` in GitHub's branch settings: require a pull request with one approval for everyone but the curator (who may bypass). The author then can't publish, and only the curator's own commits skip review.
+
+**Signing in.** Each person needs a GitHub account with write access to this repository and a fine-grained personal access token for it (Contents and Pull requests: read and write). At `/admin`, choose "Sign In Using Access Token" and paste it. The browser keeps the token; nothing else stores it.
+
+Alt text for the 43 plate images is drafted (`alt_status: draft`) and waits on the curator's review.
 
 ## Reading
 
@@ -105,8 +141,11 @@ node --experimental-strip-types --import ./scripts/test-register.mjs scripts/ali
 ```
 npm install
 npm run dev      # http://localhost:8080
-node --experimental-strip-types --import ./scripts/test-register.mjs scripts/freeze-ids.ts  # after adding a block or plate
-npm test         # transcript round-trip, links, verbatim quotes, audio cues, cards
+node --experimental-strip-types --import ./scripts/test-register.mjs scripts/freeze-ids.ts      # after adding a block or plate
+node --experimental-strip-types --import ./scripts/test-register.mjs scripts/snapshot-text.ts   # then fingerprint its text
+node --experimental-strip-types --import ./scripts/test-register.mjs scripts/freeze-model.ts    # freeze new model IDs (CI does this on push)
+npm run check:model   # the build's gate; lists provisional IDs and stale audio
+npm test         # transcript round-trip, links, verbatim quotes, audio cues, cards, corrections, CMS files
 npm run typecheck && npm run lint
 ```
 

@@ -1,0 +1,25 @@
+{
+  "id": "827a7fdd",
+  "slug": "timber-cove-lodge",
+  "kind": "business",
+  "label": "Timber Cove Lodge",
+  "aliases": [
+    {
+      "name": "Beach Retreat & Lodge",
+      "sources": ["3-p7"]
+    }
+  ],
+  "anchors": ["plate-35", "plate-37", "obituary-tahoe-1986", "obituary-martinez-1986"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Beach Retreat & Lodge"],
+      "rationale": "The post: sold in 2012 and now known as the Beach Retreat & Lodge. A later name, from the text only.",
+      "sources": ["3-p7"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

@@ -10,9 +10,15 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --import ./scripts/test-register.mjs --test src/data/article.test.ts src/data/ids.test.ts src/data/links.test.ts src/data/verbatim.test.ts src/data/titleImage.test.ts src/data/audio.test.ts src/data/narration.test.ts src/lib/snippetCard.test.ts src/lib/clipSlice.test.ts src/model/model.test.ts src/model/connections.test.ts scripts/lib/export.test.ts",
+    "test": "node --experimental-strip-types --import ./scripts/test-register.mjs --test src/data/article.test.ts src/data/ids.test.ts src/data/links.test.ts src/data/verbatim.test.ts src/data/titleImage.test.ts src/data/audio.test.ts src/data/narration.test.ts src/lib/snippetCard.test.ts src/lib/clipSlice.test.ts src/model/model.test.ts src/model/connections.test.ts scripts/lib/export.test.ts && node --experimental-strip-types --import ./scripts/test-register.mjs --test --test-concurrency=1 src/data/corrections.test.ts src/model/cms.test.ts",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "measure:images": "node scripts/measure-images.mjs",
+    "predev": "npm run measure:images",
+    "pretest": "npm run measure:images",
+    "pretypecheck": "npm run measure:images",
+    "precheck:model": "npm run measure:images",
+    "preexport": "npm run measure:images"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",

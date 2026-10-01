@@ -1,0 +1,16 @@
+{
+  "id": "narration-script",
+  "kind": "derived_media",
+  "title": "Narration script",
+  "credit": "Generated from the article's canonical text, with registered normalizations",
+  "rights_holder": "the museum",
+  "held": true,
+  "status": "verified",
+  "media": ["source/narration-script.md"],
+  "capture_provenance": {
+    "unknown": "generated text"
+  },
+  "restoration": null,
+  "derived_from": "article",
+  "notes": []
+}

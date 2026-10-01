@@ -1,0 +1,26 @@
+{
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "id": "obituary-martinez-1986",
+  "kind": "document",
+  "title": "Angelina Alexander, obituary, Martinez News-Gazette, December 30, 1986",
+  "credit": "Martinez News-Gazette, Martinez, California, December 30, 1986, page 2, as the post cites it",
+  "media": ["public/images/records/obituary-martinez-1986.jpg"],
+  "copy_of": "cited-obituaries",
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "Funeral services \"are pending\", as on December 30. It gives her age as 68; born July 1917, she was 69, as the Tahoe Daily Tribune obituary says."
+    },
+    {
+      "date": "2026-10-01",
+      "note": "The post shows it at 3-p21 with its newspaper, date and page; first filed here as added beyond the post and unverified, corrected to the post's own image."
+    }
+  ],
+  "shown_at": "3-p21"
+}

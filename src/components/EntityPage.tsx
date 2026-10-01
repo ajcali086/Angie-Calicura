@@ -5,7 +5,7 @@ import { Inline } from "@/components/Inline";
 import { PassageDoor, PlateDoor, doorClass } from "@/components/Door";
 import { chapters, plain, plateById } from "@/data/article";
 import { plateImages } from "@/data/plateImages";
-import { entities, relationshipsOf } from "@/model";
+import { entities, records, relationshipsOf } from "@/model";
 import {
   STATUS_LINE,
   anchorsInOrder,
@@ -160,7 +160,9 @@ export function EntityPage({ entity }: { entity: Entity }) {
                     {rec.status !== "verified" ? (
                       <p data-status={rec.status} className="mt-1 text-[0.75rem] text-muted">
                         {rec.cited
-                          ? "Not held: cited by the author; the museum has no copy."
+                          ? records.some((c) => c.copy_of === rec.id)
+                            ? "Cited by the author; the museum holds copies the post shows."
+                            : "Not held: cited by the author; the museum has no copy."
                           : STATUS_LINE[rec.status]}
                       </p>
                     ) : null}

@@ -1,0 +1,26 @@
+{
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "id": "grave-marker-2",
+  "kind": "photograph",
+  "part": 2,
+  "title": "Angelina Alexander's grave marker, photograph 2 of 3",
+  "credit": "Shown in the post; photographer not named",
+  "media": ["public/images/records/grave-marker-2.png"],
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which the post and her obituary name as Happy Homestead. Green grass and no flowers: a different visit from photograph 1, date not given."
+    },
+    {
+      "date": "2026-10-01",
+      "note": "The post shows it at 3-p22 (\"Three photos of Angie's grave\"); first filed here as added beyond the post and unverified, corrected to the post's own image."
+    }
+  ],
+  "shown_at": "3-p22"
+}

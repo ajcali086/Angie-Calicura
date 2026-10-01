@@ -1,0 +1,156 @@
+[
+  {
+    "entity": "e8a55e86",
+    "type": "appears-in",
+    "record": "plate-07",
+    "field": "caption",
+    "says": "Undated photo of Angie"
+  },
+  {
+    "entity": "e8a55e86",
+    "type": "appears-in",
+    "record": "plate-12",
+    "field": "caption",
+    "says": "1940s photo of Angelina \"Angie\" Calicura"
+  },
+  {
+    "entity": "e8a55e86",
+    "type": "appears-in",
+    "record": "plate-31",
+    "field": "caption",
+    "says": "Angelina and Jack Alexander enjoy dinner"
+  },
+  {
+    "entity": "e8a55e86",
+    "type": "appears-in",
+    "record": "plate-36",
+    "field": "caption",
+    "says": "Angelina Calicura Alexander at the front desk"
+  },
+  {
+    "entity": "e8a55e86",
+    "type": "appears-in",
+    "record": "plate-39",
+    "field": "caption",
+    "says": "Another 1940s photo of Angie"
+  },
+  {
+    "entity": "743375cb",
+    "type": "appears-in",
+    "record": "plate-01",
+    "field": "caption",
+    "says": "Angie's mother, Angiolina \"Angelina\" Rodia Calicura"
+  },
+  {
+    "entity": "72419e03",
+    "type": "appears-in",
+    "record": "plate-02",
+    "field": "caption",
+    "says": "Angie's father, Saverio \"Sam\" Calicura"
+  },
+  {
+    "entity": "3a8e6da1",
+    "type": "appears-in",
+    "record": "plate-03",
+    "field": "caption",
+    "says": "Sam Rodia."
+  },
+  {
+    "entity": "ca7616c1",
+    "type": "appears-in",
+    "record": "plate-03",
+    "field": "caption",
+    "says": "His niece (pictured at left), Virginia Sullivan"
+  },
+  {
+    "entity": "64085982",
+    "type": "appears-in",
+    "record": "plate-27",
+    "field": "caption",
+    "says": "showing Jack Alexander"
+  },
+  {
+    "entity": "64085982",
+    "type": "appears-in",
+    "record": "plate-28",
+    "field": "caption",
+    "says": "showing John (Jack) Alexander"
+  },
+  {
+    "entity": "64085982",
+    "type": "appears-in",
+    "record": "plate-31",
+    "field": "caption",
+    "says": "Angelina and Jack Alexander enjoy dinner"
+  },
+  {
+    "entity": "bc3ca1c5",
+    "type": "photographed-at",
+    "record": "plate-13-1",
+    "field": "caption",
+    "says": "Photos of the building housing the Ideal Hotel"
+  },
+  {
+    "entity": "bc3ca1c5",
+    "type": "photographed-at",
+    "record": "plate-13-2",
+    "field": "caption",
+    "says": "Photos of the building housing the Ideal Hotel"
+  },
+  {
+    "entity": "bc3ca1c5",
+    "type": "photographed-at",
+    "record": "plate-13-3",
+    "field": "caption",
+    "says": "Photos of the building housing the Ideal Hotel"
+  },
+  {
+    "entity": "bc3ca1c5",
+    "type": "photographed-at",
+    "record": "plate-13-4",
+    "field": "caption",
+    "says": "Photos of the building housing the Ideal Hotel"
+  },
+  {
+    "entity": "bc3ca1c5",
+    "type": "photographed-at",
+    "record": "plate-13-5",
+    "field": "caption",
+    "says": "Photos of the building housing the Ideal Hotel"
+  },
+  {
+    "entity": "2be74a84",
+    "type": "photographed-at",
+    "record": "plate-30",
+    "field": "image",
+    "says": "Sheridan county's first courthouse"
+  },
+  {
+    "entity": "bc3ca1c5",
+    "type": "photographed-at",
+    "record": "plate-30",
+    "field": "image",
+    "says": "IDEAL HOTEL"
+  },
+  {
+    "entity": "2be4010c",
+    "type": "photographed-at",
+    "record": "plate-26",
+    "field": "caption",
+    "says": "Postcard of the General Custer Hotel"
+  },
+  {
+    "entity": "4a15de3b",
+    "type": "photographed-at",
+    "record": "plate-34",
+    "field": "caption",
+    "says": "a photo of the Lake Tahoe inn"
+  },
+  {
+    "entity": "ca2e517d",
+    "type": "photographed-at",
+    "record": "plate-33",
+    "field": "caption",
+    "says": "1980 Harvey's bombing image"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "id": "plate-01",
+  "kind": "photograph",
+  "plate": "plate-01",
+  "title": "Angie's mother, Angiolina \"Angelina\" Rodia Calicura — from her great grandson Andrew Calicura.",
+  "credit": "Andrew Calicura, her great-grandson",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-01.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

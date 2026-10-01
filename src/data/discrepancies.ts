@@ -1,3 +1,5 @@
+import DISCREPANCIES from "./discrepancies.json" with { type: "json" };
+
 /**
  * Where the post leaves a question open in its own words.
  *
@@ -16,21 +18,16 @@ export type Discrepancy = {
   close: string;
   /** A plate the question turns on. */
   plate?: string;
+  /** Closed once a correction or a record settles it; an entry is never deleted. */
+  status: "open" | "closed";
+  /** Corrections that touch it (their IDs): every one that resolves it or edits its passage. */
+  corrections: string[];
+  /** Why it was closed, when no correction resolves it (a record settled it, say). */
+  closed_note?: string;
 };
 
-export const discrepancies: Discrepancy[] = [
-  {
-    id: "which-ideal",
-    title: "Billings or Sheridan",
-    note: "Was the reference meant for the Ideal Hotel in Billings, or the one in Sheridan? At this point in her life, Angie was not yet documented as operating the Ideal in Sheridan, yet no record has surfaced placing her in control of the Billings Ideal either.",
-    close: "…the truth may never be fully known.",
-    plate: "plate-08",
-  },
-  {
-    id: "pearl-logan",
-    title: "For Pearl Logan, or with her",
-    note: "It remains unclear whether she initially worked for the well-known madam Pearl Logan or operated in some form of partnership with her…",
-    close: "…as no definitive record has yet surfaced.",
-    plate: "plate-10",
-  },
-];
+// The CMS leaves an empty list out of the file it writes; put it back.
+export const discrepancies = (DISCREPANCIES as Discrepancy[]).map((d) => ({
+  ...d,
+  corrections: d.corrections ?? [],
+}));

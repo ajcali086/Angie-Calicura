@@ -5,9 +5,10 @@ import { AuthorLink } from "@/components/AuthorLink";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
 import { Inline } from "@/components/Inline";
-import { PassageDoor } from "@/components/Door";
 import { ListenButton } from "@/components/audio/ListenButton";
-import { article, door, plain } from "@/data/article";
+import { article, chapters, door, plain, plateById } from "@/data/article";
+import { corrections } from "@/data/corrections";
+import { PassageDoor, PlateDoor } from "@/components/Door";
 import { namedInText, platesByPublication, thanks } from "@/data/sources";
 
 export const Route = createFileRoute("/sources")({
@@ -76,10 +77,10 @@ function SourcesPage() {
           <h2 className="kicker border-b border-rule pb-2">Named in the text</h2>
           <ul>
             {namedInText.map((s) => (
-              <li key={s.name} className="border-b border-rule/40 py-4">
+              <li key={s.id} id={s.id} className="scroll-mt-24 border-b border-rule/40 py-4">
                 <p className="font-display text-xl text-paper">{s.name}</p>
                 <p className="mt-0.5 text-[0.68rem] tracking-[0.14em] text-muted uppercase">
-                  <CitedStatus name={s.name} />
+                  <CitedStatus id={s.id} />
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-fog">
                   “<Inline text={s.quote} />”
@@ -88,11 +89,21 @@ function SourcesPage() {
                   <PassageDoor to={door(s.quote)} />
                   <ListenButton block={door(s.quote)?.hash} />
                 </div>
-                <CitedNames name={s.name} />
+                {s.url ? (
+                  <p className="mt-1 text-sm text-fog">
+                    <a href={s.url} className="text-brass underline-offset-4 hover:underline">
+                      Read it at the source
+                    </a>{" "}
+                    <span className="text-muted">(accessed {s.accessed})</span>
+                  </p>
+                ) : null}
+                <CitedNames id={s.id} />
               </li>
             ))}
           </ul>
         </section>
+
+        <Corrections />
 
         <section className="mt-12">
           <h2 className="kicker border-b border-rule pb-2">Thanks to</h2>
@@ -111,8 +122,8 @@ function SourcesPage() {
 }
 
 /** The people, places and organizations a cited record names, as doors to their pages. */
-function CitedNames({ name }: { name: string }) {
-  const record = records.find((r) => r.cited === name);
+function CitedNames({ id }: { id: string }) {
+  const record = records.find((r) => r.cited === id);
   const named = record ? entitiesForRecord(record.id) : [];
   if (!named.length) return null;
   return (
@@ -126,8 +137,8 @@ function CitedNames({ name }: { name: string }) {
 }
 
 /** Whether the museum holds a copy of a record the post cites. */
-function CitedStatus({ name }: { name: string }) {
-  const record = records.find((r) => r.cited === name);
+function CitedStatus({ id }: { id: string }) {
+  const record = records.find((r) => r.cited === id);
   const copies = records.filter((r) => record && r.copy_of === record.id);
   if (!copies.length) return <>Not held: cited by the author; the museum has no copy</>;
   return (
@@ -143,5 +154,46 @@ function CitedStatus({ name }: { name: string }) {
         </span>
       ))}
     </>
+  );
+}
+
+/**
+ * Every correction applied to the post's text, with its reason and date:
+ * the text never changes silently. The original stays in article.md.
+ */
+function Corrections() {
+  const applied = corrections.filter((c) => c.status === "applied");
+  return (
+    <section id="corrections" className="mt-12 scroll-mt-24">
+      <h2 className="kicker border-b border-rule pb-2">Corrections</h2>
+      {applied.length ? (
+        <ul>
+          {applied.map((c) => {
+            const chapter = chapters.find((ch) =>
+              ch.blocks.some((b) => b.type !== "figure" && b.id === c.target),
+            );
+            const plate = plateById(c.target);
+            return (
+              <li key={c.id} className="border-b border-rule/40 py-4 text-sm leading-relaxed">
+                <p className="text-fog">{c.reason}</p>
+                <p className="mt-1 flex flex-wrap items-baseline gap-x-4 text-[0.68rem] tracking-[0.14em] text-muted uppercase">
+                  <span>Corrected {c.decided_on}</span>
+                  {chapter ? (
+                    <PassageDoor to={{ slug: chapter.slug, hash: c.target }} />
+                  ) : plate ? (
+                    <PlateDoor id={plate.id} />
+                  ) : null}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p className="mt-4 text-sm leading-relaxed text-fog">
+          None. The text reads as the post published it; any change will be listed here, with its
+          reason and date.
+        </p>
+      )}
+    </section>
   );
 }

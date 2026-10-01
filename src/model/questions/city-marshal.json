@@ -1,0 +1,12 @@
+{
+  "id": "city-marshal",
+  "title": "Who told of serving papers at the hotel?",
+  "origin": "records",
+  "what_we_know": "The post says \"City Marshal Jack Wolfe described an attempt to serve legal papers at the hotel.\" The April 2, 1957 clipping (plate 21) gives that account to Sheriff Willard Marshall, and names Jack Wolfe as a local attorney speaking for the hotel. No record names a City Marshal Jack Wolfe.",
+  "what_we_dont": "Whether any other record of the April 1, 1957 meeting reads otherwise.",
+  "what_might_answer_it": "The council's own minutes of the April 1, 1957 meeting; the 1957 Sheridan city directory's listing for city marshal.",
+  "evidence_needed": "The minutes. The clipping already points to an answer; closing it is the curator's call.",
+  "last_known_source": ["plate-21", "2-p37"],
+  "status": "open",
+  "evidence": ["ev-046"]
+}

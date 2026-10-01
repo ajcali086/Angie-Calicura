@@ -1,0 +1,33 @@
+{
+  "id": "8a22d268",
+  "slug": "eugene-amato",
+  "kind": "person",
+  "label": "Eugene \"Jack\" Amato",
+  "aliases": [
+    {
+      "name": "Eugene Amato",
+      "sources": ["plate-09"]
+    }
+  ],
+  "anchors": ["plate-09"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Eugene Amato"],
+      "rationale": "The funeral record names the father Eugene Amato; the post calls him Eugene \"Jack\" Amato.",
+      "sources": ["plate-09"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "split",
+      "with": ["64085982", "be2a5b51"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "Three men called Jack: Eugene \"Jack\" Amato (plate 9), John \"Jack\" Alexander (plates 27, 28, 37) and the Sheridan attorney Jack Wolfe (plates 21, 22). Distinct people.",
+      "sources": ["plate-09", "plate-21", "plate-22", "plate-27", "plate-37"]
+    }
+  ],
+  "notes": []
+}

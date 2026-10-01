@@ -1,0 +1,26 @@
+{
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "id": "grave-marker-1",
+  "kind": "photograph",
+  "part": 1,
+  "title": "Angelina Alexander's grave marker, photograph 1 of 3",
+  "credit": "Shown in the post; the flowers were sent by Michael Dykhorst in 2024, for the 38th anniversary of her death",
+  "media": ["public/images/records/grave-marker-1.png"],
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "The marker reads \"Angelina Alexander, July 21, 1917 – Dec. 28, 1986\"; the photographs don't show the cemetery, which the post and her obituary name as Happy Homestead. Snow and the anniversary flowers: December 2024, by the post's caption."
+    },
+    {
+      "date": "2026-10-01",
+      "note": "The post shows it at 3-p22 (\"Three photos of Angie's grave\"); first filed here as added beyond the post and unverified, corrected to the post's own image."
+    }
+  ],
+  "shown_at": "3-p22"
+}

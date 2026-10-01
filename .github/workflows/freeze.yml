@@ -1,0 +1,41 @@
+# IDs freeze at first publish. A push to the publishing branch (a CMS
+# publish, a merged pull request, or a curator's own commit) is a publish:
+# this adds every new ID to src/model/frozen.json and commits it, so from
+# then on the build refuses to let that ID go missing or be reused.
+name: Freeze new IDs
+
+on:
+  push:
+    branches: [claude/angie-pilot]
+    paths: ["src/model/**", "src/data/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: freeze
+  cancel-in-progress: false
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:model
+      - run: node --experimental-strip-types --import ./scripts/test-register.mjs scripts/freeze-model.ts
+      - name: Commit frozen IDs
+        run: |
+          if git diff --quiet src/model/frozen.json; then
+            echo "Nothing new to freeze."
+            exit 0
+          fi
+          git config user.name "freeze-ids[bot]"
+          git config user.email "freeze-ids@users.noreply.github.com"
+          git add src/model/frozen.json
+          git commit -m "Freeze IDs published in ${GITHUB_SHA::7}"
+          git push

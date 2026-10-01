@@ -1,13 +1,18 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
+import { appliedCorrections } from "./corrections.ts";
 import { discrepancies } from "./discrepancies.ts";
 import { namedInText } from "./sources.ts";
 import { timeline } from "./timeline.ts";
 
 // Read straight off disk, not through the parser: a quote that isn't in the
-// transcript is new prose, which this site must not contain.
-const transcript = readFileSync(new URL("../../source/article.md", import.meta.url), "utf8");
+// transcript is new prose, which this site must not contain. The only other
+// words allowed are an applied correction's, each a dated record.
+const transcript = [
+  readFileSync(new URL("../../source/article.md", import.meta.url), "utf8"),
+  ...[...appliedCorrections.values()].map((c) => c.proposed_text),
+].join("\n\n");
 const unelided = (q: string) => q.replace(/^…/, "").replace(/…$/, "");
 
 describe("verbatim", () => {

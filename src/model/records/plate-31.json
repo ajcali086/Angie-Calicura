@@ -1,0 +1,21 @@
+{
+  "id": "plate-31",
+  "kind": "photograph",
+  "plate": "plate-31",
+  "title": "Photo from Historic Images. \"It is unknown what newspaper this was published in. It says 'Returned to Chronicle Files.' The caption according to the back of the photo shows, 'Angelina and Jack Alexander enjoy dinner in their new restaurant, South Lake Tahoe, June 5, 1972.'\"",
+  "credit": "Historic Images (a press print stamped \"Return to Chronicle Files\")",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": ["public/images/plates/plate-31-front.jpg", "public/images/plates/plate-31-back.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "Front added at the site owner's request; its Historic Images scan is not confirmed. The back is the side the post's caption quotes."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "id": "obituary-tahoe-1986",
+  "kind": "document",
+  "title": "Angelina Alexander, obituary, Tahoe Daily Tribune, January 2, 1987",
+  "credit": "Tahoe Daily Tribune, South Lake Tahoe, California, January 2, 1987, page 2, as the post cites it",
+  "media": ["public/images/records/obituary-tahoe-1986.png"],
+  "copy_of": "cited-obituaries",
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "Published after the funeral (\"held today at 11 a.m.\"), so January 2, 1987, as the post says, though she died December 28, 1986."
+    },
+    {
+      "date": "2026-10-01",
+      "note": "The post shows it at 3-p21 with its newspaper, date and page; first filed here as added beyond the post and unverified, corrected to the post's own image."
+    }
+  ],
+  "shown_at": "3-p21"
+}

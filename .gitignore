@@ -10,3 +10,4 @@ dist/
 .DS_Store
 __pycache__/
 export/
+src/generated/image-sizes.json

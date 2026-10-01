@@ -1,0 +1,30 @@
+{
+  "id": "4a15de3b",
+  "slug": "tahoe-inn",
+  "kind": "business",
+  "label": "Tahoe Inn",
+  "aliases": [
+    {
+      "name": "Lake Tahoe Inn",
+      "sources": ["plate-34", "plate-35"]
+    }
+  ],
+  "anchors": ["plate-34", "plate-35", "plate-37", "obituary-tahoe-1986"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Lake Tahoe Inn"],
+      "rationale": "Plates 34 and 35's captions call the inn Angie ran the Lake Tahoe Inn; the post and Jack Alexander's obituary (plate 37) call it the Tahoe Inn.",
+      "sources": ["plate-34", "plate-35", "plate-37"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "Plate 35's advertisement puts the Lake Tahoe Inn at 4110 Lake Tahoe Blvd, South Lake Tahoe: the post's address for the Tahoe Inn."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "audio-a3b",
+  "kind": "derived_media",
+  "title": "Narration, part 5: Part Three · Tahoe Restaurateur · The Record",
+  "credit": "Synthetic (text-to-speech) narration of the narration script",
+  "rights_holder": "the museum",
+  "held": true,
+  "status": "verified",
+  "media": ["public/audio/angie-a3b.mp3"],
+  "capture_provenance": {
+    "unknown": "generated audio; sentence timings estimated"
+  },
+  "restoration": null,
+  "derived_from": "narration-script",
+  "notes": []
+}

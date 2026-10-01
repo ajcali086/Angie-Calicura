@@ -1,0 +1,17 @@
+{
+  "id": "plate-13-3",
+  "kind": "photograph",
+  "plate": "plate-13",
+  "part": 3,
+  "title": "The Ideal Hotel's building, photograph 3 of 5",
+  "credit": "Various sources, as published in the post",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-13-3.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

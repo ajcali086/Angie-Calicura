@@ -1,0 +1,16 @@
+{
+  "id": "cited-carbon-county-news",
+  "kind": "document",
+  "title": "Carbon County News",
+  "credit": "Cited in the post by Michael Dykhorst",
+  "rights_holder": "unknown",
+  "held": false,
+  "status": "not-held",
+  "media": [],
+  "capture_provenance": {
+    "unknown": "not held"
+  },
+  "restoration": null,
+  "cited": "carbon-county-news",
+  "notes": []
+}

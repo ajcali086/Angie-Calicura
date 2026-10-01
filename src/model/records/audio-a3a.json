@@ -1,0 +1,16 @@
+{
+  "id": "audio-a3a",
+  "kind": "derived_media",
+  "title": "Narration, part 4: Part Three · Tahoe Restaurateur · Reinvention",
+  "credit": "Synthetic (text-to-speech) narration of the narration script",
+  "rights_holder": "the museum",
+  "held": true,
+  "status": "verified",
+  "media": ["public/audio/angie-a3a.mp3"],
+  "capture_provenance": {
+    "unknown": "generated audio; sentence timings estimated"
+  },
+  "restoration": null,
+  "derived_from": "narration-script",
+  "notes": []
+}

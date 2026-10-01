@@ -1,9 +1,9 @@
 import MUSEUM from "./museum.json" with { type: "json" };
-import RECORDS from "./records.json" with { type: "json" };
-import ENTITIES from "./entities.json" with { type: "json" };
+import HELD_BACK from "./held-back.json" with { type: "json" };
 import RELATIONSHIPS from "./relationships.json" with { type: "json" };
+import RECORD_LINKS from "./record-links.json" with { type: "json" };
 import EVIDENCE from "./evidence.json" with { type: "json" };
-import QUESTIONS from "./questions.json" with { type: "json" };
+import FROZEN from "./frozen.json" with { type: "json" };
 import type {
   Entity,
   EvidenceLink,
@@ -17,15 +17,63 @@ import type {
 
 /**
  * The museum's model, as the site reads it. The data is the JSON beside this
- * file, edited by the curator; `validate.ts` checks it on every test run and
- * before every build (`npm run check:model`).
+ * file, edited by the curator through the CMS (/admin) or by hand: one file
+ * per record, entity and question in its folder, the rest whole.
+ * `validate.ts` checks it on every test run and before every build
+ * (`npm run check:model`).
  */
 export const museum = MUSEUM as Museum;
-export const records = RECORDS as unknown as MuseumRecord[];
 
-export const entities = ENTITIES.entities as unknown as Entity[];
+/** The files of each folder, keyed by path ("./records/plate-01.json"), for the file-name check. */
+export const folders = {
+  records: import.meta.glob("./records/*.json", { eager: true, import: "default" }),
+  entities: import.meta.glob("./entities/*.json", { eager: true, import: "default" }),
+  questions: import.meta.glob("./questions/*.json", { eager: true, import: "default" }),
+};
+
+/**
+ * A folder's entries in the order their IDs were frozen, which is the order
+ * the curator first set them in; an entry not yet frozen comes after, by ID.
+ */
+function inFrozenOrder<T extends { id: string }>(
+  files: Record<string, unknown>,
+  frozen: string[],
+): T[] {
+  const rank = new Map(frozen.map((id, i) => [id, i]));
+  return (Object.values(files) as T[]).sort(
+    (a, b) =>
+      (rank.get(a.id) ?? Infinity) - (rank.get(b.id) ?? Infinity) || a.id.localeCompare(b.id),
+  );
+}
+
+/*
+ * The CMS leaves an empty list or a null out of the file it writes (an
+ * optional field with nothing in it), so the loader puts them back: code
+ * after this point can rely on every list and `framing` being there.
+ */
+export const records = inFrozenOrder<MuseumRecord>(folders.records, FROZEN.records).map((r) => ({
+  ...r,
+  media: r.media ?? [],
+  notes: r.notes ?? [],
+  restoration: null,
+}));
+
+export const entities = inFrozenOrder<Entity>(folders.entities, FROZEN.entities).map((e) => ({
+  ...e,
+  aliases: (e.aliases ?? []).map((a) => ({ ...a, sources: a.sources ?? [] })),
+  anchors: e.anchors ?? [],
+  framing: e.framing ?? null,
+  identity_assertions: (e.identity_assertions ?? []).map((a) => ({
+    ...a,
+    sources: a.sources ?? [],
+  })),
+  notes: e.notes ?? [],
+}));
 /** Names the post uses that no record anchors, with the reason each is held back. */
-export const heldBack = ENTITIES.held_back as unknown as HeldBack[];
+export const heldBack = (HELD_BACK as unknown as HeldBack[]).map((h) => ({
+  ...h,
+  sources: h.sources ?? [],
+}));
 
 export function entityBySlug(slug: string): Entity | undefined {
   return entities.find((e) => e.slug === slug);
@@ -36,9 +84,9 @@ export function entitiesForRecord(id: string): Entity[] {
   return entities.filter((e) => e.anchors.includes(id));
 }
 
-export const relationships = RELATIONSHIPS.relationships as unknown as Relationship[];
+export const relationships = RELATIONSHIPS as unknown as Relationship[];
 /** Records that show an entity: a person in a photograph, a building photographed. */
-export const recordLinks = RELATIONSHIPS.record_links as unknown as RecordLink[];
+export const recordLinks = RECORD_LINKS as unknown as RecordLink[];
 
 /** Every typed edge touching an entity, either way round. */
 export function relationshipsOf(entityId: string): Relationship[] {
@@ -66,7 +114,9 @@ export function recordLinksOf(
 /** Claims linked to records, typed supports, contradicts or qualifies. */
 export const evidence = EVIDENCE as unknown as EvidenceLink[];
 /** Left Open: the post's own open questions and those the records raise. */
-export const questions = QUESTIONS as unknown as OpenQuestion[];
+export const questions = inFrozenOrder<OpenQuestion>(folders.questions, FROZEN.questions).map(
+  (q) => ({ ...q, last_known_source: q.last_known_source ?? [], evidence: q.evidence ?? [] }),
+);
 
 export function evidenceById(id: string): EvidenceLink | undefined {
   return evidence.find((e) => e.id === id);

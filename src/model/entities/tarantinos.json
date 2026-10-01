@@ -1,0 +1,41 @@
+{
+  "id": "e57c4ece",
+  "slug": "tarantinos",
+  "kind": "business",
+  "label": "Tarantino's Restaurant",
+  "aliases": [
+    {
+      "name": "Joe Tarantino's",
+      "sources": ["plate-32"]
+    },
+    {
+      "name": "Joe Tarantino's of Tahoe",
+      "sources": ["3-p14"]
+    },
+    {
+      "name": "Angie's Tarentino's",
+      "sources": ["obituary-martinez-1986"]
+    }
+  ],
+  "anchors": ["plate-32", "plate-37", "obituary-martinez-1986"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Joe Tarantino's", "Joe Tarantino's of Tahoe"],
+      "rationale": "The matchbook (plate 32) and an obituary the post cites name it Joe Tarantino's; the post and plate 37 call it Tarantino's Restaurant.",
+      "sources": ["plate-32", "plate-37", "3-p14"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": ["Angie's Tarentino's"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "Her Martinez obituary: \"she operated Angie's Tarentino's, also at South Lake Tahoe.\" The same restaurant, spelled its own way.",
+      "sources": ["obituary-martinez-1986"]
+    }
+  ],
+  "notes": []
+}

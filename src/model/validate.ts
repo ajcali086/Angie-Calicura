@@ -1,17 +1,29 @@
 import { existsSync } from "node:fs";
-import { ARTICLE_SOURCE } from "../data/article.source.ts";
-import { blockText, chapters, door, frozenIds, plates } from "../data/article.ts";
+import { createHash } from "node:crypto";
+import {
+  blockText,
+  chapters,
+  door,
+  frozenIds,
+  originalText,
+  plates,
+  publishedText,
+} from "../data/article.ts";
+import { correctionFiles, corrections } from "../data/corrections.ts";
+import PUBLISHED from "../data/published-text.json" with { type: "json" };
+import { matchScript, unregisteredDifferences } from "../../scripts/lib/narration.ts";
 import { PARTS } from "../data/audio.ts";
-import { timeline } from "../data/timeline.ts";
+import { timeline, timelineFiles } from "../data/timeline.ts";
 import { titleImage } from "../data/titleImage.ts";
 import CUES from "../generated/cues.json" with { type: "json" };
 import FROZEN from "./frozen.json" with { type: "json" };
-import { plateImages } from "../data/plateImages.ts";
+import { plateFiles, plateImages } from "../data/plateImages.ts";
 import { discrepancies } from "../data/discrepancies.ts";
-import { namedInText } from "../data/sources.ts";
+import { namedInText, sourceFiles } from "../data/sources.ts";
 import {
   entities,
   evidence,
+  folders,
   heldBack,
   museum,
   questions,
@@ -45,6 +57,17 @@ export const checks: { name: string; run: () => string[] }[] = [
         fail(["yes", "no", "undecided"].includes(museum.consent_basis[k]), `consent_basis.${k}`),
       ),
     ],
+  },
+  {
+    name: "each record, entity and question has a file of its own, named for its ID (an entity's for its slug)",
+    run: () =>
+      (Object.keys(folders) as (keyof typeof folders)[]).flatMap((folder) =>
+        Object.entries(folders[folder]).flatMap(([path, entry]) => {
+          const e = entry as { id?: string; slug?: string };
+          const name = folder === "entities" ? e.slug : e.id;
+          return fail(path === `./${folder}/${name}.json`, `${path}: named for ${name}`);
+        }),
+      ),
   },
   {
     name: "record IDs are unique and well formed",
@@ -146,13 +169,13 @@ export const checks: { name: string; run: () => string[] }[] = [
       return [
         ...namedInText.flatMap((n) =>
           fail(
-            cited.some((r) => r.cited === n.name),
-            `${n.name}: no record`,
+            cited.some((r) => r.cited === n.id),
+            `${n.id}: no record`,
           ),
         ),
         ...cited.flatMap((r) => [
           ...fail(
-            namedInText.some((n) => n.name === r.cited),
+            namedInText.some((n) => n.id === r.cited),
             `${r.id}: cites nothing`,
           ),
           ...fail(r.status === "not-held", `${r.id}: cited but ${r.status}`),
@@ -219,7 +242,7 @@ const recordIds = new Set(records.map((r) => r.id));
 const passageIds = new Set(frozenIds.blocks.map(([id]) => id));
 const entityIds = new Set(entities.map((e) => e.id));
 const resolves = (ref: string) => recordIds.has(ref) || passageIds.has(ref);
-const text = ARTICLE_SOURCE.toLowerCase();
+const text = publishedText().toLowerCase();
 /** The ways an entity's name can appear in the post: label, label without its qualifier, aliases. */
 const nameForms = (e: (typeof entities)[number]) => {
   const bare = e.label.replace(/\s*\([^)]*\)/g, "").replace(/^The /, "");
@@ -590,21 +613,42 @@ const frozenPlateIds = new Set(frozenIds.plates.map(([id]) => id));
 const SPOKEN_HEADINGS = new Set(["title", "subtitle"]);
 const blockOrPlate = (id: string) =>
   passageIds.has(id) || frozenPlateIds.has(id) || SPOKEN_HEADINGS.has(id);
-type FrozenModel = {
-  frozen_on: string;
-  records: string[];
-  entities: string[];
-  questions: string[];
-  evidence: string[];
-  retired: string[];
-};
+export const FROZEN_KINDS = [
+  "records",
+  "entities",
+  "questions",
+  "evidence",
+  "timeline",
+  "sources",
+  "corrections",
+] as const;
+type FrozenKind = (typeof FROZEN_KINDS)[number];
+type FrozenModel = { frozen_on: string; retired: string[] } & Record<FrozenKind, string[]>;
 const frozenModel = FROZEN as FrozenModel;
-const inUse = {
+/** Every ID the model uses, by kind: what scripts/freeze-model.ts freezes. */
+export const inUse: Record<FrozenKind, string[]> = {
   records: records.map((r) => r.id),
   entities: entities.map((e) => e.id),
   questions: questions.map((q) => q.id),
   evidence: evidence.map((l) => l.id),
+  timeline: timeline.map((t) => t.id),
+  sources: namedInText.map((s) => s.id),
+  corrections: corrections.map((c) => c.id),
 };
+
+/**
+ * IDs in use that aren't frozen yet: new entries, frozen at their first
+ * publish (the freeze workflow runs scripts/freeze-model.ts after a push to
+ * the publishing branch). Reported, not refused, so a new entry made in the
+ * CMS can build; a frozen ID that goes missing is refused.
+ */
+export function provisionalIds(): string[] {
+  return FROZEN_KINDS.flatMap((kind) =>
+    inUse[kind]
+      .filter((id) => !(frozenModel[kind] ?? []).includes(id))
+      .map((id) => `${kind} ${id}`),
+  );
+}
 
 checks.push(
   {
@@ -621,7 +665,7 @@ checks.push(
           p.lastBlock ? fail(blockOrPlate(p.lastBlock), `${p.id} ends at ${p.lastBlock}`) : [],
         ),
         ...timeline.flatMap((e) =>
-          fail(e.plate ? frozenPlateIds.has(e.plate) : !!door(e.quote), `timeline ${e.sort}`),
+          fail(e.plate ? frozenPlateIds.has(e.plate) : !!door(e.quote), `timeline ${e.id}`),
         ),
         ...plates.flatMap((p) =>
           fail(passageIds.has(p.paragraph), `${p.id} sits beside ${p.paragraph}`),
@@ -630,21 +674,18 @@ checks.push(
         ...Object.keys(plateImages).flatMap((id) =>
           fail(frozenPlateIds.has(id), `image for ${id}`),
         ),
-        ...namedInText.flatMap((n) => fail(!!door(n.quote), `named record ${n.name}`)),
+        ...namedInText.flatMap((n) => fail(!!door(n.quote), `named record ${n.id}`)),
       ];
     },
   },
   {
-    name: "the model's IDs are frozen: every ID in use is frozen, every frozen ID is in use or retired, none reused",
+    name: "the model's IDs are frozen: every frozen ID is in use or retired, none reused, none duplicated",
     run: () =>
-      (["records", "entities", "questions", "evidence"] as const).flatMap((kind) => [
-        ...inUse[kind].flatMap((id) =>
-          fail(
-            frozenModel[kind].includes(id),
-            `${kind} ${id} is not frozen (run scripts/freeze-model.ts)`,
-          ),
+      FROZEN_KINDS.flatMap((kind) => [
+        ...inUse[kind].flatMap((id, i) =>
+          fail(inUse[kind].indexOf(id) === i, `${kind} ${id} is used twice`),
         ),
-        ...frozenModel[kind].flatMap((id) =>
+        ...(frozenModel[kind] ?? []).flatMap((id) =>
           fail(
             inUse[kind].includes(id) || frozenModel.retired.includes(id),
             `${kind} ${id} was frozen and is gone; retire it instead`,
@@ -656,6 +697,218 @@ checks.push(
       ]),
   },
 );
+
+checks.push(
+  {
+    name: "timeline events and sources carry well-formed IDs, each in a file named for it; a source with a URL says when it was read",
+    run: () => [
+      ...Object.entries(timelineFiles).flatMap(([path, t]) =>
+        fail(path === `./timeline/${t.id}.json`, `${path}: named for ${t.id}`),
+      ),
+      ...Object.entries(sourceFiles).flatMap(([path, t]) =>
+        fail(path === `./sources/${t.id}.json`, `${path}: named for ${t.id}`),
+      ),
+      ...timeline.flatMap((t) =>
+        fail(/^event-\d{4}(-\d{2}){0,2}(-\d+)?$/.test(t.id), `timeline ${t.id}: malformed ID`),
+      ),
+      ...namedInText.flatMap((s) => [
+        ...fail(/^[a-z0-9]+(-[a-z0-9]+)*$/.test(s.id), `source ${s.id}: malformed ID`),
+        ...(s.url
+          ? [
+              ...fail(/^https?:\/\//.test(s.url), `source ${s.id}: URL ${s.url}`),
+              ...fail(
+                !!s.accessed && iso.test(s.accessed),
+                `source ${s.id}: URL with no accessed date`,
+              ),
+            ]
+          : fail(!s.accessed, `source ${s.id}: accessed date with no URL`)),
+      ]),
+    ],
+  },
+  {
+    name: "the post's discrepancies are open or closed, never deleted",
+    run: () =>
+      discrepancies.flatMap((d) => [
+        ...fail(["open", "closed"].includes(d.status), `${d.id}: status ${d.status}`),
+        // An open one still quotes the published text; a closed one is history.
+        ...(d.status === "open"
+          ? [
+              ...fail(!!door(d.note), `${d.id}: its note is no longer in the post's text`),
+              ...fail(!!door(d.close), `${d.id}: its closing line is no longer in the post's text`),
+            ]
+          : []),
+        ...fail(Array.isArray(d.corrections), `${d.id}: no corrections list`),
+      ]),
+  },
+);
+
+checks.push({
+  name: "each plate file is named for a plate, and every image in it exists, is measured and has alt text",
+  run: () =>
+    Object.entries(plateFiles).flatMap(([path, p]) => [
+      ...fail(path === `./plates/${p.id}.json`, `${path}: named for ${p.id}`),
+      ...fail(
+        plates.some((x) => x.id === p.id),
+        `${path}: no plate ${p.id}`,
+      ),
+      ...fail(["draft", "reviewed"].includes(p.alt_status), `${p.id}: alt_status ${p.alt_status}`),
+      ...p.images.flatMap((i) => [
+        ...fail(exists(`public${i.src}`), `${p.id}: ${i.src} missing`),
+        ...fail(
+          !!plateImages[p.id] &&
+            (plateImages[p.id].set ?? [plateImages[p.id]]).some(
+              (m) => m.src === i.src && m.width > 0,
+            ),
+          `${p.id}: ${i.src} not measured (run npm run measure:images)`,
+        ),
+        ...fail(i.alt.trim().length > 0, `${p.id}: ${i.src} has no alt text`),
+        ...(i.side ? fail(["front", "back"].includes(i.side), `${p.id}: side ${i.side}`) : []),
+      ]),
+    ]),
+});
+
+const fingerprint = (text: string) => createHash("sha256").update(text).digest("hex").slice(0, 16);
+/**
+ * The passages and plate a discrepancy turns on, found in article.md as
+ * ingested, so a correction that rewrites the very words it quotes still
+ * counts as touching it.
+ */
+const discrepancyTargets = (d: (typeof discrepancies)[number]) => {
+  const inOriginal = (quote: string) => {
+    const words = quote.replace(/^…/, "").replace(/…$/, "");
+    return [...originalText].find(
+      ([id, text]) => !id.startsWith("plate-") && text.includes(words),
+    )?.[0];
+  };
+  return [inOriginal(d.note), inOriginal(d.close), d.plate].filter((x): x is string => !!x);
+};
+
+checks.push(
+  {
+    name: "the published text changes only by correction: article.md still says what it said for every frozen block and caption",
+    run: () =>
+      Object.entries(PUBLISHED as Record<string, string>).flatMap(([id, hash]) => {
+        const text = originalText.get(id);
+        if (text === undefined) return [`${id}: gone from article.md`];
+        return fail(
+          fingerprint(text) === hash,
+          `${id}: article.md was edited; propose a correction instead`,
+        );
+      }),
+  },
+  {
+    name: "each correction is filed under its ID, targets a passage or plate, says what, why, who and when, and is decided by a curator once it leaves the queue",
+    run: () => [
+      ...Object.entries(correctionFiles).flatMap(([path, c]) =>
+        fail(path === `./corrections/${c.id}.json`, `${path}: named for ${c.id}`),
+      ),
+      ...corrections.flatMap((c) => [
+        ...fail(/^c-[a-z0-9]+$/.test(c.id), `${c.id}: malformed ID`),
+        ...fail(
+          originalText.has(c.target) && !c.target.startsWith("unfrozen-"),
+          `${c.id}: no passage or plate ${c.target}`,
+        ),
+        ...fail(
+          ["proposed", "accepted", "applied", "rejected"].includes(c.status),
+          `${c.id}: status ${c.status}`,
+        ),
+        ...fail(!!c.proposed_text?.trim(), `${c.id}: no proposed text`),
+        ...fail(!!c.reason?.trim(), `${c.id}: no reason`),
+        ...fail(!!c.proposed_by?.trim(), `${c.id}: no proposer`),
+        ...fail(iso.test(c.date ?? ""), `${c.id}: date ${c.date}`),
+        ...(c.status === "proposed"
+          ? []
+          : [
+              ...fail(!!c.decided_by?.trim(), `${c.id}: ${c.status}, but by nobody`),
+              ...fail(iso.test(c.decided_on ?? ""), `${c.id}: ${c.status}, but undated`),
+            ]),
+      ]),
+    ],
+  },
+  {
+    name: "an applied correction keeps the narration in step: the script says the corrected words",
+    run: () => {
+      const applied = corrections.filter((c) => c.status === "applied");
+      if (!applied.length) return [];
+      try {
+        matchScript();
+        const differ = unregisteredDifferences();
+        return applied.flatMap((c) =>
+          differ.some((d) => d.blocks.includes(c.target))
+            ? [
+                `${c.id}: the narration script doesn't say the corrected ${c.target}; give its narration_text`,
+              ]
+            : [],
+        );
+      } catch (e) {
+        return [(e as Error).message];
+      }
+    },
+  },
+  {
+    name: "a correction that touches one of the post's discrepancies names it, the discrepancy lists it, and one that resolves it closes it",
+    run: () => [
+      ...corrections.flatMap((c) => {
+        const named = discrepancies.find((d) => d.id === c.discrepancy);
+        return [
+          ...(c.discrepancy ? fail(!!named, `${c.id}: no discrepancy ${c.discrepancy}`) : []),
+          ...(c.resolves_discrepancy
+            ? fail(!!c.discrepancy, `${c.id}: resolves a discrepancy it doesn't name`)
+            : []),
+          ...(c.status === "applied"
+            ? [
+                ...discrepancies.flatMap((d) =>
+                  discrepancyTargets(d).includes(c.target)
+                    ? fail(
+                        c.discrepancy === d.id,
+                        `${c.id}: edits ${c.target}, which ${d.id} turns on, without naming it`,
+                      )
+                    : [],
+                ),
+                ...(named
+                  ? [
+                      ...fail(
+                        named.corrections.includes(c.id),
+                        `${c.id}: ${named.id} doesn't list it`,
+                      ),
+                      ...(c.resolves_discrepancy
+                        ? fail(
+                            named.status === "closed",
+                            `${c.id}: resolves ${named.id}, which is still open`,
+                          )
+                        : []),
+                    ]
+                  : []),
+              ]
+            : []),
+        ];
+      }),
+      ...discrepancies.flatMap((d) => [
+        ...d.corrections.flatMap((id) =>
+          fail(
+            corrections.some((c) => c.id === id && c.discrepancy === d.id),
+            `${d.id}: lists ${id}, which doesn't name it`,
+          ),
+        ),
+        ...(d.status === "closed"
+          ? fail(
+              corrections.some(
+                (c) => c.discrepancy === d.id && c.resolves_discrepancy && c.status === "applied",
+              ) || !!d.closed_note?.trim(),
+              `${d.id}: closed, but no applied correction resolves it and no closed_note says why`,
+            )
+          : []),
+      ]),
+    ],
+  },
+);
+
+/** Applied corrections whose audio still reads the old words: the curator regenerates it. */
+export function audioToRegenerate(): string[] {
+  return corrections
+    .filter((c) => c.status === "applied" && c.narration_text && !c.audio_regenerated)
+    .map((c) => `${c.id} (${c.target})`);
+}
 
 export function problems(): string[] {
   return checks.flatMap((c) => c.run().map((p) => `${c.name}: ${p}`));
