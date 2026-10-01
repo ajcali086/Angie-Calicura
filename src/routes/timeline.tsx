@@ -6,6 +6,7 @@ import { PassageDoor, PlateDoor } from "@/components/Door";
 import { ListenButton } from "@/components/audio/ListenButton";
 import { door } from "@/data/article";
 import { timeline } from "@/data/timeline";
+import { useReveal } from "@/lib/useReveal";
 
 export const Route = createFileRoute("/timeline")({
   head: () => ({ meta: [{ title: "Timeline · Angie" }] }),
@@ -22,6 +23,7 @@ const decades = timeline.reduce<{ decade: string; events: typeof timeline }[]>((
 }, []);
 
 function TimelinePage() {
+  useReveal("timeline");
   return (
     <SiteShell>
       <PageHero
@@ -38,6 +40,7 @@ function TimelinePage() {
               {events.map((e) => (
                 <li
                   key={e.sort + e.quote}
+                  data-reveal
                   className="grid gap-x-6 border-b border-rule/50 py-5 sm:grid-cols-[10rem_1fr]"
                 >
                   <p className="text-[0.72rem] tracking-[0.14em] text-brass uppercase sm:pt-1.5">

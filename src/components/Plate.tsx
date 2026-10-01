@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ImageOff, ZoomIn } from "lucide-react";
 import type { Plate as PlateData } from "@/data/article";
 import { plateImages } from "@/data/plateImages";
+import { fadeIn } from "@/lib/fadeIn";
 import { cn } from "@/lib/utils";
 import { Inline } from "./Inline";
 
@@ -35,6 +36,7 @@ export function Plate({
       height={image.height}
       loading="lazy"
       decoding="async"
+      ref={fadeIn}
       // The box is sized before the image arrives (the width it will have,
       // the height from its aspect ratio), so loading a plate never pushes
       // the text below it down: links and the read-along land where they aim.
@@ -140,7 +142,7 @@ function PlateZoom({
       <dialog
         ref={dialog}
         aria-label={label}
-        className="m-0 h-full max-h-none w-full max-w-none bg-ink p-0 text-paper open:flex open:flex-col [&::backdrop]:bg-ink/95"
+        className="plate-zoom m-0 h-full max-h-none w-full max-w-none bg-ink p-0 text-paper open:flex open:flex-col [&::backdrop]:bg-ink/95"
       >
         <form
           method="dialog"

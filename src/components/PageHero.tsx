@@ -8,6 +8,7 @@ export function PageHero({
   byline,
   image,
   compact,
+  titleClassName,
 }: {
   kicker: string;
   title: string;
@@ -16,6 +17,8 @@ export function PageHero({
   byline?: ReactNode;
   image?: string;
   compact?: boolean;
+  /** Part Two's title takes the sign warm-up; every other title is still. */
+  titleClassName?: string;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-rule">
@@ -42,17 +45,22 @@ export function PageHero({
           image && "[text-shadow:0_1px_18px_rgb(20_18_16_/_0.92)]",
         )}
       >
-        <p className="kicker stagger-in">{kicker}</p>
-        <h1 className="stagger-in mt-3 font-display text-3xl leading-[1.05] font-semibold text-paper sm:text-5xl">
+        <p className="kicker">{kicker}</p>
+        <h1
+          className={cn(
+            "mt-3 font-display text-3xl leading-[1.05] font-semibold text-paper sm:text-5xl",
+            titleClassName,
+          )}
+        >
           {title}
         </h1>
         {dek ? (
-          <p className="stagger-in mt-5 max-w-2xl font-display text-lg leading-relaxed text-fog sm:text-xl">
+          <p className="mt-5 max-w-2xl font-display text-lg leading-relaxed text-fog sm:text-xl">
             {dek}
           </p>
         ) : null}
         {byline ? (
-          <p className="stagger-in mt-4 font-sans text-[0.78rem] tracking-[0.14em] text-fog uppercase">
+          <p className="mt-4 font-sans text-[0.78rem] tracking-[0.14em] text-fog uppercase">
             {byline}
           </p>
         ) : null}

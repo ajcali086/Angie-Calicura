@@ -39,6 +39,17 @@ Those plates show their caption in a frame marked "Image not yet added".
 
 A scroll meter (a neon hairline across the top of every page) fills as you read down it. A Top button appears once you're well down a page, sits above the player, and hides while the footer is in view. A skip link takes keyboard users past the header. All three are ported from spirit-of-martinez's `ReadingChrome`.
 
+## Light
+
+Light, not motion: the effects animate opacity, glow and colour temperature, each tied to a part of the story, and all of them hold still under `prefers-reduced-motion` (`src/styles.css`, "Light, not motion").
+
+- **Ambient wash:** each part has a faint light behind the page, at 6% or less and static: morning gold for Martinez, the sign's amber for Wyoming, evening blue for Tahoe.
+- **The sign:** Part Two's title warms up once, from unlit to an amber glow over 1.2s, then holds. The other titles never move, and nothing on the home page's title screen animates.
+- **Reveals:** passages and timeline entries fade in with a 12px rise as they first scroll into view, once (`src/lib/useReveal.ts`, an IntersectionObserver). Plates fade in over 0.4s when their image arrives. At most two of these run at once (`src/lib/motionBudget.ts`); anything more is simply shown.
+- **Player:** while playing, a warm ember beside the part's name breathes on a 3s cycle.
+- **Home:** the three parts take a warm edge light on hover (pointer devices) or keyboard focus.
+- **Still on purpose:** the title-screen photograph, Sources, Left Open, the placeholder plates, share cards and clips, and the navigation. The plate zoom's dark ground fades in; the plate itself doesn't.
+
 ## Audio
 
 The article read aloud by a synthetic (text-to-speech) voice, in the five parts listed in `source/audio-part-map.md` (`public/audio/angie-a1.mp3` … `angie-a3b.mp3`, about 52 minutes). These features follow spirit-of-martinez:

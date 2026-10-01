@@ -60,6 +60,7 @@ export function PlayerBar() {
           <div className="flex min-h-11 min-w-0 flex-1 flex-col justify-center">
             <ReadingPlaceLink className="flex min-h-7 min-w-0 items-end">
               <span className="truncate font-sans text-[0.68rem] tracking-[0.14em] text-brass uppercase underline-offset-4 hover:underline">
+                {playing ? <span className="ember mr-2 align-middle" aria-hidden /> : null}
                 <span className="text-muted">
                   {index + 1}/{PARTS.length}
                 </span>{" "}
@@ -193,7 +194,7 @@ function MiniPlayer() {
       className="fixed inset-x-0 bottom-0 z-50 border-t border-rule bg-ink/95 backdrop-blur-md"
     >
       <div
-        className="absolute inset-x-0 top-0 h-0.5 origin-left bg-brass transition-transform duration-500"
+        className="absolute inset-x-0 top-0 h-0.5 origin-left bg-brass"
         style={{ transform: `scaleX(${progress})` }}
         aria-hidden
       />
@@ -208,6 +209,7 @@ function MiniPlayer() {
         </button>
         <ReadingPlaceLink className="flex min-h-11 min-w-0 flex-1 flex-col justify-center text-left">
           <span className="truncate font-sans text-[0.66rem] tracking-[0.14em] text-brass uppercase">
+            {playing ? <span className="ember mr-2 align-middle" aria-hidden /> : null}
             <span className="text-muted">
               {index + 1}/{PARTS.length}
             </span>{" "}

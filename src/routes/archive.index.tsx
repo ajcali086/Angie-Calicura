@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { fadeIn } from "@/lib/fadeIn";
 import { ImageOff } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
@@ -40,7 +41,8 @@ function ArchiveIndex() {
                               src={image.src}
                               alt=""
                               loading="lazy"
-                              className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                              ref={fadeIn}
+                              className="size-full object-cover"
                             />
                           ) : (
                             <ImageOff className="size-5 text-muted" aria-hidden />

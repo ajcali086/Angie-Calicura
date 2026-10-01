@@ -63,16 +63,14 @@ function Home() {
           Plate {coverPlate.number} · {plain(coverPlate.caption)}
         </Link>
         <div className="relative mx-auto max-w-4xl px-4 pt-72 pb-14 [text-shadow:0_1px_18px_rgb(20_18_16_/_0.92)] sm:px-6 sm:pt-96">
-          <p className="kicker stagger-in">
+          <p className="kicker">
             Sheridan Wyoming History · <AuthorLink />
           </p>
-          <h1 className="stagger-in mt-4 font-display text-4xl leading-[1.05] font-semibold text-paper sm:text-6xl">
+          <h1 className="mt-4 font-display text-4xl leading-[1.05] font-semibold text-paper sm:text-6xl">
             {name}
           </h1>
-          <p className="stagger-in mt-4 font-display text-xl text-fog italic sm:text-2xl">
-            {rest.join(": ")}
-          </p>
-          <p className="stagger-in mt-2 font-sans text-[0.78rem] tracking-[0.14em] text-brass uppercase">
+          <p className="mt-4 font-display text-xl text-fog italic sm:text-2xl">{rest.join(": ")}</p>
+          <p className="mt-2 font-sans text-[0.78rem] tracking-[0.14em] text-brass uppercase">
             {article.subtitle}
           </p>
         </div>
@@ -97,7 +95,7 @@ function Home() {
               <Link
                 to="/chapters/$slug"
                 params={{ slug: c.slug }}
-                className="group flex min-h-20 items-baseline gap-6 py-5"
+                className="chapter-card group flex min-h-20 items-baseline gap-6 py-5"
               >
                 <span className="w-8 shrink-0 font-display text-2xl text-brass">
                   {String(c.number).padStart(2, "0")}

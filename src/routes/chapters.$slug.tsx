@@ -21,6 +21,7 @@ import {
 } from "@/data/article";
 import { blockWindow } from "@/data/audio";
 import { cn } from "@/lib/utils";
+import { useReveal } from "@/lib/useReveal";
 
 export const Route = createFileRoute("/chapters/$slug")({
   validateSearch: (search: Record<string, unknown>): { listen?: 1 } =>
@@ -61,6 +62,7 @@ function ChapterPage() {
   const firstParagraph = chapter.blocks.find((b) => b.type === "p" && !b.text.startsWith("*"));
   const first = chapter.blocks[0];
   const activeBlock = useFollow(slug);
+  useReveal(slug);
   const kicker = `Part ${chapter.number} · ${chapter.title}`;
 
   return (
@@ -68,6 +70,7 @@ function ChapterPage() {
       <PageHero
         kicker={`Part ${chapter.number} of ${chapters.length}`}
         title={chapter.title}
+        titleClassName={chapter.slug === "wyoming-madame" ? "sign-warm-up" : undefined}
         dek={article.subtitle}
         byline={
           <>
@@ -76,7 +79,7 @@ function ChapterPage() {
         }
         compact
       />
-      <div className="bg-paper">
+      <div className={`bg-paper chapter-wash-${chapter.number}`}>
         <article className="prose-archive mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-16">
           <div className="-mt-4 mb-8 flex flex-wrap items-center gap-x-6 border-b border-ink/10 pb-2">
             <ListenButton
@@ -210,6 +213,7 @@ const BlockView = memo(function BlockView({
         <blockquote
           id={block.id}
           data-block={block.id}
+          data-reveal
           className={cn("quote-pull scroll-mt-24 whitespace-pre-line", current)}
         >
           <Inline text={block.text} />
@@ -224,6 +228,7 @@ const BlockView = memo(function BlockView({
         <ul
           id={block.id}
           data-block={block.id}
+          data-reveal
           className={cn("scroll-mt-24 list-disc space-y-1 pl-6 marker:text-brass-dim", current)}
         >
           {block.items.map((item) => (
@@ -241,6 +246,7 @@ const BlockView = memo(function BlockView({
       <p
         id={block.id}
         data-block={block.id}
+        data-reveal
         className={cn("scroll-mt-24", dropCap && "drop-cap", current)}
       >
         <Inline text={block.text} />
