@@ -1,7 +1,12 @@
 # IDs freeze at first publish. A push to the publishing branch (a CMS
 # publish, a merged pull request, or a curator's own commit) is a publish:
-# this adds every new ID to src/model/frozen.json and commits it, so from
-# then on the build refuses to let that ID go missing or be reused.
+# this adds every new ID to src/model/frozen.json. The branch is protected,
+# so it doesn't push there: it puts the frozen IDs on the `freeze-ids`
+# branch and opens a pull request for the curator to merge (or updates the
+# one already open). Until that merges, the new IDs build as provisional.
+#
+# Needs Settings → Actions → General → "Allow GitHub Actions to create and
+# approve pull requests".
 name: Freeze new IDs
 
 on:
@@ -11,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: freeze
@@ -19,6 +25,10 @@ concurrency:
 jobs:
   freeze:
     runs-on: ubuntu-latest
+    env:
+      BASE: claude/angie-pilot
+      HEAD_BRANCH: freeze-ids
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,14 +38,29 @@ jobs:
       - run: npm ci
       - run: npm run check:model
       - run: node --experimental-strip-types --import ./scripts/test-register.mjs scripts/freeze-model.ts
-      - name: Commit frozen IDs
+      - name: Open or update the freeze pull request
         run: |
           if git diff --quiet src/model/frozen.json; then
             echo "Nothing new to freeze."
             exit 0
           fi
-          git config user.name "freeze-ids[bot]"
-          git config user.email "freeze-ids@users.noreply.github.com"
+          new=$(node -e '
+            const before = JSON.parse(require("child_process").execSync("git show HEAD:src/model/frozen.json"));
+            const after = JSON.parse(require("fs").readFileSync("src/model/frozen.json", "utf8"));
+            const ids = (o) => Object.values(o).filter(Array.isArray).flat().length;
+            console.log(ids(after) - ids(before));
+          ')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$HEAD_BRANCH"
           git add src/model/frozen.json
           git commit -m "Freeze IDs published in ${GITHUB_SHA::7}"
-          git push
+          # The branch is the bot's own: rebuilt from the latest publish each time.
+          git push --force origin "$HEAD_BRANCH"
+          body="Freezes ${new} ID(s) first published in ${GITHUB_SHA::7}. Merge it to freeze them: from then on the build refuses to let them go missing or be reused. Made by .github/workflows/freeze.yml."
+          if [ -n "$(gh pr list --head "$HEAD_BRANCH" --base "$BASE" --state open --json number --jq '.[].number')" ]; then
+            gh pr edit "$HEAD_BRANCH" --body "$body"
+            echo "Updated the open freeze pull request."
+          else
+            gh pr create --base "$BASE" --head "$HEAD_BRANCH" --title "Freeze newly published IDs" --body "$body"
+          fi

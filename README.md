@@ -89,7 +89,7 @@ The post's text is not a collection. A change to it is a **correction**: the pas
 - a frozen ID that goes missing, a rename included (each file is named for its ID, and the check fails if they differ);
 - an image without alt text; an evidence link without a curator and date (the CMS fills them in from the signed-in user and today).
 
-**IDs freeze at first publish.** A new ID builds as provisional (the model check lists it). A push to `claude/angie-pilot` runs `.github/workflows/freeze.yml`, which freezes it in `src/model/frozen.json` and commits that; from then on the build refuses to let it go missing or be reused.
+**IDs freeze at first publish.** A new ID builds as provisional (the model check lists it). A push to `claude/angie-pilot` runs `.github/workflows/freeze.yml`, which freezes it in `src/model/frozen.json` on the `freeze-ids` branch and opens a pull request (or updates the open one); once the curator merges it, the build refuses to let the ID go missing or be reused. The branch is protected, so the workflow never pushes to it, and it needs Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests".
 
 **Roles are GitHub's to enforce, not the CMS's.** Author collections use the editorial workflow: saving makes a draft, "ready for review" opens a pull request, and "publish" merges it. Curator collections commit straight to the branch. To make that the rule rather than a convention, protect `claude/angie-pilot` in GitHub's branch settings: require a pull request with one approval for everyone but the curator (who may bypass). The author then can't publish, and only the curator's own commits skip review.
 
