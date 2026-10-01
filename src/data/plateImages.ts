@@ -57,10 +57,19 @@ export const plateImages: Record<string, PlateImage & { set?: PlateImage[] }> = 
   "plate-28": { src: "/images/plates/plate-28.jpg", width: 128, height: 187 },
   "plate-29": { src: "/images/plates/plate-29.jpg", width: 819, height: 716 },
   "plate-30": { src: "/images/plates/plate-30.jpg", width: 751, height: 1214 },
-  // Plate 31: the back of the press print (Historic Images), whose
-  // handwritten caption and "Return to Chronicle Files" stamp the post
-  // quotes. The front, the photograph itself, is not added yet.
-  "plate-31": { src: "/images/plates/plate-31-back.jpg", width: 640, height: 751 },
+  // Plate 31: the press print (Historic Images), front and back. The back's
+  // handwritten caption and "Return to Chronicle Files" stamp are what the
+  // post quotes. The front's source scan was not confirmed when it was
+  // added (2026-10-01); it was added at the site owner's request.
+  "plate-31": {
+    src: "/images/plates/plate-31-front.jpg",
+    width: 640,
+    height: 409,
+    set: [
+      { src: "/images/plates/plate-31-front.jpg", width: 640, height: 409 },
+      { src: "/images/plates/plate-31-back.jpg", width: 640, height: 751 },
+    ],
+  },
   "plate-32": { src: "/images/plates/plate-32.jpg", width: 217, height: 491 },
   "plate-34": { src: "/images/plates/plate-34.jpg", width: 288, height: 191 },
   "plate-36": { src: "/images/plates/plate-36.jpg", width: 1024, height: 640 },

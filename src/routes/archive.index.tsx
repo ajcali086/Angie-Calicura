@@ -73,8 +73,10 @@ function ArchiveIndex() {
 function SetTile({ set }: { set: PlateImage[] }) {
   return (
     <div
-      className="grid size-full grid-cols-2 gap-px"
-      style={{ gridTemplateRows: `repeat(${Math.ceil(set.length / 2)}, minmax(0, 1fr))` }}
+      className={cn("grid size-full gap-px", set.length === 2 ? "grid-cols-1" : "grid-cols-2")}
+      style={{
+        gridTemplateRows: `repeat(${set.length === 2 ? 2 : Math.ceil(set.length / 2)}, minmax(0, 1fr))`,
+      }}
     >
       {set.map((image, i) => (
         <img

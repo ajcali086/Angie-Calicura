@@ -195,6 +195,33 @@ const SET_LEAD = ["", "col-span-6 aspect-[2/1]", "col-span-3 aspect-[3/2]"];
  * cropped to its cell here; the zoom view shows every one whole.
  */
 function PlateSet({ set, alt, large }: { set: PlateImage[]; alt: string; large: boolean }) {
+  // A pair (a print's front and back) sits side by side, each whole, at one
+  // height: each column is as wide as its image's aspect ratio.
+  if (set.length === 2)
+    return (
+      <div
+        className="mx-auto grid gap-1"
+        style={{
+          width: `min(100%, ${large ? "44rem" : "28rem"})`,
+          gridTemplateColumns: set.map((i) => `${i.width / i.height}fr`).join(" "),
+        }}
+      >
+        {set.map((image, i) => (
+          <img
+            key={image.src}
+            src={image.src}
+            alt={`${alt} Photograph ${i + 1} of ${set.length}.`}
+            width={image.width}
+            height={image.height}
+            loading="lazy"
+            decoding="async"
+            ref={fadeIn}
+            className="block h-auto w-full"
+            style={{ aspectRatio: `${image.width} / ${image.height}` }}
+          />
+        ))}
+      </div>
+    );
   const lead = set.length % 3;
   return (
     <div
