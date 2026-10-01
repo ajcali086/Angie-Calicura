@@ -15,6 +15,16 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 - Timeline events, named sources and the Left Open entries quote the post verbatim. Each links back to where the post says it.
 - **Ids are frozen.** Share links, audio cues and every link into the text hang on block ids (`2-p13`) and plate ids (`plate-12`). `src/data/frozen-ids.json` pairs each id with its block's opening words, so inserting a paragraph renumbers nothing. After adding a block or plate, run `scripts/freeze-ids.ts` to give it the next unused id. If a paragraph's opening words are edited, update its opening in the file, not its id. If one is removed, move its id to `retired`. `src/data/ids.test.ts` fails if any first-published id goes missing, is reused, or moves out of order.
 
+## The model (H1)
+
+The museum is being retrofitted onto the shared Story & Record model, one step at a time (the H1 retrofit plan). Step 1 is in:
+
+- `src/model/museum.json`: the museum record (rights, credit, a structured consent basis, `id_freeze_date: 2026-09-30`, `schema_version: 1`).
+- `src/model/records.json`: 62 records, one per object. 39 plates make 43 (plate 13 is five photographs; plate 31's print, front and back, is one), plus the 13 records the text cites, the 5 audio parts and the narration script. Each is held or not and `verified`, `unverified` or `not-held`, with its credit, rights holder and capture provenance ("unknown" stated, not smoothed) and dated notes.
+- `src/model/validate.ts`: the step's gates. `npm test` runs them, and `npm run build` refuses to start if any fails (`npm run check:model`).
+
+Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum prefix (`angie/p/2-p13`).
+
 ## Pages
 
 | Route                      | What it is                                                                           |

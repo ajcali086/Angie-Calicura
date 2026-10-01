@@ -1,0 +1,1030 @@
+[
+  {
+    "id": "plate-01",
+    "kind": "photograph",
+    "plate": "plate-01",
+    "title": "Angie's mother, Angiolina \"Angelina\" Rodia Calicura — from her great grandson Andrew Calicura.",
+    "credit": "Andrew Calicura, her great-grandson",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-01.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-02",
+    "kind": "photograph",
+    "plate": "plate-02",
+    "title": "Angie's father, Saverio \"Sam\" Calicura — from his great grandson Andrew Calicura.",
+    "credit": "Andrew Calicura, his great-grandson",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-02.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-03",
+    "kind": "photograph",
+    "plate": "plate-03",
+    "title": "Sam Rodia. \"Rodia used New World artifacts of Los Angeles to bring his Old World images of southern Italy to life in his Watts Towers. Rodia left Los Angeles in 1954 to settle in Martinez, near Berkley, with his family. His niece (pictured at left), Virginia Sullivan, cared for him in his last years. (Virginia Sullivan and Angelina Calicura were sisters; Virginia was 8 years younger than Angelina, and she was the second to last sibling to pass away in 2023 at age 98, Mary Lou Calicura Byer, the last sibling, passed away on July 1, 2024, at age 97.)\" Photo from the Los Angeles Herald Examiner Photo Collection.",
+    "credit": "Michael Dykhorst, Sheridan Wyoming History (as published in the post)",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-03.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-04",
+    "kind": "document",
+    "plate": "plate-04",
+    "title": "Martinez Daily Standard, Martinez, California, Jun 11, 1930, Page 6.",
+    "credit": "Martinez Daily Standard, June 11, 1930, page 6",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-04.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-05",
+    "kind": "document",
+    "plate": "plate-05",
+    "title": "Martinez News-Gazette, Martinez, California, Dec 08, 1930, Page 1",
+    "credit": "Martinez News-Gazette, December 8, 1930, page 1",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-05.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-06",
+    "kind": "document",
+    "plate": "plate-06",
+    "title": "Daily News, Los Angeles, California, Jul 5, 1938, Page 10",
+    "credit": "Daily News, Los Angeles, July 5, 1938, page 10",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-06.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-07",
+    "kind": "photograph",
+    "plate": "plate-07",
+    "title": "Undated photo of Angie, probably taken in California.",
+    "credit": "Michael Dykhorst, Sheridan Wyoming History (as published in the post)",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-07.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-08",
+    "kind": "document",
+    "plate": "plate-08",
+    "title": "Martinez News-Gazette, Martinez, California, Aug 07, 1951, Page 4",
+    "credit": "Martinez News-Gazette, August 7, 1951, page 4",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-08.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-09",
+    "kind": "document",
+    "plate": "plate-09",
+    "title": "Champion Funeral Home record for Baby Amato.",
+    "credit": "Champion Funeral Home",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-09.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-10",
+    "kind": "document",
+    "plate": "plate-10",
+    "title": "The Sheridan Press, Sheridan, Wyoming, August 6, 1953, Page 7",
+    "credit": "The Sheridan Press, August 6, 1953, page 7",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-10.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-11",
+    "kind": "document",
+    "plate": "plate-11",
+    "title": "1954 Sheridan City Directory",
+    "credit": "1954 Sheridan City Directory",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-11.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-12",
+    "kind": "photograph",
+    "plate": "plate-12",
+    "title": "1940s photo of Angelina \"Angie\" Calicura. Courtesy of nephew Andrew Calicura.",
+    "credit": "Andrew Calicura, her nephew; Frank Calicura Collection",
+    "rights_holder": "Calicura family (Frank Calicura Collection)",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-12.jpg"],
+    "capture_provenance": {
+      "device": "Epson RX500",
+      "date": "2020-09-17",
+      "collection": "Frank Calicura Collection",
+      "source": "EXIF of the family's original file"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-13-1",
+    "kind": "photograph",
+    "plate": "plate-13",
+    "part": 1,
+    "title": "The Ideal Hotel's building, photograph 1 of 5",
+    "credit": "Various sources, as published in the post",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-13-1.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": [
+      {
+        "date": "2026-10-01",
+        "note": "Looks like photograph 5 in colour. If it is a colourization it is not a record (v2: restorations may redraw nothing); exclude it, or amend the policy first."
+      }
+    ]
+  },
+  {
+    "id": "plate-13-2",
+    "kind": "photograph",
+    "plate": "plate-13",
+    "part": 2,
+    "title": "The Ideal Hotel's building, photograph 2 of 5",
+    "credit": "Various sources, as published in the post",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-13-2.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-13-3",
+    "kind": "photograph",
+    "plate": "plate-13",
+    "part": 3,
+    "title": "The Ideal Hotel's building, photograph 3 of 5",
+    "credit": "Various sources, as published in the post",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-13-3.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-13-4",
+    "kind": "photograph",
+    "plate": "plate-13",
+    "part": 4,
+    "title": "The Ideal Hotel's building, photograph 4 of 5",
+    "credit": "Various sources, as published in the post",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-13-4.png"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-13-5",
+    "kind": "photograph",
+    "plate": "plate-13",
+    "part": 5,
+    "title": "The Ideal Hotel's building, photograph 5 of 5",
+    "credit": "Various sources, as published in the post",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-13-5.png"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-14",
+    "kind": "document",
+    "plate": "plate-14",
+    "title": "City Council Meeting Minutes, March 21, 1955. From City of Sheridan.",
+    "credit": "City of Sheridan",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-14.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-15",
+    "kind": "document",
+    "plate": "plate-15",
+    "title": "The Sheridan Press, Sheridan, Wyoming, March 25, 1955, Page 6",
+    "credit": "The Sheridan Press, March 25, 1955, page 6",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-15.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-16",
+    "kind": "document",
+    "plate": "plate-16",
+    "title": "Casper Star-Tribune, Casper, Wyoming February 9, 1956, Page 2",
+    "credit": "Casper Star-Tribune, February 9, 1956, page 2",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-16.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-17",
+    "kind": "document",
+    "plate": "plate-17",
+    "title": "Casper Star-Tribune, Casper, Wyoming, February 14, 1956, Page 2",
+    "credit": "Casper Star-Tribune, February 14, 1956, page 2",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-17.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-18",
+    "kind": "document",
+    "plate": "plate-18",
+    "title": "The Sheridan Press, Sheridan, Wyoming, March 9, 1957, Page 7",
+    "credit": "The Sheridan Press, March 9, 1957, page 7",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-18.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-19",
+    "kind": "document",
+    "plate": "plate-19",
+    "title": "The Sheridan Press, Sheridan, Wyoming, March 27, 1957, Page 2",
+    "credit": "The Sheridan Press, March 27, 1957, page 2",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-19.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-20",
+    "kind": "document",
+    "plate": "plate-20",
+    "title": "The Sheridan Press, Sheridan, Wyoming, April 1, 1957, Page 2",
+    "credit": "The Sheridan Press, April 1, 1957, page 2",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-20.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-21",
+    "kind": "document",
+    "plate": "plate-21",
+    "title": "The Sheridan Press, Sheridan, Wyoming, April 2, 1957, Page 1",
+    "credit": "The Sheridan Press, April 2, 1957, page 1",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-21.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-22",
+    "kind": "document",
+    "plate": "plate-22",
+    "title": "The Sheridan Press, Sheridan, Wyoming, April 8, 1957, Page 1",
+    "credit": "The Sheridan Press, April 8, 1957, page 1",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-22.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-23",
+    "kind": "document",
+    "plate": "plate-23",
+    "title": "The Sheridan Press, Sheridan, Wyoming, April 9, 1957, Page 1",
+    "credit": "The Sheridan Press, April 9, 1957, page 1",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-23.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-24",
+    "kind": "document",
+    "plate": "plate-24",
+    "title": "The Sheridan Press, Sheridan, Wyoming, March 11, 1958, Page 1",
+    "credit": "The Sheridan Press, March 11, 1958, page 1",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-24.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-25",
+    "kind": "photograph",
+    "plate": "plate-25",
+    "title": "1021 Princeton Ave, Billings Montana. Photo from Google Maps.",
+    "credit": "Google Maps",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-25.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-26",
+    "kind": "object",
+    "plate": "plate-26",
+    "title": "Postcard of the General Custer Hotel in Billings, Montana. \"This is where Angie was a beauty operator.\"",
+    "credit": "Michael Dykhorst, Sheridan Wyoming History (as published in the post)",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-26.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-27",
+    "kind": "document",
+    "plate": "plate-27",
+    "title": "Billings Senior High Yearbook 1949 showing Jack Alexander. Ancestry.com",
+    "credit": "Ancestry.com (Billings Senior High yearbook, 1949)",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-27.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-28",
+    "kind": "document",
+    "plate": "plate-28",
+    "title": "Billings Senior High Yearbook 1950 showing John (Jack) Alexander the year he graduated. Ancestry.com",
+    "credit": "Ancestry.com (Billings Senior High yearbook, 1950)",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-28.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-29",
+    "kind": "document",
+    "plate": "plate-29",
+    "title": "The Billings Gazette, Billings, Montana, Dec 27, 1963, Page 10",
+    "credit": "The Billings Gazette, December 27, 1963, page 10",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-29.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-30",
+    "kind": "document",
+    "plate": "plate-30",
+    "title": "The Sheridan Press, Sheridan, Wyoming, June 21, 1965, page 5.",
+    "credit": "The Sheridan Press, June 21, 1965, page 5",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-30.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-31",
+    "kind": "photograph",
+    "plate": "plate-31",
+    "title": "Photo from Historic Images. \"It is unknown what newspaper this was published in. It says 'Returned to Chronicle Files.' The caption according to the back of the photo shows, 'Angelina and Jack Alexander enjoy dinner in their new restaurant, South Lake Tahoe, June 5, 1972.'\"",
+    "credit": "Historic Images (a press print stamped \"Return to Chronicle Files\")",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "unverified",
+    "media": ["public/images/plates/plate-31-front.jpg", "public/images/plates/plate-31-back.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": [
+      {
+        "date": "2026-10-01",
+        "note": "Front added at the site owner's request; its Historic Images scan is not confirmed. The back is the side the post's caption quotes."
+      }
+    ]
+  },
+  {
+    "id": "plate-32",
+    "kind": "object",
+    "plate": "plate-32",
+    "title": "Matchbook cover for Joe Tarantino's, found by Gavin on Flickr.",
+    "credit": "Flickr, found by Gavin",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-32.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-33",
+    "kind": "photograph",
+    "plate": "plate-33",
+    "title": "1980 Harvey's bombing image from Getty Images.",
+    "credit": "Getty Images",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": [
+      {
+        "date": "2026-09-30",
+        "note": "Not held: the post shows it, but the museum's file was in a media zip that arrived truncated."
+      }
+    ]
+  },
+  {
+    "id": "plate-34",
+    "kind": "photograph",
+    "plate": "plate-34",
+    "title": "\"Thanks to a Swedish tourist's blog, a photo of the Lake Tahoe inn survives. It is possible this is what it looked like when Angie ran it.\"",
+    "credit": "A Swedish tourist's blog",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-34.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-35",
+    "kind": "document",
+    "plate": "plate-35",
+    "title": "Advertisement from the South Lake Tahoe newspaper showing the Timber Cove Lodge and the Lake Tahoe Inn from the time Angie ran them.",
+    "credit": "A South Lake Tahoe newspaper advertisement",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": [
+      {
+        "date": "2026-09-30",
+        "note": "Not held: the post shows it, but the museum's file was in a media zip that arrived truncated."
+      }
+    ]
+  },
+  {
+    "id": "plate-36",
+    "kind": "photograph",
+    "plate": "plate-36",
+    "title": "Angelina Calicura Alexander at the front desk of one of the hotels she managed in South Lake Tahoe, \"probably shortly before her death in 1986.\"",
+    "credit": "Michael Dykhorst, Sheridan Wyoming History (as published in the post)",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-36.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-37",
+    "kind": "document",
+    "plate": "plate-37",
+    "title": "The Tahoe Tribune, South Lake Tahoe, California. April 24, 2003, Page A5",
+    "credit": "The Tahoe Tribune, April 24, 2003, page A5",
+    "rights_holder": "unknown",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-37.jpg"],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "plate-38",
+    "kind": "document",
+    "plate": "plate-38",
+    "title": "Photo of the thanks credits of \"I Build The Tower\" documentary. Angie's name appears third on the left.",
+    "credit": "I Build the Tower (documentary), its credits",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "copied from the post; capture details not known"
+    },
+    "restoration": null,
+    "notes": [
+      {
+        "date": "2026-09-30",
+        "note": "Not held: the post shows it, but the museum's file was in a media zip that arrived truncated."
+      }
+    ]
+  },
+  {
+    "id": "plate-39",
+    "kind": "photograph",
+    "plate": "plate-39",
+    "title": "Another 1940s photo of Angie from her nephew Andrew Calicura.",
+    "credit": "Andrew Calicura, her nephew; Frank Calicura Collection",
+    "rights_holder": "Calicura family (Frank Calicura Collection)",
+    "held": true,
+    "status": "verified",
+    "media": ["public/images/plates/plate-39.jpg"],
+    "capture_provenance": {
+      "device": "Epson RX500",
+      "date": "2020-09-17",
+      "collection": "Frank Calicura Collection",
+      "source": "EXIF of the original file (device, date); collection as given by the family"
+    },
+    "restoration": null,
+    "notes": []
+  },
+  {
+    "id": "cited-1920-census",
+    "kind": "document",
+    "title": "1920 U.S. Census",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "1920 U.S. Census",
+    "notes": []
+  },
+  {
+    "id": "cited-honolulu-star-bulletin",
+    "kind": "document",
+    "title": "Honolulu Star-Bulletin",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "Honolulu Star-Bulletin",
+    "notes": []
+  },
+  {
+    "id": "cited-los-angeles-directories-1939-1940",
+    "kind": "document",
+    "title": "1939 and 1940 Los Angeles City Directories",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "1939 and 1940 Los Angeles City Directories",
+    "notes": []
+  },
+  {
+    "id": "cited-1940-census",
+    "kind": "document",
+    "title": "1940 U.S. Census",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "1940 U.S. Census",
+    "notes": []
+  },
+  {
+    "id": "cited-whore-houses-of-wyoming",
+    "kind": "document",
+    "title": "Whore Houses of Wyoming",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "Whore Houses of Wyoming",
+    "notes": []
+  },
+  {
+    "id": "cited-george-gilgorea",
+    "kind": "document",
+    "title": "George Gilgorea",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "George Gilgorea",
+    "notes": []
+  },
+  {
+    "id": "cited-fbi-reports",
+    "kind": "document",
+    "title": "FBI reports, cited by County Attorney Edward J. Redle",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "FBI reports, cited by County Attorney Edward J. Redle",
+    "notes": []
+  },
+  {
+    "id": "cited-billings-city-directory-1958",
+    "kind": "document",
+    "title": "Billings City Directory, 1958",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "Billings City Directory, 1958",
+    "notes": []
+  },
+  {
+    "id": "cited-carbon-county-news",
+    "kind": "document",
+    "title": "Carbon County News",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "Carbon County News",
+    "notes": []
+  },
+  {
+    "id": "cited-billings-times",
+    "kind": "document",
+    "title": "Billings Times",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "Billings Times",
+    "notes": []
+  },
+  {
+    "id": "cited-obituaries",
+    "kind": "document",
+    "title": "Martinez News-Gazette and Tahoe Daily Tribune obituaries",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "Martinez News-Gazette and Tahoe Daily Tribune obituaries",
+    "notes": []
+  },
+  {
+    "id": "cited-el-dorado-county-library",
+    "kind": "document",
+    "title": "El Dorado County Library",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "El Dorado County Library",
+    "notes": []
+  },
+  {
+    "id": "cited-i-build-the-tower",
+    "kind": "document",
+    "title": "I Build the Tower (2006)",
+    "credit": "Cited in the post by Michael Dykhorst",
+    "rights_holder": "unknown",
+    "held": false,
+    "status": "not-held",
+    "media": [],
+    "capture_provenance": {
+      "unknown": "not held"
+    },
+    "restoration": null,
+    "cited": "I Build the Tower (2006)",
+    "notes": []
+  },
+  {
+    "id": "audio-a1",
+    "kind": "derived_media",
+    "title": "Narration, part 1: Part One · Martinez Girlhood",
+    "credit": "Synthetic (text-to-speech) narration of the narration script",
+    "rights_holder": "the museum",
+    "held": true,
+    "status": "verified",
+    "media": ["public/audio/angie-a1.mp3"],
+    "capture_provenance": {
+      "unknown": "generated audio; sentence timings estimated"
+    },
+    "restoration": null,
+    "derived_from": "narration-script",
+    "notes": []
+  },
+  {
+    "id": "audio-a2a",
+    "kind": "derived_media",
+    "title": "Narration, part 2: Part Two · Wyoming Madame · The Ideal",
+    "credit": "Synthetic (text-to-speech) narration of the narration script",
+    "rights_holder": "the museum",
+    "held": true,
+    "status": "verified",
+    "media": ["public/audio/angie-a2a.mp3"],
+    "capture_provenance": {
+      "unknown": "generated audio; sentence timings estimated"
+    },
+    "restoration": null,
+    "derived_from": "narration-script",
+    "notes": []
+  },
+  {
+    "id": "audio-a2b",
+    "kind": "derived_media",
+    "title": "Narration, part 3: Part Two · Wyoming Madame · The Fall",
+    "credit": "Synthetic (text-to-speech) narration of the narration script",
+    "rights_holder": "the museum",
+    "held": true,
+    "status": "verified",
+    "media": ["public/audio/angie-a2b.mp3"],
+    "capture_provenance": {
+      "unknown": "generated audio; sentence timings estimated"
+    },
+    "restoration": null,
+    "derived_from": "narration-script",
+    "notes": []
+  },
+  {
+    "id": "audio-a3a",
+    "kind": "derived_media",
+    "title": "Narration, part 4: Part Three · Tahoe Restaurateur · Reinvention",
+    "credit": "Synthetic (text-to-speech) narration of the narration script",
+    "rights_holder": "the museum",
+    "held": true,
+    "status": "verified",
+    "media": ["public/audio/angie-a3a.mp3"],
+    "capture_provenance": {
+      "unknown": "generated audio; sentence timings estimated"
+    },
+    "restoration": null,
+    "derived_from": "narration-script",
+    "notes": []
+  },
+  {
+    "id": "audio-a3b",
+    "kind": "derived_media",
+    "title": "Narration, part 5: Part Three · Tahoe Restaurateur · The Record",
+    "credit": "Synthetic (text-to-speech) narration of the narration script",
+    "rights_holder": "the museum",
+    "held": true,
+    "status": "verified",
+    "media": ["public/audio/angie-a3b.mp3"],
+    "capture_provenance": {
+      "unknown": "generated audio; sentence timings estimated"
+    },
+    "restoration": null,
+    "derived_from": "narration-script",
+    "notes": []
+  },
+  {
+    "id": "narration-script",
+    "kind": "derived_media",
+    "title": "Narration script",
+    "credit": "Generated from the article's canonical text, with registered normalizations",
+    "rights_holder": "the museum",
+    "held": true,
+    "status": "verified",
+    "media": ["source/narration-script.md"],
+    "capture_provenance": {
+      "unknown": "generated text"
+    },
+    "restoration": null,
+    "derived_from": "article",
+    "notes": []
+  }
+]
