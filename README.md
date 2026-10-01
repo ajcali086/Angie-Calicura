@@ -28,9 +28,9 @@ Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacu
 
 ## Images
 
-34 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plateImages.ts`). Still missing:
+35 of the 39 plates have images, web-sized from the original uploads, with plates 12 and 39 from the family's own Kodachrome scans (`src/data/plateImages.ts`). Plate 13 is five photographs of the Ideal Hotel's building, as in the post: the plate shows all five at once (two over three in the article, all five in its archive tile), and its zoom view shows each one whole. Still missing:
 
-- plates 13 and 31, which are not in the media manifest
+- plate 31, which is not in the media manifest
 - plates 33, 35 and 38, which were lost when the fourth media zip was cut off in upload
 
 Those plates show their caption in a frame marked "Image not yet added".

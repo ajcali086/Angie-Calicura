@@ -81,12 +81,14 @@ describe("article", () => {
   });
 
   it("only maps images to real plates, and every mapped file exists", () => {
+    assert.equal(plateImages["plate-13"].set?.length, 5, "plate 13 is five photographs");
     for (const [id, image] of Object.entries(plateImages)) {
       assert.ok(
         plates.some((p) => p.id === id),
         id,
       );
-      assert.ok(existsSync(new URL(`../../public${image.src}`, import.meta.url)), image.src);
+      for (const { src } of [image, ...(image.set ?? [])])
+        assert.ok(existsSync(new URL(`../../public${src}`, import.meta.url)), src);
     }
   });
 });

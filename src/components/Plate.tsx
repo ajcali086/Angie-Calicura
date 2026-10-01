@@ -2,7 +2,7 @@ import { useRef, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ImageOff, ZoomIn } from "lucide-react";
 import type { Plate as PlateData } from "@/data/article";
-import { plateImages } from "@/data/plateImages";
+import { plateImages, type PlateImage } from "@/data/plateImages";
 import { fadeIn } from "@/lib/fadeIn";
 import { cn } from "@/lib/utils";
 import { Inline } from "./Inline";
@@ -28,10 +28,13 @@ export function Plate({
 }) {
   const image = plateImages[plate.id];
   const onPaper = tone === "paper";
-  const frame = image ? (
+  const alt = plate.caption.replace(/\*+/g, "");
+  const frame = image?.set ? (
+    <PlateSet set={image.set} alt={alt} large={large} />
+  ) : image ? (
     <img
       src={image.src}
-      alt={plate.caption.replace(/\*+/g, "")}
+      alt={alt}
       width={image.width}
       height={image.height}
       loading="lazy"
@@ -79,7 +82,7 @@ export function Plate({
           {frame}
         </Link>
       ) : image ? (
-        <PlateZoom plate={plate} src={image.src} width={image.width} height={image.height}>
+        <PlateZoom plate={plate} images={image.set ?? [image]}>
           {frame}
         </PlateZoom>
       ) : (
@@ -112,15 +115,12 @@ export function Plate({
  */
 function PlateZoom({
   plate,
-  src,
-  width,
-  height,
+  images,
   children,
 }: {
   plate: PlateData;
-  src: string;
-  width: number;
-  height: number;
+  /** One image, or every photograph of a plate made of several. */
+  images: PlateImage[];
   children: ReactNode;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -158,17 +158,65 @@ function PlateZoom({
             Close
           </button>
         </form>
-        <div className="min-h-0 flex-1 overflow-auto">
-          <img
-            src={src}
-            alt={plate.caption.replace(/\*+/g, "")}
-            width={width}
-            height={height}
-            className="mx-auto block h-auto max-w-none"
-            style={{ width: `max(100%, ${Math.min(width, 1800)}px)` }}
-          />
+        <div className="min-h-0 flex-1 space-y-6 overflow-auto pb-6">
+          {images.map(({ src, width, height }, i) => (
+            <figure key={src}>
+              <img
+                src={src}
+                alt={
+                  images.length > 1
+                    ? `${plate.caption.replace(/\*+/g, "")} Photograph ${i + 1} of ${images.length}.`
+                    : plate.caption.replace(/\*+/g, "")
+                }
+                width={width}
+                height={height}
+                className="mx-auto block h-auto max-w-none"
+                style={{ width: `max(100%, ${Math.min(width, 1800)}px)` }}
+              />
+              {images.length > 1 ? (
+                <figcaption className="mt-2 px-4 font-sans text-[0.68rem] tracking-[0.16em] text-muted uppercase">
+                  {i + 1} of {images.length}
+                </figcaption>
+              ) : null}
+            </figure>
+          ))}
         </div>
       </dialog>
     </>
+  );
+}
+
+/** Two across the top, threes below, for a span of 1 to 3 per row. */
+const SET_LEAD = ["", "col-span-6 aspect-[2/1]", "col-span-3 aspect-[3/2]"];
+
+/**
+ * A plate the post builds from several photographs, all of them at once:
+ * the odd one or two across the top, the rest three to a row. Each is
+ * cropped to its cell here; the zoom view shows every one whole.
+ */
+function PlateSet({ set, alt, large }: { set: PlateImage[]; alt: string; large: boolean }) {
+  const lead = set.length % 3;
+  return (
+    <div
+      className="mx-auto grid grid-cols-6 gap-1"
+      style={{ width: `min(100%, ${large ? "44rem" : "28rem"})` }}
+    >
+      {set.map((image, i) => (
+        <img
+          key={image.src}
+          src={image.src}
+          alt={`${alt} Photograph ${i + 1} of ${set.length}.`}
+          width={image.width}
+          height={image.height}
+          loading="lazy"
+          decoding="async"
+          ref={fadeIn}
+          className={cn(
+            "block size-full object-cover",
+            i < lead ? SET_LEAD[lead] : "col-span-2 aspect-[4/3]",
+          )}
+        />
+      ))}
+    </div>
   );
 }

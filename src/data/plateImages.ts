@@ -2,11 +2,16 @@
  * The plates whose images have been added, as web-sized JPEGs made from
  * the originals in the media zips (at most 1800px on the long edge).
  *
- * Missing: plates 13 and 31 were not in the media manifest, and plates 33,
- * 35 and 38 were in the fourth zip, which was cut off in upload. Those plates
- * show their caption without an image until they are added here.
+ * A plate the post builds from several photographs carries them all in
+ * `set`, in the post's order; `src` is the first of them, for share cards.
+ *
+ * Missing: plate 31 was not in the media manifest, and plates 33, 35 and 38
+ * were in the fourth zip, which was cut off in upload. Those plates show
+ * their caption without an image until they are added here.
  */
-export const plateImages: Record<string, { src: string; width: number; height: number }> = {
+export type PlateImage = { src: string; width: number; height: number };
+
+export const plateImages: Record<string, PlateImage & { set?: PlateImage[] }> = {
   "plate-01": { src: "/images/plates/plate-01.jpg", width: 356, height: 584 },
   "plate-02": { src: "/images/plates/plate-02.jpg", width: 623, height: 615 },
   "plate-03": { src: "/images/plates/plate-03.jpg", width: 1205, height: 845 },
@@ -21,6 +26,20 @@ export const plateImages: Record<string, { src: string; width: number; height: n
   // Plate 12 is the family's own Kodachrome scan (Frank Calicura Collection),
   // sharper than the post's copy, which is mirrored.
   "plate-12": { src: "/images/plates/plate-12.jpg", width: 1237, height: 1800 },
+  // Plate 13 is five photographs of the Ideal Hotel's building, "Various
+  // sources" as the post says, at the size the post shows them.
+  "plate-13": {
+    src: "/images/plates/plate-13-1.jpg",
+    width: 243,
+    height: 223,
+    set: [
+      { src: "/images/plates/plate-13-1.jpg", width: 243, height: 223 },
+      { src: "/images/plates/plate-13-2.jpg", width: 320, height: 199 },
+      { src: "/images/plates/plate-13-3.jpg", width: 319, height: 174 },
+      { src: "/images/plates/plate-13-4.png", width: 320, height: 181 },
+      { src: "/images/plates/plate-13-5.png", width: 320, height: 203 },
+    ],
+  },
   "plate-14": { src: "/images/plates/plate-14.jpg", width: 1058, height: 837 },
   "plate-15": { src: "/images/plates/plate-15.jpg", width: 865, height: 906 },
   "plate-16": { src: "/images/plates/plate-16.jpg", width: 772, height: 1003 },

@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 import { fadeIn } from "@/lib/fadeIn";
 import { ImageOff } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { PageHero } from "@/components/PageHero";
 import { chapters, plain, plates } from "@/data/article";
-import { plateImages } from "@/data/plateImages";
+import { plateImages, type PlateImage } from "@/data/plateImages";
 
 export const Route = createFileRoute("/archive/")({
   head: () => ({ meta: [{ title: "Plates · Angie" }] }),
@@ -36,7 +37,9 @@ function ArchiveIndex() {
                     <li key={p.id}>
                       <Link to="/archive/$id" params={{ id: p.id }} className="group block">
                         <div className="flex aspect-[4/5] items-center justify-center overflow-hidden bg-ink-soft">
-                          {image ? (
+                          {image?.set ? (
+                            <SetTile set={image.set} />
+                          ) : image ? (
                             <img
                               src={image.src}
                               alt=""
@@ -63,5 +66,26 @@ function ArchiveIndex() {
         ))}
       </div>
     </SiteShell>
+  );
+}
+
+/** A plate of several photographs, all squeezed into its tile. */
+function SetTile({ set }: { set: PlateImage[] }) {
+  return (
+    <div
+      className="grid size-full grid-cols-2 gap-px"
+      style={{ gridTemplateRows: `repeat(${Math.ceil(set.length / 2)}, minmax(0, 1fr))` }}
+    >
+      {set.map((image, i) => (
+        <img
+          key={image.src}
+          src={image.src}
+          alt=""
+          loading="lazy"
+          ref={fadeIn}
+          className={cn("size-full object-cover", set.length % 2 === 1 && i === 0 && "col-span-2")}
+        />
+      ))}
+    </div>
   );
 }
