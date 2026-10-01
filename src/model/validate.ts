@@ -1,14 +1,14 @@
 import { existsSync } from "node:fs";
 import { ARTICLE_SOURCE } from "../data/article.source.ts";
-import { frozenIds, plates } from "../data/article.ts";
+import { blockText, chapters, frozenIds, plates } from "../data/article.ts";
 import { PARTS } from "../data/audio.ts";
 import { plateImages } from "../data/plateImages.ts";
 import { namedInText } from "../data/sources.ts";
-import { entities, heldBack, museum, records } from "./index.ts";
-import { SCHEMA_VERSION } from "./types.ts";
+import { entities, heldBack, museum, recordLinks, records, relationships } from "./index.ts";
+import { RELATIONSHIP_TYPES, SCHEMA_VERSION } from "./types.ts";
 
 /**
- * The H1 gates (retrofit plan steps 1 and 2), as named checks. Each returns the
+ * The H1 gates (retrofit plan steps 1 to 3), as named checks. Each returns the
  * problems it finds; none means the gate passes. Run by src/model/model.test.ts
  * and by scripts/check-model.ts before every build.
  */
@@ -310,6 +310,107 @@ checks.push(
         ...h.sources.flatMap((s) => fail(resolves(s), `${h.label}: source ${s}`)),
         ...fail(!entities.some((e) => e.label === h.label), `${h.label}: also an entity`),
       ]),
+  },
+);
+
+// Step 3: relationships.
+const entityById = new Map(entities.map((e) => [e.id, e]));
+const anchored = (entityId: string, record: string) =>
+  !!entityById.get(entityId)?.anchors.includes(record);
+const recordOf = (id: string) => records.find((r) => r.id === id);
+/** A record's caption: its plate's, as the post gives it. */
+const captionOf = (id: string) => {
+  const plate = plates.find((p) => p.id === recordOf(id)?.plate);
+  return plate ? plate.caption.replace(/\*+/g, "") : "";
+};
+const passageText = (id: string) => {
+  for (const c of chapters)
+    for (const b of c.blocks) if (b.type !== "figure" && b.id === id) return blockText(b);
+  return undefined;
+};
+const name = (id: string) => entityById.get(id)?.slug ?? id;
+
+checks.push(
+  {
+    name: "every relationship is typed, joins two different entities, and appears once",
+    run: () => {
+      const seen = new Set<string>();
+      return relationships.flatMap((r) => {
+        const key = `${r.from} ${r.type} ${r.to}`;
+        const out = [
+          ...fail((RELATIONSHIP_TYPES as readonly string[]).includes(r.type), `${key}: type`),
+          ...fail(entityById.has(r.from) && entityById.has(r.to), `${key}: missing entity`),
+          ...fail(r.from !== r.to, `${key}: joins an entity to itself`),
+        ];
+        if (seen.has(key)) out.push(`${key}: duplicate`);
+        seen.add(key);
+        return out;
+      });
+    },
+  },
+  {
+    name: "a derived edge names its record and field, the record anchors both ends, and a caption quote is verbatim",
+    run: () =>
+      relationships.flatMap((r) => {
+        const p = r.provenance;
+        if (p.kind !== "derived") return [];
+        const at = `${name(r.from)} ${r.type} ${name(r.to)}`;
+        return [
+          ...fail(!!recordOf(p.record), `${at}: no record ${p.record}`),
+          ...fail(
+            anchored(r.from, p.record) && anchored(r.to, p.record),
+            `${at}: ${p.record} doesn't anchor both`,
+          ),
+          ...(p.field === "caption"
+            ? fail(captionOf(p.record).includes(p.says), `${at}: not in ${p.record}'s caption`)
+            : fail(
+                !!recordOf(p.record)?.held,
+                `${at}: read from an image the museum doesn't hold`,
+              )),
+        ];
+      }),
+  },
+  {
+    name: "a curator edge names a dated curator and a passage, and quotes it verbatim",
+    run: () =>
+      relationships.flatMap((r) => {
+        const p = r.provenance;
+        if (p.kind !== "curator") return [];
+        const at = `${name(r.from)} ${r.type} ${name(r.to)}`;
+        return [
+          ...fail(!!p.curator && iso.test(p.date), `${at}: curator or date`),
+          ...fail(passageText(p.passage)?.includes(p.says) ?? false, `${at}: not in ${p.passage}`),
+        ];
+      }),
+  },
+  {
+    name: "a record link is anchored, fits its entity's kind, and a caption quote is verbatim",
+    run: () =>
+      recordLinks.flatMap((l) => {
+        const e = entityById.get(l.entity);
+        const at = `${name(l.entity)} ${l.type} ${l.record}`;
+        return [
+          ...fail(!!e && anchored(l.entity, l.record), `${at}: not anchored`),
+          ...fail(
+            l.type === "appears-in"
+              ? e?.kind === "person" || e?.kind === "family"
+              : ["place", "business", "organization"].includes(e?.kind ?? ""),
+            `${at}: wrong kind of entity`,
+          ),
+          ...(l.field === "caption"
+            ? fail(captionOf(l.record).includes(l.says), `${at}: not in the caption`)
+            : fail(!!recordOf(l.record)?.held, `${at}: image not held`)),
+        ];
+      }),
+  },
+  {
+    name: "no edge rests on plate 8, which doesn't say which Ideal Hotel",
+    run: () =>
+      relationships.flatMap((r) =>
+        r.provenance.kind === "derived" && r.provenance.record === "plate-08"
+          ? [`${name(r.from)} ${r.type} ${name(r.to)} rests on plate 8`]
+          : [],
+      ),
   },
 );
 

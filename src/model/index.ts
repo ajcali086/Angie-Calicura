@@ -1,7 +1,8 @@
 import MUSEUM from "./museum.json" with { type: "json" };
 import RECORDS from "./records.json" with { type: "json" };
 import ENTITIES from "./entities.json" with { type: "json" };
-import type { Entity, HeldBack, Museum, MuseumRecord } from "./types.ts";
+import RELATIONSHIPS from "./relationships.json" with { type: "json" };
+import type { Entity, HeldBack, Museum, MuseumRecord, RecordLink, Relationship } from "./types.ts";
 
 /**
  * The museum's model, as the site reads it. The data is the JSON beside this
@@ -22,6 +23,33 @@ export function entityBySlug(slug: string): Entity | undefined {
 /** The entities a record anchors. */
 export function entitiesForRecord(id: string): Entity[] {
   return entities.filter((e) => e.anchors.includes(id));
+}
+
+export const relationships = RELATIONSHIPS.relationships as unknown as Relationship[];
+/** Records that show an entity: a person in a photograph, a building photographed. */
+export const recordLinks = RELATIONSHIPS.record_links as unknown as RecordLink[];
+
+/** Every typed edge touching an entity, either way round. */
+export function relationshipsOf(entityId: string): Relationship[] {
+  return relationships.filter((r) => r.from === entityId || r.to === entityId);
+}
+
+/**
+ * How a record bears on an entity: `appears-in` or `photographed-at` where its
+ * caption or image says so, otherwise `documented-in`. Derived from the
+ * anchors, so every anchor has exactly one type.
+ */
+export function recordLinksOf(
+  entityId: string,
+): { record: string; type: RecordLink["type"] | "documented-in" }[] {
+  const e = entities.find((x) => x.id === entityId);
+  if (!e) return [];
+  return e.anchors.map((record) => ({
+    record,
+    type:
+      recordLinks.find((l) => l.entity === entityId && l.record === record)?.type ??
+      "documented-in",
+  }));
 }
 
 export function recordById(id: string): MuseumRecord | undefined {

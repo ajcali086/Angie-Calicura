@@ -25,6 +25,8 @@ The museum is being retrofitted onto the shared Story & Record model, one step a
 
 Step 2 is in: `src/model/entities.json` holds 51 entities (23 people, 11 places, 11 businesses, 5 organizations, 1 family). An entity needs both a record that anchors it and a mention in the post. Each alias cites where it's found, and every merge, split or open identity is a dated assertion, drafted for the curator's review. People who share a given name or nickname (two Angelinas, two Sams, three Jacks) carry split assertions, so a later suggestion engine won't propose merging them. Five names the post uses have no record behind them and are held back with the reason, among them "City Marshal Jack Wolfe": in the clipping (plate 21), the account of serving papers is Sheriff Willard Marshall's.
 
+Step 3 is in: `src/model/relationships.json` holds 44 typed edges between entities. 38 are derived from what a record states, each naming its record and whether the caption or the image says it, with the words quoted (caption quotes are checked verbatim). 6 come from the post's prose, each citing its passage, also checked verbatim. 22 record links say where a record shows an entity (a person in a photograph, a building photographed); every other anchor counts as `documented-in`. Nothing is inferred: no edge rests on plate 8, which doesn't say which Ideal Hotel, and the Tahoe businesses have no location edge because no record or passage places them. `officer-of` (directors, the mayor, commissioners) is a type proposed here, not yet in the spec.
+
 Local IDs stay as frozen (`2-p13`, `plate-13`); the global form adds the museum prefix (`angie/p/2-p13`).
 
 ## Pages

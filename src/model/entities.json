@@ -76,6 +76,9 @@
         }
       ],
       "anchors": [
+        "plate-01",
+        "plate-02",
+        "plate-03",
         "plate-04",
         "plate-05",
         "plate-06",
@@ -762,6 +765,7 @@
         "plate-13-5",
         "plate-14",
         "plate-15",
+        "plate-19",
         "plate-20",
         "plate-21",
         "plate-22",

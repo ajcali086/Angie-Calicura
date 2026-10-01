@@ -7,12 +7,16 @@ import {
   globalId,
   heldBack,
   museum,
+  recordLinksOf,
   records,
   recordsForPlate,
+  relationships,
+  relationshipsOf,
 } from "./index.ts";
+import { PROPOSED_TYPES } from "./types.ts";
 import { checks } from "./validate.ts";
 
-describe("model: museum, records and entities (H1 steps 1 and 2)", () => {
+describe("model: museum, records, entities and relationships (H1 steps 1 to 3)", () => {
   for (const check of checks) it(check.name, () => assert.deepEqual(check.run(), []));
 
   it("holds 62 records: 45 verified, 1 unverified, 16 not held", () => {
@@ -87,5 +91,49 @@ describe("model: museum, records and entities (H1 steps 1 and 2)", () => {
       entitiesForRecord("plate-10").map((e) => e.slug),
       ["angie", "sheridan", "rex-hotel", "city-of-sheridan"],
     );
+  });
+
+  it("draws 44 relationships, 38 from what a record states and 6 from the post's prose", () => {
+    const by = (k: string) => relationships.filter((r) => r.provenance.kind === k).length;
+    assert.deepEqual([relationships.length, by("derived"), by("curator")], [44, 38, 6]);
+  });
+
+  it("gives Angie's family as the records state it", () => {
+    const angie = entityBySlug("angie")!;
+    const family = relationshipsOf(angie.id)
+      .filter((r) => r.type === "family-of")
+      .map((r) => r.note);
+    assert.deepEqual(family, [
+      "mother",
+      "father",
+      "sister",
+      "sibling",
+      "uncle",
+      "nephew, per plates 12 and 39; plates 1 and 2 make him her parents' great-grandson, a generation further",
+      "married, 1958",
+      "mother, by the author's inference from plate 9's \"Jean\"",
+    ]);
+  });
+
+  it("types every anchor: Angie appears in five photographs and is documented in the rest", () => {
+    const links = recordLinksOf(entityBySlug("angie")!.id);
+    assert.deepEqual(
+      links.filter((l) => l.type === "appears-in").map((l) => l.record),
+      ["plate-07", "plate-12", "plate-31", "plate-36", "plate-39"],
+    );
+    assert.ok(links.every((l) => l.type === "appears-in" || l.type === "documented-in"));
+  });
+
+  it("draws no owns or operated edge to either Ideal from plate 8", () => {
+    assert.ok(
+      relationships.every(
+        (r) => r.provenance.kind !== "derived" || r.provenance.record !== "plate-08",
+      ),
+    );
+  });
+
+  it("marks officer-of as a type proposed here, not yet in the spec", () => {
+    assert.deepEqual([...PROPOSED_TYPES], ["officer-of"]);
+    assert.equal(relationships.filter((r) => r.type === "officer-of").length, 7);
   });
 });

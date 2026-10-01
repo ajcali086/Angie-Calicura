@@ -114,3 +114,46 @@ export type Entity = {
 
 /** A name the post uses that no record anchors: kept out of the entities, with the reason. */
 export type HeldBack = { label: string; kind: EntityKind; reason: string; sources: string[] };
+
+/** The spec's relationship types (§1.1), plus `officer-of`, proposed here and not yet in the spec. */
+export const RELATIONSHIP_TYPES = [
+  "family-of",
+  "employed-at",
+  "located-at",
+  "owns",
+  "operated",
+  "officer-of",
+] as const;
+export const PROPOSED_TYPES = ["officer-of"] as const;
+export type RelationshipType = (typeof RELATIONSHIP_TYPES)[number];
+
+/**
+ * Where an edge comes from (spec §1.1): derived, when a record states it
+ * (`field` says where: its caption, or the image itself, `says` quotes it);
+ * or curator, when only the post's prose states it (`passage`, quoted).
+ */
+export type Provenance =
+  | { kind: "derived"; record: string; field: "caption" | "image"; says: string }
+  | { kind: "curator"; curator: string; date: string; passage: string; says: string };
+
+/** A typed edge between two entities (IDs). No speculative edges. */
+export type Relationship = {
+  from: string;
+  type: RelationshipType;
+  to: string;
+  /** One line: the relation's particulars ("mother", "married, 1958"). */
+  note?: string;
+  provenance: Provenance;
+};
+
+/**
+ * A typed link from a record to an entity, where the record's caption or
+ * image says it shows them. Every other anchor is `documented-in`.
+ */
+export type RecordLink = {
+  entity: string;
+  type: "appears-in" | "photographed-at";
+  record: string;
+  field: "caption" | "image";
+  says: string;
+};
