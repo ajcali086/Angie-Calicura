@@ -1,0 +1,70 @@
+/*
+ * Sveltia's preview pane, in the museum's own type and colours (the
+ * site's palette and fonts, src/styles.css), so an entry previews the way
+ * it will read. Only the preview: the editor keeps Sveltia's own look.
+ */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/cormorant-garamond-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/cormorant-garamond-latin-italic.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --ink: #150809;
+  --paper: #f7e7de;
+  --fog: #e2c6bd;
+  --muted: #a58580;
+  --brass: #ff5a6c;
+  --rule: #4d1f27;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--fog);
+  font-family: "Outfit", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+blockquote {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--paper);
+  font-weight: 500;
+}
+
+p,
+li {
+  font-size: 1.15rem;
+}
+
+a {
+  color: var(--brass);
+}
+
+hr {
+  border-color: var(--rule);
+}
