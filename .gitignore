@@ -13,3 +13,4 @@ export/
 src/generated/image-sizes.json
 public/admin/config.yml
 public/admin/key.html
+src/buildInfo.ts

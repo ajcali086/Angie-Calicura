@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import { execFileSync } from "node:child_process";
 import { measureImages } from "./scripts/measure-images.mjs";
+import { writeBuildInfo } from "./scripts/build-info.mjs";
 
 // Same stack as spirit-of-martinez, without its auth, database, audio,
 // search and PWA plugins. Nitro's Vercel preset only joins for builds.
@@ -16,6 +17,8 @@ export default defineConfig(({ command, isPreview }) => ({
     // Image sizes come from the files (scripts/measure-images.mjs), measured
     // before anything imports them, however the build was started.
     { name: "measure-images", config: () => void measureImages() },
+    // The footer's build line, however the build was started (scripts/build-info.mjs).
+    { name: "build-info", config: () => void writeBuildInfo() },
     // The CMS's config and ID key, generated from the model (scripts/cms-build.ts).
     {
       name: "cms-build",

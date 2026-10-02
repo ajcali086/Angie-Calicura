@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { AuthorLink } from "@/components/AuthorLink";
+import { buildInfo } from "@/buildInfo";
 import { article } from "@/data/article";
 import { nav } from "@/data/nav";
 
@@ -10,8 +11,11 @@ export function SiteFooter() {
         <div className="max-w-md text-sm leading-relaxed text-fog">
           <p>
             <AuthorLink />
-            ’s article for Sheridan Wyoming History, set in the form of{" "}
-            <em>The Spirit of Martinez</em>. The text and captions are the author’s.
+            ’s article for Sheridan Wyoming History,{" "}
+            <em data-credit>
+              presented as a <span className="font-display text-[1.08em]">Museumwright</span> museum
+            </em>
+            . The text and captions are the author’s.
           </p>
           <p data-adaptation-note className="mt-3">
             Adapted for this museum;{" "}
@@ -37,9 +41,13 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-rule/70">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-[0.7rem] tracking-wide text-fog sm:px-6">
-          Design pilot · preview only
-        </p>
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
+          <p className="text-[0.7rem] tracking-wide text-fog">Design pilot · preview only</p>
+          {/* The exact build on screen, always shown: scripts/build-info.mjs. */}
+          <p data-build className="mt-1 text-[0.62rem] tracking-wide text-muted tabular-nums">
+            build {buildInfo.sha} · {buildInfo.date}
+          </p>
+        </div>
       </div>
     </footer>
   );
