@@ -46,9 +46,9 @@ collections:
     label: Corrections
     label_singular: Correction
     description: >-
-      The only way the post's text changes. Propose the passage as it should
-      read; the curator accepts or rejects it, and applies an accepted one
-      with the narration script's words for it. Nothing is deleted.
+      The only way the post's text changes. Propose the passage as it should read; the curator
+      accepts or rejects it, and applies an accepted one with the narration script's words for it.
+      Nothing is deleted.
     folder: src/data/corrections
     format: json
     extension: json
@@ -60,16 +60,14 @@ collections:
       - { name: id, label: ID, widget: hidden, default: "c-{{uuid_shorter}}" }
       - name: target
         label: Passage or plate
-        hint: The passage ID from its share link (2-p13), or a plate ID (plate-12).
-        widget: string
-        pattern:
-          ["^(\\d+-p\\d+|plate-\\d{2})$", "A passage ID like 2-p13 or a plate ID like plate-12"]
+        widget: select
+        options: "@passages-and-plates"
+        hint: The passage or plate it corrects.
       - name: proposed_text
         label: As it should read
         hint: >-
-          The whole passage, in the post's markdown: a paragraph's lines, a
-          quote's lines with "> ", a list's items with "- " (the same number
-          of items), or a plate's caption.
+          The whole passage, in the post's markdown: a paragraph's lines, a quote's lines with "> ",
+          a list's items with "- " (the same number of items), or a plate's caption.
         widget: text
       - { name: reason, label: Why, widget: text }
       - { name: proposed_by, label: Proposed by, widget: hidden, default: "{{author-login}}" }
@@ -99,14 +97,16 @@ collections:
       - name: narration_text
         label: Narration script's words
         hint: >-
-          Required once applied: the script's words for this passage as the
-          voice should read them (numbers spelled out, respellings kept; for
-          a list, one paragraph per item). The build refuses a mismatch.
+          Required once applied: the script's words for this passage as the voice should read them
+          (numbers spelled out, respellings kept; for a list, one paragraph per item). The build
+          refuses a mismatch.
         widget: text
         required: false
       - name: discrepancy
         label: Discrepancy it touches
-        hint: Required if the passage is one the post's discrepancy turns on. That discrepancy must then list this correction.
+        hint:
+          Required if the passage is one the post's discrepancy turns on. That discrepancy must then
+          list this correction.
         widget: select
         options: [which-ideal, pearl-logan]
         required: false
@@ -130,9 +130,8 @@ collections:
     label: Plates
     label_singular: Plate
     description: >-
-      The images a plate shows, in the post's order, with alt text. A plate's
-      caption is the post's words: change it with a correction. Its records
-      (provenance, status) are under Records.
+      The images a plate shows, in the post's order, with alt text. A plate's caption is the post's
+      words: change it with a correction. Its records (provenance, status) are under Records.
     folder: src/data/plates
     format: json
     extension: json
@@ -180,9 +179,8 @@ collections:
     label: Records
     label_singular: Record
     description: >-
-      The objects: a plate's photographs and clippings, the records the text
-      cites, the images the text shows. Provenance and status live here;
-      only the curator verifies.
+      The objects: a plate's photographs and clippings, the records the text cites, the images the
+      text shows. Provenance and status live here; only the curator verifies.
     folder: src/model/records
     format: json
     extension: json
@@ -202,13 +200,11 @@ collections:
           widget: select,
           options: [photograph, document, object, audio, derived_media],
         }
-      - {
-          name: plate,
-          label: Plate it is shown in,
-          widget: string,
-          required: false,
-          pattern: ["^plate-\\d{2}$", "Like plate-12"],
-        }
+      - name: plate
+        label: Plate it is shown in
+        widget: select
+        options: "@plates"
+        required: false
       - {
           name: part,
           label: Place in the plate (for a plate of several),
@@ -216,13 +212,11 @@ collections:
           value_type: int,
           required: false,
         }
-      - {
-          name: shown_at,
-          label: Passage that shows it (no plate),
-          widget: string,
-          required: false,
-          pattern: ["^\\d+-p\\d+$", "Like 3-p21"],
-        }
+      - name: shown_at
+        label: Passage that shows it (no plate)
+        widget: select
+        options: "@passages"
+        required: false
       - { name: title, label: Title, widget: string }
       - {
           name: credit,
@@ -234,7 +228,9 @@ collections:
       - { name: held, label: The museum holds a copy, widget: boolean, default: false }
       - name: status
         label: Status
-        hint: Unverified until where the copy came from is recorded. Not held when the museum has no copy. Change it only with a dated note.
+        hint:
+          Unverified until where the copy came from is recorded. Not held when the museum has no copy.
+          Change it only with a dated note.
         widget: select
         options: [verified, unverified, not-held]
         default: unverified
@@ -268,7 +264,11 @@ collections:
               required: false,
             }
       - { name: restoration, widget: hidden, default: null }
-      - { name: derived_from, label: Derived from (record ID), widget: string, required: false }
+      - name: derived_from
+        label: Derived from
+        widget: select
+        options: "@derivation-sources"
+        required: false
       - name: cited
         label: Source the text cites
         widget: relation
@@ -304,10 +304,9 @@ collections:
     label: Entities
     label_singular: Entity
     description: >-
-      People, families, places, businesses and organizations: each anchored
-      by a record and named in the post. Its page is built from the records,
-      never a biography. Authors propose; only the curator confirms a merge,
-      split or disambiguation.
+      People, families, places, businesses and organizations: each anchored by a record and named in
+      the post. Its page is built from the records, never a biography. Authors propose; only the
+      curator confirms a merge, split or disambiguation.
     folder: src/model/entities
     format: json
     extension: json
@@ -331,7 +330,9 @@ collections:
         }
       - name: id
         label: ID
-        hint: Eight hex characters (e.g. e8a55e86), never reused. Frozen at first publish.
+        hint:
+          Eight hex characters (e8a55e86), never reused, frozen at first publish. Look one up in the [ID
+          key](/admin/key.html).
         widget: string
         pattern: ["^[0-9a-f]{8}$", "Eight hex characters, like e8a55e86"]
       - name: slug
@@ -352,9 +353,10 @@ collections:
           - { name: name, label: Name, widget: string }
           - name: sources
             label: Found in
-            hint: Record IDs or passage IDs (2-p13).
-            widget: list
-            field: { name: id, label: ID, widget: string }
+            widget: select
+            options: "@claim-sources"
+            multiple: true
+            hint: Where the post or a record uses this name.
       - name: anchors
         label: Anchored by
         hint: The records it rests on. At least one; the post must also name it.
@@ -384,7 +386,9 @@ collections:
             }
       - name: identity_assertions
         label: Identity assertions
-        hint: Merges (these names are this entity), splits (not the same as) and open identities. Dated and sourced; only the curator confirms one.
+        hint:
+          Merges (these names are this entity), splits (not the same as) and open identities. Dated and
+          sourced; only the curator confirms one.
         widget: list
         required: false
         summary: "{{fields.action}} · {{fields.date}}"
@@ -397,10 +401,11 @@ collections:
             field: { name: name, label: Name, widget: string }
           - name: with
             label: Distinct from (split)
-            hint: Entity IDs.
-            widget: list
+            widget: select
+            options: "@entities"
+            multiple: true
             required: false
-            field: { name: id, label: Entity ID, widget: string }
+            hint: The entities this one is not. Look one up in the [ID key](/admin/key.html).
           - { name: curator, label: Curator, widget: string }
           - {
               name: date,
@@ -413,8 +418,9 @@ collections:
           - { name: rationale, label: Why, widget: text }
           - name: sources
             label: Sources
-            widget: list
-            field: { name: id, label: Record or passage ID, widget: string }
+            widget: select
+            options: "@claim-sources"
+            multiple: true
       - *notes
 
   - name: questions
@@ -457,17 +463,18 @@ collections:
       - { name: evidence_needed, label: Evidence needed, widget: text }
       - name: last_known_source
         label: Rests on
-        hint: Record, passage or plate IDs.
-        widget: list
-        field: { name: id, label: ID, widget: string }
+        widget: select
+        options: "@claim-sources"
+        multiple: true
+        hint: The records, passages or plates it rests on.
       - { name: status, label: Status, widget: select, options: [open, answered], default: open }
       - name: evidence
         label: Evidence
-        hint: Evidence link IDs (ev-012). A contradiction must be carried here.
-        widget: list
+        widget: select
+        options: "@evidence"
+        multiple: true
         required: false
-        field:
-          { name: id, label: Evidence ID, widget: string, pattern: ["^ev-\\d{3}$", "Like ev-012"] }
+        hint: Evidence links that bear on it. A contradiction must be carried here.
 
   - name: timeline
     label: Timeline
@@ -503,13 +510,11 @@ collections:
           hint: "Verbatim, from exactly one passage (or the plate's caption).",
           widget: text,
         }
-      - {
-          name: plate,
-          label: Plate (when only a caption says it),
-          widget: string,
-          required: false,
-          pattern: ["^plate-\\d{2}$", "Like plate-31"],
-        }
+      - name: plate
+        label: Plate (when only a caption says it)
+        widget: select
+        options: "@plates"
+        required: false
 
   - name: sources
     label: Sources
@@ -554,10 +559,9 @@ collections:
     label: Evidence (curator)
     label_singular: Evidence link
     description: >-
-      Claims linked to records: supports, contradicts or qualifies. The
-      assertion log: who linked it and when are filled in from the signed-in
-      curator and today. Every contradiction must be carried by an open
-      question.
+      Claims linked to records: supports, contradicts or qualifies. The assertion log: who linked it
+      and when are filled in from the signed-in curator and today. Every contradiction must be
+      carried by an open question.
     file: src/model/evidence.json
     publish_mode: simple
     identifier_field: id
@@ -573,17 +577,30 @@ collections:
         }
       - name: claim
         label: Claim
-        hint: "Either a passage and its words, a plate and its caption's words, or another museum's claim (museum, ref, anchor, summary). Quotes are verbatim."
+        hint:
+          "Either a passage and its words, a plate and its caption's words, or another museum's claim
+          (museum, ref, anchor, summary). Quotes are verbatim."
         widget: object
         fields:
-          - { name: passage, label: Passage ID, widget: string, required: false }
-          - { name: plate, label: Plate ID, widget: string, required: false }
+          - name: passage
+            label: Passage
+            widget: select
+            options: "@passages"
+            required: false
+          - name: plate
+            label: Plate
+            widget: select
+            options: "@plates"
+            required: false
           - { name: quote, label: Quote, widget: text, required: false }
           - { name: museum, label: Another museum, widget: string, required: false }
           - { name: ref, label: Its reference, widget: string, required: false }
           - { name: anchor, label: Its anchor, widget: string, required: false }
           - { name: summary, label: Summary of its claim, widget: text, required: false }
-      - { name: record, label: Record ID, widget: string }
+      - name: record
+        label: Record
+        widget: select
+        options: "@records"
       - {
           name: type,
           label: Bears on it how,
@@ -617,24 +634,22 @@ collections:
     summary: "{{fields.from}} {{fields.type}} {{fields.to}}"
     delete: false
     fields:
-      - {
-          name: from,
-          label: From (entity ID),
-          widget: string,
-          pattern: ["^[0-9a-f]{8}$", "An entity ID"],
-        }
+      - name: from
+        label: From
+        widget: select
+        options: "@entities"
+        hint: Look one up in the [ID key](/admin/key.html).
       - {
           name: type,
           label: Type,
           widget: select,
           options: [family-of, employed-at, located-at, owns, operated, officer-of],
         }
-      - {
-          name: to,
-          label: To (entity ID),
-          widget: string,
-          pattern: ["^[0-9a-f]{8}$", "An entity ID"],
-        }
+      - name: to
+        label: To
+        widget: select
+        options: "@entities"
+        hint: Look one up in the [ID key](/admin/key.html).
       - { name: note, label: Particulars, widget: string, required: false }
       - name: provenance
         label: Comes from
@@ -644,7 +659,10 @@ collections:
           - name: derived
             label: A record states it
             fields:
-              - { name: record, label: Record ID, widget: string }
+              - name: record
+                label: Record
+                widget: select
+                options: "@records"
               - { name: field, label: Where, widget: select, options: [caption, image] }
               - { name: says, label: What it says (verbatim), widget: text }
           - name: curator
@@ -659,7 +677,10 @@ collections:
                   format: YYYY-MM-DD,
                   default: "{{now}}",
                 }
-              - { name: passage, label: Passage ID, widget: string }
+              - name: passage
+                label: Passage
+                widget: select
+                options: "@passages"
               - { name: says, label: What it says (verbatim), widget: text }
 
   - name: record_links
@@ -672,14 +693,16 @@ collections:
     summary: "{{fields.record}} {{fields.type}} {{fields.entity}}"
     delete: false
     fields:
-      - {
-          name: entity,
-          label: Entity ID,
-          widget: string,
-          pattern: ["^[0-9a-f]{8}$", "An entity ID"],
-        }
+      - name: entity
+        label: Entity
+        widget: select
+        options: "@entities"
+        hint: Look one up in the [ID key](/admin/key.html).
       - { name: type, label: Type, widget: select, options: [appears-in, photographed-at] }
-      - { name: record, label: Record ID, widget: string }
+      - name: record
+        label: Record
+        widget: select
+        options: "@records"
       - { name: field, label: Where, widget: select, options: [caption, image] }
       - { name: says, label: What it says (verbatim), widget: text }
 
@@ -702,15 +725,16 @@ collections:
       - { name: reason, label: Why it is held back, widget: text }
       - name: sources
         label: Where the post names it
-        widget: list
-        field: { name: id, label: Passage or record ID, widget: string }
+        widget: select
+        options: "@claim-sources"
+        multiple: true
 
   - name: discrepancies
     label: The post's discrepancies (curator)
     label_singular: Discrepancy
     description: >-
-      Where the post leaves a matter open in its own words. Open or closed,
-      never deleted. Lists every correction that touches it.
+      Where the post leaves a matter open in its own words. Open or closed, never deleted. Lists
+      every correction that touches it.
     file: src/data/discrepancies.json
     publish_mode: simple
     identifier_field: id
@@ -727,13 +751,18 @@ collections:
           widget: text,
         }
       - { name: close, label: Its closing line, hint: Verbatim., widget: text }
-      - { name: plate, label: Plate it turns on, widget: string, required: false }
+      - name: plate
+        label: Plate it turns on
+        widget: select
+        options: "@plates"
+        required: false
       - { name: status, label: Status, widget: select, options: [open, closed], default: open }
       - name: corrections
         label: Corrections that touch it
-        widget: list
+        widget: select
+        options: "@corrections"
+        multiple: true
         required: false
-        field: { name: id, label: Correction ID, widget: string }
       - {
           name: closed_note,
           label: Why it was closed (if no correction settles it),
