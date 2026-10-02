@@ -29,6 +29,9 @@ backend:
 
 publish_mode: editorial_workflow
 app_title: Angie · Curator
+# The museum's mark, on the sign-in page, the header and the browser tab.
+logo:
+  src: /admin/logo.jpg
 site_url: https://angie-calicura.vercel.app
 
 media_folder: public/images/records

@@ -68,6 +68,8 @@ Five more images are the post's own, shown without plate numbers and captioned b
 
 **IDs read as names.** The files refer to entities, records, passages, plates and evidence links by their frozen IDs (an entity's is eight hex characters, `e8a55e86`). Nobody types or reads those in the CMS: every field that takes one is a dropdown of names, sorted into sets by kind ("Person · Angelina "Angie" Calicura", "Business · Rex Hotel", "Plate 10 · …", "Martinez Girlhood · 1-p6 · …"), and the lists show them the same way, so a relationship reads as a sentence. The file still stores the ID. `src/cms/config.yml` names a set where a field takes an ID (`options: "@entities"`); `scripts/cms-build.ts` fills each set from the model on every dev start and build and writes the served `public/admin/config.yml`, so a new entity is in the lists without anyone editing the config. `scripts/lib/cms.test.ts` checks that every ID the archive stores is offered by its field's dropdown.
 
+**The look.** Stock Sveltia, configured, not forked: the museum's mark (`public/admin/logo.jpg`, squared from the supplied logo) on the sign-in page, the header and the browser tab, and the entry preview set in the site's own type and colours (`public/admin/preview.css`). The editor itself keeps Sveltia's look; changing that would mean a fork, kept for when real use asks for it.
+
 **The ID key** (`/admin/key.html`, generated with the config) lists every entity by kind with its name, ID, slug and page, and every relationship in words: for reading the raw files and the CMS's pull requests, where only the IDs show. `/admin/key.html#e8a55e86` jumps to one.
 
 **What it edits.** One file per entry, so each change is a small commit:
