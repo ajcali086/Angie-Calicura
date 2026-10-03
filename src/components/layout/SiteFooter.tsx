@@ -41,12 +41,19 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-rule/70">
-        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
-          <p className="text-[0.7rem] tracking-wide text-fog">Design pilot · preview only</p>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 px-4 py-4 sm:px-6">
           {/* The exact build on screen, always shown: scripts/build-info.mjs. */}
-          <p data-build className="mt-1 text-[0.62rem] tracking-wide text-muted tabular-nums">
+          <p data-build className="text-[0.62rem] tracking-wide text-muted tabular-nums">
             build {buildInfo.sha} · {buildInfo.date}
           </p>
+          {/* The curator's workbench (public/admin/, Sveltia CMS): the CMS's whole public surface. */}
+          <a
+            href="/admin/index.html"
+            data-admin
+            className="inline-flex min-h-11 items-center text-[0.68rem] tracking-[0.16em] text-fog/70 uppercase hover:text-brass"
+          >
+            Museum sign-in
+          </a>
         </div>
       </div>
     </footer>
