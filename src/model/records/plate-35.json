@@ -1,0 +1,25 @@
+{
+  "id": "plate-35",
+  "kind": "document",
+  "plate": "plate-35",
+  "title": "Advertisement from the South Lake Tahoe newspaper showing the Timber Cove Lodge and the Lake Tahoe Inn from the time Angie ran them.",
+  "credit": "A South Lake Tahoe newspaper advertisement",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-35.png"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": [
+    {
+      "date": "2026-09-30",
+      "note": "Not held: the post shows it, but the museum's file was in a media zip that arrived truncated."
+    },
+    {
+      "date": "2026-10-01",
+      "note": "The post's image supplied by the site owner; now held."
+    }
+  ]
+}

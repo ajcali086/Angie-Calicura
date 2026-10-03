@@ -1,0 +1,773 @@
+[
+  {
+    "id": "ev-001",
+    "claim": {
+      "passage": "1-p10",
+      "quote": "On June 11, 1930, the *Martinez Daily Standard* reported that Angelina Calicura had advanced from grammar school into junior high, documenting her formal education."
+    },
+    "record": "plate-04",
+    "type": "supports",
+    "note": "The school list names Angelina Calicura among those entering junior high.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-002",
+    "claim": {
+      "passage": "1-p12",
+      "quote": "Miss Angelina Calicura underwent a major operation at the Martinez Community Hospital today."
+    },
+    "record": "plate-05",
+    "type": "supports",
+    "note": "The clipping, verbatim.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-003",
+    "claim": {
+      "passage": "1-p16",
+      "quote": "Edna Lee's Beauty Salon No. 2 announces its new owner — **Angie Calicura**"
+    },
+    "record": "plate-06",
+    "type": "supports",
+    "note": "The advertisement, verbatim.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-004",
+    "claim": {
+      "passage": "2-p1",
+      "quote": "By the early 1950s, Angelina was in Montana."
+    },
+    "record": "plate-08",
+    "type": "supports",
+    "note": "Her parents visited \"their daughter, Angelina Calicura\" in Billings, Mont.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-005",
+    "claim": {
+      "passage": "2-p10",
+      "quote": "On August 3, 1953, *The Sheridan Press* reported that a hotel license was granted to Angelina Jean Calicura for the Rex Hotel"
+    },
+    "record": "plate-10",
+    "type": "supports",
+    "note": "The August 3, 1953 council proceedings accept her application, doing business as the Rex Hotel.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-006",
+    "claim": {
+      "passage": "2-p7",
+      "quote": "Tragedy struck in Sheridan, Wyoming, in 1954. Baby Amato was born and died the same day, only four hours old."
+    },
+    "record": "plate-09",
+    "type": "supports",
+    "note": "Born and died November 21, 1954, in Sheridan; age four hours.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-007",
+    "claim": {
+      "passage": "2-p14",
+      "quote": "Sheridan council minutes from March 21, 1955, formally approved the application of Angelina Calicura Amato for a Rooming House License for the Ideal Hotel."
+    },
+    "record": "plate-14",
+    "type": "supports",
+    "note": "The council minutes, March 21, 1955.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-008",
+    "claim": {
+      "passage": "2-p14",
+      "quote": "Sheridan council minutes from March 21, 1955, formally approved the application of Angelina Calicura Amato for a Rooming House License for the Ideal Hotel."
+    },
+    "record": "plate-15",
+    "type": "supports",
+    "note": "The minutes as the Sheridan Press printed them.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-009",
+    "claim": {
+      "passage": "2-p20",
+      "quote": "February 9, 1956 – Casper Star-Tribune: \"Man held after $460 taken in tavern here."
+    },
+    "record": "plate-16",
+    "type": "supports",
+    "note": "The Casper Star-Tribune report.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-010",
+    "claim": {
+      "passage": "2-p22",
+      "quote": "Mrs. Angelina J. Calicura was arrested on a charge of vagrancy and released on $100 bail."
+    },
+    "record": "plate-17",
+    "type": "supports",
+    "note": "The Casper Star-Tribune report.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-011",
+    "claim": {
+      "passage": "2-p24",
+      "quote": "In March of 1957, Ideal Hotel, Inc. was officially incorporated in Sheridan County, with articles of incorporation filed with the Wyoming Secretary of State in Cheyenne."
+    },
+    "record": "plate-18",
+    "type": "supports",
+    "note": "The notice of incorporation, filed March 4, 1957.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-012",
+    "claim": {
+      "passage": "2-p28",
+      "quote": "On March 27, 1957 just 20 days after the articles of incorporation were first published, the Sheridan Press published FBI references regarding Angie and her known aliases."
+    },
+    "record": "plate-19",
+    "type": "supports",
+    "note": "The county attorney cites the FBI report.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-013",
+    "claim": {
+      "passage": "2-p33",
+      "quote": "No commissioner seconded the motion, and the mayor was forced to declare it lost for want of a second"
+    },
+    "record": "plate-21",
+    "type": "supports",
+    "note": "\"The renewal was defeated when Mayor Carl Crawford moved... The motion died for lack of a second.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-014",
+    "claim": {
+      "passage": "2-p35",
+      "quote": "the *Sheridan Press* reported a dramatic turn in the Ideal Hotel controversy under the bold headline: \"City Council Fails to Renew Ideal Hotel Rooming License.\""
+    },
+    "record": "plate-21",
+    "type": "supports",
+    "note": "The April 2, 1957 front page.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-015",
+    "claim": {
+      "passage": "2-p42",
+      "quote": "With that, the motion carried, and the Ideal Hotel's license was officially restored."
+    },
+    "record": "plate-22",
+    "type": "supports",
+    "note": "\"City councilmen today approved renewal of the Ideal Hotel rooming license.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-016",
+    "claim": {
+      "passage": "2-p45",
+      "quote": "County Attorney Edward J. Redle publicly criticized the Sheridan City Council for renewing the Ideal Hotel's rooming-house license only a day earlier."
+    },
+    "record": "plate-23",
+    "type": "supports",
+    "note": "\"Redle Assails Council Action.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-017",
+    "claim": {
+      "passage": "2-p52",
+      "quote": "The revocation was ordered to take effect the very next day—March 21, 1958—bringing Angie's years of legal maneuvering, public controversy, and intermittent victories in Sheridan to an abrupt end."
+    },
+    "record": "plate-24",
+    "type": "supports",
+    "note": "Revoked \"effective midnight, Friday, March 21.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-018",
+    "claim": {
+      "passage": "2-p59",
+      "quote": "On August 28, 1958, Angelina married John Cameron \"Jack\" Alexander of Billings, Montana, a man fifteen years her junior."
+    },
+    "record": "plate-37",
+    "type": "supports",
+    "note": "\"He married Angelina Calicura in 1958\"; born 1932, fifteen years after her.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-019",
+    "claim": {
+      "passage": "2-p63",
+      "quote": "On December 27, 1963, the *Billings Gazette* carried a striking advertisement announcing a new chapter in her life: \"The Hub Beauty Salon,\" owned by Angie Alexander"
+    },
+    "record": "plate-29",
+    "type": "supports",
+    "note": "The advertisement: \"ANGIE ALEXANDER, Owner.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-020",
+    "claim": {
+      "passage": "2-p67",
+      "quote": "On June 21, 1965, the *Sheridan Press* published a striking photographic feature under the headline \"Down Comes History,\" marking the physical end of the building that once housed the Ideal Hotel."
+    },
+    "record": "plate-30",
+    "type": "supports",
+    "note": "\"Down Comes History,\" with the Ideal Hotel's sign on the building.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-021",
+    "claim": {
+      "passage": "3-p1",
+      "quote": "The couple relocated to South Lake Tahoe, California, in the mid 1960s"
+    },
+    "record": "plate-37",
+    "type": "contradicts",
+    "note": "The obituary: \"They moved to South Lake Tahoe in the winter of 1960.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-022",
+    "claim": {
+      "passage": "3-p16",
+      "quote": "**Tarantino's Restaurant (1970s)**: Angelina initially managed this Italian eatery near Takela."
+    },
+    "record": "plate-37",
+    "type": "contradicts",
+    "note": "The obituary orders it the other way: she managed the Timber Cove and Tahoe Inn restaurants, and when she retired from that, \"the Alexanders bought Tarantino's Restaurant.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-023",
+    "claim": {
+      "passage": "3-p16",
+      "quote": "**Tarantino's Restaurant (1970s)**: Angelina initially managed this Italian eatery near Takela."
+    },
+    "record": "plate-31",
+    "type": "qualifies",
+    "note": "A 1972 press print has the couple in \"their new restaurant,\" unnamed: consistent with the post's 1970s.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-024",
+    "claim": {
+      "passage": "3-p17",
+      "quote": "**Tahoe Inn (Late 1970s – Early 1980s)**: Located at 4110 Lake Tahoe Blvd, now part of Heavenly Village."
+    },
+    "record": "plate-37",
+    "type": "supports",
+    "note": "\"His wife managed the Timber Cove and Tahoe Inn restaurants for many years.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-025",
+    "claim": {
+      "passage": "3-p17",
+      "quote": "**Tahoe Inn (Late 1970s – Early 1980s)**: Located at 4110 Lake Tahoe Blvd, now part of Heavenly Village."
+    },
+    "record": "plate-35",
+    "type": "supports",
+    "note": "The advertisement: Best Western Timber Cove Lodge, 3411 Lake Tahoe Blvd, and Lake Tahoe Inn, 4110 Lake Tahoe Blvd, South Lake Tahoe.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-026",
+    "claim": {
+      "passage": "3-p18",
+      "quote": "**Timber Cove Lodge (Early–Mid 1980s)**: This lakeside lodge allowed Angelina to manage both dining and event operations."
+    },
+    "record": "plate-37",
+    "type": "supports",
+    "note": "\"His wife managed the Timber Cove and Tahoe Inn restaurants for many years.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-027",
+    "claim": {
+      "passage": "3-p20",
+      "quote": "Angelina passed away on December 28, 1986, in South Lake Tahoe, California, and was laid to rest at Happy Homestead Cemetery, Lake Tahoe."
+    },
+    "record": "plate-37",
+    "type": "qualifies",
+    "note": "The obituary gives the year only: \"predeceased by his wife, Angie Alexander, in 1986.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-028",
+    "claim": {
+      "passage": "3-p23",
+      "quote": "Angie's husband, John \"Jack\" Cameron Alexander died on April 20, 2003 in South Lake Tahoe, California."
+    },
+    "record": "plate-37",
+    "type": "supports",
+    "note": "\"Died April 20, 2003, at Barton Memorial Hospital.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-029",
+    "claim": {
+      "passage": "1-p8",
+      "quote": "One of the first records Angie appears in is the 1920 US Census"
+    },
+    "record": "cited-1920-census",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-030",
+    "claim": {
+      "passage": "1-p14",
+      "quote": "The Honolulu Star-Bulletin arrivals column (September 20, 1937) lists \"Miss Angie Calicura\""
+    },
+    "record": "cited-honolulu-star-bulletin",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-031",
+    "claim": {
+      "passage": "1-p17",
+      "quote": "The 1939 Los Angeles City Directory also lists Angie at this location."
+    },
+    "record": "cited-los-angeles-directories-1939-1940",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-032",
+    "claim": {
+      "passage": "1-p19",
+      "quote": "The 1940 U.S. Census which was taken on April 30, 1940 shows her residence at 596 South Normandie Avenue"
+    },
+    "record": "cited-1940-census",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-033",
+    "claim": {
+      "passage": "2-p13",
+      "quote": "According to the book, ***\"Whore Houses of Wyoming\"***"
+    },
+    "record": "cited-whore-houses-of-wyoming",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-034",
+    "claim": {
+      "passage": "2-p16",
+      "quote": "Historian George Gilgorea wrote:"
+    },
+    "record": "cited-george-gilgorea",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-035",
+    "claim": {
+      "passage": "2-p28",
+      "quote": "The County Attorney, Edward J. Redle, cited FBI reports"
+    },
+    "record": "cited-fbi-reports",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-036",
+    "claim": {
+      "passage": "2-p56",
+      "quote": "That same year, she appears in the 1958 Billings City Directory listed as:"
+    },
+    "record": "cited-billings-city-directory-1958",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-037",
+    "claim": {
+      "passage": "2-p59",
+      "quote": "A Carbon County News legal notice dated November 28, 1963"
+    },
+    "record": "cited-carbon-county-news",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-038",
+    "claim": {
+      "passage": "2-p62",
+      "quote": "the *Billings Times* recorded a default judgment of $971.34 entered against her"
+    },
+    "record": "cited-billings-times",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-039",
+    "claim": {
+      "passage": "3-p21",
+      "quote": "Angelina's two obituaries."
+    },
+    "record": "cited-obituaries",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-040",
+    "claim": {
+      "passage": "3-p6",
+      "quote": "In September 2020, I reached out to the El Dorado County Library in Placerville, California"
+    },
+    "record": "cited-el-dorado-county-library",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-041",
+    "claim": {
+      "passage": "3-p24",
+      "quote": "The 2006 documentary *I Build the Tower* highlights Rodia's vision"
+    },
+    "record": "cited-i-build-the-tower",
+    "type": "supports",
+    "note": "As cited by the author; the museum holds no copy.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-042",
+    "claim": {
+      "passage": "2-p25",
+      "quote": "placing her in charge of operations at 173 North Main Street"
+    },
+    "record": "plate-18",
+    "type": "supports",
+    "note": "The principal office: \"173 North Main Street, Sheridan, Wyoming.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-043",
+    "claim": {
+      "passage": "2-p25",
+      "quote": "placing her in charge of operations at 173 North Main Street"
+    },
+    "record": "plate-24",
+    "type": "supports",
+    "note": "\"The Ideal hotel, 173 North Main.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-044",
+    "claim": {
+      "plate": "plate-13",
+      "quote": "171 North Main Street"
+    },
+    "record": "plate-18",
+    "type": "contradicts",
+    "note": "The incorporation notice gives 173 North Main Street.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-045",
+    "claim": {
+      "plate": "plate-13",
+      "quote": "171 North Main Street"
+    },
+    "record": "plate-24",
+    "type": "contradicts",
+    "note": "The 1958 revocation gives 173 North Main.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-046",
+    "claim": {
+      "passage": "2-p37",
+      "quote": "City Marshal Jack Wolfe described an attempt to serve legal papers at the hotel"
+    },
+    "record": "plate-21",
+    "type": "contradicts",
+    "note": "In the clipping the account is Sheriff Willard Marshall's (\"Marshall told of an instance when he went to the hotel to serve a paper\"); Jack Wolfe is a local attorney for the hotel.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-047",
+    "claim": {
+      "passage": "2-p31",
+      "quote": "Redle and Sheriff Marshall appeared in direct opposition"
+    },
+    "record": "plate-21",
+    "type": "supports",
+    "note": "\"Sheriff Willard Marshall was also present and made statements.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-048",
+    "claim": {
+      "passage": "2-p59",
+      "quote": "strongly believed the ceremony took place in Elko"
+    },
+    "record": "plate-37",
+    "type": "contradicts",
+    "note": "The obituary: \"he married Angelina Calicura in 1958 at Sheridan, Wyo.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-049",
+    "claim": {
+      "passage": "3-p31",
+      "quote": "I spoke with Donna Dyer, a woman mentioned in John"
+    },
+    "record": "plate-37",
+    "type": "qualifies",
+    "note": "The obituary spells her \"Donna Dreyer.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-050",
+    "claim": {
+      "passage": "3-p41",
+      "quote": "**Donna Dryer**"
+    },
+    "record": "plate-37",
+    "type": "qualifies",
+    "note": "The obituary spells her \"Donna Dreyer.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-051",
+    "claim": {
+      "passage": "2-p31",
+      "quote": "Joseph Minnehahn of Casper, attorney for the Ideal Hotel interests"
+    },
+    "record": "plate-21",
+    "type": "qualifies",
+    "note": "The clipping spells him \"Joseph Minnehan, Casper attorney representing Ideal hotel.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-052",
+    "claim": {
+      "passage": "2-p7",
+      "quote": "Funeral records list the mother as Jean"
+    },
+    "record": "plate-09",
+    "type": "supports",
+    "note": "\"Maiden Name of Mother: Jean\"; father Eugene Amato; residence Martinez, Calif. That Jean is Angie is the author's inference.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-053",
+    "claim": {
+      "passage": "2-p3",
+      "quote": "At this point in her life, Angie was not yet documented as operating the Ideal in Sheridan"
+    },
+    "record": "plate-08",
+    "type": "qualifies",
+    "note": "The clipping says \"owner of the Ideal hotel\" and no more.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-054",
+    "claim": {
+      "museum": "spirit-of-martinez",
+      "ref": "birth-years",
+      "anchor": "13.2-p5",
+      "summary": "Both Stand: the registry gives Virginia's birth year as 1925, the book 1926."
+    },
+    "record": "plate-03",
+    "type": "supports",
+    "note": "Plate 3's caption makes Virginia eight years younger than Angie (born 1917) and has her die in 2023 at 98: both point to 1925, the registry's year.",
+    "holding_museum": "spirit-of-martinez",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-055",
+    "claim": {
+      "passage": "1-p6",
+      "quote": "Angelina Jean Colacurcio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California."
+    },
+    "record": "grave-marker-3",
+    "type": "supports",
+    "note": "The marker: \"July 21, 1917.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-056",
+    "claim": {
+      "passage": "1-p6",
+      "quote": "Angelina Jean Colacurcio, also later spelled Calicura, was born on July 21, 1917, in Martinez, California."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"She was born in Martinez, Calif., July 21, 1917.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-057",
+    "claim": {
+      "passage": "3-p20",
+      "quote": "Angelina passed away on December 28, 1986, in South Lake Tahoe, California, and was laid to rest at Happy Homestead Cemetery, Lake Tahoe."
+    },
+    "record": "grave-marker-3",
+    "type": "supports",
+    "note": "The marker: \"Dec. 28, 1986.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-058",
+    "claim": {
+      "passage": "3-p20",
+      "quote": "Angelina passed away on December 28, 1986, in South Lake Tahoe, California, and was laid to rest at Happy Homestead Cemetery, Lake Tahoe."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"Died Sunday at her home in South Lake Tahoe\" (December 28, 1986 was a Sunday); funeral \"at Happy Homestead Cemetery in South Lake Tahoe.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-059",
+    "claim": {
+      "passage": "3-p1",
+      "quote": "The couple relocated to South Lake Tahoe, California, in the mid 1960s"
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"A 22-year resident of South Lake Tahoe\" at her death in December 1986: since about 1964, the post's mid 1960s rather than Jack Alexander's obituary's 1960.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-060",
+    "claim": {
+      "passage": "3-p16",
+      "quote": "**Tarantino's Restaurant (1970s)**: Angelina initially managed this Italian eatery near Takela."
+    },
+    "record": "obituary-martinez-1986",
+    "type": "contradicts",
+    "note": "\"Managed several dining establishments at South Lake Tahoe, the latter being Timber Cove restaurant. Prior to her illness, she operated Angie's Tarentino's\": Tarantino's last, as Jack Alexander's obituary has it.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-061",
+    "claim": {
+      "passage": "3-p17",
+      "quote": "**Tahoe Inn (Late 1970s – Early 1980s)**: Located at 4110 Lake Tahoe Blvd, now part of Heavenly Village."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"A food and beverage manager at the Tahoe Inn and Timber Cove Lodge the past 10 years.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-062",
+    "claim": {
+      "passage": "3-p17",
+      "quote": "**Tahoe Inn (Late 1970s – Early 1980s)**: Located at 4110 Lake Tahoe Blvd, now part of Heavenly Village."
+    },
+    "record": "plate-35",
+    "type": "supports",
+    "note": "The advertisement puts the Lake Tahoe Inn at 4110 Lake Tahoe Blvd, the post's address.",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-063",
+    "claim": {
+      "passage": "3-p18",
+      "quote": "**Timber Cove Lodge (Early–Mid 1980s)**: This lakeside lodge allowed Angelina to manage both dining and event operations."
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "\"A food and beverage manager at the Tahoe Inn and Timber Cove Lodge the past 10 years.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ev-064",
+    "claim": {
+      "plate": "plate-03",
+      "quote": "Virginia Sullivan and Angelina Calicura were sisters"
+    },
+    "record": "obituary-tahoe-1986",
+    "type": "supports",
+    "note": "Among her seven sisters: \"Virginia Sullivan of Martinez.\"",
+    "curator": "Claude (draft, awaiting curator review)",
+    "date": "2026-10-01"
+  }
+]

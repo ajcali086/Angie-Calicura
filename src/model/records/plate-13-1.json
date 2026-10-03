@@ -1,0 +1,22 @@
+{
+  "id": "plate-13-1",
+  "kind": "photograph",
+  "plate": "plate-13",
+  "part": 1,
+  "title": "The Ideal Hotel's building, photograph 1 of 5",
+  "credit": "Various sources, as published in the post",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-13-1.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "Looks like photograph 5 in colour. If it is a colourization it is not a record (v2: restorations may redraw nothing); exclude it, or amend the policy first."
+    }
+  ]
+}

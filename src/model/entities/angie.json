@@ -1,0 +1,217 @@
+{
+  "id": "e8a55e86",
+  "slug": "angie",
+  "kind": "person",
+  "label": "Angelina \"Angie\" Calicura",
+  "aliases": [
+    {
+      "name": "Angelina Jean Colacurcio",
+      "sources": ["1-p6"]
+    },
+    {
+      "name": "Angelina Calicura",
+      "sources": ["plate-04", "plate-05", "plate-08", "plate-10"]
+    },
+    {
+      "name": "Angie Calicura",
+      "sources": ["plate-06"]
+    },
+    {
+      "name": "Angelina J. Calicura",
+      "sources": ["plate-11", "plate-17"]
+    },
+    {
+      "name": "A. J. Calicura",
+      "sources": ["plate-18"]
+    },
+    {
+      "name": "Jean Calicura",
+      "sources": ["1-p18", "cited-los-angeles-directories-1939-1940"]
+    },
+    {
+      "name": "Jean",
+      "sources": ["plate-09"]
+    },
+    {
+      "name": "Angelina Calicura Amato",
+      "sources": ["plate-14", "plate-15", "plate-24"]
+    },
+    {
+      "name": "Mrs. A. J. Calicura Amato",
+      "sources": ["plate-16"]
+    },
+    {
+      "name": "Angeline Amato",
+      "sources": ["plate-19"]
+    },
+    {
+      "name": "Angelina Amato",
+      "sources": ["plate-19"]
+    },
+    {
+      "name": "Jean Riley",
+      "sources": ["plate-19"]
+    },
+    {
+      "name": "Jean Toby Riley",
+      "sources": ["plate-19"]
+    },
+    {
+      "name": "Toby Riley",
+      "sources": ["plate-19"]
+    },
+    {
+      "name": "Angeline Gene Brown",
+      "sources": ["plate-19"]
+    },
+    {
+      "name": "Angie Alexander",
+      "sources": ["plate-29", "plate-37"]
+    },
+    {
+      "name": "Angelina Calicura Alexander",
+      "sources": ["plate-36"]
+    },
+    {
+      "name": "Angie Calicura Alexander",
+      "sources": ["plate-38"]
+    },
+    {
+      "name": "Angelina Alexander",
+      "sources": [
+        "obituary-tahoe-1986",
+        "obituary-martinez-1986",
+        "grave-marker-1",
+        "grave-marker-2",
+        "grave-marker-3"
+      ]
+    },
+    {
+      "name": "Angelina \"Angie\" Alexander",
+      "sources": ["obituary-tahoe-1986"]
+    }
+  ],
+  "anchors": [
+    "plate-01",
+    "plate-02",
+    "plate-03",
+    "plate-04",
+    "plate-05",
+    "plate-06",
+    "plate-07",
+    "plate-08",
+    "plate-09",
+    "plate-10",
+    "plate-11",
+    "plate-12",
+    "plate-14",
+    "plate-15",
+    "plate-16",
+    "plate-17",
+    "plate-18",
+    "plate-19",
+    "plate-21",
+    "plate-24",
+    "plate-26",
+    "plate-29",
+    "plate-31",
+    "plate-36",
+    "plate-37",
+    "plate-38",
+    "plate-39",
+    "obituary-tahoe-1986",
+    "obituary-martinez-1986",
+    "grave-marker-1",
+    "grave-marker-2",
+    "grave-marker-3"
+  ],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Angelina Jean Colacurcio"],
+      "rationale": "Her birth name, as the post gives it: \"also later spelled Calicura\".",
+      "sources": ["1-p6"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": ["Angelina Calicura", "Angie Calicura", "Angelina J. Calicura", "A. J. Calicura"],
+      "rationale": "The Calicura records: Martinez in 1930 (plates 4, 5), Los Angeles in 1938 (plate 6), Sheridan from 1953 (plates 10, 11, 18) and Casper (plate 17). The middle initial J and the Rex Hotel tie the Sheridan entries together.",
+      "sources": [
+        "plate-04",
+        "plate-05",
+        "plate-06",
+        "plate-10",
+        "plate-11",
+        "plate-17",
+        "plate-18"
+      ],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": ["Jean Calicura"],
+      "rationale": "The post: in 1940 she went by her middle name on a ship's manifest and in the Los Angeles directory. Neither record is held.",
+      "sources": ["1-p18", "cited-los-angeles-directories-1939-1940"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": ["Jean"],
+      "rationale": "The author's inference, not the record's words: the funeral record (plate 9) names the mother only as Jean, with Eugene Amato as father and Martinez as residence.",
+      "sources": ["plate-09", "2-p7"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": [
+        "Angelina Calicura Amato",
+        "Mrs. A. J. Calicura Amato",
+        "Angeline Amato",
+        "Angelina Amato"
+      ],
+      "rationale": "The Amato years: the 1955 Ideal Hotel license (plates 14, 15), Casper in 1956 (plate 16), the FBI report as printed (plate 19) and the 1958 revocation (plate 24).",
+      "sources": ["plate-14", "plate-15", "plate-16", "plate-19", "plate-24"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": ["Jean Riley", "Jean Toby Riley", "Toby Riley", "Angeline Gene Brown"],
+      "rationale": "Names the FBI report attributes to her, as the newspaper printed them (plate 19). Recorded as attributed aliases; the museum holds no record of their use.",
+      "sources": ["plate-19"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "merge",
+      "names": ["Angie Alexander", "Angelina Calicura Alexander"],
+      "rationale": "Her married name: the Hub Beauty Salon advertisement (plate 29), the post's caption for plate 36 and Jack Alexander's obituary (plate 37).",
+      "sources": ["plate-29", "plate-36", "plate-37"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "split",
+      "with": ["743375cb"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "Two women called Angelina Calicura: Angie (born 1917) and her mother Angiolina \"Angelina\" Rodia Calicura (plate 1). Distinct people.",
+      "sources": ["plate-01", "plate-04"]
+    },
+    {
+      "action": "merge",
+      "names": ["Angie Calicura Alexander", "Angelina Alexander", "Angelina \"Angie\" Alexander"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "Her names at the end: the thanks of I Build the Tower (plate 38), her two obituaries, which give her birth in Martinez on July 21, 1917 and her husband John, and her grave marker.",
+      "sources": ["plate-38", "obituary-tahoe-1986", "obituary-martinez-1986", "grave-marker-3"]
+    }
+  ],
+  "notes": []
+}

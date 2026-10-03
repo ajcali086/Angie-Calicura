@@ -1,0 +1,60 @@
+{
+  "id": "64085982",
+  "slug": "jack-alexander",
+  "kind": "person",
+  "label": "John \"Jack\" Alexander",
+  "aliases": [
+    {
+      "name": "Jack Alexander",
+      "sources": ["plate-27", "plate-31"]
+    },
+    {
+      "name": "John (Jack) Alexander",
+      "sources": ["plate-28"]
+    },
+    {
+      "name": "John Cameron Alexander",
+      "sources": ["plate-37"]
+    },
+    {
+      "name": "John Alexander",
+      "sources": ["obituary-martinez-1986"]
+    }
+  ],
+  "anchors": [
+    "plate-27",
+    "plate-28",
+    "plate-31",
+    "plate-37",
+    "obituary-tahoe-1986",
+    "obituary-martinez-1986"
+  ],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Jack Alexander", "John (Jack) Alexander", "John Cameron Alexander"],
+      "rationale": "The 1949 and 1950 Billings Senior High yearbooks (plates 27, 28), the 1972 press print (plate 31) and his obituary (plate 37), which gives his birth in Billings in 1932 and his marriage to Angelina Calicura in 1958.",
+      "sources": ["plate-27", "plate-28", "plate-31", "plate-37"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    },
+    {
+      "action": "split",
+      "with": ["be2a5b51", "0025b72a"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "John \"Jack\" Alexander is not the attorney Jack Wolfe (plates 21, 22) nor the Ideal Hotel, Inc. director John D. Henry (plate 18).",
+      "sources": ["plate-18", "plate-21", "plate-37"]
+    },
+    {
+      "action": "merge",
+      "names": ["John Alexander"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "Her Martinez obituary: \"survived by her husband, John Alexander.\"",
+      "sources": ["obituary-martinez-1986"]
+    }
+  ],
+  "notes": []
+}

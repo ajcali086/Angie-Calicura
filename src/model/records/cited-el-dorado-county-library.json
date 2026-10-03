@@ -1,0 +1,16 @@
+{
+  "id": "cited-el-dorado-county-library",
+  "kind": "document",
+  "title": "El Dorado County Library",
+  "credit": "Cited in the post by Michael Dykhorst",
+  "rights_holder": "unknown",
+  "held": false,
+  "status": "not-held",
+  "media": [],
+  "capture_provenance": {
+    "unknown": "not held"
+  },
+  "restoration": null,
+  "cited": "el-dorado-county-library",
+  "notes": []
+}

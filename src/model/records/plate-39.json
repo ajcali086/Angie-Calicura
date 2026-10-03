@@ -1,0 +1,19 @@
+{
+  "id": "plate-39",
+  "kind": "photograph",
+  "plate": "plate-39",
+  "title": "Another 1940s photo of Angie from her nephew Andrew Calicura.",
+  "credit": "Andrew Calicura, her nephew; Frank Calicura Collection",
+  "rights_holder": "Calicura family (Frank Calicura Collection)",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-39.jpg"],
+  "capture_provenance": {
+    "device": "Epson RX500",
+    "date": "2020-09-17",
+    "collection": "Frank Calicura Collection",
+    "source": "EXIF of the original file (device, date); collection as given by the family"
+  },
+  "restoration": null,
+  "notes": []
+}

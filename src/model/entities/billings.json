@@ -1,0 +1,11 @@
+{
+  "id": "d3df14d1",
+  "slug": "billings",
+  "kind": "place",
+  "label": "Billings, Montana",
+  "aliases": [],
+  "anchors": ["plate-08", "plate-25", "plate-26", "plate-27", "plate-28", "plate-29", "plate-37"],
+  "framing": null,
+  "identity_assertions": [],
+  "notes": []
+}

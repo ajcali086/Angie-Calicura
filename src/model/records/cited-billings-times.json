@@ -1,0 +1,16 @@
+{
+  "id": "cited-billings-times",
+  "kind": "document",
+  "title": "Billings Times",
+  "credit": "Cited in the post by Michael Dykhorst",
+  "rights_holder": "unknown",
+  "held": false,
+  "status": "not-held",
+  "media": [],
+  "capture_provenance": {
+    "unknown": "not held"
+  },
+  "restoration": null,
+  "cited": "billings-times",
+  "notes": []
+}

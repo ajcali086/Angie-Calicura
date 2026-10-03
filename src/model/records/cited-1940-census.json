@@ -1,0 +1,16 @@
+{
+  "id": "cited-1940-census",
+  "kind": "document",
+  "title": "1940 U.S. Census",
+  "credit": "Cited in the post by Michael Dykhorst",
+  "rights_holder": "unknown",
+  "held": false,
+  "status": "not-held",
+  "media": [],
+  "capture_provenance": {
+    "unknown": "not held"
+  },
+  "restoration": null,
+  "cited": "census-1940",
+  "notes": []
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ideal-address",
+  "title": "171 or 173 North Main",
+  "origin": "records",
+  "what_we_know": "Plate 13's caption gives 171 North Main Street. The post's text, the 1957 incorporation notice (plate 18) and the 1958 revocation (plate 24) give 173.",
+  "what_we_dont": "Whether 171 is a slip, another number for the same building, or a second address.",
+  "what_might_answer_it": "Sanborn fire-insurance maps of Sheridan; city directories; county property records.",
+  "evidence_needed": "A map or property record giving the building's number or numbers.",
+  "last_known_source": ["plate-13-1", "plate-18", "plate-24"],
+  "status": "open",
+  "evidence": ["ev-042", "ev-043", "ev-044", "ev-045"]
+}

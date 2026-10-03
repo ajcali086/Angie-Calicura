@@ -1,0 +1,10 @@
+{
+  "id": "plate-01",
+  "images": [
+    {
+      "src": "/images/plates/plate-01.jpg",
+      "alt": "Black-and-white portrait of a dark-haired woman in a white sleeveless top, smiling slightly, with a small dog at the lower left."
+    }
+  ],
+  "alt_status": "draft"
+}

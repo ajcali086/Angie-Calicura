@@ -1,0 +1,27 @@
+{
+  "id": "72e90848",
+  "slug": "sheridan",
+  "kind": "place",
+  "label": "Sheridan, Wyoming",
+  "aliases": [],
+  "anchors": [
+    "plate-09",
+    "plate-10",
+    "plate-11",
+    "plate-14",
+    "plate-15",
+    "plate-18",
+    "plate-21",
+    "plate-24",
+    "plate-30",
+    "plate-37",
+    "plate-13-1",
+    "plate-13-2",
+    "plate-13-3",
+    "plate-13-4",
+    "plate-13-5"
+  ],
+  "framing": null,
+  "identity_assertions": [],
+  "notes": []
+}

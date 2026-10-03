@@ -1,0 +1,16 @@
+{
+  "id": "plate-04",
+  "kind": "document",
+  "plate": "plate-04",
+  "title": "Martinez Daily Standard, Martinez, California, Jun 11, 1930, Page 6.",
+  "credit": "Martinez Daily Standard, June 11, 1930, page 6",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-04.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

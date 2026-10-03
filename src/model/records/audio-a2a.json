@@ -1,0 +1,16 @@
+{
+  "id": "audio-a2a",
+  "kind": "derived_media",
+  "title": "Narration, part 2: Part Two · Wyoming Madame · The Ideal",
+  "credit": "Synthetic (text-to-speech) narration of the narration script",
+  "rights_holder": "the museum",
+  "held": true,
+  "status": "verified",
+  "media": ["public/audio/angie-a2a.mp3"],
+  "capture_provenance": {
+    "unknown": "generated audio; sentence timings estimated"
+  },
+  "restoration": null,
+  "derived_from": "narration-script",
+  "notes": []
+}

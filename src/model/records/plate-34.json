@@ -1,0 +1,16 @@
+{
+  "id": "plate-34",
+  "kind": "photograph",
+  "plate": "plate-34",
+  "title": "\"Thanks to a Swedish tourist's blog, a photo of the Lake Tahoe inn survives. It is possible this is what it looked like when Angie ran it.\"",
+  "credit": "A Swedish tourist's blog",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-34.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

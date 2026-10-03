@@ -1,0 +1,25 @@
+{
+  "id": "96ff4ea7",
+  "slug": "willard-marshall",
+  "kind": "person",
+  "label": "Willard Marshall",
+  "aliases": [
+    {
+      "name": "Sheriff Marshall",
+      "sources": ["2-p31"]
+    }
+  ],
+  "anchors": ["plate-21", "plate-24"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Sheriff Marshall"],
+      "rationale": "Sheriff Willard Marshall in the clippings (plates 21, 24) is the post's \"Sheriff Marshall\".",
+      "sources": ["plate-21", "2-p31"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

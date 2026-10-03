@@ -1,0 +1,19 @@
+{
+  "id": "plate-12",
+  "kind": "photograph",
+  "plate": "plate-12",
+  "title": "1940s photo of Angelina \"Angie\" Calicura. Courtesy of nephew Andrew Calicura.",
+  "credit": "Andrew Calicura, her nephew; Frank Calicura Collection",
+  "rights_holder": "Calicura family (Frank Calicura Collection)",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-12.jpg"],
+  "capture_provenance": {
+    "device": "Epson RX500",
+    "date": "2020-09-17",
+    "collection": "Frank Calicura Collection",
+    "source": "EXIF of the family's original file"
+  },
+  "restoration": null,
+  "notes": []
+}

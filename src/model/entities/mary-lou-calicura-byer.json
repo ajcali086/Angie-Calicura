@@ -1,0 +1,25 @@
+{
+  "id": "c60861b7",
+  "slug": "mary-lou-calicura-byer",
+  "kind": "person",
+  "label": "Mary Lou Calicura Byer",
+  "aliases": [
+    {
+      "name": "Mary Lou Byer",
+      "sources": ["obituary-tahoe-1986", "obituary-martinez-1986"]
+    }
+  ],
+  "anchors": ["plate-03", "obituary-tahoe-1986", "obituary-martinez-1986"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Mary Lou Byer"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "Both obituaries list a sister, Mary Lou Byer; plate 3's caption names Mary Lou Calicura Byer as the last of the siblings.",
+      "sources": ["obituary-tahoe-1986", "obituary-martinez-1986", "plate-03"]
+    }
+  ],
+  "notes": []
+}

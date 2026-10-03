@@ -1,0 +1,555 @@
+[
+  {
+    "from": "e8a55e86",
+    "type": "operated",
+    "to": "057db0b0",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-10",
+      "field": "image",
+      "says": "Angelina Calicura, doing business as the Rex Hotel"
+    }
+  },
+  {
+    "from": "057db0b0",
+    "type": "located-at",
+    "to": "72e90848",
+    "note": "358½ North Main",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-11",
+      "field": "image",
+      "says": "Calicura Angelina J Mrs (Rex Hotel) h358½ N Main"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "operated",
+    "to": "bc3ca1c5",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-24",
+      "field": "image",
+      "says": "the establishment's operator, Angelina Calicura Amato"
+    }
+  },
+  {
+    "from": "bc3ca1c5",
+    "type": "located-at",
+    "to": "72e90848",
+    "note": "171 North Main here; 173 in the post's text and plates 18 and 24",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-13-1",
+      "field": "caption",
+      "says": "the Ideal Hotel at 171 North Main Street, Sheridan, Wyoming"
+    }
+  },
+  {
+    "from": "bc3ca1c5",
+    "type": "located-at",
+    "to": "2be74a84",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-30",
+      "field": "image",
+      "says": "was the home of the Ideal hotel"
+    }
+  },
+  {
+    "from": "2be74a84",
+    "type": "located-at",
+    "to": "72e90848",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-30",
+      "field": "image",
+      "says": "Sheridan county's first courthouse built in 1889 by Peter Demple"
+    }
+  },
+  {
+    "from": "ac235d1b",
+    "type": "operated",
+    "to": "bc3ca1c5",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-19",
+      "field": "image",
+      "says": "the issuance of a rooming license to Ideal Hotel, Inc."
+    }
+  },
+  {
+    "from": "ac235d1b",
+    "type": "located-at",
+    "to": "72e90848",
+    "note": "173 North Main",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-18",
+      "field": "image",
+      "says": "the principal office in Sheridan County, Wyoming, is 173 North Main Street, Sheridan, Wyoming"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "officer-of",
+    "to": "ac235d1b",
+    "note": "president; a director as A. J. Calicura (plate 18)",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-19",
+      "field": "image",
+      "says": "who lists herself on the application as president of Ideal Hotel, Inc."
+    }
+  },
+  {
+    "from": "52b6bf80",
+    "type": "officer-of",
+    "to": "ac235d1b",
+    "note": "director",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-18",
+      "field": "image",
+      "says": "A. J. Calicura, L. G. Booth, and John D. Henry"
+    }
+  },
+  {
+    "from": "0025b72a",
+    "type": "officer-of",
+    "to": "ac235d1b",
+    "note": "director",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-18",
+      "field": "image",
+      "says": "A. J. Calicura, L. G. Booth, and John D. Henry"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "owns",
+    "to": "1d22af82",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-06",
+      "field": "image",
+      "says": "Announces its new owner ANGIE CALICURA"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "owns",
+    "to": "31e7ea1c",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-29",
+      "field": "image",
+      "says": "ANGIE ALEXANDER, Owner"
+    }
+  },
+  {
+    "from": "31e7ea1c",
+    "type": "located-at",
+    "to": "15714d60",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-29",
+      "field": "image",
+      "says": "6025 Hardin Road—Lockwood Flats Area—Billings"
+    }
+  },
+  {
+    "from": "15714d60",
+    "type": "located-at",
+    "to": "d3df14d1",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-29",
+      "field": "image",
+      "says": "6025 Hardin Road—Lockwood Flats Area—Billings"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "operated",
+    "to": "114b27bb",
+    "note": "per a 1964 Billings Times judgment the post quotes; not held",
+    "provenance": {
+      "kind": "curator",
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "passage": "2-p65",
+      "says": "Angelina J. Alexander, dba Wagon Wheel Trailer Court"
+    }
+  },
+  {
+    "from": "114b27bb",
+    "type": "located-at",
+    "to": "15714d60",
+    "provenance": {
+      "kind": "curator",
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "passage": "2-p63",
+      "says": "Wagon Wheel Trailer Court at 6025 Hardin Road in the Lockwood Flats area of Billings"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "employed-at",
+    "to": "2be4010c",
+    "note": "beauty operator",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-26",
+      "field": "caption",
+      "says": "This is where Angie was a beauty operator."
+    }
+  },
+  {
+    "from": "2be4010c",
+    "type": "located-at",
+    "to": "d3df14d1",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-26",
+      "field": "caption",
+      "says": "General Custer Hotel in Billings, Montana"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "operated",
+    "to": "827a7fdd",
+    "note": "managed its restaurant",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-37",
+      "field": "image",
+      "says": "His wife managed the Timber Cove and Tahoe Inn restaurants"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "operated",
+    "to": "4a15de3b",
+    "note": "managed its restaurant",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-37",
+      "field": "image",
+      "says": "His wife managed the Timber Cove and Tahoe Inn restaurants"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "operated",
+    "to": "e57c4ece",
+    "note": "managed it first",
+    "provenance": {
+      "kind": "curator",
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "passage": "3-p16",
+      "says": "Angelina initially managed this Italian eatery"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "owns",
+    "to": "e57c4ece",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-37",
+      "field": "image",
+      "says": "the Alexanders bought Tarantino's Restaurant"
+    }
+  },
+  {
+    "from": "64085982",
+    "type": "owns",
+    "to": "e57c4ece",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-37",
+      "field": "image",
+      "says": "the Alexanders bought Tarantino's Restaurant"
+    }
+  },
+  {
+    "from": "64085982",
+    "type": "employed-at",
+    "to": "1896fbbf",
+    "note": "high-voltage lineman",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-37",
+      "field": "image",
+      "says": "went to work for Sierra Pacific Power as a high-voltage lineman"
+    }
+  },
+  {
+    "from": "98b38957",
+    "type": "officer-of",
+    "to": "32518788",
+    "note": "mayor",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-20",
+      "field": "image",
+      "says": "Mayor Carl Crawford"
+    }
+  },
+  {
+    "from": "13cb2362",
+    "type": "officer-of",
+    "to": "32518788",
+    "note": "city attorney",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-20",
+      "field": "image",
+      "says": "City Attoreny Kenneth Chetwood"
+    }
+  },
+  {
+    "from": "7680a713",
+    "type": "officer-of",
+    "to": "32518788",
+    "note": "commissioner",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-22",
+      "field": "image",
+      "says": "City Commissioner Tony Pelesky"
+    }
+  },
+  {
+    "from": "0e8871ed",
+    "type": "officer-of",
+    "to": "32518788",
+    "note": "commissioner",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-22",
+      "field": "image",
+      "says": "City Commissioner C. Harold Campbell"
+    }
+  },
+  {
+    "from": "32518788",
+    "type": "located-at",
+    "to": "72e90848",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-10",
+      "field": "image",
+      "says": "The Council of the City of Sheridan"
+    }
+  },
+  {
+    "from": "743375cb",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "mother",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-01",
+      "field": "caption",
+      "says": "Angie's mother"
+    }
+  },
+  {
+    "from": "72419e03",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "father",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-02",
+      "field": "caption",
+      "says": "Angie's father"
+    }
+  },
+  {
+    "from": "ca7616c1",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "sister",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-03",
+      "field": "caption",
+      "says": "Virginia Sullivan and Angelina Calicura were sisters"
+    }
+  },
+  {
+    "from": "c60861b7",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "sibling",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-03",
+      "field": "caption",
+      "says": "Mary Lou Calicura Byer, the last sibling"
+    }
+  },
+  {
+    "from": "3a8e6da1",
+    "type": "family-of",
+    "to": "ca7616c1",
+    "note": "uncle",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-03",
+      "field": "caption",
+      "says": "His niece (pictured at left), Virginia Sullivan"
+    }
+  },
+  {
+    "from": "3a8e6da1",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "uncle",
+    "provenance": {
+      "kind": "curator",
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "passage": "1-p7",
+      "says": "She was the niece of Sam \"Simon\" Rodia"
+    }
+  },
+  {
+    "from": "e6ed705c",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "nephew, per plates 12 and 39; plates 1 and 2 make him her parents' great-grandson, a generation further",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-12",
+      "field": "caption",
+      "says": "Courtesy of nephew Andrew Calicura"
+    }
+  },
+  {
+    "from": "e6ed705c",
+    "type": "family-of",
+    "to": "743375cb",
+    "note": "great-grandson",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-01",
+      "field": "caption",
+      "says": "from her great grandson Andrew Calicura"
+    }
+  },
+  {
+    "from": "e6ed705c",
+    "type": "family-of",
+    "to": "72419e03",
+    "note": "great-grandson",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-02",
+      "field": "caption",
+      "says": "from his great grandson Andrew Calicura"
+    }
+  },
+  {
+    "from": "64085982",
+    "type": "family-of",
+    "to": "e8a55e86",
+    "note": "married, 1958",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-37",
+      "field": "image",
+      "says": "he married Angelina Calicura in 1958 at Sheridan, Wyo."
+    }
+  },
+  {
+    "from": "8a22d268",
+    "type": "family-of",
+    "to": "b55c70f1",
+    "note": "father",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-09",
+      "field": "image",
+      "says": "Name of Father Eugene Amato"
+    }
+  },
+  {
+    "from": "e8a55e86",
+    "type": "family-of",
+    "to": "b55c70f1",
+    "note": "mother, by the author's inference from plate 9's \"Jean\"",
+    "provenance": {
+      "kind": "curator",
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "passage": "2-p7",
+      "says": "Funeral records list the mother as Jean"
+    }
+  },
+  {
+    "from": "33f0c636",
+    "type": "located-at",
+    "to": "55cd8d0c",
+    "provenance": {
+      "kind": "curator",
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "passage": "1-p7",
+      "says": "created the world-famous Watts Towers in Los Angeles"
+    }
+  },
+  {
+    "from": "20b6a3da",
+    "type": "located-at",
+    "to": "d3df14d1",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-27",
+      "field": "caption",
+      "says": "Billings Senior High"
+    }
+  },
+  {
+    "from": "827a7fdd",
+    "type": "located-at",
+    "to": "c1bd679d",
+    "note": "3411 Lake Tahoe Boulevard",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-35",
+      "field": "image",
+      "says": "3411 Lake Tahoe Blvd. South Lake Tahoe, CA"
+    }
+  },
+  {
+    "from": "4a15de3b",
+    "type": "located-at",
+    "to": "c1bd679d",
+    "note": "4110 Lake Tahoe Boulevard",
+    "provenance": {
+      "kind": "derived",
+      "record": "plate-35",
+      "field": "image",
+      "says": "4110 Lake Tahoe Blvd. South Lake Tahoe, CA"
+    }
+  },
+  {
+    "from": "c3e18a5f",
+    "type": "located-at",
+    "to": "c1bd679d",
+    "provenance": {
+      "kind": "derived",
+      "record": "obituary-tahoe-1986",
+      "field": "image",
+      "says": "Happy Homestead Cemetery in South Lake Tahoe"
+    }
+  }
+]

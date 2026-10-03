@@ -1,0 +1,367 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/cormorant-garamond-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/cormorant-garamond-latin-italic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+  /* Red-light experiment: oxblood grounds, blush text, neon-red accents,
+     antique gold for the drop cap. Token names are kept from the
+     spirit-of-martinez palette so every component picks this up unchanged. */
+  --color-ink: #150809;
+  --color-ink-soft: #210c0f;
+  --color-ink-mid: #33151a;
+  --color-paper: #f7e7de;
+  --color-paper-deep: #ecd0c6;
+  --color-brass: #ff5a6c;
+  --color-brass-dim: #a3203a;
+  --color-olive: #5c6b47;
+  --color-feather: #a87a28;
+  --color-muted: #a58580;
+  --color-fog: #e2c6bd;
+  --color-rule: #4d1f27;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --shadow-border: 0 0 0 1px rgba(255, 90, 108, 0.2);
+}
+
+/* From spirit-of-martinez: tokens, faces and base layer, without the audio
+   player, reading-focus and map rules this site has no use for. */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-ink);
+    color: var(--color-paper);
+    min-height: 100dvh;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  [href]:focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    outline: 1px solid rgba(243, 234, 214, 0.12);
+    outline-offset: -1px;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@utility kicker {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-brass);
+  text-shadow:
+    0 0 6px rgb(255 90 108 / 0.55),
+    0 0 18px rgb(255 90 108 / 0.25);
+}
+
+@utility neon {
+  color: var(--color-brass);
+  text-shadow:
+    0 0 4px rgb(255 90 108 / 0.9),
+    0 0 14px rgb(255 90 108 / 0.55),
+    0 0 32px rgb(255 60 80 / 0.35);
+}
+
+/* Velvet: a low red glow from above on the dark ground, like light from a
+   sign across the street. */
+@utility velvet {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgb(120 16 34 / 0.45), transparent 70%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgb(80 10 24 / 0.35), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* The article on paper, as the chapters are on spirit-of-martinez. */
+.prose-archive p,
+.prose-archive li {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+.prose-archive > * + * {
+  margin-top: 1.15rem;
+}
+
+.prose-archive .drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 3.4rem;
+  line-height: 0.8;
+  padding-right: 0.45rem;
+  padding-top: 0.28rem;
+  color: var(--color-feather);
+}
+
+.prose-archive :target {
+  background: color-mix(in srgb, var(--color-brass) 22%, transparent);
+  box-shadow: inset 3px 0 0 var(--color-brass);
+  margin-left: -0.75rem;
+  padding-left: 0.75rem;
+}
+
+.quote-pull {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  border-left: 2px solid var(--color-brass-dim);
+  box-shadow: -6px 0 14px -8px rgb(255 90 108 / 0.6);
+  padding-left: 1.15rem;
+  margin: 1.75rem 0;
+}
+
+/* Read-along: the paragraph being read gets a warm band and a rule down
+   its side, like a lamp moved along the page. One paragraph at a time. */
+.prose-archive .is-current {
+  background: color-mix(in srgb, var(--color-brass) 14%, transparent);
+  box-shadow: inset 3px 0 0 var(--color-brass-dim);
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+  transition:
+    background-color 400ms ease,
+    box-shadow 400ms ease;
+}
+
+/* A list keeps its bullets inside the band. */
+.prose-archive ul.is-current {
+  padding-left: 2.25rem;
+}
+
+/* ---------------------------------------------------------------------
+   Light, not motion (the lighting and animation spec). Opacity, glow and
+   colour temperature only; the one movement is the 12px passage reveal.
+   Everything here is steady under prefers-reduced-motion.
+   --------------------------------------------------------------------- */
+
+/* Each part's ambient light, behind the page, at 6% or less: morning gold
+   in Martinez, the sign's amber in Wyoming, evening blue at Tahoe. Static. */
+.chapter-wash-1,
+.chapter-wash-2,
+.chapter-wash-3 {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.chapter-wash-1 {
+  background-image: radial-gradient(
+    ellipse 90% 70% at 20% 0%,
+    rgb(255 205 110 / 0.06),
+    transparent 70%
+  );
+}
+.chapter-wash-2 {
+  background-image: radial-gradient(
+    ellipse 90% 70% at 50% 0%,
+    rgb(255 190 90 / 0.06),
+    transparent 70%
+  );
+}
+.chapter-wash-3 {
+  background-image: radial-gradient(
+    ellipse 90% 70% at 80% 0%,
+    rgb(90 140 255 / 0.06),
+    transparent 70%
+  );
+}
+
+/* Part Two's title: a sign warming up. One 1.2s rise from unlit to lit in
+   the amber of the wash, then steady. No flicker. Only this title has it. */
+.sign-warm-up {
+  text-shadow:
+    0 0 6px rgb(255 190 90 / 0.55),
+    0 0 22px rgb(255 190 90 / 0.3);
+  animation: sign-warm-up 1.2s ease-in both;
+}
+@keyframes sign-warm-up {
+  from {
+    color: color-mix(in srgb, var(--color-paper) 45%, var(--color-ink));
+    text-shadow:
+      0 0 6px rgb(255 190 90 / 0),
+      0 0 22px rgb(255 190 90 / 0);
+  }
+}
+
+/* Passages and timeline entries: a fade and a 12px rise as they first come
+   into view, once. Hidden only once script has marked them, so without
+   script (or with reduced motion) everything is simply there. */
+[data-reveal-state] {
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+}
+.prose-archive [data-reveal-state] {
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out,
+    background-color 400ms ease,
+    box-shadow 400ms ease;
+}
+[data-reveal-state="pending"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+[data-reveal-state="instant"] {
+  transition: none;
+}
+.prose-archive [data-reveal-state="instant"] {
+  transition:
+    background-color 400ms ease,
+    box-shadow 400ms ease;
+}
+
+/* Plates: a 0.4s fade in once the image has arrived. Nothing more. */
+img[data-fade] {
+  transition: opacity 400ms ease-out;
+}
+img[data-fade="pending"] {
+  opacity: 0;
+}
+img[data-fade="instant"] {
+  transition: none;
+}
+
+/* The zoom view's dark ground fades in; the plate itself is steady. */
+.plate-zoom[open],
+.plate-zoom[open]::backdrop {
+  animation: zoom-ground-in 300ms ease-out;
+}
+@keyframes zoom-ground-in {
+  from {
+    background-color: transparent;
+  }
+}
+
+/* Playing: one warm ember beside the part's name, a slow 3s breath. */
+.ember {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: rgb(255 190 90);
+  box-shadow: 0 0 8px rgb(255 190 90 / 0.7);
+  animation: ember 3s ease-in-out infinite;
+}
+@keyframes ember {
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 3px rgb(255 190 90 / 0.4);
+  }
+}
+
+/* The home page's three parts: a warm edge light on hover or focus. Pointer
+   devices only for hover, so touch never sticks lit. */
+.chapter-card {
+  transition: box-shadow 300ms ease;
+}
+.chapter-card:focus-visible {
+  box-shadow:
+    inset 2px 0 0 rgb(255 190 90 / 0.8),
+    0 0 26px -8px rgb(255 190 90 / 0.45);
+}
+@media (hover: hover) {
+  .chapter-card:hover {
+    box-shadow:
+      inset 2px 0 0 rgb(255 190 90 / 0.8),
+      0 0 26px -8px rgb(255 190 90 / 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sign-warm-up,
+  .ember,
+  .plate-zoom[open],
+  .plate-zoom[open]::backdrop {
+    animation: none;
+  }
+  [data-reveal-state="pending"],
+  img[data-fade="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  [data-reveal-state="pending"],
+  img[data-fade="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+}

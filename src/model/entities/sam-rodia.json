@@ -1,0 +1,25 @@
+{
+  "id": "3a8e6da1",
+  "slug": "sam-rodia",
+  "kind": "person",
+  "label": "Sam Rodia",
+  "aliases": [
+    {
+      "name": "Simon Rodia",
+      "sources": ["1-p7"]
+    }
+  ],
+  "anchors": ["plate-03"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Simon Rodia"],
+      "rationale": "The post names Angie's uncle Sam \"Simon\" Rodia, creator of the Watts Towers; plate 3's caption calls him Sam Rodia.",
+      "sources": ["plate-03", "1-p7"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

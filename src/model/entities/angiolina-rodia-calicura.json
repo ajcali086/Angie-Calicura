@@ -1,0 +1,25 @@
+{
+  "id": "743375cb",
+  "slug": "angiolina-rodia-calicura",
+  "kind": "person",
+  "label": "Angiolina \"Angelina\" Rodia Calicura",
+  "aliases": [
+    {
+      "name": "Angelina Rodia Calicura",
+      "sources": ["plate-01"]
+    }
+  ],
+  "anchors": ["plate-01"],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "merge",
+      "names": ["Angelina Rodia Calicura"],
+      "rationale": "The caption gives Angiolina and \"Angelina\" for Angie's mother.",
+      "sources": ["plate-01"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01"
+    }
+  ],
+  "notes": []
+}

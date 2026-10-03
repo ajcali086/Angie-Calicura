@@ -1,0 +1,21 @@
+{
+  "id": "plate-33",
+  "kind": "photograph",
+  "plate": "plate-33",
+  "title": "1980 Harvey's bombing image from Getty Images.",
+  "credit": "Getty Images",
+  "rights_holder": "unknown",
+  "held": false,
+  "status": "not-held",
+  "media": [],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": [
+    {
+      "date": "2026-09-30",
+      "note": "Not held: the post shows it, but the museum's file was in a media zip that arrived truncated."
+    }
+  ]
+}

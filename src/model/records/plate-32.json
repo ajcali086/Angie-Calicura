@@ -1,0 +1,16 @@
+{
+  "id": "plate-32",
+  "kind": "object",
+  "plate": "plate-32",
+  "title": "Matchbook cover for Joe Tarantino's, found by Gavin on Flickr.",
+  "credit": "Flickr, found by Gavin",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-32.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}

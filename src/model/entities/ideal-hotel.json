@@ -1,0 +1,40 @@
+{
+  "id": "bc3ca1c5",
+  "slug": "ideal-hotel",
+  "kind": "business",
+  "label": "Ideal Hotel (Sheridan)",
+  "aliases": [],
+  "anchors": [
+    "plate-13-1",
+    "plate-13-2",
+    "plate-13-3",
+    "plate-13-4",
+    "plate-13-5",
+    "plate-14",
+    "plate-15",
+    "plate-19",
+    "plate-20",
+    "plate-21",
+    "plate-22",
+    "plate-23",
+    "plate-24",
+    "plate-30"
+  ],
+  "framing": null,
+  "identity_assertions": [
+    {
+      "action": "split",
+      "with": ["ac235d1b"],
+      "curator": "Claude (draft, awaiting curator review)",
+      "date": "2026-10-01",
+      "rationale": "The hotel and the corporation formed in 1957 to run it (plate 18) are separate entities: the license fight was over Ideal Hotel, Inc.'s license for the hotel.",
+      "sources": ["plate-18", "plate-21"]
+    }
+  ],
+  "notes": [
+    {
+      "date": "2026-10-01",
+      "note": "Address: plate 13's caption gives 171 North Main; the post's text (2-p25), the incorporation notice (plate 18) and the 1958 revocation (plate 24) give 173 North Main. Both stand; an open question for step 5."
+    }
+  ]
+}

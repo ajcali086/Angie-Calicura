@@ -1,0 +1,16 @@
+{
+  "id": "plate-06",
+  "kind": "document",
+  "plate": "plate-06",
+  "title": "Daily News, Los Angeles, California, Jul 5, 1938, Page 10",
+  "credit": "Daily News, Los Angeles, July 5, 1938, page 10",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "verified",
+  "media": ["public/images/plates/plate-06.jpg"],
+  "capture_provenance": {
+    "unknown": "copied from the post; capture details not known"
+  },
+  "restoration": null,
+  "notes": []
+}
