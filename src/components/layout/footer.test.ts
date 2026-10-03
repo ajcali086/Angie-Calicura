@@ -31,9 +31,14 @@ describe("the credit line and the build line", () => {
     assert.equal(buildDate(new Date("2026-10-01T23:30:00Z")), "2026-10-01");
   });
 
-  it("show the build in the footer, a size below the status line", () => {
+  it("show the build in the footer, and no preview label now the museum is live", () => {
     assert.match(footer, /build \{buildInfo\.sha\} · \{buildInfo\.date\}/);
-    assert.match(footer, /text-\[0\.7rem\][^"]*">Design pilot · preview only/);
     assert.match(footer, /data-build className="[^"]*text-\[0\.62rem\]/);
+    assert.doesNotMatch(site, /preview only|design pilot/i);
+  });
+
+  it("link the curator's sign-in, as The Spirit of Martinez does", () => {
+    assert.match(footer, /href="\/admin\/index\.html"\s+data-admin/);
+    assert.match(footer, />\s*Museum sign-in\s*</);
   });
 });

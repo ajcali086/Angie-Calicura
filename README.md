@@ -1,10 +1,10 @@
-# Angie — design pilot
+# Angie
 
 Michael Dykhorst's article for Sheridan Wyoming History, _Angelina "Angie" Colacurcio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention_, set in the architecture of [The Spirit of Martinez](https://github.com/ajcali086/spirit-of-martinez).
 
 Original post: https://www.sheridanwyominghistory.com/post/angelina-angie-colacucio-calicura-amato-alexander-a-life-of-hospitality-enterprise-and-reinven
 
-**Preview only.** Every page carries `noindex, nofollow`. There is no production deployment.
+**Live** at https://angie.calicura.net. Vercel deploys `claude/angie-pilot` to production; each pull request gets a preview. The curator signs in to the CMS from the footer's "Museum sign-in" link (`/admin`), with a GitHub token, as on The Spirit of Martinez.
 
 ## How it's built
 
