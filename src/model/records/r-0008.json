@@ -1,0 +1,24 @@
+{
+  "id": "r-0008",
+  "kind": "image",
+  "title": "Plate 7",
+  "caption": "Daily News, Los Angeles, California, Jul 5, 1938, Page 10",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 7,
+  "follows": "p18",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0008.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-6.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:85cf77379d475d8149eecbe413af7689c0946fc21540d67bb7d9c51cc7078c8b",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

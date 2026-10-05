@@ -1,0 +1,18 @@
+{
+  "id": "c-0029",
+  "kind": "name",
+  "target": "plate:r-0010",
+  "proposed_text": "Martinez News-Gazette",
+  "entity_kind": "organization",
+  "reason": "Noticed in plate:r-0010 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0010, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:f3efc675cb65274c06dfdfe85cf1fe588ab6b35efcce8cb5ff23f95f3f62bc0b",
+    "tool": "mw 0.1.0"
+  }
+}

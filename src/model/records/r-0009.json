@@ -1,0 +1,24 @@
+{
+  "id": "r-0009",
+  "kind": "image",
+  "title": "Plate 8",
+  "caption": "Undated photo of Angie, probably taken in California.",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 8,
+  "follows": "p19",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0009.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-7.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:72cfbeb9bc0af8dfde3d7e5f82196d3afebf9206fb8fd5385e44bf26696f5827",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

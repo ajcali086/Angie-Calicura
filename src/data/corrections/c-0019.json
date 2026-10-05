@@ -1,0 +1,18 @@
+{
+  "id": "c-0019",
+  "kind": "name",
+  "target": "plate:r-0002",
+  "proposed_text": "Angiolina \"Angelina\" Rodia Calicura",
+  "entity_kind": "person",
+  "reason": "Noticed in plate:r-0002 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0002, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:a931f41ccb509910069df964811850bc166a1fcd4b29ef9d7eab7dddbab38839",
+    "tool": "mw 0.1.0"
+  }
+}

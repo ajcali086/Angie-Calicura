@@ -1,0 +1,59 @@
+{
+  "id": "r-0011",
+  "kind": "log",
+  "title": "What the pull skipped: Angelina \"Angie\" Colacurcio (Calicura) Amato Alexander: A Life of Hospitality, Enterprise and Reinvention",
+  "found_in": "r-0001",
+  "passages": [
+    {
+      "id": "s1",
+      "text": "[outside the content: header.site-header] Home About Blog Contact [image /media/logo.jpg]"
+    },
+    {
+      "id": "s2",
+      "text": "[outside the content: div.ad-slot.ad] Advertisement: Visit the gift shop on Main Street"
+    },
+    {
+      "id": "s3",
+      "text": "[outside the content: div.post-meta] Michael Dykhorst"
+    },
+    {
+      "id": "s4",
+      "text": "[outside the content: div.share-buttons] Share on Facebook Share on X Copy link"
+    },
+    {
+      "id": "s5",
+      "text": "[outside the content: section.comments] Comments Write a comment... Log in to leave a comment on this post, it only takes a minute."
+    },
+    {
+      "id": "s6",
+      "text": "[outside the content: div.newsletter.subscribe] Subscribe to the newsletter for new posts every month, straight to your inbox. Subscribe"
+    },
+    {
+      "id": "s7",
+      "text": "[outside the content: aside.sidebar] Recent posts Another madam of Main Street, a story for another day"
+    },
+    {
+      "id": "s8",
+      "text": "[outside the content: footer.site-footer] © 2026 History Blog. All rights reserved. Proudly created with a website builder."
+    },
+    {
+      "id": "s9",
+      "text": "[decoration, 1×1] http://127.0.0.1:8765/px.gif"
+    },
+    {
+      "id": "s10",
+      "text": "[the same image again] http://127.0.0.1:8765/media/plate-1-again.jpg — caption: Angie's mother, Angiolina \"Angelina\" Rodia Calicura — from her great grandson Andrew Calicura."
+    }
+  ],
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:3ec036169748e1c270e8a7e2153d0efae2a47cc223076a4208c8fcfc04fdab6b",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

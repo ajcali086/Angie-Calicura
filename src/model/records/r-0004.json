@@ -1,0 +1,24 @@
+{
+  "id": "r-0004",
+  "kind": "image",
+  "title": "Plate 3",
+  "caption": "Sam Rodia. \"Rodia used New World artifacts of Los Angeles to bring his Old World images of southern Italy to life in his Watts Towers. Rodia left Los Angeles in 1954 to settle in Martinez, near Berkley, with his family. His niece (pictured at left), Virginia Sullivan, cared for him in his last years. (Virginia Sullivan and Angelina Calicura were sisters; Virginia was 8 years younger than Angelina, and she was the second to last sibling to pass away in 2023 at age 98, Mary Lou Calicura Byer, the last sibling, passed away on July 1, 2024, at age 97.)\" Photo from the Los Angeles Herald Examiner Photo Collection.",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 3,
+  "follows": "p9",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0004.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-3.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:10c0436d38c790840552972fe93c1843f950e106b4483ecefb43c9594839434f",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "c-0023",
+  "kind": "name",
+  "target": "plate:r-0004",
+  "proposed_text": "Mary Lou Calicura Byer",
+  "entity_kind": "person",
+  "reason": "Noticed in plate:r-0004 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0004, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:0d4c63a4c211772542a5e1cb4369bcaf038efb89df0b2197275510a3aac523bf",
+    "tool": "mw 0.1.0"
+  }
+}

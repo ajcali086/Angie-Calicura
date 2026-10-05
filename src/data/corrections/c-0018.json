@@ -1,0 +1,18 @@
+{
+  "id": "c-0018",
+  "kind": "name",
+  "target": "r-0001#p20",
+  "proposed_text": "Honolulu Star-Bulletin",
+  "entity_kind": "organization",
+  "reason": "Noticed in r-0001#p20 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0001, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:4beb815740f4a0457a4b3065a357328fb0b03013e5334155602f3afa1dd10859",
+    "tool": "mw 0.1.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "c-0005",
+  "kind": "name",
+  "target": "r-0001#p8",
+  "proposed_text": "Angelina Jean Colacurcio",
+  "entity_kind": "person",
+  "reason": "Noticed in r-0001#p8 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0001, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:17bf4a0c0d3ddfbd1301b3292d2c30acdd0417f00ebee1bce7d37dcc6d1cd158",
+    "tool": "mw 0.1.0"
+  }
+}

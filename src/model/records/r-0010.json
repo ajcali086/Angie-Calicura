@@ -1,0 +1,24 @@
+{
+  "id": "r-0010",
+  "kind": "image",
+  "title": "Plate 9",
+  "caption": "Martinez News-Gazette, Martinez, California, Aug 07, 1951, Page 4",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 9,
+  "follows": "p23",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0010.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-8.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:9c6df2815fbd89a997eaf495b57e902748ea8f6092de869d8449c0b117a8cedb",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

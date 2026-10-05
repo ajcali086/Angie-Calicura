@@ -1,0 +1,18 @@
+{
+  "id": "c-0026",
+  "kind": "name",
+  "target": "plate:r-0007",
+  "proposed_text": "Martinez, California",
+  "entity_kind": "place",
+  "reason": "Noticed in plate:r-0007 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0007, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:bef9080cbb3d4da3ae458d527c0a7864bb71c242338a70fb445e584e559657e4",
+    "tool": "mw 0.1.0"
+  }
+}

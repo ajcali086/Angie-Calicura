@@ -1,0 +1,24 @@
+{
+  "id": "r-0007",
+  "kind": "image",
+  "title": "Plate 6",
+  "caption": "Martinez News-Gazette, Martinez, California, Dec 08, 1930, Page 1",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 6,
+  "follows": "p14",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0007.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-5.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:4947a14a9ae976f632519b2f68b72186cf75640b07bfe2657744f01a70dc2b69",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

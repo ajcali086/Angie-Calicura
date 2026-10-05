@@ -1,0 +1,24 @@
+{
+  "id": "r-0002",
+  "kind": "image",
+  "title": "Plate 1",
+  "caption": "Angie's mother, Angiolina \"Angelina\" Rodia Calicura — from her great grandson Andrew Calicura.",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 1,
+  "follows": "p8",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0002.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-1.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:6e3130d62704bb6488d39fd7adbc5c24e9ba52e9f249c75485e8cc90fc2062f6",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

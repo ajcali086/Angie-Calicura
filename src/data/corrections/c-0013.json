@@ -1,0 +1,18 @@
+{
+  "id": "c-0013",
+  "kind": "name",
+  "target": "r-0001#p12",
+  "proposed_text": "Martinez Daily Standard",
+  "entity_kind": "organization",
+  "reason": "Noticed in r-0001#p12 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0001, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:4dd5b12681e5ee189c0ef6631f46b8ea6bcba419f198be2b18b42412490a64bd",
+    "tool": "mw 0.1.0"
+  }
+}

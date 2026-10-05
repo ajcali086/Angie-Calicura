@@ -1,0 +1,24 @@
+{
+  "id": "r-0006",
+  "kind": "image",
+  "title": "Plate 5",
+  "caption": "",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 5,
+  "follows": "p12",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0006.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/uncaptioned.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:57618f4fad7ac862f3f2f106d74594c985c8f8af1416f9b5cc0087a5a9ca4aef",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

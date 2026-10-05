@@ -1,0 +1,25 @@
+{
+  "id": "r-0003",
+  "kind": "image",
+  "title": "Plate 2",
+  "caption": "Angie's father, Saverio \"Sam\" Calicura — from his great grandson Andrew Calicura.",
+  "credit": "",
+  "alt": "plate-2",
+  "found_in": "r-0001",
+  "position": 2,
+  "follows": "p8",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0003.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-2.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:2ac6f5e18c2423cad370e2c0cdfa81d713a67ae8964039385963799d41fd4e1e",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}

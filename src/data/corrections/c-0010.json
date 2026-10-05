@@ -1,0 +1,18 @@
+{
+  "id": "c-0010",
+  "kind": "name",
+  "target": "r-0001#p9",
+  "proposed_text": "Watts Towers",
+  "entity_kind": "place",
+  "reason": "Noticed in r-0001#p9 by the local model. A proposal, not an entity: keep it by creating the entity, anchored to r-0001, or hold it back.",
+  "proposed_by": "mw",
+  "date": "2026-10-05",
+  "status": "proposed",
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "model": "stand-in-NOT-a-model",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:dfbe903f30d725fb071ee6b6b9bbde26a0be092cb7129ca20b7a319d3e4130c2",
+    "tool": "mw 0.1.0"
+  }
+}

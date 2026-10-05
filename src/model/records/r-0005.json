@@ -1,0 +1,24 @@
+{
+  "id": "r-0005",
+  "kind": "image",
+  "title": "Plate 4",
+  "caption": "Martinez Daily Standard, Martinez, California, Jun 11, 1930, Page 6.",
+  "credit": "",
+  "found_in": "r-0001",
+  "position": 4,
+  "follows": "p12",
+  "rights_holder": "unknown",
+  "held": true,
+  "status": "unverified",
+  "media": [
+    "public/images/uploads/r-0005.jpg"
+  ],
+  "source": {
+    "url": "http://127.0.0.1:8765/post/angie",
+    "file_url": "http://127.0.0.1:8765/media/plate-4.jpg",
+    "extracted_at": "2026-10-05T07:10:49Z",
+    "input_hash": "sha256:d778df11c132f5ed4edf1fd81c9bbcf07399cb4e04ef089e3ce407f65b905c55",
+    "tool": "mw 0.1.0"
+  },
+  "notes": []
+}
